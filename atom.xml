@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Xiao Zhang&#39;s Blog</title>
+  <title>Resmino&#39;s Blog</title>
   
   <subtitle>小张的爬行日记</subtitle>
   <link href="https://resmino.github.io/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://resmino.github.io/</id>
   
   <author>
-    <name>Xiao Zhang</name>
+    <name>Resmino</name>
     
   </author>
   
