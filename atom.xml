@@ -6,7 +6,7 @@
   <link href="https://resmino.github.io/atom.xml" rel="self"/>
   
   <link href="https://resmino.github.io/"/>
-  <updated>2023-07-23T14:39:54.325Z</updated>
+  <updated>2023-07-24T01:25:46.123Z</updated>
   <id>https://resmino.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://resmino.github.io/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
     <id>https://resmino.github.io/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
     <published>2023-07-23T14:16:35.000Z</published>
-    <updated>2023-07-23T14:39:54.325Z</updated>
+    <updated>2023-07-24T01:25:46.123Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="一、前提"><a href="#一、前提" class="headerlink" title="一、前提"></a>一、前提</h1><ul><li>安装本地React环境需要Node.js，如果具有Node环境跳过即可。</li><li>如果没有安装则可参考该篇文章安装Node环境，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMzQ0NzUyP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击查看<i class="fa fa-external-link-alt"></i></span></li></ul><h1 id="二、React安装"><a href="#二、React安装" class="headerlink" title="二、React安装"></a>二、React安装</h1><ol><li>全局安装React</li></ol><ul><li>首先打开命令行，建议以管理员身份</li><li>输入命令：<code>npm install -g create-react-app</code></li><li><img data-src="/./React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/effc4615f0c046f6b07ad6dd6d3a8f35.png" alt="在这里插入图片描述"></li></ul><ol start="2"><li>安装完成后，输入命令<code>create-react-app -V</code>查看时候成功<br><img data-src="/./React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/effc4615f0c046f6b07ad6dd6d3a8f35.png" alt="在这里插入图片描述"></li><li>创建React项目<br>在自己选定的目录下输入命令：<code>create-react-app reactdemo</code>进行创建项目，注意reactdemo为自己命名的项目名。<br><img data-src="/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ef2ead85b53842058461b3954832c502.png" alt="在这里插入图片描述"><br>如上则成功创建一个新的react项目。</li><li>运行react项目<br>首先进入刚才创建的项目的根目录下，然后输入命令<code>npm start</code></li></ol><p><img data-src="/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ddba23821fd14cdc9acd9670f03f88ac.png" alt="在这里插入图片描述"></p><ol start="5"><li>运行成功后的界面，如图所示<br><img data-src="/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/756bcf1f59fe449aa2d6c65bad2fd57f.png" alt="在这里插入图片描述"></li><li>之后可以通过自己安装的IDE打开该项目，进行编写了。</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="一、前提"><a href="#一、前提" class="headerlink" title="一、前提"></a>一、前提</h1><ul><li>安装本地React环境需要Node.js，如果具有Node环境跳过即可。</li><li>如果没有安装则可参考该篇文章安装Node环境，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMzQ0NzUyP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击查看<i class="fa fa-external-link-alt"></i></span></li></ul><h1 id="二、React安装"><a href="#二、React安装" class="headerlink" title="二、React安装"></a>二、React安装</h1><ol><li>全局安装React</li></ol><ul><li><p>首先打开命令行，建议以管理员身份</p></li><li><p>输入命令：<code>npm install -g create-react-app</code></p><img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/effc4615f0c046f6b07ad6dd6d3a8f35.png" class title="[title]"></li></ul><ol start="2"><li><p>安装完成后，输入命令<code>create-react-app -V</code>查看时候成功</p>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/effc4615f0c046f6b07ad6dd6d3a8f35.png" class></li><li><p>创建React项目<br>  在自己选定的目录下输入命令：<code>create-react-app reactdemo</code>进行创建项目，注意reactdemo为自己命名的项目名。</p></li></ol>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ef2ead85b53842058461b3954832c502.png" class><p>  如上则成功创建一个新的react项目。</p><ol start="4"><li>运行react项目<br>  首先进入刚才创建的项目的根目录下，然后输入命令<code>npm start</code></li></ol>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ddba23821fd14cdc9acd9670f03f88ac.png" class><ol start="5"><li>运行成功后的界面，如图所示</li></ol>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/756bcf1f59fe449aa2d6c65bad2fd57f.png" class><ol start="6"><li>之后可以通过自己安装的IDE打开该项目，进行编写了。</li></ol>]]></content>
     
     
       
