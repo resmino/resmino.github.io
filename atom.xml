@@ -6,7 +6,7 @@
   <link href="https://resmino.github.io/atom.xml" rel="self"/>
   
   <link href="https://resmino.github.io/"/>
-  <updated>2023-07-24T01:25:46.123Z</updated>
+  <updated>2023-07-31T03:19:33.978Z</updated>
   <id>https://resmino.github.io/</id>
   
   <author>
@@ -21,17 +21,12 @@
     <link href="https://resmino.github.io/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
     <id>https://resmino.github.io/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
     <published>2023-07-23T14:16:35.000Z</published>
-    <updated>2023-07-24T01:25:46.123Z</updated>
+    <updated>2023-07-31T03:19:33.978Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="一、前提"><a href="#一、前提" class="headerlink" title="一、前提"></a>一、前提</h1><ul><li>安装本地React环境需要Node.js，如果具有Node环境跳过即可。</li><li>如果没有安装则可参考该篇文章安装Node环境，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMzQ0NzUyP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击查看<i class="fa fa-external-link-alt"></i></span></li></ul><h1 id="二、React安装"><a href="#二、React安装" class="headerlink" title="二、React安装"></a>二、React安装</h1><ol><li>全局安装React</li></ol><ul><li><p>首先打开命令行，建议以管理员身份</p></li><li><p>输入命令：<code>npm install -g create-react-app</code></p><img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/effc4615f0c046f6b07ad6dd6d3a8f35.png" class title="[title]"></li></ul><ol start="2"><li><p>安装完成后，输入命令<code>create-react-app -V</code>查看时候成功</p>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/effc4615f0c046f6b07ad6dd6d3a8f35.png" class></li><li><p>创建React项目<br>  在自己选定的目录下输入命令：<code>create-react-app reactdemo</code>进行创建项目，注意reactdemo为自己命名的项目名。</p></li></ol>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ef2ead85b53842058461b3954832c502.png" class><p>  如上则成功创建一个新的react项目。</p><ol start="4"><li>运行react项目<br>  首先进入刚才创建的项目的根目录下，然后输入命令<code>npm start</code></li></ol>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ddba23821fd14cdc9acd9670f03f88ac.png" class><ol start="5"><li>运行成功后的界面，如图所示</li></ol>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/756bcf1f59fe449aa2d6c65bad2fd57f.png" class><ol start="6"><li>之后可以通过自己安装的IDE打开该项目，进行编写了。</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="一、前提"><a href="#一、前提" class="headerlink" title="一、前提"></a>一、前提</h1><ul><li>安装本地React环境需要Node.js，如果具有Node环境跳过即可。</li><li>如果没有安装则可参考该篇文章安装Node环境，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMzQ0NzUyP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击查看<i class="fa fa-external-link-alt"></i></span></li></ul><h1 id="二、React安装"><a href="#二、React安装" class="headerlink" title="二、React安装"></a>二、React安装</h1><ol><li>全局安装React</li></ol><ul><li><p>首先打开命令行，建议以管理员身份</p></li><li><p>输入命令：<code>npm install -g create-react-app</code></p><img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/effc4615f0c046f6b07ad6dd6d3a8f35.png" class title="[title]"></li></ul><ol start="2"><li><p>安装完成后，输入命令<code>create-react-app -V</code>查看时候成功</p> <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/effc4615f0c046f6b07ad6dd6d3a8f35.png" class></li><li><p>创建React项目<br> 在自己选定的目录下输入命令：<code>create-react-app reactdemo</code>进行创建项目，注意reactdemo为自己命名的项目名。</p></li></ol>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ef2ead85b53842058461b3954832c502.png" class><p>  如上则成功创建一个新的react项目。</p><ol start="4"><li>运行react项目<br> 首先进入刚才创建的项目的根目录下，然后输入命令<code>npm start</code></li></ol>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ddba23821fd14cdc9acd9670f03f88ac.png" class><ol start="5"><li>运行成功后的界面，如图所示</li></ol>  <img data-src="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/756bcf1f59fe449aa2d6c65bad2fd57f.png" class><ol start="6"><li>之后可以通过自己安装的IDE打开该项目，进行编写了。</li></ol>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h1 id=&quot;一、前提&quot;&gt;&lt;a href=&quot;#一、前提&quot; class=&quot;headerlink&quot; title=&quot;一、前提&quot;&gt;&lt;/a&gt;一、前提&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;安装本地React环境需要Node.js，如果具有Node环境跳过即可。&lt;/li&gt;
-&lt;li&gt;如果没有安装则可参考</summary>
-      
+    <summary type="html">React环境安装配置教程</summary>
     
     
     
@@ -47,18 +42,19 @@
     <link href="https://resmino.github.io/2023/07/23/hello-world/"/>
     <id>https://resmino.github.io/2023/07/23/hello-world/</id>
     <published>2023-07-23T10:58:59.511Z</published>
-    <updated>2023-07-23T10:58:59.511Z</updated>
+    <updated>2023-07-31T02:53:21.660Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9oZXhvLmlvLw==&quot;&gt;Hexo&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;! This is your very</summary>
-      
+    <summary type="html">用于测试hexo博客的第一篇文章</summary>
     
     
     
+    <category term="测试" scheme="https://resmino.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="hexo" scheme="https://resmino.github.io/tags/hexo/"/>
     
   </entry>
   
