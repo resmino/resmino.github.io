@@ -20,28 +20,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"resmino.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":true,"color":"#dee1e6","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="用于测试hexo博客的第一篇文章">
+    <meta name="description" content="Java核心类中String字符串知识学习及总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://resmino.github.io/2023/07/23/hello-world/index.html">
+<meta property="og:title" content="Java字符串">
+<meta property="og:url" content="https://resmino.github.io/2023/07/31/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Resmino&#39;s Blog">
-<meta property="og:description" content="用于测试hexo博客的第一篇文章">
+<meta property="og:description" content="Java核心类中String字符串知识学习及总结">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-23T10:58:59.511Z">
-<meta property="article:modified_time" content="2023-07-31T02:53:21.660Z">
+<meta property="og:image" content="https://resmino.github.io/2023/07/31/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/image-20230731152042611.png">
+<meta property="article:published_time" content="2023-07-31T03:38:05.000Z">
+<meta property="article:modified_time" content="2023-07-31T07:53:58.567Z">
 <meta property="article:author" content="Resmino">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Java核心类">
+<meta property="article:tag" content="字符拆">
+<meta property="article:tag" content="String">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://resmino.github.io/2023/07/31/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/image-20230731152042611.png">
 
 
-<link rel="canonical" href="https://resmino.github.io/2023/07/23/hello-world/">
+<link rel="canonical" href="https://resmino.github.io/2023/07/31/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://resmino.github.io/2023/07/23/hello-world/","path":"2023/07/23/hello-world/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://resmino.github.io/2023/07/31/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/","path":"2023/07/31/Java核心类/","title":"Java字符串"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | Resmino's Blog</title>
+<title>Java字符串 | Resmino's Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EK4PFKFBV"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-1EK4PFKFBV","only_pageview":false}</script>
@@ -147,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81java%E6%A0%B8%E5%BF%83%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">一、java核心类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.1.</span> <span class="nav-text">1、字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1字符串知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2字符串常用方法</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -239,7 +244,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://resmino.github.io/2023/07/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://resmino.github.io/2023/07/31/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar1.gif">
@@ -252,12 +257,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello World | Resmino's Blog">
-      <meta itemprop="description" content="用于测试hexo博客的第一篇文章">
+      <meta itemprop="name" content="Java字符串 | Resmino's Blog">
+      <meta itemprop="description" content="Java核心类中String字符串知识学习及总结">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          Java字符串
         </h1>
 
         <div class="post-meta-container">
@@ -267,15 +272,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-07-23 18:58:59" itemprop="dateCreated datePublished" datetime="2023-07-23T18:58:59+08:00">2023-07-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-31 10:53:21" itemprop="dateModified" datetime="2023-07-31T10:53:21+08:00">2023-07-31</time>
+      <time title="创建时间：2023-07-31 11:38:05 / 修改时间：15:53:58" itemprop="dateCreated datePublished" datetime="2023-07-31T11:38:05+08:00">2023-07-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,7 +282,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">测试</span></a>
+          <a href="/categories/Java%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java教程</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E6%95%99%E7%A8%8B/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">Java核心类</span></a>
         </span>
     </span>
 
@@ -301,37 +304,131 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>78</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
-            <div class="post-description">用于测试hexo博客的第一篇文章</div>
+            <div class="post-description">Java核心类中String字符串知识学习及总结</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <div class="post-body" itemprop="articleBody"><h1 id="一、java核心类"><a href="#一、java核心类" class="headerlink" title="一、java核心类"></a>一、java核心类</h1><h2 id="1、字符串"><a href="#1、字符串" class="headerlink" title="1、字符串"></a>1、字符串</h2><h3 id="1-1字符串知识点"><a href="#1-1字符串知识点" class="headerlink" title="1.1字符串知识点"></a>1.1字符串知识点</h3><ol>
+<li><p>String是一个引用类型，本身也是一个<code>class</code>。</p>
+</li>
+<li><p>字符串在String内部是以字符数组char[]表示的</p>
+</li>
+<li><p>写法1：<code>String s=&quot;xiaozhang&quot;;</code></p>
+</li>
+<li><p>写法2：<code>String s= new String(new char[] &#123;&#39;c&#39;,&#39;z&#39;&#125;);</code></p>
+</li>
+<li><p>Java字符串的特点：字符串不可变。因为其内部的<code>private final char[],</code>以及没有提供修改的方法。</p>
+</li>
+<li><p>平时所使用的修改字符串是引用的改变,当创建一个新的字符串时，编译器会先检查在常量池中是否已存在该字符串，若存在则直接使用该字符串的使用；不存在则直接新建一个。</p>
+</li>
+<li><p>由于字符串的不可变，因此对字符串的改变是创建一个新字符串或者是改变引用。</p>
+</li>
+<li><p>对于字符串的比较，需要使用**equals()**方法，切记不要使&#x3D;&#x3D;，因为对于引用类型的变量使用&#x3D;&#x3D;进行比较，比较的是对象的引用。当使用&#x3D;&#x3D;运算符比较两个字符串时，它会检查两个字符串对象的引用是否指向相同的内存地址，而不会比较它们的内容。这意味着即使两个字符串的内容相同，它们可能并不指向相同的内存地址，因此使用<code>==</code>运算符进行比较会得到错误的结果。</p>
+</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s1<span class="token operator">=</span><span class="token string">"hello"</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> s2<span class="token operator">=</span><span class="token string">"HELLO"</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token operator">==</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//输出false</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>对于上面的代码，使用&#x3D;&#x3D;比较两个字符串会输出false，虽然两个字符串内容一样，但由于两个变量的引用不同，所以两个变量是不相等的。</p>
+<h3 id="1-2字符串常用方法"><a href="#1-2字符串常用方法" class="headerlink" title="1.2字符串常用方法"></a>1.2字符串常用方法</h3><ol>
+<li><p>equals()：判断字符串是否相等</p>
+</li>
+<li><p>equalsIgnoreCase()：忽略大小写比较字符串</p>
+</li>
+<li><p>contains(str)：判断字符串是否具有str子串，例如<code>&quot;Hello&quot;.contains(&quot;ll&quot;); // true</code></p>
+</li>
+<li><p>indexOf(i)：根据字符串索引位置获取字符，<code>eg：&quot;Hello&quot;.indexOf(&quot;l&quot;); // 2</code></p>
+</li>
+<li><p>lastIndexOf(ch)：获取字符串中字符ch最后一次出现的索引位置，<code>eg:&quot;Hello&quot;.lastIndexOf(&quot;l&quot;); // 3</code></p>
+</li>
+<li><p>startsWith(str)：判断字符串是否以字串str开头，<code>eg:&quot;Hello&quot;.startsWith(&quot;He&quot;); // true</code></p>
+</li>
+<li><p>endsWith(str)：判断字符串是否以字串str结尾，<code>eg:&quot;Hello&quot;.endsWith(&quot;lo&quot;); // true</code></p>
+</li>
+<li><p>substring(): 根据索引位置进行提取字串，索引从0开始。如果只有一个参数，则从该位置截取字符串，获取后半部分；如果有两个参数，则截取两个位置间的字串，包括两个位置。</p>
+</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">eg<span class="token operator">:</span>
+<span class="token string">"Hello"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "llo"</span>
+<span class="token string">"Hello"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token string">"ll"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+<ol start="9">
+<li><p>trim()：去除字符串首尾两端的空格，trim(): 仅去除字符串首尾的空格字符（ASCII码为32的字符）</p>
+</li>
+<li><p>strip()：去除字符串首尾两端的空格，包括中文的空格字符，包括空格、制表符、换行符等 Unicode 空白字符</p>
+</li>
+<li><p>isEmpty()：判断字符串是否为空</p>
+</li>
+<li><p>isBlank():判断字符串是否是空格组成的字符串</p>
+</li>
+<li><p>replace(s1，s2):替换字符串，将字符串中的s1全部替换为s2 ，<code>“hello”.replace(&#39;l&#39;, &#39;w&#39;); // &quot;hewwo&quot;，所有字符&#39;l&#39;被替换为&#39;w&#39;</code></p>
+</li>
+<li><p>replaceAll(regex,replacement):使用正则表达式替换字符串，regex为正则表达式，将符合正则表达式的字符串替换为replacement字符串</p>
+</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"A,,B;C ,D"</span><span class="token punctuation">;</span><span class="token comment">//将一个或连续多个， ；或者空白字符替换为，</span>
+s<span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">"[\\,\\;\\s]+"</span><span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "A,B,C,D"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol start="15">
+<li>split(ch):根据ch将字符串分割为字符串数组</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"A,B,C,D"</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ss <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"\\,"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123;"A", "B", "C", "D"&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol start="16">
+<li>join():拼接字符串,将多个字符串按照指定的分隔符连接成一个单一的字符串</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"C"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">"***"</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "A***B***C"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>另外可以使用加号+来拼接字符串</p>
+<ol start="17">
+<li>format()和formatted():用于用参数替换字符串中的占位符，两者作用相同，用法不同</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"Hi %s, your look so %s!"</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">formatted</span><span class="token punctuation">(</span><span class="token string">"xiaozhang"</span><span class="token punctuation">,</span> <span class="token string">"handsome"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"Hi %s, your are  %d! years old"</span><span class="token punctuation">,</span> <span class="token string">"xiaozhang"</span><span class="token punctuation">,</span><span class="token number">88</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>以下是几个常用的占位符：</p>
+<ul>
+<li><code>%s</code>：显示字符串；</li>
+<li><code>%d</code>：显示整数；</li>
+<li><code>%x</code>：显示十六进制整数；</li>
+<li><code>%f</code>：显示浮点数。</li>
+</ul>
+<ol start="18">
+<li>valueOf(): 将其他类型的变量转为字符串</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "123"</span>
+<span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">12.344</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "45.67"</span>
+<span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "false"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol start="19">
+<li>toCharArray():将字符串转为字符数组，也可将字符数组转为字符串，示例如下：</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cs <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// String -> char[]</span>
+<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>cs<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// char[] -> String</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>结果如下所示：</p>
+<img data-src="/2023/07/31/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/image-20230731152042611.png" class>	
 
     </div>
 
@@ -349,7 +446,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://resmino.github.io/2023/07/23/hello-world/" title="Hello World">https://resmino.github.io/2023/07/23/hello-world/</a>
+      <a href="https://resmino.github.io/2023/07/31/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/" title="Java字符串">https://resmino.github.io/2023/07/31/Java核心类/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -397,7 +494,10 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/" rel="tag"><i class="fa fa-tag"></i> Java核心类</a>
+              <a href="/tags/%E5%AD%97%E7%AC%A6%E6%8B%86/" rel="tag"><i class="fa fa-tag"></i> 字符拆</a>
+              <a href="/tags/String/" rel="tag"><i class="fa fa-tag"></i> String</a>
           </div>
 
         
@@ -410,11 +510,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="prev" title="React安装教程">
+                  <i class="fa fa-chevron-left"></i> React安装教程
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="next" title="React安装教程">
-                  React安装教程 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -530,7 +630,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://resmino.github.io/2023/07/23/hello-world/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://resmino.github.io/2023/07/31/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script src="/js/third-party/comments/livere.js"></script>
 
