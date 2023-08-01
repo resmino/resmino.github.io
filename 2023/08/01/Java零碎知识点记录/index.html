@@ -20,26 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"resmino.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":true,"color":"#dee1e6","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="道阻且长，行则将至">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Resmino&#39;s Blog">
-<meta property="og:url" content="https://resmino.github.io/tags/LeetCode/index.html">
+    <meta name="description" content="Java数据类型中的零碎知识点和细节记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java数据类型">
+<meta property="og:url" content="https://resmino.github.io/2023/08/01/Java%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Resmino&#39;s Blog">
-<meta property="og:description" content="道阻且长，行则将至">
+<meta property="og:description" content="Java数据类型中的零碎知识点和细节记录">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-01T02:58:46.000Z">
+<meta property="article:modified_time" content="2023-08-01T03:22:46.358Z">
 <meta property="article:author" content="Resmino">
 <meta property="article:tag" content="Java">
+<meta property="article:tag" content="Java知识记录">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://resmino.github.io/tags/LeetCode/">
+<link rel="canonical" href="https://resmino.github.io/2023/08/01/Java%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/LeetCode/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://resmino.github.io/2023/08/01/Java%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/","path":"2023/08/01/Java零碎知识点记录/","title":"Java数据类型"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: LeetCode | Resmino's Blog</title>
+<title>Java数据类型 | Resmino's Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EK4PFKFBV"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-1EK4PFKFBV","only_pageview":false}</script>
@@ -132,7 +135,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -145,6 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">Java数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">基本数据类型</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,111 +229,261 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">LeetCode
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://resmino.github.io/2023/08/01/Java%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.gif">
+      <meta itemprop="name" content="Resmino">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Resmino's Blog">
+      <meta itemprop="description" content="道阻且长，行则将至">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java数据类型 | Resmino's Blog">
+      <meta itemprop="description" content="Java数据类型中的零碎知识点和细节记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java数据类型
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="创建时间：2023-08-01 10:58:46 / 修改时间：11:22:46" itemprop="dateCreated datePublished" datetime="2023-08-01T10:58:46+08:00">2023-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java教程</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E6%95%99%E7%A8%8B/Java%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">Java零碎知识点记录</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>432</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">Java数据类型中的零碎知识点和细节记录</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
+<li>基本类型：<code>byte</code>，<code>short</code>，<code>int</code>，<code>long</code>，<code>boolean</code>，<code>float</code>，<code>double</code>，<code>char</code></li>
+<li>引用类型：所有<code>class</code>和<code>interface</code>类型</li>
+</ul>
+<p><strong>注意</strong>：引用类型可以赋值为null，表示空，但基本类型不能赋值为null，会编译错误</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// compile error!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>基本类型与引用类型的对应关系，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="left">基本类型</th>
+<th align="left">对应的引用类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">boolean</td>
+<td align="left">java.lang.Boolean</td>
+</tr>
+<tr>
+<td align="left">byte</td>
+<td align="left">java.lang.Byte</td>
+</tr>
+<tr>
+<td align="left">short</td>
+<td align="left">java.lang.Short</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">java.lang.Integer</td>
+</tr>
+<tr>
+<td align="left">long</td>
+<td align="left">java.lang.Long</td>
+</tr>
+<tr>
+<td align="left">float</td>
+<td align="left">java.lang.Float</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">java.lang.Double</td>
+</tr>
+<tr>
+<td align="left">char</td>
+<td align="left">java.lang.Character</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Java编译器可以帮助我们自动在<code>int</code>和<code>Integer</code>之间转型：</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.valueOf(int)</span>
+<span class="token keyword">int</span> x <span class="token operator">=</span> n<span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.intValue()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>注意：</strong>这种直接把<code>int</code>变为<code>Integer</code>的赋值写法，称为自动装箱（Auto Boxing），反过来，把<code>Integer</code>变为<code>int</code>的赋值写法，称为自动拆箱（Auto Unboxing）。自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。</p>
+<p>装箱和拆箱会影响代码的执行效率，因为编译后的<code>class</code>代码是严格区分基本类型和引用类型的。并且，自动拆箱执行时可能会报<code>NullPointerException</code>：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span><span class="token comment">//基本数据类型不能</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>所有的包装类型都是不变类。</li>
+<li>对两个<code>Integer</code>实例进行比较要特别注意：绝对不能用<code>==</code>比较，因为<code>Integer</code>是引用类型，必须使用<code>equals()</code>比较</li>
+<li>在Java中，并没有无符号整型（Unsigned）的基本数据类型。<code>byte</code>、<code>short</code>、<code>int</code>和<code>long</code>都是带符号整型，最高位是符号位。无符号整型和有符号整型的转换在Java中就需要借助包装类型的静态方法完成。</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-07-31T19:43:35+08:00"
-              content="2023-07-31">
-          07-31
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/07/31/9-%E5%9B%9E%E6%96%87%E6%95%B0/" itemprop="url">
-            <span itemprop="name">9.回文数</span>
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Resmino
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://resmino.github.io/2023/08/01/Java%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" title="Java数据类型">https://resmino.github.io/2023/08/01/Java零碎知识点记录/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/username">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
           </a>
       </div>
 
-      
-    </header>
-  </article>
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/channel_name">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-07-31T18:42:14+08:00"
-              content="2023-07-31">
-          07-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/07/31/3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-C%E8%AF%AD%E8%A8%80/" itemprop="url">
-            <span itemprop="name">3.无重复字符的最长子串(C语言)</span>
+            <span class="label">Telegram</span>
           </a>
       </div>
 
-      
-    </header>
-  </article>
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-07-31T18:38:02+08:00"
-              content="2023-07-31">
-          07-31
-        </time>
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel1.jpg">
       </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/07/31/2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-C%E8%AF%AD%E8%A8%80/" itemprop="url">
-            <span itemprop="name">2.两数相加(C语言)</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-07-31T18:29:31+08:00"
-              content="2023-07-31">
-          07-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/07/31/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-C%E8%AF%AD%E8%A8%80/" itemprop="url">
-            <span itemprop="name">1.两数之和(C语言)</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/Java%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> Java知识记录</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/07/31/9-%E5%9B%9E%E6%96%87%E6%95%B0/" rel="prev" title="9.回文数">
+                  <i class="fa fa-chevron-left"></i> 9.回文数
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81ODc2NS8zNTIyNw"></div>
 </div>
   </main>
 
@@ -433,7 +587,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://resmino.github.io/tags/LeetCode/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://resmino.github.io/2023/08/01/Java%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script src="/js/third-party/comments/livere.js"></script>
 

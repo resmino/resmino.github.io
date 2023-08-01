@@ -339,6 +339,113 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
       </tags>
   </entry>
   <entry>
+    <title>Java数据类型</title>
+    <url>/2023/08/01/Java%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
+<li>基本类型：<code>byte</code>，<code>short</code>，<code>int</code>，<code>long</code>，<code>boolean</code>，<code>float</code>，<code>double</code>，<code>char</code></li>
+<li>引用类型：所有<code>class</code>和<code>interface</code>类型</li>
+</ul>
+<p><strong>注意</strong>：引用类型可以赋值为null，表示空，但基本类型不能赋值为null，会编译错误</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// compile error!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>基本类型与引用类型的对应关系，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="left">基本类型</th>
+<th align="left">对应的引用类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">boolean</td>
+<td align="left">java.lang.Boolean</td>
+</tr>
+<tr>
+<td align="left">byte</td>
+<td align="left">java.lang.Byte</td>
+</tr>
+<tr>
+<td align="left">short</td>
+<td align="left">java.lang.Short</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">java.lang.Integer</td>
+</tr>
+<tr>
+<td align="left">long</td>
+<td align="left">java.lang.Long</td>
+</tr>
+<tr>
+<td align="left">float</td>
+<td align="left">java.lang.Float</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">java.lang.Double</td>
+</tr>
+<tr>
+<td align="left">char</td>
+<td align="left">java.lang.Character</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Java编译器可以帮助我们自动在<code>int</code>和<code>Integer</code>之间转型：</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.valueOf(int)</span>
+<span class="token keyword">int</span> x <span class="token operator">=</span> n<span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.intValue()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>注意：</strong>这种直接把<code>int</code>变为<code>Integer</code>的赋值写法，称为自动装箱（Auto Boxing），反过来，把<code>Integer</code>变为<code>int</code>的赋值写法，称为自动拆箱（Auto Unboxing）。自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。</p>
+<p>装箱和拆箱会影响代码的执行效率，因为编译后的<code>class</code>代码是严格区分基本类型和引用类型的。并且，自动拆箱执行时可能会报<code>NullPointerException</code>：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span><span class="token comment">//基本数据类型不能</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>所有的包装类型都是不变类。</li>
+<li>对两个<code>Integer</code>实例进行比较要特别注意：绝对不能用<code>==</code>比较，因为<code>Integer</code>是引用类型，必须使用<code>equals()</code>比较</li>
+<li>在Java中，并没有无符号整型（Unsigned）的基本数据类型。<code>byte</code>、<code>short</code>、<code>int</code>和<code>long</code>都是带符号整型，最高位是符号位。无符号整型和有符号整型的转换在Java中就需要借助包装类型的静态方法完成。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java教程</category>
+        <category>Java零碎知识点记录</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java知识记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/07/23/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>React安装教程</title>
     <url>/2023/07/23/React%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="一、前提"><a href="#一、前提" class="headerlink" title="一、前提"></a>一、前提</h1><ul>
@@ -386,9 +493,9 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
       </tags>
   </entry>
   <entry>
-    <title>StringBuilder</title>
+    <title>String字符串拼接</title>
     <url>/2023/07/31/StringBuilder/</url>
-    <content><![CDATA[<h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><p>对于String来说是不可变的，使用+修改字符串是在不断地创建新的字符串对象，而不是在原有的对象上修改的。并且对于字符串的修改和拼接通常提供StringBuffer和StringBuilder。</p>
+    <content><![CDATA[<h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><p>对于String来说是不可变的，使用+修改字符串是在不断地创建新的字符串对象，而不是在原有的对象上修改的。并且对于字符串的修改和拼接通常提供StringBuffer和StringBuilder，以及使用的String.join()方法，具体如下所示。</p>
 <h1 id="二、StringBuilder"><a href="#二、StringBuilder" class="headerlink" title="二、StringBuilder"></a>二、StringBuilder</h1><h2 id="1、StringBuilder介绍"><a href="#1、StringBuilder介绍" class="headerlink" title="1、StringBuilder介绍"></a>1、StringBuilder介绍</h2><p><strong>StringBuilder</strong>是Java中的一个类，用于处理可变的字符串。它的设计目的是在进行频繁的字符串操作时，<strong>避免创建多个不可变的<code>String</code>对象，从而提高字符串的处理效率</strong>。<code>StringBuilder</code>类位于<code>java.lang</code>包中，无需额外导入就可以直接使用。</p>
 <h2 id="2、使用说明"><a href="#2、使用说明" class="headerlink" title="2、使用说明"></a>2、使用说明</h2><ol>
 <li>创建<code>StringBuilder</code>对象：</li>
@@ -410,7 +517,7 @@ sb<span class="token punctuation">.</span><span class="token function">append</s
 <li>插入字符串：</li>
 </ol>
 <p>使用<code>insert()</code>方法在指定位置插入字符串。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">sb<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">sb<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> ”wuhaha“<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="4">
 <li>删除字符串：</li>
@@ -498,15 +605,72 @@ sb<span class="token punctuation">.</span><span class="token function">append</s
 </li>
 <li><p>设置容量：</p>
 <p>使用<code>ensureCapacity()</code>方法设置<code>StringBuffer</code>的容量。这样可以提前分配足够的空间，避免频繁地扩容，提高性能。</p>
-<pre class="line-numbers language-none"><code class="language-none">javaCopy code
-sb.ensureCapacity(100); &#x2F;&#x2F; 设置容量为100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">sb<span class="token punctuation">.</span><span class="token function">ensureCapacity</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 设置容量为100</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>清空<code>StringBuffer</code>：</p>
 <p>使用<code>setLength()</code>方法将<code>StringBuffer</code>的长度设置为0，清空其中的内容。</p>
-<pre class="line-numbers language-none"><code class="language-none">javaCopy code
-sb.setLength(0);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">sb<span class="token punctuation">.</span><span class="token function">setLength</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <p><code>StringBuffer</code>是线程安全的，适用于多线程环境下的字符串操作。但是在单线程环境下，如果没有特殊需求，推荐使用<code>StringBuilder</code>，因为它的性能更好。除非确实需要线程安全，否则<code>StringBuilder</code>通常更适合日常使用。</p>
+<h1 id="四、StringJoiner"><a href="#四、StringJoiner" class="headerlink" title="四、StringJoiner"></a>四、StringJoiner</h1><p><code>StringJoiner</code>是Java中用于拼接字符串的类，它提供了一种简单的方法来连接多个字符串，并可以在字符串之间添加分隔符。<code>StringJoiner</code>类位于<code>java.util</code>包中，需要导入使用。</p>
+<p>以下是<code>StringJoiner</code>的详细使用说明：</p>
+<ol>
+<li><p>创建<code>StringJoiner</code>对象：</p>
+<p>构造函数接收两个参数：分隔符（delimiter）和可选的前缀（prefix）和后缀（suffix）。分隔符是必需的，而前缀和后缀是可选的。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringJoiner</span> sj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringJoiner</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">,</span> <span class="token string">"["</span><span class="token punctuation">,</span> <span class="token string">"]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面的例子表示使用逗号作为分隔符，同时在拼接的结果字符串前后分别添加方括号 <code>[</code> 和 <code>]</code>。</p>
+</li>
+<li><p>添加字符串：</p>
+<p>使用<code>add()</code>方法向<code>StringJoiner</code>中添加字符串。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">sj<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"apple"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+sj<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"orange"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+sj<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"banana"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>这将在分隔符之间拼接字符串，并自动处理分隔符的添加。</p>
+</li>
+<li><p>获取拼接结果：</p>
+<p>使用<code>toString()</code>方法获取最终的拼接结果。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> result <span class="token operator">=</span> sj<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>最终的结果将是 <code>&quot;[apple,orange,banana]&quot;</code>。</p>
+</li>
+<li><p>设置空值替换：</p>
+<p>使用<code>setEmptyValue()</code>方法设置当<code>StringJoiner</code>没有任何元素时返回的默认值。默认情况下，<code>StringJoiner</code>没有任何元素时返回空字符串。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">sj<span class="token punctuation">.</span><span class="token function">setEmptyValue</span><span class="token punctuation">(</span><span class="token string">"No fruits"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 设置默认值为 "No fruits"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果在没有添加任何字符串的情况下调用<code>toString()</code>方法，将返回设置的默认值。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> result <span class="token operator">=</span> sj<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 如果没有添加任何元素，将返回 "No fruits"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<p><code>StringJoiner</code>类提供了一种简单而灵活的方式来拼接字符串，并可以很方便地在每个字符串之间添加分隔符和前后缀。它特别适合于需要构建带有分隔符的字符串，如CSV文件、JSON数组等。</p>
+<h1 id="五、String-Join"><a href="#五、String-Join" class="headerlink" title="五、String.Join()"></a>五、String.Join()</h1><p><code>String.join()</code>是Java中<code>String</code>类提供的静态方法，用于将多个字符串按照指定的分隔符连接成一个单一的字符串。<code>String.join()</code>方法在Java 8及更高版本中引入，相比于早期版本中的<code>StringUtils.join()</code>或<code>StringBuffer</code>&#x2F;<code>StringBuilder</code>的操作，更加简洁和方便。</p>
+<p>以下是<code>String.join()</code>的详细使用说明：</p>
+<ol>
+<li><p>使用<code>String.join()</code>：</p>
+<p><code>String.join()</code>方法接收两个参数：分隔符（delimiter）和要连接的多个字符串（Iterable、数组等）。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> delimiter <span class="token operator">=</span> <span class="token string">","</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> result <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>delimiter<span class="token punctuation">,</span> <span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>上面的例子表示使用逗号作为分隔符，将字符串 <code>&quot;apple&quot;</code>、<code>&quot;orange&quot;</code> 和 <code>&quot;banana&quot;</code> 连接成一个字符串。最终的结果将是 <code>&quot;apple,orange,banana&quot;</code>。</p>
+</li>
+<li><p>使用数组作为参数：</p>
+<p><code>String.join()</code>方法也可以接收一个字符串数组作为参数。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> delimiter <span class="token operator">=</span> <span class="token string">"-"</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"2019"</span><span class="token punctuation">,</span> <span class="token string">"08"</span><span class="token punctuation">,</span> <span class="token string">"31"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> date <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>delimiter<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>上面的例子使用连字符（<code>-</code>）作为分隔符，将字符串数组 <code>array</code> 中的元素连接成一个日期字符串。最终的结果将是 <code>&quot;2019-08-31&quot;</code>。</p>
+</li>
+<li><p>使用Iterable作为参数：</p>
+<p><code>String.join()</code>方法还可以接收一个<code>Iterable</code>对象作为参数，例如<code>List</code>、<code>Set</code>等。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> delimiter <span class="token operator">=</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> words <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"Java"</span><span class="token punctuation">,</span> <span class="token string">"is"</span><span class="token punctuation">,</span> <span class="token string">"awesome"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> sentence <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>delimiter<span class="token punctuation">,</span> words<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>上面的例子使用空格作为分隔符，将<code>List</code>对象 <code>words</code> 中的元素连接成一个句子。最终的结果将是 <code>&quot;Java is awesome&quot;</code>。</p>
+</li>
+</ol>
+<p><code>String.join()</code>方法非常简单易用，它提供了一种快速拼接字符串的方式，特别适用于需要在多个字符串之间添加分隔符的场景，如拼接CSV数据、构建URL等。</p>
 ]]></content>
       <categories>
         <category>Java教程</category>
@@ -515,30 +679,9 @@ sb.setLength(0);<span aria-hidden="true" class="line-numbers-rows"><span></span>
       <tags>
         <tag>StringBuilder</tag>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/07/23/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
+        <tag>StringBuffer</tag>
+        <tag>join</tag>
+        <tag>字符串拼接</tag>
       </tags>
   </entry>
 </search>
