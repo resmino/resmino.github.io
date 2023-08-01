@@ -117,54 +117,6 @@
       </tags>
   </entry>
   <entry>
-    <title>3.无重复字符的最长子串(C语言)</title>
-    <url>/2023/07/31/3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-C%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<h1 id="一、题目描述"><a href="#一、题目描述" class="headerlink" title="一、题目描述"></a>一、题目描述</h1><p>给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。</p>
-<blockquote>
-<p>示例 1:<br>输入: s &#x3D; “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。<br>示例 2:<br>输入: s &#x3D; “bbbbb”<br>输出: 1<br>解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。<br>示例 3:<br>输入: s &#x3D; “pwwkew”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
-</blockquote>
-<blockquote>
-<p>提示：<br>0 &lt;&#x3D; s.length &lt;&#x3D; 5 * 104<br>s 由英文字母、数字、符号和空格组成</p>
-</blockquote>
-<blockquote>
-<p>来源：力扣（LeetCode）<br>链接：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jbi9wcm9ibGVtcy9sb25nZXN0LXN1YnN0cmluZy13aXRob3V0LXJlcGVhdGluZy1jaGFyYWN0ZXJz">https://leetcode.cn/problems/longest-substring-without-repeating-characters<i class="fa fa-external-link-alt"></i></span><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-</blockquote>
-<h1 id="二、解题思路"><a href="#二、解题思路" class="headerlink" title="二、解题思路"></a>二、解题思路</h1><blockquote>
-<p>1、使用count记录无重复子串的长度<br>2、start记录当前子串起始位置下标<br>3、max记录最大子串长度<br>4、使用index的值记录当前字符在字符串中的位置坐标<br>5、遍历字符串s<br>6、若字符串无重复字符，返回count，即当前字符串长度<br>7、若有重复字符，则改变子串起始位置start的值为当前字符上一次出现的位置下标<br>8、比较count与max的值，记录最大子串长度。</p>
-</blockquote>
-<h1 id="三、代码实现"><a href="#三、代码实现" class="headerlink" title="三、代码实现"></a>三、代码实现</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span> s<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>max<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span>index<span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//字符串长度</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>index<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">></span>start<span class="token punctuation">)</span>     <span class="token comment">//重复字符的index值大于start</span>
-        <span class="token punctuation">&#123;</span>
-            count <span class="token operator">=</span> i <span class="token operator">-</span> start<span class="token punctuation">;</span>    <span class="token comment">//计算滑动窗口长度</span>
-            start <span class="token operator">=</span> index<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">//更新起始位置</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>count<span class="token operator">></span>max<span class="token punctuation">)</span>         <span class="token comment">//更新最大长度</span>
-            <span class="token punctuation">&#123;</span>
-                max <span class="token operator">=</span> count<span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            
-        <span class="token punctuation">&#125;</span>
-        index<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>     <span class="token comment">//当前字符的位置下标</span>
-    <span class="token punctuation">&#125;</span>
-    count <span class="token operator">=</span> i <span class="token operator">-</span> start<span class="token punctuation">;</span>       <span class="token comment">//若字符串无重复，则count为最大子串长度</span>
-    <span class="token keyword">return</span> count<span class="token operator">></span>max<span class="token operator">?</span>count<span class="token operator">:</span>max<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="四、个人记录"><a href="#四、个人记录" class="headerlink" title="四、个人记录"></a>四、个人记录</h1><p>在该题中，花费了较多的时间，在尝试使用滑动窗口解题过程时出现错误。后来借鉴了其他用户的题解过程，并按着自己的理解完成该题。</p>
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>LeetCode题解</tag>
-        <tag>LeetCode</tag>
-        <tag>两数之和</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>9.回文数</title>
     <url>/2023/07/31/9-%E5%9B%9E%E6%96%87%E6%95%B0/</url>
     <content><![CDATA[<h1 id="1、题目描述"><a href="#1、题目描述" class="headerlink" title="1、题目描述"></a>1、题目描述</h1><blockquote>
@@ -214,6 +166,54 @@ class Solution &#123;
         <tag>LeetCode题解</tag>
         <tag>LeetCode</tag>
         <tag>回文数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3.无重复字符的最长子串(C语言)</title>
+    <url>/2023/07/31/3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-C%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<h1 id="一、题目描述"><a href="#一、题目描述" class="headerlink" title="一、题目描述"></a>一、题目描述</h1><p>给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<blockquote>
+<p>示例 1:<br>输入: s &#x3D; “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。<br>示例 2:<br>输入: s &#x3D; “bbbbb”<br>输出: 1<br>解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。<br>示例 3:<br>输入: s &#x3D; “pwwkew”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
+</blockquote>
+<blockquote>
+<p>提示：<br>0 &lt;&#x3D; s.length &lt;&#x3D; 5 * 104<br>s 由英文字母、数字、符号和空格组成</p>
+</blockquote>
+<blockquote>
+<p>来源：力扣（LeetCode）<br>链接：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jbi9wcm9ibGVtcy9sb25nZXN0LXN1YnN0cmluZy13aXRob3V0LXJlcGVhdGluZy1jaGFyYWN0ZXJz">https://leetcode.cn/problems/longest-substring-without-repeating-characters<i class="fa fa-external-link-alt"></i></span><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+</blockquote>
+<h1 id="二、解题思路"><a href="#二、解题思路" class="headerlink" title="二、解题思路"></a>二、解题思路</h1><blockquote>
+<p>1、使用count记录无重复子串的长度<br>2、start记录当前子串起始位置下标<br>3、max记录最大子串长度<br>4、使用index的值记录当前字符在字符串中的位置坐标<br>5、遍历字符串s<br>6、若字符串无重复字符，返回count，即当前字符串长度<br>7、若有重复字符，则改变子串起始位置start的值为当前字符上一次出现的位置下标<br>8、比较count与max的值，记录最大子串长度。</p>
+</blockquote>
+<h1 id="三、代码实现"><a href="#三、代码实现" class="headerlink" title="三、代码实现"></a>三、代码实现</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span> s<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>max<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span>index<span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//字符串长度</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>index<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">></span>start<span class="token punctuation">)</span>     <span class="token comment">//重复字符的index值大于start</span>
+        <span class="token punctuation">&#123;</span>
+            count <span class="token operator">=</span> i <span class="token operator">-</span> start<span class="token punctuation">;</span>    <span class="token comment">//计算滑动窗口长度</span>
+            start <span class="token operator">=</span> index<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">//更新起始位置</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>count<span class="token operator">></span>max<span class="token punctuation">)</span>         <span class="token comment">//更新最大长度</span>
+            <span class="token punctuation">&#123;</span>
+                max <span class="token operator">=</span> count<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            
+        <span class="token punctuation">&#125;</span>
+        index<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>     <span class="token comment">//当前字符的位置下标</span>
+    <span class="token punctuation">&#125;</span>
+    count <span class="token operator">=</span> i <span class="token operator">-</span> start<span class="token punctuation">;</span>       <span class="token comment">//若字符串无重复，则count为最大子串长度</span>
+    <span class="token keyword">return</span> count<span class="token operator">></span>max<span class="token operator">?</span>count<span class="token operator">:</span>max<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="四、个人记录"><a href="#四、个人记录" class="headerlink" title="四、个人记录"></a>四、个人记录</h1><p>在该题中，花费了较多的时间，在尝试使用滑动窗口解题过程时出现错误。后来借鉴了其他用户的题解过程，并按着自己的理解完成该题。</p>
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>LeetCode题解</tag>
+        <tag>LeetCode</tag>
+        <tag>两数之和</tag>
       </tags>
   </entry>
   <entry>
