@@ -28,7 +28,7 @@
 <meta property="og:description" content="凭借字符串方法的总结，包括拼接处理字符串的工具类StrignBuilder、Stringbuffer、join()方法">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-31T08:04:59.000Z">
-<meta property="article:modified_time" content="2023-08-01T03:23:06.495Z">
+<meta property="article:modified_time" content="2023-08-01T07:46:22.345Z">
 <meta property="article:author" content="Resmino">
 <meta property="article:tag" content="StringBuilder">
 <meta property="article:tag" content="java">
@@ -100,7 +100,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">23</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81StringBuilder"><span class="nav-number">2.</span> <span class="nav-text">二、StringBuilder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81StringBuilder%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.</span> <span class="nav-text">1、StringBuilder介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="nav-number">2.2.</span> <span class="nav-text">2、使用说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81StringBuffer"><span class="nav-number">3.</span> <span class="nav-text">三、StringBuffer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81StringJoiner"><span class="nav-number">4.</span> <span class="nav-text">四、StringJoiner</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81String-Join"><span class="nav-number">5.</span> <span class="nav-text">五、String.Join()</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#StringBuilder"><span class="nav-number">2.</span> <span class="nav-text">StringBuilder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.</span> <span class="nav-text">StringBuilder介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="nav-number">2.2.</span> <span class="nav-text">使用说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#StringBuffer"><span class="nav-number">3.</span> <span class="nav-text">StringBuffer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#StringJoiner"><span class="nav-number">4.</span> <span class="nav-text">StringJoiner</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String-Join"><span class="nav-number">5.</span> <span class="nav-text">String.Join()</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -177,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,7 +279,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-08-01 11:23:06" itemprop="dateModified" datetime="2023-08-01T11:23:06+08:00">2023-08-01</time>
+      <time title="修改时间：2023-08-01 15:46:22" itemprop="dateModified" datetime="2023-08-01T15:46:22+08:00">2023-08-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -327,9 +327,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><p>对于String来说是不可变的，使用+修改字符串是在不断地创建新的字符串对象，而不是在原有的对象上修改的。并且对于字符串的修改和拼接通常提供StringBuffer和StringBuilder，以及使用的String.join()方法，具体如下所示。</p>
-<h1 id="二、StringBuilder"><a href="#二、StringBuilder" class="headerlink" title="二、StringBuilder"></a>二、StringBuilder</h1><h2 id="1、StringBuilder介绍"><a href="#1、StringBuilder介绍" class="headerlink" title="1、StringBuilder介绍"></a>1、StringBuilder介绍</h2><p><strong>StringBuilder</strong>是Java中的一个类，用于处理可变的字符串。它的设计目的是在进行频繁的字符串操作时，<strong>避免创建多个不可变的<code>String</code>对象，从而提高字符串的处理效率</strong>。<code>StringBuilder</code>类位于<code>java.lang</code>包中，无需额外导入就可以直接使用。</p>
-<h2 id="2、使用说明"><a href="#2、使用说明" class="headerlink" title="2、使用说明"></a>2、使用说明</h2><ol>
+    <div class="post-body" itemprop="articleBody"><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>对于String来说是不可变的，使用+修改字符串是在不断地创建新的字符串对象，而不是在原有的对象上修改的。并且对于字符串的修改和拼接通常提供StringBuffer和StringBuilder，以及使用的String.join()方法，具体如下所示。</p>
+<h1 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h1><h2 id="StringBuilder介绍"><a href="#StringBuilder介绍" class="headerlink" title="StringBuilder介绍"></a>StringBuilder介绍</h2><p><strong>StringBuilder</strong>是Java中的一个类，用于处理可变的字符串。它的设计目的是在进行频繁的字符串操作时，<strong>避免创建多个不可变的<code>String</code>对象，从而提高字符串的处理效率</strong>。<code>StringBuilder</code>类位于<code>java.lang</code>包中，无需额外导入就可以直接使用。</p>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
 <li>创建<code>StringBuilder</code>对象：</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -395,7 +395,7 @@ sb<span class="token punctuation">.</span><span class="token function">append</s
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">sb<span class="token punctuation">.</span><span class="token function">setLength</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><code>StringBuilder</code>是非线程安全的，如果在多线程环境下使用，建议使用<code>StringBuffer</code>类，它与<code>StringBuilder</code>类功能相似，但是线程安全。通常情况下，如果不涉及多线程操作，推荐使用<code>StringBuilder</code>，因为它的性能更好,速度也更快一些。</p>
-<h1 id="三、StringBuffer"><a href="#三、StringBuffer" class="headerlink" title="三、StringBuffer"></a>三、StringBuffer</h1><p><code>StringBuffer</code>是Java中用于处理可变字符串的类，它与<code>StringBuilder</code>类似，但是具有线程安全的特性。<code>StringBuffer</code>类位于<code>java.lang</code>包中，无需额外导入就可以直接使用。</p>
+<h1 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h1><p><code>StringBuffer</code>是Java中用于处理可变字符串的类，它与<code>StringBuilder</code>类似，但是具有线程安全的特性。<code>StringBuffer</code>类位于<code>java.lang</code>包中，无需额外导入就可以直接使用。</p>
 <p>以下是<code>StringBuffer</code>的详细使用说明：</p>
 <ol>
 <li><p>创建<code>StringBuffer</code>对象：</p>
@@ -444,7 +444,7 @@ sb<span class="token punctuation">.</span><span class="token function">append</s
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">sb<span class="token punctuation">.</span><span class="token function">setLength</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <p><code>StringBuffer</code>是线程安全的，适用于多线程环境下的字符串操作。但是在单线程环境下，如果没有特殊需求，推荐使用<code>StringBuilder</code>，因为它的性能更好。除非确实需要线程安全，否则<code>StringBuilder</code>通常更适合日常使用。</p>
-<h1 id="四、StringJoiner"><a href="#四、StringJoiner" class="headerlink" title="四、StringJoiner"></a>四、StringJoiner</h1><p><code>StringJoiner</code>是Java中用于拼接字符串的类，它提供了一种简单的方法来连接多个字符串，并可以在字符串之间添加分隔符。<code>StringJoiner</code>类位于<code>java.util</code>包中，需要导入使用。</p>
+<h1 id="StringJoiner"><a href="#StringJoiner" class="headerlink" title="StringJoiner"></a>StringJoiner</h1><p><code>StringJoiner</code>是Java中用于拼接字符串的类，它提供了一种简单的方法来连接多个字符串，并可以在字符串之间添加分隔符。<code>StringJoiner</code>类位于<code>java.util</code>包中，需要导入使用。</p>
 <p>以下是<code>StringJoiner</code>的详细使用说明：</p>
 <ol>
 <li><p>创建<code>StringJoiner</code>对象：</p>
@@ -475,7 +475,7 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> result <span class="token operator">=</span> sj<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 如果没有添加任何元素，将返回 "No fruits"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <p><code>StringJoiner</code>类提供了一种简单而灵活的方式来拼接字符串，并可以很方便地在每个字符串之间添加分隔符和前后缀。它特别适合于需要构建带有分隔符的字符串，如CSV文件、JSON数组等。</p>
-<h1 id="五、String-Join"><a href="#五、String-Join" class="headerlink" title="五、String.Join()"></a>五、String.Join()</h1><p><code>String.join()</code>是Java中<code>String</code>类提供的静态方法，用于将多个字符串按照指定的分隔符连接成一个单一的字符串。<code>String.join()</code>方法在Java 8及更高版本中引入，相比于早期版本中的<code>StringUtils.join()</code>或<code>StringBuffer</code>&#x2F;<code>StringBuilder</code>的操作，更加简洁和方便。</p>
+<h1 id="String-Join"><a href="#String-Join" class="headerlink" title="String.Join()"></a>String.Join()</h1><p><code>String.join()</code>是Java中<code>String</code>类提供的静态方法，用于将多个字符串按照指定的分隔符连接成一个单一的字符串。<code>String.join()</code>方法在Java 8及更高版本中引入，相比于早期版本中的<code>StringUtils.join()</code>或<code>StringBuffer</code>&#x2F;<code>StringBuilder</code>的操作，更加简洁和方便。</p>
 <p>以下是<code>String.join()</code>的详细使用说明：</p>
 <ol>
 <li><p>使用<code>String.join()</code>：</p>
@@ -625,14 +625,14 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">7k</span>
+    <span title="站点总字数">8k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">24 分钟</span>
+    <span title="站点阅读时长">28 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
