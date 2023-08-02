@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>1.两数之和(C语言)</title>
+    <url>/2023/077204.html</url>
+    <content><![CDATA[<h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个整数，并返回它们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。<br>你可以按任意顺序返回答案。</p>
+<pre class="line-numbers language-none"><code class="language-none">示例 1： 输入：nums &#x3D; [2,7,11,15], target &#x3D; 9 输出：[0,1] 解释：因为 nums[0] + nums[1] &#x3D;&#x3D; 9 ，返回 [0, 1] 。
+
+示例 2： 输入：nums &#x3D; [3,2,4], target &#x3D; 6 输出：[1,2]
+
+示例 3： 输入：nums &#x3D; [3,3], target &#x3D; 6 输出：[0,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="解题方法：暴力枚举"><a href="#解题方法：暴力枚举" class="headerlink" title="解题方法：暴力枚举"></a>解题方法：暴力枚举</h1><p>可能是第一时间想到的方法，遍历nums中的元素x，并在数组中检索是否存在值为target-x的元素，若存在则输出下标。该方法时间复杂度为O(n*2）。</p>
+<pre class="line-numbers language-none"><code class="language-none">int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123;
+   for(int i&#x3D;0;i&lt;numsSize;i++)
+   &#123;
+       
+       for(int j&#x3D;i+1;j&lt;numsSize;j++)
+       &#123;
+           if(nums[j]&#x3D;&#x3D;target-nums[i])
+           &#123;
+               int* ret&#x3D;malloc(sizeof(int)*2);
+               ret[0]&#x3D;i,ret[1]&#x3D;j;
+               *returnSize&#x3D;2;
+               return ret;
+           &#125; 
+       &#125;
+   &#125;
+   *returnSize&#x3D;0;
+   return NULL;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>LeetCode题解</tag>
+        <tag>LeetCode</tag>
+        <tag>两数之和</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>13.罗马数字转整数(Java)</title>
     <url>/2023/08156c09fb.html</url>
     <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
@@ -112,48 +150,61 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
+        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
-        <tag>LeetCode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
   <entry>
-    <title>1.两数之和(C语言)</title>
-    <url>/2023/077204.html</url>
-    <content><![CDATA[<h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个整数，并返回它们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。<br>你可以按任意顺序返回答案。</p>
-<pre class="line-numbers language-none"><code class="language-none">示例 1： 输入：nums &#x3D; [2,7,11,15], target &#x3D; 9 输出：[0,1] 解释：因为 nums[0] + nums[1] &#x3D;&#x3D; 9 ，返回 [0, 1] 。
+    <title>14.最长公共前缀(Java)</title>
+    <url>/2023/08true.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>题目描述：<br>编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。</p>
+</blockquote>
+<blockquote>
+<p>示例1：<br>输入：strs &#x3D; [“flower”,”flow”,”flight”]<br>输出：”fl”</p>
+</blockquote>
+<blockquote>
+<p>示例2：<br>输入：strs &#x3D; [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>解题思路：</strong><br>对于空字符数组直接返回“”作为公共前缀；对于非空数组，则随机选一个字符串作为初始公共前缀（因为公共前缀的最大长度一定小于等于数组中最短的那个字符串，所以可以随机选择一个字符串作为初始前缀），之后使用String类中的方法startsWith（）在for循环中判断字符串是否含有该前缀，若没有则缩短公共前缀的长度，在缩短之前判断变量(公共前缀)的长度是否为0，若为0则返回空字符串“”。</p>
+</blockquote>
+<blockquote>
+<p><strong>解题步骤如下：</strong><br>1、判断字符数组的长度是否为0，若为0则返回空字符串“”<br>2、对于非空字符串则选择第一个字符串作为初始公共前缀<br>3、遍历字符串数组，判断前缀变量的长度是否为0，若不为0则使用startswith方法判断是否含有该公共前缀<br>4、若不该前缀，则缩短前缀变量的长度，继续判断<br>5、当遍历结束后，返回公共前缀。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> strs<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span>     <span class="token comment">//空则返回“”</span>
+            <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> s <span class="token operator">=</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">//初始前缀</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> str <span class="token operator">:</span>strs<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>str<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">//判断是否含有该前缀</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
+                s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//前缀长度-1</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+            <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-示例 2： 输入：nums &#x3D; [3,2,4], target &#x3D; 6 输出：[1,2]
 
-示例 3： 输入：nums &#x3D; [3,3], target &#x3D; 6 输出：[0,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="解题方法：暴力枚举"><a href="#解题方法：暴力枚举" class="headerlink" title="解题方法：暴力枚举"></a>解题方法：暴力枚举</h1><p>可能是第一时间想到的方法，遍历nums中的元素x，并在数组中检索是否存在值为target-x的元素，若存在则输出下标。该方法时间复杂度为O(n*2）。</p>
-<pre class="line-numbers language-none"><code class="language-none">int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123;
-   for(int i&#x3D;0;i&lt;numsSize;i++)
-   &#123;
-       
-       for(int j&#x3D;i+1;j&lt;numsSize;j++)
-       &#123;
-           if(nums[j]&#x3D;&#x3D;target-nums[i])
-           &#123;
-               int* ret&#x3D;malloc(sizeof(int)*2);
-               ret[0]&#x3D;i,ret[1]&#x3D;j;
-               *returnSize&#x3D;2;
-               return ret;
-           &#125; 
-       &#125;
-   &#125;
-   *returnSize&#x3D;0;
-   return NULL;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决该题时，最初的思路是先遍历字符串数组，找出字符串长度最短的字符串作为初始前缀的值，然后进行横向扫描解题。后通过借鉴他人思路，使用startsWith方法进行前缀判断。<br>后查看官方题解，看到多种解题思路，如二分查找、纵向扫描等方法。</p>
+<img data-src="/2023/08true/6d21bc19977b4ac3a171e2d685b70983.png" class>
 ]]></content>
       <categories>
         <category>LeetCode题解</category>
       </categories>
       <tags>
         <tag>LeetCode</tag>
-        <tag>LeetCode题解</tag>
-        <tag>两数之和</tag>
+        <tag>Java</tag>
+        <tag>leetcode</tag>
+        <tag>leetcode题解</tag>
       </tags>
   </entry>
   <entry>
@@ -228,60 +279,9 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>LeetCode题解</tag>
-        <tag>两数之和</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>14.最长公共前缀(Java)</title>
-    <url>/2023/08true.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p>题目描述：<br>编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。</p>
-</blockquote>
-<blockquote>
-<p>示例1：<br>输入：strs &#x3D; [“flower”,”flow”,”flight”]<br>输出：”fl”</p>
-</blockquote>
-<blockquote>
-<p>示例2：<br>输入：strs &#x3D; [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>解题思路：</strong><br>对于空字符数组直接返回“”作为公共前缀；对于非空数组，则随机选一个字符串作为初始公共前缀（因为公共前缀的最大长度一定小于等于数组中最短的那个字符串，所以可以随机选择一个字符串作为初始前缀），之后使用String类中的方法startsWith（）在for循环中判断字符串是否含有该前缀，若没有则缩短公共前缀的长度，在缩短之前判断变量(公共前缀)的长度是否为0，若为0则返回空字符串“”。</p>
-</blockquote>
-<blockquote>
-<p><strong>解题步骤如下：</strong><br>1、判断字符数组的长度是否为0，若为0则返回空字符串“”<br>2、对于非空字符串则选择第一个字符串作为初始公共前缀<br>3、遍历字符串数组，判断前缀变量的长度是否为0，若不为0则使用startswith方法判断是否含有该公共前缀<br>4、若不该前缀，则缩短前缀变量的长度，继续判断<br>5、当遍历结束后，返回公共前缀。</p>
-</blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> strs<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span>     <span class="token comment">//空则返回“”</span>
-            <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token class-name">String</span> s <span class="token operator">=</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">//初始前缀</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> str <span class="token operator">:</span>strs<span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>str<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">//判断是否含有该前缀</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
-                    <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
-                s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//前缀长度-1</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-            <span class="token keyword">return</span> s<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决该题时，最初的思路是先遍历字符串数组，找出字符串长度最短的字符串作为初始前缀的值，然后进行横向扫描解题。后通过借鉴他人思路，使用startsWith方法进行前缀判断。<br>后查看官方题解，看到多种解题思路，如二分查找、纵向扫描等方法。</p>
-<img data-src="/2023/08true/6d21bc19977b4ac3a171e2d685b70983.png" class>
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>leetcode</tag>
         <tag>LeetCode</tag>
-        <tag>leetcode题解</tag>
+        <tag>两数之和</tag>
       </tags>
   </entry>
   <entry>
@@ -359,9 +359,9 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
+        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
-        <tag>LeetCode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
@@ -498,51 +498,9 @@ struct <span class="token class-name">ListNode</span><span class="token operator
         <category>LeetCode题解</category>
       </categories>
       <tags>
+        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
-        <tag>LeetCode</tag>
-        <tag>leetcode题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>26.删除有序数组中的重复项</title>
-    <url>/2023/08true.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p><strong>题目描述</strong>：<br>给你一个 <strong>升序排列</strong> 的数组 <code>nums</code> ，请你 <strong>原地</strong> 删除重复出现的元素，使每个元素 <strong>只出现一次</strong> ，返回删除后数组的新长度。元素的 <strong>相对顺序</strong> 应该保持 一致 。<br>由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 k 个元素，那么 nums 的前 k 个元素应该保存最终结果。<br>将最终结果插入 nums 的前 k 个位置后返回 k 。<br>不要使用额外的空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。<br><em><strong>总结：</strong></em> <strong>保持元素的相对位置不变，去重，并将去重后的k个元素存放在nums的前k个位置。</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>示例1：</strong><br>输入：nums &#x3D; [1,1,2]<br>输出：2, nums &#x3D; [1,2,_]<br>解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。</p>
-</blockquote>
-<blockquote>
-<p><strong>示例2：</strong><br>输入：nums &#x3D; [0,0,1,1,1,2,2,3,3,4]<br>输出：5, nums &#x3D; [0,1,2,3,4]<br>解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>解题思路：</strong><br>设置两个变量<code>count=1、i=1</code>，初始值均为1。<br>i作为遍历元素下标，<code>count</code>作为去重数组下标。<br>在<code>for</code>循环遍历数组，遍历过程中比较元素值，若当前元素与前一元素值相等，结束本次循环进入下一次循环，若不相等则将<code>nums[count++] = nums[i]</code>;循环结束后返回<code>count</code>值。</p>
-</blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> numsSize<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>numsSize<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token keyword">continue</span><span class="token punctuation">;</span>
-        nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决本次题目时，我最初的想法是使用双层for循环，但在具体实现过程中出现无法实现对重复数&gt;&#x3D;3的元素进行去重，后借鉴他人解题思路，使用一层for循环，并结合continue实现去重。<br>提交结果如下。</p>
-<img data-src="/2023/08true/b89ce3bd740b4b81b62d05d64a022194.png" class>
-
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>leetcode</tag>
-        <tag>LeetCode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
@@ -555,9 +513,6 @@ struct <span class="token class-name">ListNode</span><span class="token operator
 </blockquote>
 <blockquote>
 <p>提示：<br>0 &lt;&#x3D; s.length &lt;&#x3D; 5 * 104<br>s 由英文字母、数字、符号和空格组成</p>
-</blockquote>
-<blockquote>
-<p>来源：力扣（LeetCode）<br>链接：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jbi9wcm9ibGVtcy9sb25nZXN0LXN1YnN0cmluZy13aXRob3V0LXJlcGVhdGluZy1jaGFyYWN0ZXJz">https://leetcode.cn/problems/longest-substring-without-repeating-characters<i class="fa fa-external-link-alt"></i></span><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 </blockquote>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
 <p>1、使用count记录无重复子串的长度<br>2、start记录当前子串起始位置下标<br>3、max记录最大子串长度<br>4、使用index的值记录当前字符在字符串中的位置坐标<br>5、遍历字符串s<br>6、若字符串无重复字符，返回count，即当前字符串长度<br>7、若有重复字符，则改变子串起始位置start的值为当前字符上一次出现的位置下标<br>8、比较count与max的值，记录最大子串长度。</p>
@@ -589,8 +544,8 @@ struct <span class="token class-name">ListNode</span><span class="token operator
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>LeetCode题解</tag>
+        <tag>LeetCode</tag>
         <tag>两数之和</tag>
       </tags>
   </entry>
@@ -641,8 +596,8 @@ class Solution &#123;
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>LeetCode题解</tag>
+        <tag>LeetCode</tag>
         <tag>回文数</tag>
       </tags>
   </entry>
@@ -696,6 +651,48 @@ class Solution &#123;
         <tag>CentOS7</tag>
         <tag>jdk</tag>
         <tag>centos7安装jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>26.删除有序数组中的重复项</title>
+    <url>/2023/08true.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p><strong>题目描述</strong>：<br>给你一个 <strong>升序排列</strong> 的数组 <code>nums</code> ，请你 <strong>原地</strong> 删除重复出现的元素，使每个元素 <strong>只出现一次</strong> ，返回删除后数组的新长度。元素的 <strong>相对顺序</strong> 应该保持 一致 。<br>由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 k 个元素，那么 nums 的前 k 个元素应该保存最终结果。<br>将最终结果插入 nums 的前 k 个位置后返回 k 。<br>不要使用额外的空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。<br><em><strong>总结：</strong></em> <strong>保持元素的相对位置不变，去重，并将去重后的k个元素存放在nums的前k个位置。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>示例1：</strong><br>输入：nums &#x3D; [1,1,2]<br>输出：2, nums &#x3D; [1,2,_]<br>解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。</p>
+</blockquote>
+<blockquote>
+<p><strong>示例2：</strong><br>输入：nums &#x3D; [0,0,1,1,1,2,2,3,3,4]<br>输出：5, nums &#x3D; [0,1,2,3,4]<br>解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>解题思路：</strong><br>设置两个变量<code>count=1、i=1</code>，初始值均为1。<br>i作为遍历元素下标，<code>count</code>作为去重数组下标。<br>在<code>for</code>循环遍历数组，遍历过程中比较元素值，若当前元素与前一元素值相等，结束本次循环进入下一次循环，若不相等则将<code>nums[count++] = nums[i]</code>;循环结束后返回<code>count</code>值。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> numsSize<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>numsSize<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决本次题目时，我最初的想法是使用双层for循环，但在具体实现过程中出现无法实现对重复数&gt;&#x3D;3的元素进行去重，后借鉴他人解题思路，使用一层for循环，并结合continue实现去重。<br>提交结果如下。</p>
+<img data-src="/2023/08true/b89ce3bd740b4b81b62d05d64a022194.png" class>
+
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Java</tag>
+        <tag>leetcode</tag>
+        <tag>leetcode题解</tag>
       </tags>
   </entry>
   <entry>
@@ -979,6 +976,40 @@ $ <span class="token function">git</span> push <span class="token parameter vari
       </tags>
   </entry>
   <entry>
+    <title>Java异常处理</title>
+    <url>/2023/087526d370.html</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Java异常处理是Java编程中一个重要的概念，用于处理程序运行过程中可能出现的错误和异常情况。异常处理机制可以使程序在出现异常时不至于崩溃，而是能够进行适当的处理和恢复。Java内置了一套异常处理机制，总是使用异常来表示错误。异常可以在任何地方抛出。</p>
+<h1 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h1><p>凡是可能抛出异常的语句，都可以用<code>try ... catch</code>捕获。</p>
+<ul>
+<li>捕获异常使用<code>try...catch</code>语句，把可能发生异常的代码放到<code>try &#123;...&#125;</code>中，然后使用<code>catch</code>捕获对应的<code>Exception</code>及其子类，可以使用多个<code>catch</code>块捕获不同类型的异常，从而实现不同的处理逻辑，JVM在捕获到异常后，会从上到下匹配<code>catch</code>语句，匹配到某个<code>catch</code>后，执行<code>catch</code>代码块，然后<em>不再</em>继续匹配，也就是说多个<code>catch</code>语句只有一个能被执行。</li>
+<li><code>finally</code>块用于放置无论是否发生异常都需要执行的代码。通常用于释放资源或清理操作。</li>
+<li><code>finally</code>语句不是必须的，可写可不写，<code>finally</code>总是最后执行。</li>
+</ul>
+<h1 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h1><ul>
+<li>使用<code>throw</code>关键字可以手动抛出异常。通常在代码中检测到某种错误或不合理情况时，可以抛出异常来中断程序执行。</li>
+</ul>
+<h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><ul>
+<li>可以通过继承<code>Exception</code>或其子类来自定义异常。自定义异常类可以包含自己的字段和方法，用于提供更详细的异常信息。</li>
+</ul>
+<h1 id="异常处理原则"><a href="#异常处理原则" class="headerlink" title="异常处理原则"></a>异常处理原则</h1><p>异常处理的原则：</p>
+<ul>
+<li>不要滥用异常，避免在正常流程中使用异常处理。</li>
+<li>异常应该在异常情况下使用，而不是用于正常控制流程。</li>
+<li>适当处理异常，进行恰当的日志记录、资源释放等操作。</li>
+<li>在捕获异常后，要进行适当的处理，不要忽略异常。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java教程</category>
+        <category>Java核心类</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java异常处理</tag>
+        <tag>异常</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java字符串</title>
     <url>/2023/07689.html</url>
     <content><![CDATA[<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="字符串知识点"><a href="#字符串知识点" class="headerlink" title="字符串知识点"></a>字符串知识点</h3><ol>
@@ -1191,37 +1222,67 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
       </tags>
   </entry>
   <entry>
-    <title>Java异常处理</title>
-    <url>/2023/087526d370.html</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Java异常处理是Java编程中一个重要的概念，用于处理程序运行过程中可能出现的错误和异常情况。异常处理机制可以使程序在出现异常时不至于崩溃，而是能够进行适当的处理和恢复。Java内置了一套异常处理机制，总是使用异常来表示错误。异常可以在任何地方抛出。</p>
-<h1 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h1><p>凡是可能抛出异常的语句，都可以用<code>try ... catch</code>捕获。</p>
-<ul>
-<li>捕获异常使用<code>try...catch</code>语句，把可能发生异常的代码放到<code>try &#123;...&#125;</code>中，然后使用<code>catch</code>捕获对应的<code>Exception</code>及其子类，可以使用多个<code>catch</code>块捕获不同类型的异常，从而实现不同的处理逻辑，JVM在捕获到异常后，会从上到下匹配<code>catch</code>语句，匹配到某个<code>catch</code>后，执行<code>catch</code>代码块，然后<em>不再</em>继续匹配，也就是说多个<code>catch</code>语句只有一个能被执行。</li>
-<li><code>finally</code>块用于放置无论是否发生异常都需要执行的代码。通常用于释放资源或清理操作。</li>
-<li><code>finally</code>语句不是必须的，可写可不写，<code>finally</code>总是最后执行。</li>
-</ul>
-<h1 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h1><ul>
-<li>使用<code>throw</code>关键字可以手动抛出异常。通常在代码中检测到某种错误或不合理情况时，可以抛出异常来中断程序执行。</li>
-</ul>
-<h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><ul>
-<li>可以通过继承<code>Exception</code>或其子类来自定义异常。自定义异常类可以包含自己的字段和方法，用于提供更详细的异常信息。</li>
-</ul>
-<h1 id="异常处理原则"><a href="#异常处理原则" class="headerlink" title="异常处理原则"></a>异常处理原则</h1><p>异常处理的原则：</p>
-<ul>
-<li>不要滥用异常，避免在正常流程中使用异常处理。</li>
-<li>异常应该在异常情况下使用，而不是用于正常控制流程。</li>
-<li>适当处理异常，进行恰当的日志记录、资源释放等操作。</li>
-<li>在捕获异常后，要进行适当的处理，不要忽略异常。</li>
-</ul>
+    <title>Linux常用命令</title>
+    <url>/2023/08d0edc1ed.html</url>
+    <content><![CDATA[<h1 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#gz文件</span>
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span>
+<span class="token comment">#xz文件</span>
+<span class="token function">tar</span> <span class="token parameter variable">-Jxvf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建文件夹</span>
+<span class="token function">mkdir</span> 文件夹名
+<span class="token comment">#文件权限 r（读） w(写） x(执行)</span>
+<span class="token function">chmod</span> +x script
+<span class="token comment">#打开文件</span>
+<span class="token builtin class-name">cd</span> 文件名
+<span class="token comment"># 返回上一级</span>
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+<span class="token comment">#返回上一个目录</span>
+<span class="token builtin class-name">cd</span> -
+
+<span class="token comment">#复制 文件夹后加/</span>
+<span class="token function">cp</span> 文件1.txt wenjain.txt
+<span class="token comment">#重命名或移动</span>
+<span class="token function">mv</span> 原名 现名  <span class="token comment">#保留在同一目录</span>
+<span class="token function">mv</span> source_file destination_folder/ <span class="token comment">#移动</span>
+<span class="token comment">#删除文件，-rf不询问 -r询问</span>
+<span class="token function">rm</span> <span class="token parameter variable">-rf</span> 文件名
+
+<span class="token comment">#编辑文件</span>
+<span class="token function">vim</span> 文件名
+<span class="token comment">#编辑后保存文件</span>
+ECS + ：wq
+
+加！强制退出
+
+<span class="token comment">#列出目录下neirong</span>
+<span class="token function">ls</span>
+
+<span class="token comment">#输出当前目录的绝对路径</span>
+<span class="token builtin class-name">pwd</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="jdk相关"><a href="#jdk相关" class="headerlink" title="jdk相关"></a>jdk相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#java版本</span>
+<span class="token function">java</span> <span class="token parameter variable">-version</span>
+<span class="token comment">#显示java文件</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">java</span>
+<span class="token comment">#删除</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> 文件名
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#wget</span>
+<span class="token function">wget</span> 资源地址
+<span class="token comment">#yum </span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="ip相关"><a href="#ip相关" class="headerlink" title="ip相关"></a>ip相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看ip</span>
+<span class="token function">ip</span> addr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 ]]></content>
       <categories>
-        <category>Java教程</category>
-        <category>Java核心类</category>
+        <category>Linux</category>
+        <category>命令</category>
       </categories>
       <tags>
-        <tag>Java</tag>
-        <tag>Java异常处理</tag>
-        <tag>异常</tag>
+        <tag>Linux</tag>
+        <tag>linux</tag>
+        <tag>linux常用命令</tag>
       </tags>
   </entry>
   <entry>
@@ -1305,67 +1366,43 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
       </tags>
   </entry>
   <entry>
-    <title>Linux常用命令</title>
-    <url>/2023/08d0edc1ed.html</url>
-    <content><![CDATA[<h1 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#gz文件</span>
-<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span>
-<span class="token comment">#xz文件</span>
-<span class="token function">tar</span> <span class="token parameter variable">-Jxvf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建文件夹</span>
-<span class="token function">mkdir</span> 文件夹名
-<span class="token comment">#文件权限 r（读） w(写） x(执行)</span>
-<span class="token function">chmod</span> +x script
-<span class="token comment">#打开文件</span>
-<span class="token builtin class-name">cd</span> 文件名
-<span class="token comment"># 返回上一级</span>
-<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
-<span class="token comment">#返回上一个目录</span>
-<span class="token builtin class-name">cd</span> -
-
-<span class="token comment">#复制 文件夹后加/</span>
-<span class="token function">cp</span> 文件1.txt wenjain.txt
-<span class="token comment">#重命名或移动</span>
-<span class="token function">mv</span> 原名 现名  <span class="token comment">#保留在同一目录</span>
-<span class="token function">mv</span> source_file destination_folder/ <span class="token comment">#移动</span>
-<span class="token comment">#删除文件，-rf不询问 -r询问</span>
-<span class="token function">rm</span> <span class="token parameter variable">-rf</span> 文件名
-
-<span class="token comment">#编辑文件</span>
-<span class="token function">vim</span> 文件名
-<span class="token comment">#编辑后保存文件</span>
-ECS + ：wq
-
-加！强制退出
-
-<span class="token comment">#列出目录下neirong</span>
-<span class="token function">ls</span>
-
-<span class="token comment">#输出当前目录的绝对路径</span>
-<span class="token builtin class-name">pwd</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="jdk相关"><a href="#jdk相关" class="headerlink" title="jdk相关"></a>jdk相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#java版本</span>
-<span class="token function">java</span> <span class="token parameter variable">-version</span>
-<span class="token comment">#显示java文件</span>
-<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">java</span>
-<span class="token comment">#删除</span>
-<span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> 文件名
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#wget</span>
-<span class="token function">wget</span> 资源地址
-<span class="token comment">#yum </span>
-yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="ip相关"><a href="#ip相关" class="headerlink" title="ip相关"></a>ip相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看ip</span>
-<span class="token function">ip</span> addr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+    <title>UML知识简要总结</title>
+    <url>/2023/08b780455c.html</url>
+    <content><![CDATA[<h1 id="1、简要总结"><a href="#1、简要总结" class="headerlink" title="1、简要总结"></a>1、简要总结</h1><p>UML（Unified Modeling Language，统一建模语言）是一种用于软件系统设计和开发的图形化语言。它是一种通用的、标准化的、基于面向对象的建模语言，可以用于描述和设计各种软件系统。以下是 UML 的一些常用知识点：</p>
+<ul>
+<li><p><strong>UML 中的基本元素：</strong></p>
+<blockquote>
+<p>UML 中有三种基本元素，分别是结构元素、行为元素和分组元素。结构元素包括类、接口、包、对象等，行为元素包括用例、活动、状态机等，分组元素包括组、子系统、节点等。</p>
+</blockquote>
+</li>
+<li><p><strong>UML 中的类图：</strong></p>
+<blockquote>
+<p>类图是 UML 中最常用的图之一，用于描述系统中的类、接口、关系等元素。类图中常用的关系包括继承、实现、关联、聚合、组合等。其中，继承关系表示类之间的继承关系，实现关系表示接口的实现关系，关联关系表示两个类之间的关联关系，聚合关系表示整体与部分之间的关系，组合关系表示强关联的整体与部分之间的关系。</p>
+</blockquote>
+</li>
+<li><p><strong>UML 中的时序图：</strong></p>
+<blockquote>
+<p>时序图是 UML 中用于描述系统中对象之间的交互关系的图形化工具。时序图中通常包含对象、生命线、消息、同步和异步消息等元素。时序图可以用于描述系统中对象之间的交互过程，包括同步和异步消息的交互过程。</p>
+</blockquote>
+</li>
+<li><p><strong>UML 中的用例图：</strong></p>
+<blockquote>
+<p>用例图是 UML 中用于描述系统中用户和系统之间的交互的图形化工具。用例图中通常包含参与者、用例、关系等元素。用例图可以用于描述系统中的功能需求和用户需求，从而帮助开发人员和用户更好地理解系统。</p>
+</blockquote>
+</li>
+<li><p><strong>UML 中的活动图：</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>活动图是 UML 中用于描述系统中业务流程的图形化工具。活动图中通常包含起始节点、活动节点、决策节点、合并节点等元素。活动图可以用于描述系统中的业务流程，从而帮助开发人员更好地理解系统的业务流程。</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>Linux</category>
-        <category>命令</category>
+        <category>软件工程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>linux</tag>
-        <tag>linux常用命令</tag>
+        <tag>UML</tag>
+        <tag>UML知识总结</tag>
       </tags>
   </entry>
   <entry>
@@ -1632,52 +1669,12 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
-    <title>UML知识简要总结</title>
-    <url>/2023/08b780455c.html</url>
-    <content><![CDATA[<h1 id="1、简要总结"><a href="#1、简要总结" class="headerlink" title="1、简要总结"></a>1、简要总结</h1><p>UML（Unified Modeling Language，统一建模语言）是一种用于软件系统设计和开发的图形化语言。它是一种通用的、标准化的、基于面向对象的建模语言，可以用于描述和设计各种软件系统。以下是 UML 的一些常用知识点：</p>
-<ul>
-<li><p><strong>UML 中的基本元素：</strong></p>
-<blockquote>
-<p>UML 中有三种基本元素，分别是结构元素、行为元素和分组元素。结构元素包括类、接口、包、对象等，行为元素包括用例、活动、状态机等，分组元素包括组、子系统、节点等。</p>
-</blockquote>
-</li>
-<li><p><strong>UML 中的类图：</strong></p>
-<blockquote>
-<p>类图是 UML 中最常用的图之一，用于描述系统中的类、接口、关系等元素。类图中常用的关系包括继承、实现、关联、聚合、组合等。其中，继承关系表示类之间的继承关系，实现关系表示接口的实现关系，关联关系表示两个类之间的关联关系，聚合关系表示整体与部分之间的关系，组合关系表示强关联的整体与部分之间的关系。</p>
-</blockquote>
-</li>
-<li><p><strong>UML 中的时序图：</strong></p>
-<blockquote>
-<p>时序图是 UML 中用于描述系统中对象之间的交互关系的图形化工具。时序图中通常包含对象、生命线、消息、同步和异步消息等元素。时序图可以用于描述系统中对象之间的交互过程，包括同步和异步消息的交互过程。</p>
-</blockquote>
-</li>
-<li><p><strong>UML 中的用例图：</strong></p>
-<blockquote>
-<p>用例图是 UML 中用于描述系统中用户和系统之间的交互的图形化工具。用例图中通常包含参与者、用例、关系等元素。用例图可以用于描述系统中的功能需求和用户需求，从而帮助开发人员和用户更好地理解系统。</p>
-</blockquote>
-</li>
-<li><p><strong>UML 中的活动图：</strong></p>
-</li>
-</ul>
-<blockquote>
-<p>活动图是 UML 中用于描述系统中业务流程的图形化工具。活动图中通常包含起始节点、活动节点、决策节点、合并节点等元素。活动图可以用于描述系统中的业务流程，从而帮助开发人员更好地理解系统的业务流程。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>软件工程</category>
-      </categories>
-      <tags>
-        <tag>UML</tag>
-        <tag>UML知识总结</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows快捷打开管理员模式命令行方式</title>
     <url>/2023/08e0ceff35.html</url>
     <content><![CDATA[<h1 id="鼠标点击启动"><a href="#鼠标点击启动" class="headerlink" title="鼠标点击启动"></a>鼠标点击启动</h1><ul>
 <li>windows搜索框搜索cmd或者命令行,如下所示：</li>
 </ul>
-<img data-src="/2023/08undefined/image-20230802195303970.png" class>
+<img data-src="/2023/08e0ceff35/image-20230802195303970.png" class>
 
 <h1 id="Win-R启动"><a href="#Win-R启动" class="headerlink" title="Win+R启动"></a>Win+R启动</h1><ul>
 <li>使用Win+R快捷键，然后输入cmd后，再次使用Ctrl+Shift+Enter快捷键打开管理员模式命令行</li>
@@ -1685,24 +1682,24 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
 <h1 id="为打开管理员模式命令行设置快捷键"><a href="#为打开管理员模式命令行设置快捷键" class="headerlink" title="为打开管理员模式命令行设置快捷键"></a>为打开管理员模式命令行设置快捷键</h1><ol>
 <li>windows搜索框搜索cmd，然后点击打开文件位置，如下图所示</li>
 </ol>
-<img data-src="/2023/08undefined/image-20230802195748221.png" class>
+<img data-src="/2023/08e0ceff35/image-20230802195748221.png" class>
 
 <ol start="2">
 <li>进入文件后，把下面的命令提示符快捷方式复制一份放在桌面，如下所示：</li>
 </ol>
-<img data-src="/2023/08undefined/image-20230802202441605.png" class>
+<img data-src="/2023/08e0ceff35/image-20230802202441605.png" class>
 
 <ol start="3">
 <li>复制后，先重命名一下，我这里命名的是命令提示符管理员，以便于移回原先的文件夹(放在桌面不美观，当然你也可以选择自己想要放的位置，并不影响)，重命名后剪切移动到原来的位置，如下所示：</li>
 </ol>
-<img data-src="/2023/08undefined/image-20230802203013311.png" class>
+<img data-src="/2023/08e0ceff35/image-20230802203013311.png" class>
 
 <ol start="4">
 <li>右键重命名后得到的快捷方式，选择属性，然后选择自己记得住且不会冲突的快捷键，我选择的是Ctrl+K如下所示：</li>
 </ol>
-<img data-src="/2023/08undefined/image-20230802203458849.png" class>
+<img data-src="/2023/08e0ceff35/image-20230802203458849.png" class>
 
-<img data-src="/2023/08undefined/image-20230802203707536.png" class>
+<img data-src="/2023/08e0ceff35/image-20230802203707536.png" class>
 
 <ol start="5">
 <li>然后点击高级，勾选用管理员身份运行，之后点击确定和应用即可。</li>
@@ -1711,7 +1708,7 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
 
 <ol start="6">
 <li><p>然后使用快捷键即可快捷使用管理员模式命令提示符</p>
-<img data-src="/2023/08undefined/image-20230802204059861.png" class></li>
+<img data-src="/2023/08e0ceff35/image-20230802204059861.png" class></li>
 </ol>
 ]]></content>
       <categories>
@@ -1891,6 +1888,46 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
+    <title>软件工程概述</title>
+    <url>/2023/08b85236bf.html</url>
+    <content><![CDATA[<p><strong>软件工程</strong>是一门关于软件开发过程的学科，它包括了<strong>软件开发、测试、部署、运维</strong>等方面的知识。以下是一些常见的软件工程知识点：</p>
+<h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><blockquote>
+<p>软件生命周期指从软件的开发、测试、部署到维护和升级的整个过程。软件生命周期可以分为几个阶段，如计划、需求分析、设计、编码、测试、部署、维护等。</p>
+</blockquote>
+<h1 id="软件开发方法"><a href="#软件开发方法" class="headerlink" title="软件开发方法"></a>软件开发方法</h1><blockquote>
+<p>软件开发方法包括了传统的瀑布模型、敏捷开发、迭代开发等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
+</blockquote>
+<h1 id="软件需求分析"><a href="#软件需求分析" class="headerlink" title="软件需求分析"></a>软件需求分析</h1><blockquote>
+<p>软件需求分析是软件开发的第一步，它的目的是确定软件的功能和性能要求，并将这些要求转化为系统能够实现的具体的功能和规格。</p>
+</blockquote>
+<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><blockquote>
+<p>软件设计是指根据需求分析的结果，确定软件的系统结构、模块划分、接口设计等，以实现需求分析中确定的功能和性能要求。</p>
+</blockquote>
+<h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><blockquote>
+<p>软件测试是指对已经开发的软件进行测试和验证，以确保其符合需求和规格要求。测试包括功能测试、性能测试、安全测试、可靠性测试等。</p>
+</blockquote>
+<h1 id="软件部署"><a href="#软件部署" class="headerlink" title="软件部署"></a>软件部署</h1><blockquote>
+<p>软件部署是指将已经测试通过的软件部署到用户环境中，并确保软件的正常运行。</p>
+</blockquote>
+<h1 id="软件维护"><a href="#软件维护" class="headerlink" title="软件维护"></a>软件维护</h1><blockquote>
+<p>软件维护是指对已经部署的软件进行修复、更新、升级等操作，以保证软件能够持续运行并满足用户的需求。</p>
+</blockquote>
+<h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><blockquote>
+<p>软件质量保证是确保软件开发过程中符合规范和标准，以保证软件的质量和可靠性。它包括了软件过程改进、代码审查、测试和质量度量等方面。</p>
+</blockquote>
+<h1 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h1><blockquote>
+<p>软件项目管理是指对软件开发过程进行规划、组织、协调和控制，以确保项目能够按时完成、满足质量要求和预算控制。</p>
+</blockquote>
+<p>软件工程知识是软件开发过程中必不可少的部分，掌握这些知识可以帮助开发人员更好地理解软件开发过程，并提高软件的质量和可靠性。</p>
+]]></content>
+      <categories>
+        <category>软件工程</category>
+      </categories>
+      <tags>
+        <tag>软件工程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>软件测试简介</title>
     <url>/2023/08a9f1ca1d.html</url>
     <content><![CDATA[<h1 id="软件测试概述"><a href="#软件测试概述" class="headerlink" title="软件测试概述"></a>软件测试概述</h1><p>软件测试是指在软件开发过程中，通过对软件系统进行各种测试和验证，以检测软件中的错误和缺陷，保证软件质量，提高软件可靠性和稳定性的过程。软件测试在软件工程中起到至关重要的作用，它可以在软件发布之前发现并修复缺陷和错误，保证软件的稳定性和可靠性，提高软件的用户体验和满意度。</p>
@@ -1963,46 +2000,6 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </categories>
       <tags>
         <tag>软件测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软件工程概述</title>
-    <url>/2023/08b85236bf.html</url>
-    <content><![CDATA[<p><strong>软件工程</strong>是一门关于软件开发过程的学科，它包括了<strong>软件开发、测试、部署、运维</strong>等方面的知识。以下是一些常见的软件工程知识点：</p>
-<h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><blockquote>
-<p>软件生命周期指从软件的开发、测试、部署到维护和升级的整个过程。软件生命周期可以分为几个阶段，如计划、需求分析、设计、编码、测试、部署、维护等。</p>
-</blockquote>
-<h1 id="软件开发方法"><a href="#软件开发方法" class="headerlink" title="软件开发方法"></a>软件开发方法</h1><blockquote>
-<p>软件开发方法包括了传统的瀑布模型、敏捷开发、迭代开发等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
-</blockquote>
-<h1 id="软件需求分析"><a href="#软件需求分析" class="headerlink" title="软件需求分析"></a>软件需求分析</h1><blockquote>
-<p>软件需求分析是软件开发的第一步，它的目的是确定软件的功能和性能要求，并将这些要求转化为系统能够实现的具体的功能和规格。</p>
-</blockquote>
-<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><blockquote>
-<p>软件设计是指根据需求分析的结果，确定软件的系统结构、模块划分、接口设计等，以实现需求分析中确定的功能和性能要求。</p>
-</blockquote>
-<h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><blockquote>
-<p>软件测试是指对已经开发的软件进行测试和验证，以确保其符合需求和规格要求。测试包括功能测试、性能测试、安全测试、可靠性测试等。</p>
-</blockquote>
-<h1 id="软件部署"><a href="#软件部署" class="headerlink" title="软件部署"></a>软件部署</h1><blockquote>
-<p>软件部署是指将已经测试通过的软件部署到用户环境中，并确保软件的正常运行。</p>
-</blockquote>
-<h1 id="软件维护"><a href="#软件维护" class="headerlink" title="软件维护"></a>软件维护</h1><blockquote>
-<p>软件维护是指对已经部署的软件进行修复、更新、升级等操作，以保证软件能够持续运行并满足用户的需求。</p>
-</blockquote>
-<h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><blockquote>
-<p>软件质量保证是确保软件开发过程中符合规范和标准，以保证软件的质量和可靠性。它包括了软件过程改进、代码审查、测试和质量度量等方面。</p>
-</blockquote>
-<h1 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h1><blockquote>
-<p>软件项目管理是指对软件开发过程进行规划、组织、协调和控制，以确保项目能够按时完成、满足质量要求和预算控制。</p>
-</blockquote>
-<p>软件工程知识是软件开发过程中必不可少的部分，掌握这些知识可以帮助开发人员更好地理解软件开发过程，并提高软件的质量和可靠性。</p>
-]]></content>
-      <categories>
-        <category>软件工程</category>
-      </categories>
-      <tags>
-        <tag>软件工程</tag>
       </tags>
   </entry>
 </search>
