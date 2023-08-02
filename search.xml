@@ -157,6 +157,57 @@
       </tags>
   </entry>
   <entry>
+    <title>14.最长公共前缀(Java)</title>
+    <url>/2023/08true.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>题目描述：<br>编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。</p>
+</blockquote>
+<blockquote>
+<p>示例1：<br>输入：strs &#x3D; [“flower”,”flow”,”flight”]<br>输出：”fl”</p>
+</blockquote>
+<blockquote>
+<p>示例2：<br>输入：strs &#x3D; [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>解题思路：</strong><br>对于空字符数组直接返回“”作为公共前缀；对于非空数组，则随机选一个字符串作为初始公共前缀（因为公共前缀的最大长度一定小于等于数组中最短的那个字符串，所以可以随机选择一个字符串作为初始前缀），之后使用String类中的方法startsWith（）在for循环中判断字符串是否含有该前缀，若没有则缩短公共前缀的长度，在缩短之前判断变量(公共前缀)的长度是否为0，若为0则返回空字符串“”。</p>
+</blockquote>
+<blockquote>
+<p><strong>解题步骤如下：</strong><br>1、判断字符数组的长度是否为0，若为0则返回空字符串“”<br>2、对于非空字符串则选择第一个字符串作为初始公共前缀<br>3、遍历字符串数组，判断前缀变量的长度是否为0，若不为0则使用startswith方法判断是否含有该公共前缀<br>4、若不该前缀，则缩短前缀变量的长度，继续判断<br>5、当遍历结束后，返回公共前缀。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> strs<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span>     <span class="token comment">//空则返回“”</span>
+            <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> s <span class="token operator">=</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">//初始前缀</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> str <span class="token operator">:</span>strs<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>str<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">//判断是否含有该前缀</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
+                s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//前缀长度-1</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+            <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决该题时，最初的思路是先遍历字符串数组，找出字符串长度最短的字符串作为初始前缀的值，然后进行横向扫描解题。后通过借鉴他人思路，使用startsWith方法进行前缀判断。<br>后查看官方题解，看到多种解题思路，如二分查找、纵向扫描等方法。</p>
+<img data-src="/2023/08true/6d21bc19977b4ac3a171e2d685b70983.png" class>
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Java</tag>
+        <tag>leetcode</tag>
+        <tag>leetcode题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2.两数相加(C语言)</title>
     <url>/2023/077402.html</url>
     <content><![CDATA[<h1 id="LeetCode题解-2-两数相加（C语言）"><a href="#LeetCode题解-2-两数相加（C语言）" class="headerlink" title="LeetCode题解-2.两数相加（C语言）"></a>LeetCode题解-2.两数相加（C语言）</h1><h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
@@ -231,57 +282,6 @@
         <tag>LeetCode题解</tag>
         <tag>LeetCode</tag>
         <tag>两数之和</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>14.最长公共前缀(Java)</title>
-    <url>/2023/08true.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p>题目描述：<br>编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。</p>
-</blockquote>
-<blockquote>
-<p>示例1：<br>输入：strs &#x3D; [“flower”,”flow”,”flight”]<br>输出：”fl”</p>
-</blockquote>
-<blockquote>
-<p>示例2：<br>输入：strs &#x3D; [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>解题思路：</strong><br>对于空字符数组直接返回“”作为公共前缀；对于非空数组，则随机选一个字符串作为初始公共前缀（因为公共前缀的最大长度一定小于等于数组中最短的那个字符串，所以可以随机选择一个字符串作为初始前缀），之后使用String类中的方法startsWith（）在for循环中判断字符串是否含有该前缀，若没有则缩短公共前缀的长度，在缩短之前判断变量(公共前缀)的长度是否为0，若为0则返回空字符串“”。</p>
-</blockquote>
-<blockquote>
-<p><strong>解题步骤如下：</strong><br>1、判断字符数组的长度是否为0，若为0则返回空字符串“”<br>2、对于非空字符串则选择第一个字符串作为初始公共前缀<br>3、遍历字符串数组，判断前缀变量的长度是否为0，若不为0则使用startswith方法判断是否含有该公共前缀<br>4、若不该前缀，则缩短前缀变量的长度，继续判断<br>5、当遍历结束后，返回公共前缀。</p>
-</blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> strs<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span>     <span class="token comment">//空则返回“”</span>
-            <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token class-name">String</span> s <span class="token operator">=</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">//初始前缀</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> str <span class="token operator">:</span>strs<span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>str<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">//判断是否含有该前缀</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
-                    <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
-                s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//前缀长度-1</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-            <span class="token keyword">return</span> s<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决该题时，最初的思路是先遍历字符串数组，找出字符串长度最短的字符串作为初始前缀的值，然后进行横向扫描解题。后通过借鉴他人思路，使用startsWith方法进行前缀判断。<br>后查看官方题解，看到多种解题思路，如二分查找、纵向扫描等方法。</p>
-<img data-src="/2023/08true/6d21bc19977b4ac3a171e2d685b70983.png" class>
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>LeetCode</tag>
-        <tag>Java</tag>
-        <tag>leetcode</tag>
-        <tag>leetcode题解</tag>
       </tags>
   </entry>
   <entry>
@@ -849,39 +849,6 @@ I</span> hope <span class="token class-name">Github</span> will give you <span c
       </tags>
   </entry>
   <entry>
-    <title>Java常用工具类</title>
-    <url>/2023/088b50b566.html</url>
-    <content><![CDATA[<h1 id="常用工具类"><a href="#常用工具类" class="headerlink" title="常用工具类"></a>常用工具类</h1><p>Java中有许多常用的工具类，它们提供了各种实用的方法，方便我们进行常见的操作。以下是一些常用的Java工具类：</p>
-<ol>
-<li><code>java.util.Arrays</code>：提供了用于操作数组的静态方法，如排序、搜索、填充等。</li>
-<li><code>java.util.Collections</code>：提供了用于操作集合的静态方法，如排序、搜索、反转、替换等。</li>
-<li><code>java.lang.Math</code>：提供了用于数学运算的静态方法，如求绝对值、平方根、最大值、最小值等。</li>
-<li><code>java.util.StringJoiner</code>：用于连接字符串的类，可以在字符串之间添加分隔符。</li>
-<li><code>java.util.StringTokenizer</code>：用于分割字符串的类，类似于<code>String.split()</code>方法，但更加灵活。</li>
-<li><code>java.util.Random</code>：用于生成随机数的类。</li>
-<li><code>java.text.SimpleDateFormat</code>：用于将日期对象格式化为指定的日期字符串。</li>
-<li><code>java.util.Properties</code>：用于处理属性文件的类，可以读取和写入属性文件。</li>
-<li><code>java.util.Scanner</code>：用于从输入流中读取基本类型和字符串。</li>
-<li><code>java.nio.file.Paths</code>：用于处理文件路径的类，可以获取文件路径、创建文件路径等。</li>
-<li><code>java.nio.file.Files</code>：用于处理文件和目录的类，可以复制、移动、删除文件等。</li>
-<li><code>java.util.UUID</code>：用于生成唯一标识符(UUID)。</li>
-<li><code>java.util.regex.Pattern</code>：用于处理正则表达式的类，可以进行匹配和查找。</li>
-<li><code>java.net.URL</code>：用于表示统一资源定位符(URL)，可以用于网络资源访问。</li>
-<li><code>java.util.zip.ZipFile</code>：用于处理ZIP文件的类，可以读取和解压ZIP文件。</li>
-</ol>
-<p>这些工具类都位于Java标准库中，无需额外导入即可使用。根据不同的需求，你可以选择合适的工具类来简化你的编程工作。除了上述工具类，Java还有许多其他常用的工具类，可以根据具体的项目和任务来进一步探索和使用。</p>
-]]></content>
-      <categories>
-        <category>Java教程</category>
-        <category>Java核心类</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Java工具类</tag>
-        <tag>Java常用工具类</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git与Gitee和Github的简单使用</title>
     <url>/2023/086e30063e.html</url>
     <content><![CDATA[<h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>Git安装包地址：链接: <span class="exturl" data-url="aHR0cDovL2dpdC1zY20uY29tL2Rvd25sb2Fkcw==">Git<i class="fa fa-external-link-alt"></i></span></p>
@@ -966,6 +933,39 @@ $ <span class="token function">git</span> push <span class="token parameter vari
       </tags>
   </entry>
   <entry>
+    <title>Java常用工具类</title>
+    <url>/2023/088b50b566.html</url>
+    <content><![CDATA[<h1 id="常用工具类"><a href="#常用工具类" class="headerlink" title="常用工具类"></a>常用工具类</h1><p>Java中有许多常用的工具类，它们提供了各种实用的方法，方便我们进行常见的操作。以下是一些常用的Java工具类：</p>
+<ol>
+<li><code>java.util.Arrays</code>：提供了用于操作数组的静态方法，如排序、搜索、填充等。</li>
+<li><code>java.util.Collections</code>：提供了用于操作集合的静态方法，如排序、搜索、反转、替换等。</li>
+<li><code>java.lang.Math</code>：提供了用于数学运算的静态方法，如求绝对值、平方根、最大值、最小值等。</li>
+<li><code>java.util.StringJoiner</code>：用于连接字符串的类，可以在字符串之间添加分隔符。</li>
+<li><code>java.util.StringTokenizer</code>：用于分割字符串的类，类似于<code>String.split()</code>方法，但更加灵活。</li>
+<li><code>java.util.Random</code>：用于生成随机数的类。</li>
+<li><code>java.text.SimpleDateFormat</code>：用于将日期对象格式化为指定的日期字符串。</li>
+<li><code>java.util.Properties</code>：用于处理属性文件的类，可以读取和写入属性文件。</li>
+<li><code>java.util.Scanner</code>：用于从输入流中读取基本类型和字符串。</li>
+<li><code>java.nio.file.Paths</code>：用于处理文件路径的类，可以获取文件路径、创建文件路径等。</li>
+<li><code>java.nio.file.Files</code>：用于处理文件和目录的类，可以复制、移动、删除文件等。</li>
+<li><code>java.util.UUID</code>：用于生成唯一标识符(UUID)。</li>
+<li><code>java.util.regex.Pattern</code>：用于处理正则表达式的类，可以进行匹配和查找。</li>
+<li><code>java.net.URL</code>：用于表示统一资源定位符(URL)，可以用于网络资源访问。</li>
+<li><code>java.util.zip.ZipFile</code>：用于处理ZIP文件的类，可以读取和解压ZIP文件。</li>
+</ol>
+<p>这些工具类都位于Java标准库中，无需额外导入即可使用。根据不同的需求，你可以选择合适的工具类来简化你的编程工作。除了上述工具类，Java还有许多其他常用的工具类，可以根据具体的项目和任务来进一步探索和使用。</p>
+]]></content>
+      <categories>
+        <category>Java教程</category>
+        <category>Java核心类</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java工具类</tag>
+        <tag>Java常用工具类</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java异常处理</title>
     <url>/2023/087526d370.html</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Java异常处理是Java编程中一个重要的概念，用于处理程序运行过程中可能出现的错误和异常情况。异常处理机制可以使程序在出现异常时不至于崩溃，而是能够进行适当的处理和恢复。Java内置了一套异常处理机制，总是使用异常来表示错误。异常可以在任何地方抛出。</p>
@@ -997,233 +997,6 @@ $ <span class="token function">git</span> push <span class="token parameter vari
         <tag>Java</tag>
         <tag>Java异常处理</tag>
         <tag>异常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux常用命令</title>
-    <url>/2023/08d0edc1ed.html</url>
-    <content><![CDATA[<h1 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#gz文件</span>
-<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span>
-<span class="token comment">#xz文件</span>
-<span class="token function">tar</span> <span class="token parameter variable">-Jxvf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建文件夹</span>
-<span class="token function">mkdir</span> 文件夹名
-<span class="token comment">#文件权限 r（读） w(写） x(执行)</span>
-<span class="token function">chmod</span> +x script
-<span class="token comment">#打开文件</span>
-<span class="token builtin class-name">cd</span> 文件名
-<span class="token comment"># 返回上一级</span>
-<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
-<span class="token comment">#返回上一个目录</span>
-<span class="token builtin class-name">cd</span> -
-
-<span class="token comment">#复制 文件夹后加/</span>
-<span class="token function">cp</span> 文件1.txt wenjain.txt
-<span class="token comment">#重命名或移动</span>
-<span class="token function">mv</span> 原名 现名  <span class="token comment">#保留在同一目录</span>
-<span class="token function">mv</span> source_file destination_folder/ <span class="token comment">#移动</span>
-<span class="token comment">#删除文件，-rf不询问 -r询问</span>
-<span class="token function">rm</span> <span class="token parameter variable">-rf</span> 文件名
-
-<span class="token comment">#编辑文件</span>
-<span class="token function">vim</span> 文件名
-<span class="token comment">#编辑后保存文件</span>
-ECS + ：wq
-
-加！强制退出
-
-<span class="token comment">#列出目录下neirong</span>
-<span class="token function">ls</span>
-
-<span class="token comment">#输出当前目录的绝对路径</span>
-<span class="token builtin class-name">pwd</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="jdk相关"><a href="#jdk相关" class="headerlink" title="jdk相关"></a>jdk相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#java版本</span>
-<span class="token function">java</span> <span class="token parameter variable">-version</span>
-<span class="token comment">#显示java文件</span>
-<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">java</span>
-<span class="token comment">#删除</span>
-<span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> 文件名
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#wget</span>
-<span class="token function">wget</span> 资源地址
-<span class="token comment">#yum </span>
-yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="ip相关"><a href="#ip相关" class="headerlink" title="ip相关"></a>ip相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看ip</span>
-<span class="token function">ip</span> addr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>命令</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>linux</tag>
-        <tag>linux常用命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java数据类型</title>
-    <url>/2023/0818833.html</url>
-    <content><![CDATA[<h1 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
-<li>基本类型：<code>byte</code>，<code>short</code>，<code>int</code>，<code>long</code>，<code>boolean</code>，<code>float</code>，<code>double</code>，<code>char</code></li>
-<li>引用类型：所有<code>class</code>和<code>interface</code>类型</li>
-</ul>
-<p><strong>注意</strong>：引用类型可以赋值为null，表示空，但基本类型不能赋值为null，会编译错误</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// compile error!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>基本类型与引用类型的对应关系，如下表所示：</p>
-<table>
-<thead>
-<tr>
-<th align="left">基本类型</th>
-<th align="left">对应的引用类型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">boolean</td>
-<td align="left">java.lang.Boolean</td>
-</tr>
-<tr>
-<td align="left">byte</td>
-<td align="left">java.lang.Byte</td>
-</tr>
-<tr>
-<td align="left">short</td>
-<td align="left">java.lang.Short</td>
-</tr>
-<tr>
-<td align="left">int</td>
-<td align="left">java.lang.Integer</td>
-</tr>
-<tr>
-<td align="left">long</td>
-<td align="left">java.lang.Long</td>
-</tr>
-<tr>
-<td align="left">float</td>
-<td align="left">java.lang.Float</td>
-</tr>
-<tr>
-<td align="left">double</td>
-<td align="left">java.lang.Double</td>
-</tr>
-<tr>
-<td align="left">char</td>
-<td align="left">java.lang.Character</td>
-</tr>
-</tbody></table>
-<ul>
-<li>Java编译器可以帮助我们自动在<code>int</code>和<code>Integer</code>之间转型：</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.valueOf(int)</span>
-<span class="token keyword">int</span> x <span class="token operator">=</span> n<span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.intValue()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><strong>注意：</strong>这种直接把<code>int</code>变为<code>Integer</code>的赋值写法，称为自动装箱（Auto Boxing），反过来，把<code>Integer</code>变为<code>int</code>的赋值写法，称为自动拆箱（Auto Unboxing）。自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。</p>
-<p>装箱和拆箱会影响代码的执行效率，因为编译后的<code>class</code>代码是严格区分基本类型和引用类型的。并且，自动拆箱执行时可能会报<code>NullPointerException</code>：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span><span class="token comment">//基本数据类型不能</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>所有的包装类型都是不变类。</li>
-<li>对两个<code>Integer</code>实例进行比较要特别注意：绝对不能用<code>==</code>比较，因为<code>Integer</code>是引用类型，必须使用<code>equals()</code>比较</li>
-<li>在Java中，并没有无符号整型（Unsigned）的基本数据类型。<code>byte</code>、<code>short</code>、<code>int</code>和<code>long</code>都是带符号整型，最高位是符号位。无符号整型和有符号整型的转换在Java中就需要借助包装类型的静态方法完成。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java教程</category>
-        <category>Java零碎知识点记录</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Java知识记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mybatis简介</title>
-    <url>/2023/08true.html</url>
-    <content><![CDATA[<h1 id="简介及总结"><a href="#简介及总结" class="headerlink" title="简介及总结"></a>简介及总结</h1><p><code>MyBatis</code> 是一款开源的 <code>Java</code> 持久层框架，可以帮助 <code>Java</code> 开发者简化数据库访问的流程。以下是一些 <code>MyBatis</code> 的知识总结：</p>
-<ul>
-<li><p><strong>SQL 映射文件</strong>：</p>
-<blockquote>
-<p><code>MyBatis</code> 通过 <code>SQL</code> 映射文件来定义 <code>SQL</code> 语句和 <code>Java</code> 对象之间的映射关系。<code>SQL</code> 映射文件通常包括数据查询、数据插入、数据更新、数据删除等操作，同时还包括参数传递、结果集映射等内容。</p>
-</blockquote>
-</li>
-<li><p><strong>动态 SQL：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 支持动态 <code>SQL</code>，可以根据不同的条件生成不同的 <code>SQL</code> 语句。动态 <code>SQL</code> 包括 <code>if、choose、when、otherwise、foreach</code> 等标签，可以实现复杂的 <code>SQL</code> 查询语句。</p>
-</blockquote>
-</li>
-<li><p><strong>数据库连接池：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 可以通过数据库连接池来管理数据库连接，可以提高应用程序的性能和响应速度。<code>MyBatis</code> 内置了多种数据库连接池实现，例如 <code>Apache Commons DBCP、C3P0、BoneCP</code> 等。</p>
-</blockquote>
-</li>
-<li><p><strong>一级缓存和二级缓存：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 内置了一级缓存和二级缓存，可以提高数据访问的性能。一级缓存是 <code>Session</code> 级别的缓存，可以通过配置关闭或清空；二级缓存是全局级别的缓存，可以通过配置进行开启或关闭。</p>
-</blockquote>
-</li>
-<li><p><strong>插件机制：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 支持插件机制，可以扩展 <code>MyBatis</code> 的功能。插件可以对 <code>SQL</code> 语句进行拦截和修改，还可以对查询结果进行加工和处理，插件的实现可以使用 <code>JDK</code> 动态代理或者 <code>CGLib</code> 动态代理技术。</p>
-</blockquote>
-</li>
-<li><p><strong>Spring 整合：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 可以和 <code>Spring</code> 框架进行整合，可以实现事务管理、注解驱动等功能。<code>MyBatis-Spring</code> 提供了多种整合方式，例如通过 <code>Spring XML</code> 配置、通过 <code>Spring</code> 注解配置等。</p>
-</blockquote>
-</li>
-</ul>
-<p>总之，MyBatis 是一款成熟稳定的 Java 持久层框架，具有灵活、高效、易用等优点。在使用 MyBatis 进行开发时，需要掌握 SQL 映射文件的编写、动态 SQL 的使用、数据库连接池的配置、缓存的使用、插件机制的扩展以及和 Spring 框架的整合等知识。</p>
-<h1 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h1><p>MyBatis 内置了多种数据库连接池实现，可以通过配置文件来选择使用哪种数据库连接池。常用的数据库连接池有以下几种：</p>
-<ul>
-<li><p><strong>1、PooledDataSource：</strong></p>
-<blockquote>
-<p>这是 MyBatis 内置的数据库连接池实现，基于 Apache Commons DBCP 实现。可以通过配置文件进行配置，例如设置最大连接数、最小连接数、连接超时时间等。</p>
-</blockquote>
-</li>
-<li><p><strong>2、C3P0DataSource：</strong></p>
-<blockquote>
-<p>这是基于 C3P0 实现的数据库连接池，可以用于 MyBatis。C3P0 是一个开源的 JDBC 连接池，提供了高效的连接池管理，可以通过配置文件进行配置。</p>
-</blockquote>
-</li>
-<li><p><strong>3、BoneCPDataSource：</strong></p>
-<blockquote>
-<p>这是基于 BoneCP 实现的数据库连接池，也可以用于 MyBatis。BoneCP 是一个高性能的 JDBC 连接池，提供了很多高级功能，例如闲置连接回收、分布式部署等。</p>
-</blockquote>
-</li>
-</ul>
-<p>使用 MyBatis 数据库连接池可以提高应用程序的性能和响应速度，同时还可以防止数据库连接泄漏和资源浪费。要使用 MyBatis 数据库连接池，可以按照以下步骤操作：<br>1、在 <code>pom.xml</code> 中添加数据库连接池的依赖，例如 <code>commons-dbcp、c3p0、bonecp</code> 等。<br>2、在 <strong>MyBatis</strong> 的配置文件中添加数据源的配置，例如：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>dataSource <span class="token assign-left variable">type</span><span class="token operator">=</span><span class="token string">"POOLED"</span><span class="token operator">></span>
-  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"driver"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.driver&#125;</span>"</span>/<span class="token operator">></span>
-  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"url"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.url&#125;</span>"</span>/<span class="token operator">></span>
-  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"username"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.username&#125;</span>"</span>/<span class="token operator">></span>
-  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"password"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.password&#125;</span>"</span>/<span class="token operator">></span>
-<span class="token operator">&lt;</span>/dataSource<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其中，<code>type</code> 属性指定了使用的数据库连接池类型，可以是 <code>POOLED、UNPOOLED、JNDI</code> 等。</p>
-<p>3、配置连接池的相关参数，例如最大连接数、最小连接数、连接超时时间等。具体的参数配置可以根据不同的连接池实现进行配置。</p>
-<p>4、在 <code>SQL</code> 映射文件中使用数据库连接池，例如：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>select <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">"getBook"</span> <span class="token assign-left variable">resultType</span><span class="token operator">=</span><span class="token string">"Book"</span><span class="token operator">></span>
-  SELECT * FROM books WHERE <span class="token function">id</span> <span class="token operator">=</span> <span class="token comment">#&#123;id&#125;</span>
-<span class="token operator">&lt;</span>/select<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>使用 <strong>MyBatis</strong> 数据库连接池可以提高应用程序的性能和可靠性，同时还可以方便地管理数据库连接。</p>
-]]></content>
-      <categories>
-        <category>Mybatis教程</category>
-      </categories>
-      <tags>
-        <tag>mybatis</tag>
-        <tag>Mybatis教程</tag>
       </tags>
   </entry>
   <entry>
@@ -1346,6 +1119,233 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
         <tag>Java核心类</tag>
         <tag>字符串</tag>
         <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java数据类型</title>
+    <url>/2023/0818833.html</url>
+    <content><![CDATA[<h1 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
+<li>基本类型：<code>byte</code>，<code>short</code>，<code>int</code>，<code>long</code>，<code>boolean</code>，<code>float</code>，<code>double</code>，<code>char</code></li>
+<li>引用类型：所有<code>class</code>和<code>interface</code>类型</li>
+</ul>
+<p><strong>注意</strong>：引用类型可以赋值为null，表示空，但基本类型不能赋值为null，会编译错误</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// compile error!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>基本类型与引用类型的对应关系，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="left">基本类型</th>
+<th align="left">对应的引用类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">boolean</td>
+<td align="left">java.lang.Boolean</td>
+</tr>
+<tr>
+<td align="left">byte</td>
+<td align="left">java.lang.Byte</td>
+</tr>
+<tr>
+<td align="left">short</td>
+<td align="left">java.lang.Short</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">java.lang.Integer</td>
+</tr>
+<tr>
+<td align="left">long</td>
+<td align="left">java.lang.Long</td>
+</tr>
+<tr>
+<td align="left">float</td>
+<td align="left">java.lang.Float</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">java.lang.Double</td>
+</tr>
+<tr>
+<td align="left">char</td>
+<td align="left">java.lang.Character</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Java编译器可以帮助我们自动在<code>int</code>和<code>Integer</code>之间转型：</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.valueOf(int)</span>
+<span class="token keyword">int</span> x <span class="token operator">=</span> n<span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.intValue()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>注意：</strong>这种直接把<code>int</code>变为<code>Integer</code>的赋值写法，称为自动装箱（Auto Boxing），反过来，把<code>Integer</code>变为<code>int</code>的赋值写法，称为自动拆箱（Auto Unboxing）。自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。</p>
+<p>装箱和拆箱会影响代码的执行效率，因为编译后的<code>class</code>代码是严格区分基本类型和引用类型的。并且，自动拆箱执行时可能会报<code>NullPointerException</code>：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span><span class="token comment">//基本数据类型不能</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>所有的包装类型都是不变类。</li>
+<li>对两个<code>Integer</code>实例进行比较要特别注意：绝对不能用<code>==</code>比较，因为<code>Integer</code>是引用类型，必须使用<code>equals()</code>比较</li>
+<li>在Java中，并没有无符号整型（Unsigned）的基本数据类型。<code>byte</code>、<code>short</code>、<code>int</code>和<code>long</code>都是带符号整型，最高位是符号位。无符号整型和有符号整型的转换在Java中就需要借助包装类型的静态方法完成。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java教程</category>
+        <category>Java零碎知识点记录</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java知识记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux常用命令</title>
+    <url>/2023/08d0edc1ed.html</url>
+    <content><![CDATA[<h1 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#gz文件</span>
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span>
+<span class="token comment">#xz文件</span>
+<span class="token function">tar</span> <span class="token parameter variable">-Jxvf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建文件夹</span>
+<span class="token function">mkdir</span> 文件夹名
+<span class="token comment">#文件权限 r（读） w(写） x(执行)</span>
+<span class="token function">chmod</span> +x script
+<span class="token comment">#打开文件</span>
+<span class="token builtin class-name">cd</span> 文件名
+<span class="token comment"># 返回上一级</span>
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+<span class="token comment">#返回上一个目录</span>
+<span class="token builtin class-name">cd</span> -
+
+<span class="token comment">#复制 文件夹后加/</span>
+<span class="token function">cp</span> 文件1.txt wenjain.txt
+<span class="token comment">#重命名或移动</span>
+<span class="token function">mv</span> 原名 现名  <span class="token comment">#保留在同一目录</span>
+<span class="token function">mv</span> source_file destination_folder/ <span class="token comment">#移动</span>
+<span class="token comment">#删除文件，-rf不询问 -r询问</span>
+<span class="token function">rm</span> <span class="token parameter variable">-rf</span> 文件名
+
+<span class="token comment">#编辑文件</span>
+<span class="token function">vim</span> 文件名
+<span class="token comment">#编辑后保存文件</span>
+ECS + ：wq
+
+加！强制退出
+
+<span class="token comment">#列出目录下neirong</span>
+<span class="token function">ls</span>
+
+<span class="token comment">#输出当前目录的绝对路径</span>
+<span class="token builtin class-name">pwd</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="jdk相关"><a href="#jdk相关" class="headerlink" title="jdk相关"></a>jdk相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#java版本</span>
+<span class="token function">java</span> <span class="token parameter variable">-version</span>
+<span class="token comment">#显示java文件</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">java</span>
+<span class="token comment">#删除</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> 文件名
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#wget</span>
+<span class="token function">wget</span> 资源地址
+<span class="token comment">#yum </span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="ip相关"><a href="#ip相关" class="headerlink" title="ip相关"></a>ip相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看ip</span>
+<span class="token function">ip</span> addr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>命令</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>linux</tag>
+        <tag>linux常用命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mybatis简介</title>
+    <url>/2023/08true.html</url>
+    <content><![CDATA[<h1 id="简介及总结"><a href="#简介及总结" class="headerlink" title="简介及总结"></a>简介及总结</h1><p><code>MyBatis</code> 是一款开源的 <code>Java</code> 持久层框架，可以帮助 <code>Java</code> 开发者简化数据库访问的流程。以下是一些 <code>MyBatis</code> 的知识总结：</p>
+<ul>
+<li><p><strong>SQL 映射文件</strong>：</p>
+<blockquote>
+<p><code>MyBatis</code> 通过 <code>SQL</code> 映射文件来定义 <code>SQL</code> 语句和 <code>Java</code> 对象之间的映射关系。<code>SQL</code> 映射文件通常包括数据查询、数据插入、数据更新、数据删除等操作，同时还包括参数传递、结果集映射等内容。</p>
+</blockquote>
+</li>
+<li><p><strong>动态 SQL：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 支持动态 <code>SQL</code>，可以根据不同的条件生成不同的 <code>SQL</code> 语句。动态 <code>SQL</code> 包括 <code>if、choose、when、otherwise、foreach</code> 等标签，可以实现复杂的 <code>SQL</code> 查询语句。</p>
+</blockquote>
+</li>
+<li><p><strong>数据库连接池：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 可以通过数据库连接池来管理数据库连接，可以提高应用程序的性能和响应速度。<code>MyBatis</code> 内置了多种数据库连接池实现，例如 <code>Apache Commons DBCP、C3P0、BoneCP</code> 等。</p>
+</blockquote>
+</li>
+<li><p><strong>一级缓存和二级缓存：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 内置了一级缓存和二级缓存，可以提高数据访问的性能。一级缓存是 <code>Session</code> 级别的缓存，可以通过配置关闭或清空；二级缓存是全局级别的缓存，可以通过配置进行开启或关闭。</p>
+</blockquote>
+</li>
+<li><p><strong>插件机制：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 支持插件机制，可以扩展 <code>MyBatis</code> 的功能。插件可以对 <code>SQL</code> 语句进行拦截和修改，还可以对查询结果进行加工和处理，插件的实现可以使用 <code>JDK</code> 动态代理或者 <code>CGLib</code> 动态代理技术。</p>
+</blockquote>
+</li>
+<li><p><strong>Spring 整合：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 可以和 <code>Spring</code> 框架进行整合，可以实现事务管理、注解驱动等功能。<code>MyBatis-Spring</code> 提供了多种整合方式，例如通过 <code>Spring XML</code> 配置、通过 <code>Spring</code> 注解配置等。</p>
+</blockquote>
+</li>
+</ul>
+<p>总之，MyBatis 是一款成熟稳定的 Java 持久层框架，具有灵活、高效、易用等优点。在使用 MyBatis 进行开发时，需要掌握 SQL 映射文件的编写、动态 SQL 的使用、数据库连接池的配置、缓存的使用、插件机制的扩展以及和 Spring 框架的整合等知识。</p>
+<h1 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h1><p>MyBatis 内置了多种数据库连接池实现，可以通过配置文件来选择使用哪种数据库连接池。常用的数据库连接池有以下几种：</p>
+<ul>
+<li><p><strong>1、PooledDataSource：</strong></p>
+<blockquote>
+<p>这是 MyBatis 内置的数据库连接池实现，基于 Apache Commons DBCP 实现。可以通过配置文件进行配置，例如设置最大连接数、最小连接数、连接超时时间等。</p>
+</blockquote>
+</li>
+<li><p><strong>2、C3P0DataSource：</strong></p>
+<blockquote>
+<p>这是基于 C3P0 实现的数据库连接池，可以用于 MyBatis。C3P0 是一个开源的 JDBC 连接池，提供了高效的连接池管理，可以通过配置文件进行配置。</p>
+</blockquote>
+</li>
+<li><p><strong>3、BoneCPDataSource：</strong></p>
+<blockquote>
+<p>这是基于 BoneCP 实现的数据库连接池，也可以用于 MyBatis。BoneCP 是一个高性能的 JDBC 连接池，提供了很多高级功能，例如闲置连接回收、分布式部署等。</p>
+</blockquote>
+</li>
+</ul>
+<p>使用 MyBatis 数据库连接池可以提高应用程序的性能和响应速度，同时还可以防止数据库连接泄漏和资源浪费。要使用 MyBatis 数据库连接池，可以按照以下步骤操作：<br>1、在 <code>pom.xml</code> 中添加数据库连接池的依赖，例如 <code>commons-dbcp、c3p0、bonecp</code> 等。<br>2、在 <strong>MyBatis</strong> 的配置文件中添加数据源的配置，例如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>dataSource <span class="token assign-left variable">type</span><span class="token operator">=</span><span class="token string">"POOLED"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"driver"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.driver&#125;</span>"</span>/<span class="token operator">></span>
+  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"url"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.url&#125;</span>"</span>/<span class="token operator">></span>
+  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"username"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.username&#125;</span>"</span>/<span class="token operator">></span>
+  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"password"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.password&#125;</span>"</span>/<span class="token operator">></span>
+<span class="token operator">&lt;</span>/dataSource<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中，<code>type</code> 属性指定了使用的数据库连接池类型，可以是 <code>POOLED、UNPOOLED、JNDI</code> 等。</p>
+<p>3、配置连接池的相关参数，例如最大连接数、最小连接数、连接超时时间等。具体的参数配置可以根据不同的连接池实现进行配置。</p>
+<p>4、在 <code>SQL</code> 映射文件中使用数据库连接池，例如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>select <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">"getBook"</span> <span class="token assign-left variable">resultType</span><span class="token operator">=</span><span class="token string">"Book"</span><span class="token operator">></span>
+  SELECT * FROM books WHERE <span class="token function">id</span> <span class="token operator">=</span> <span class="token comment">#&#123;id&#125;</span>
+<span class="token operator">&lt;</span>/select<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>使用 <strong>MyBatis</strong> 数据库连接池可以提高应用程序的性能和可靠性，同时还可以方便地管理数据库连接。</p>
+]]></content>
+      <categories>
+        <category>Mybatis教程</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+        <tag>Mybatis教程</tag>
       </tags>
   </entry>
   <entry>
@@ -1738,46 +1738,6 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
-    <title>软件工程概述</title>
-    <url>/2023/08b85236bf.html</url>
-    <content><![CDATA[<p><strong>软件工程</strong>是一门关于软件开发过程的学科，它包括了<strong>软件开发、测试、部署、运维</strong>等方面的知识。以下是一些常见的软件工程知识点：</p>
-<h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><blockquote>
-<p>软件生命周期指从软件的开发、测试、部署到维护和升级的整个过程。软件生命周期可以分为几个阶段，如计划、需求分析、设计、编码、测试、部署、维护等。</p>
-</blockquote>
-<h1 id="软件开发方法"><a href="#软件开发方法" class="headerlink" title="软件开发方法"></a>软件开发方法</h1><blockquote>
-<p>软件开发方法包括了传统的瀑布模型、敏捷开发、迭代开发等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
-</blockquote>
-<h1 id="软件需求分析"><a href="#软件需求分析" class="headerlink" title="软件需求分析"></a>软件需求分析</h1><blockquote>
-<p>软件需求分析是软件开发的第一步，它的目的是确定软件的功能和性能要求，并将这些要求转化为系统能够实现的具体的功能和规格。</p>
-</blockquote>
-<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><blockquote>
-<p>软件设计是指根据需求分析的结果，确定软件的系统结构、模块划分、接口设计等，以实现需求分析中确定的功能和性能要求。</p>
-</blockquote>
-<h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><blockquote>
-<p>软件测试是指对已经开发的软件进行测试和验证，以确保其符合需求和规格要求。测试包括功能测试、性能测试、安全测试、可靠性测试等。</p>
-</blockquote>
-<h1 id="软件部署"><a href="#软件部署" class="headerlink" title="软件部署"></a>软件部署</h1><blockquote>
-<p>软件部署是指将已经测试通过的软件部署到用户环境中，并确保软件的正常运行。</p>
-</blockquote>
-<h1 id="软件维护"><a href="#软件维护" class="headerlink" title="软件维护"></a>软件维护</h1><blockquote>
-<p>软件维护是指对已经部署的软件进行修复、更新、升级等操作，以保证软件能够持续运行并满足用户的需求。</p>
-</blockquote>
-<h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><blockquote>
-<p>软件质量保证是确保软件开发过程中符合规范和标准，以保证软件的质量和可靠性。它包括了软件过程改进、代码审查、测试和质量度量等方面。</p>
-</blockquote>
-<h1 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h1><blockquote>
-<p>软件项目管理是指对软件开发过程进行规划、组织、协调和控制，以确保项目能够按时完成、满足质量要求和预算控制。</p>
-</blockquote>
-<p>软件工程知识是软件开发过程中必不可少的部分，掌握这些知识可以帮助开发人员更好地理解软件开发过程，并提高软件的质量和可靠性。</p>
-]]></content>
-      <categories>
-        <category>软件工程</category>
-      </categories>
-      <tags>
-        <tag>软件工程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>软件工程开发方法总结</title>
     <url>/2023/08b31810d4.html</url>
     <content><![CDATA[<p><strong>软件开发方法</strong>：软件开发方法包括了传统的<strong>瀑布模型</strong>、<strong>敏捷开发</strong>、<strong>迭代开发</strong>等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
@@ -1855,6 +1815,46 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
         <tag>软件工程</tag>
         <tag>软件开发方法</tag>
         <tag>软件开发模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件工程概述</title>
+    <url>/2023/08b85236bf.html</url>
+    <content><![CDATA[<p><strong>软件工程</strong>是一门关于软件开发过程的学科，它包括了<strong>软件开发、测试、部署、运维</strong>等方面的知识。以下是一些常见的软件工程知识点：</p>
+<h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><blockquote>
+<p>软件生命周期指从软件的开发、测试、部署到维护和升级的整个过程。软件生命周期可以分为几个阶段，如计划、需求分析、设计、编码、测试、部署、维护等。</p>
+</blockquote>
+<h1 id="软件开发方法"><a href="#软件开发方法" class="headerlink" title="软件开发方法"></a>软件开发方法</h1><blockquote>
+<p>软件开发方法包括了传统的瀑布模型、敏捷开发、迭代开发等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
+</blockquote>
+<h1 id="软件需求分析"><a href="#软件需求分析" class="headerlink" title="软件需求分析"></a>软件需求分析</h1><blockquote>
+<p>软件需求分析是软件开发的第一步，它的目的是确定软件的功能和性能要求，并将这些要求转化为系统能够实现的具体的功能和规格。</p>
+</blockquote>
+<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><blockquote>
+<p>软件设计是指根据需求分析的结果，确定软件的系统结构、模块划分、接口设计等，以实现需求分析中确定的功能和性能要求。</p>
+</blockquote>
+<h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><blockquote>
+<p>软件测试是指对已经开发的软件进行测试和验证，以确保其符合需求和规格要求。测试包括功能测试、性能测试、安全测试、可靠性测试等。</p>
+</blockquote>
+<h1 id="软件部署"><a href="#软件部署" class="headerlink" title="软件部署"></a>软件部署</h1><blockquote>
+<p>软件部署是指将已经测试通过的软件部署到用户环境中，并确保软件的正常运行。</p>
+</blockquote>
+<h1 id="软件维护"><a href="#软件维护" class="headerlink" title="软件维护"></a>软件维护</h1><blockquote>
+<p>软件维护是指对已经部署的软件进行修复、更新、升级等操作，以保证软件能够持续运行并满足用户的需求。</p>
+</blockquote>
+<h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><blockquote>
+<p>软件质量保证是确保软件开发过程中符合规范和标准，以保证软件的质量和可靠性。它包括了软件过程改进、代码审查、测试和质量度量等方面。</p>
+</blockquote>
+<h1 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h1><blockquote>
+<p>软件项目管理是指对软件开发过程进行规划、组织、协调和控制，以确保项目能够按时完成、满足质量要求和预算控制。</p>
+</blockquote>
+<p>软件工程知识是软件开发过程中必不可少的部分，掌握这些知识可以帮助开发人员更好地理解软件开发过程，并提高软件的质量和可靠性。</p>
+]]></content>
+      <categories>
+        <category>软件工程</category>
+      </categories>
+      <tags>
+        <tag>软件工程</tag>
       </tags>
   </entry>
   <entry>
