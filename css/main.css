@@ -2035,15 +2035,6 @@ pre code {
     text-align: justify;
   }
 }
-.post-body a:not(.btn) {
-  color: #f89fa0;
-  border-bottom: none;
-}
-.post-body a:not(.btn):hover {
-  color: #ff7a7a;
-  font-weight: bold;
-  text-decoration: underline;
-}
 .post-body h1 .header-anchor,
 .post-body h2 .header-anchor,
 .post-body h3 .header-anchor,

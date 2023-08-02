@@ -6,7 +6,7 @@
   <link href="https://resmino.github.io/atom.xml" rel="self"/>
   
   <link href="https://resmino.github.io/"/>
-  <updated>2023-08-02T02:22:58.148Z</updated>
+  <updated>2023-08-02T12:41:30.432Z</updated>
   <id>https://resmino.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows快捷打开管理员模式命令行方式</title>
+    <link href="https://resmino.github.io/2023/08e0ceff35.html"/>
+    <id>https://resmino.github.io/2023/08e0ceff35.html</id>
+    <published>2023-08-02T11:40:43.000Z</published>
+    <updated>2023-08-02T12:41:30.432Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="鼠标点击启动"><a href="#鼠标点击启动" class="headerlink" title="鼠标点击启动"></a>鼠标点击启动</h1><ul><li>windows搜索框搜索cmd或者命令行,如下所示：</li></ul><img data-src="/2023/08undefined/image-20230802195303970.png" class><h1 id="Win-R启动"><a href="#Win-R启动" class="headerlink" title="Win+R启动"></a>Win+R启动</h1><ul><li>使用Win+R快捷键，然后输入cmd后，再次使用Ctrl+Shift+Enter快捷键打开管理员模式命令行</li></ul><h1 id="为打开管理员模式命令行设置快捷键"><a href="#为打开管理员模式命令行设置快捷键" class="headerlink" title="为打开管理员模式命令行设置快捷键"></a>为打开管理员模式命令行设置快捷键</h1><ol><li>windows搜索框搜索cmd，然后点击打开文件位置，如下图所示</li></ol><img data-src="/2023/08undefined/image-20230802195748221.png" class><ol start="2"><li>进入文件后，把下面的命令提示符快捷方式复制一份放在桌面，如下所示：</li></ol><img data-src="/2023/08undefined/image-20230802202441605.png" class><ol start="3"><li>复制后，先重命名一下，我这里命名的是命令提示符管理员，以便于移回原先的文件夹(放在桌面不美观，当然你也可以选择自己想要放的位置，并不影响)，重命名后剪切移动到原来的位置，如下所示：</li></ol><img data-src="/2023/08undefined/image-20230802203013311.png" class><ol start="4"><li>右键重命名后得到的快捷方式，选择属性，然后选择自己记得住且不会冲突的快捷键，我选择的是Ctrl+K如下所示：</li></ol><img data-src="/2023/08undefined/image-20230802203458849.png" class><img data-src="/2023/08undefined/image-20230802203707536.png" class><ol start="5"><li>然后点击高级，勾选用管理员身份运行，之后点击确定和应用即可。</li></ol><ol start="6"><li><p>然后使用快捷键即可快捷使用管理员模式命令提示符</p><img data-src="/2023/08undefined/image-20230802204059861.png" class></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;鼠标点击启动&quot;&gt;&lt;a href=&quot;#鼠标点击启动&quot; class=&quot;headerlink&quot; title=&quot;鼠标点击启动&quot;&gt;&lt;/a&gt;鼠标点击启动&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;windows搜索框搜索cmd或者命令行,如下所示：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img data-</summary>
+      
+    
+    
+    
+    <category term="Windows" scheme="https://resmino.github.io/categories/Windows/"/>
+    
+    <category term="Windows命令" scheme="https://resmino.github.io/categories/Windows/Windows%E5%91%BD%E4%BB%A4/"/>
+    
+    
+    <category term="cmd" scheme="https://resmino.github.io/tags/cmd/"/>
+    
+    <category term="管理员模式cmd" scheme="https://resmino.github.io/tags/%E7%AE%A1%E7%90%86%E5%91%98%E6%A8%A1%E5%BC%8Fcmd/"/>
+    
+    <category term="管理员命令行" scheme="https://resmino.github.io/tags/%E7%AE%A1%E7%90%86%E5%91%98%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML基础标签</title>
+    <link href="https://resmino.github.io/2023/088c85f492.html"/>
+    <id>https://resmino.github.io/2023/088c85f492.html</id>
+    <published>2023-08-02T08:54:14.000Z</published>
+    <updated>2023-08-02T09:01:28.542Z</updated>
+    
+    
+    <summary type="html">HTML知识-HTML基础标签</summary>
+    
+    
+    
+    <category term="HTML教程" scheme="https://resmino.github.io/categories/HTML%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="html" scheme="https://resmino.github.io/tags/html/"/>
+    
+    <category term="HTML教程" scheme="https://resmino.github.io/tags/HTML%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="html标签" scheme="https://resmino.github.io/tags/html%E6%A0%87%E7%AD%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>Github学生包申请(学校邮箱版，秒通过)</title>
@@ -477,56 +533,6 @@
     <category term="JavaBean" scheme="https://resmino.github.io/tags/JavaBean/"/>
     
     <category term="Java核心类" scheme="https://resmino.github.io/tags/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java数据类型</title>
-    <link href="https://resmino.github.io/2023/0818833.html"/>
-    <id>https://resmino.github.io/2023/0818833.html</id>
-    <published>2023-08-01T02:58:46.000Z</published>
-    <updated>2023-08-01T03:23:06.489Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul><li>基本类型：<code>byte</code>，<code>short</code>，<code>int</code>，<code>long</code>，<code>boolean</code>，<code>float</code>，<code>double</code>，<code>char</code></li><li>引用类型：所有<code>class</code>和<code>interface</code>类型</li></ul><p><strong>注意</strong>：引用类型可以赋值为null，表示空，但基本类型不能赋值为null，会编译错误</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// compile error!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>基本类型与引用类型的对应关系，如下表所示：</p><table><thead><tr><th align="left">基本类型</th><th align="left">对应的引用类型</th></tr></thead><tbody><tr><td align="left">boolean</td><td align="left">java.lang.Boolean</td></tr><tr><td align="left">byte</td><td align="left">java.lang.Byte</td></tr><tr><td align="left">short</td><td align="left">java.lang.Short</td></tr><tr><td align="left">int</td><td align="left">java.lang.Integer</td></tr><tr><td align="left">long</td><td align="left">java.lang.Long</td></tr><tr><td align="left">float</td><td align="left">java.lang.Float</td></tr><tr><td align="left">double</td><td align="left">java.lang.Double</td></tr><tr><td align="left">char</td><td align="left">java.lang.Character</td></tr></tbody></table><ul><li>Java编译器可以帮助我们自动在<code>int</code>和<code>Integer</code>之间转型：</li></ul><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.valueOf(int)</span><span class="token keyword">int</span> x <span class="token operator">=</span> n<span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.intValue()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>注意：</strong>这种直接把<code>int</code>变为<code>Integer</code>的赋值写法，称为自动装箱（Auto Boxing），反过来，把<code>Integer</code>变为<code>int</code>的赋值写法，称为自动拆箱（Auto Unboxing）。自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。</p><p>装箱和拆箱会影响代码的执行效率，因为编译后的<code>class</code>代码是严格区分基本类型和引用类型的。并且，自动拆箱执行时可能会报<code>NullPointerException</code>：</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>        <span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span><span class="token comment">//基本数据类型不能</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>所有的包装类型都是不变类。</li><li>对两个<code>Integer</code>实例进行比较要特别注意：绝对不能用<code>==</code>比较，因为<code>Integer</code>是引用类型，必须使用<code>equals()</code>比较</li><li>在Java中，并没有无符号整型（Unsigned）的基本数据类型。<code>byte</code>、<code>short</code>、<code>int</code>和<code>long</code>都是带符号整型，最高位是符号位。无符号整型和有符号整型的转换在Java中就需要借助包装类型的静态方法完成。</li></ul>]]></content>
-    
-    
-    <summary type="html">Java数据类型中的零碎知识点和细节记录</summary>
-    
-    
-    
-    <category term="Java教程" scheme="https://resmino.github.io/categories/Java%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="Java零碎知识点记录" scheme="https://resmino.github.io/categories/Java%E6%95%99%E7%A8%8B/Java%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"/>
-    
-    
-    <category term="Java" scheme="https://resmino.github.io/tags/Java/"/>
-    
-    <category term="Java知识记录" scheme="https://resmino.github.io/tags/Java%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>9.回文数</title>
-    <link href="https://resmino.github.io/2023/0715753.html"/>
-    <id>https://resmino.github.io/2023/0715753.html</id>
-    <published>2023-07-31T11:43:35.000Z</published>
-    <updated>2023-08-01T07:47:08.932Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote><p>题目描述：<br>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<br>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。<br>例：121是<br>  -121不是</p></blockquote><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote><p><strong>思路一：</strong><br><em><strong>最初想到是使用java语言，直接将int型变量转为字符串，然后将字符串倒序，比较两个字符串是否相同，若相同则输出true，反之为false</strong></em></p></blockquote><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">代码如下所示：class Solution &#123;    public boolean isPalindrome(int x) &#123;        String str &#x3D; Integer.toString(x);        String s &#x3D; new StringBuffer(str).reverse().toString(); &#x2F;&#x2F;直接逆序字符串        if(str.equals(s))     &#x2F;&#x2F;比较字符串是否相等        &#123;            return true;        &#125;else&#123;            return false;        &#125;    &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p><strong>思路二(C语言）：</strong><br><em><strong>1、由回文数的特性可知，负数均不是回文数，故判断若x为负数直接输出false；<br>2、对于正数则用一个变量记录x的逆序数<br>3、比较两个数是否相等，相等则输出true；反之false<br>4、默认0为回文数</strong></em></p></blockquote><pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>    <span class="token keyword">long</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment">//将x的逆序数定义为long类型，防止运行过程中因溢出而导致的错误</span>    <span class="token keyword">int</span> y<span class="token operator">=</span>x<span class="token punctuation">;</span>       <span class="token comment">//记录原始x值</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token punctuation">&#123;</span>        <span class="token keyword">return</span> false<span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment">//逆序x</span>    <span class="token punctuation">&#123;</span>        sum <span class="token operator">=</span> sum<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>        x<span class="token operator">/=</span><span class="token number">10</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">return</span> sum <span class="token operator">==</span> y<span class="token punctuation">;</span> <span class="token comment">//返回bool值</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h1><p>使用C语言实现回文数的过程中，由于将sum变量定义为int类型，导致在LeetCode运行时出现溢出错误，无法通过。后尝试将sum变量改为long类型，成功通过编译。<br>但在解题过程中，未考虑时间复杂度和空间复杂度。</p>]]></content>
-    
-    
-    <summary type="html">LeetCode-09.回文数题解</summary>
-    
-    
-    
-    <category term="LeetCode题解" scheme="https://resmino.github.io/categories/LeetCode%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
-    
-    <category term="LeetCode题解" scheme="https://resmino.github.io/tags/LeetCode%E9%A2%98%E8%A7%A3/"/>
-    
-    <category term="回文数" scheme="https://resmino.github.io/tags/%E5%9B%9E%E6%96%87%E6%95%B0/"/>
     
   </entry>
   
