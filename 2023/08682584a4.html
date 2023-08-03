@@ -17,33 +17,35 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"resmino.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#dee1e6","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"buttons","active":"livere,disqusjs,utterances,waline","storage":true,"lazyload":false,"nav":{"disqusjs":{"text":"Disqusjs","order":-1},"gitalk":{"order":-2}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"resmino.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#dee1e6","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"livere,disqusjs,utterances,waline","storage":true,"lazyload":false,"nav":{"disqusjs":{"text":"Disqusjs","order":-1},"gitalk":{"order":-2}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="LeetCode-14.最长公共前缀(Java)题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="14.最长公共前缀(Java)">
-<meta property="og:url" content="https://resmino.github.io/2023/08true.html">
+<meta property="og:url" content="https://resmino.github.io/2023/08682584a4.html">
 <meta property="og:site_name" content="Resmino&#39;s Blog">
 <meta property="og:description" content="LeetCode-14.最长公共前缀(Java)题解">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://resmino.github.io/2023/08true.htm/08true/6d21bc19977b4ac3a171e2d685b70983.png">
+<meta property="og:image" content="https://resmino.github.io/2023/08682584a4.htm/08682584a4/6d21bc19977b4ac3a171e2d685b70983.png">
 <meta property="article:published_time" content="2023-08-02T00:43:53.000Z">
-<meta property="article:modified_time" content="2023-08-02T01:15:11.323Z">
+<meta property="article:modified_time" content="2023-08-03T08:48:23.156Z">
 <meta property="article:author" content="Resmino">
+<meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="leetcode">
-<meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="leetcode题解">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://resmino.github.io/2023/08true.htm/08true/6d21bc19977b4ac3a171e2d685b70983.png">
+<meta name="twitter:image" content="https://resmino.github.io/2023/08682584a4.htm/08682584a4/6d21bc19977b4ac3a171e2d685b70983.png">
 
 
-<link rel="canonical" href="https://resmino.github.io/2023/08true.html">
+<link rel="canonical" href="https://resmino.github.io/2023/08682584a4.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://resmino.github.io/2023/08true.html","path":"2023/08true.html","title":"14.最长公共前缀(Java)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://resmino.github.io/2023/08682584a4.html","path":"2023/08682584a4.html","title":"14.最长公共前缀(Java)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>14.最长公共前缀(Java) | Resmino's Blog</title>
@@ -253,7 +255,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://resmino.github.io/2023/08true.html">
+    <link itemprop="mainEntityOfPage" href="https://resmino.github.io/2023/08682584a4.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar1.gif">
@@ -281,9 +283,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-08-02 08:43:53 / 修改时间：09:15:11" itemprop="dateCreated datePublished" datetime="2023-08-02T08:43:53+08:00">2023-08-02</time>
+      <time title="创建时间：2023-08-02 08:43:53" itemprop="dateCreated datePublished" datetime="2023-08-02T08:43:53+08:00">2023-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-03 16:48:23" itemprop="dateModified" datetime="2023-08-03T16:48:23+08:00">2023-08-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -311,8 +319,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2023/08true.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2023/08true.html" itemprop="commentCount"></span>
+    <a title="waline" href="/2023/08682584a4.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2023/08682584a4.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -377,7 +385,7 @@
 
 
 <h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决该题时，最初的思路是先遍历字符串数组，找出字符串长度最短的字符串作为初始前缀的值，然后进行横向扫描解题。后通过借鉴他人思路，使用startsWith方法进行前缀判断。<br>后查看官方题解，看到多种解题思路，如二分查找、纵向扫描等方法。</p>
-<img data-src="/2023/08true.htm/08true/6d21bc19977b4ac3a171e2d685b70983.png" class>
+<img data-src="/2023/08682584a4.htm/08682584a4/6d21bc19977b4ac3a171e2d685b70983.png" class>
 
     </div>
 
@@ -409,7 +417,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://resmino.github.io/2023/08true.html" title="14.最长公共前缀(Java)">https://resmino.github.io/2023/08true.html</a>
+      <a href="https://resmino.github.io/2023/08682584a4.html" title="14.最长公共前缀(Java)">https://resmino.github.io/2023/08682584a4.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -457,9 +465,9 @@
 </div>
 
           <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
               <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
               <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
-              <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
               <a href="/tags/leetcode%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i> leetcode题解</a>
           </div>
 
@@ -478,7 +486,7 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/08true.html" rel="next" title="20.有效的括号(Java)">
+                <a href="/2023/08babf7f31.html" rel="next" title="20.有效的括号(Java)">
                   20.有效的括号(Java) <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -492,28 +500,32 @@
 
 
 
-      <div class="comment-button-group">
-          <a class="btn comment-button disqusjs">Disqusjs</a>
-          <a class="btn comment-button waline">waline</a>
-          <a class="btn comment-button livere">livere</a>
-          <a class="btn comment-button utterances">utterances</a>
-      </div>
-        <div class="comment-position disqusjs">
-          
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqusjs">Disqusjs</a></li>
+            <li class="tab"><a href="#comment-waline">waline</a></li>
+            <li class="tab"><a href="#comment-livere">livere</a></li>
+            <li class="tab"><a href="#comment-utterances">utterances</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
+              
   <div class="comments disqusjs-container">
     <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
   </div>
   
+            </div>
+            <div class="tab-pane waline" id="comment-waline">
+              <div class="comments" id="waline"></div>
+            </div>
+            <div class="tab-pane livere" id="comment-livere">
+              <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81ODc2NS8zNTIyNw"></div>
+            </div>
+            <div class="tab-pane utterances" id="comment-utterances">
+              <div class="comments utterances-container"></div>
+            </div>
         </div>
-        <div class="comment-position waline">
-          <div class="comments" id="waline"></div>
-        </div>
-        <div class="comment-position livere">
-          <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81ODc2NS8zNTIyNw"></div>
-        </div>
-        <div class="comment-position utterances">
-          <div class="comments utterances-container"></div>
-        </div><script data-pjax src="/js/comments-buttons.js"></script>
+      </div>
 </div>
   </main>
 
@@ -571,6 +583,7 @@
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
   <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
@@ -589,8 +602,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
-<script src="//code.tidio.co/xabho4whnwwhi0zojyof8atcuxjcph5a.js"></script>
-<script src="/js/third-party/chat/tidio.js"></script>
 
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.12/pdfobject.min.js","integrity":"sha256-g2xji1rlE3KsGVClvuxTbcR0Kn2+wtQADSff2Tbb4zA="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
@@ -601,6 +612,7 @@
 
   <script src="/js/third-party/fancybox.js"></script>
 
+  <script src="/js/third-party/pace.js"></script>
 
   <script src="/js/third-party/addtoany.js"></script>
 
@@ -617,9 +629,9 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://resmino.github.io/2023/08true.html"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://resmino.github.io/2023/08682584a4.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://hexo-ivory-iota.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2023/08true.html"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://hexo-ivory-iota.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2023/08682584a4.html"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
