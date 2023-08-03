@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>14.最长公共前缀(Java)</title>
+    <url>/2023/08true.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>题目描述：<br>编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。</p>
+</blockquote>
+<blockquote>
+<p>示例1：<br>输入：strs &#x3D; [“flower”,”flow”,”flight”]<br>输出：”fl”</p>
+</blockquote>
+<blockquote>
+<p>示例2：<br>输入：strs &#x3D; [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>解题思路：</strong><br>对于空字符数组直接返回“”作为公共前缀；对于非空数组，则随机选一个字符串作为初始公共前缀（因为公共前缀的最大长度一定小于等于数组中最短的那个字符串，所以可以随机选择一个字符串作为初始前缀），之后使用String类中的方法startsWith（）在for循环中判断字符串是否含有该前缀，若没有则缩短公共前缀的长度，在缩短之前判断变量(公共前缀)的长度是否为0，若为0则返回空字符串“”。</p>
+</blockquote>
+<blockquote>
+<p><strong>解题步骤如下：</strong><br>1、判断字符数组的长度是否为0，若为0则返回空字符串“”<br>2、对于非空字符串则选择第一个字符串作为初始公共前缀<br>3、遍历字符串数组，判断前缀变量的长度是否为0，若不为0则使用startswith方法判断是否含有该公共前缀<br>4、若不该前缀，则缩短前缀变量的长度，继续判断<br>5、当遍历结束后，返回公共前缀。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> strs<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span>     <span class="token comment">//空则返回“”</span>
+            <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> s <span class="token operator">=</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">//初始前缀</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> str <span class="token operator">:</span>strs<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>str<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">//判断是否含有该前缀</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
+                s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//前缀长度-1</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+            <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决该题时，最初的思路是先遍历字符串数组，找出字符串长度最短的字符串作为初始前缀的值，然后进行横向扫描解题。后通过借鉴他人思路，使用startsWith方法进行前缀判断。<br>后查看官方题解，看到多种解题思路，如二分查找、纵向扫描等方法。</p>
+<img data-src="/2023/08true.htm/08true/6d21bc19977b4ac3a171e2d685b70983.png" class>
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>leetcode</tag>
+        <tag>LeetCode</tag>
+        <tag>leetcode题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1.两数之和(C语言)</title>
     <url>/2023/077204.html</url>
     <content><![CDATA[<h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个整数，并返回它们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。<br>你可以按任意顺序返回答案。</p>
@@ -33,8 +84,8 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode题解</tag>
         <tag>LeetCode</tag>
+        <tag>LeetCode题解</tag>
         <tag>两数之和</tag>
       </tags>
   </entry>
@@ -150,60 +201,9 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
-        <tag>leetcode题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>14.最长公共前缀(Java)</title>
-    <url>/2023/08true.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p>题目描述：<br>编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。</p>
-</blockquote>
-<blockquote>
-<p>示例1：<br>输入：strs &#x3D; [“flower”,”flow”,”flight”]<br>输出：”fl”</p>
-</blockquote>
-<blockquote>
-<p>示例2：<br>输入：strs &#x3D; [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>解题思路：</strong><br>对于空字符数组直接返回“”作为公共前缀；对于非空数组，则随机选一个字符串作为初始公共前缀（因为公共前缀的最大长度一定小于等于数组中最短的那个字符串，所以可以随机选择一个字符串作为初始前缀），之后使用String类中的方法startsWith（）在for循环中判断字符串是否含有该前缀，若没有则缩短公共前缀的长度，在缩短之前判断变量(公共前缀)的长度是否为0，若为0则返回空字符串“”。</p>
-</blockquote>
-<blockquote>
-<p><strong>解题步骤如下：</strong><br>1、判断字符数组的长度是否为0，若为0则返回空字符串“”<br>2、对于非空字符串则选择第一个字符串作为初始公共前缀<br>3、遍历字符串数组，判断前缀变量的长度是否为0，若不为0则使用startswith方法判断是否含有该公共前缀<br>4、若不该前缀，则缩短前缀变量的长度，继续判断<br>5、当遍历结束后，返回公共前缀。</p>
-</blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> strs<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span>     <span class="token comment">//空则返回“”</span>
-            <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token class-name">String</span> s <span class="token operator">=</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">//初始前缀</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> str <span class="token operator">:</span>strs<span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>str<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">//判断是否含有该前缀</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
-                    <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
-                s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//前缀长度-1</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-            <span class="token keyword">return</span> s<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决该题时，最初的思路是先遍历字符串数组，找出字符串长度最短的字符串作为初始前缀的值，然后进行横向扫描解题。后通过借鉴他人思路，使用startsWith方法进行前缀判断。<br>后查看官方题解，看到多种解题思路，如二分查找、纵向扫描等方法。</p>
-<img data-src="/2023/08true.htm/08true/6d21bc19977b4ac3a171e2d685b70983.png" class>
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
         <tag>LeetCode</tag>
-        <tag>Java</tag>
-        <tag>leetcode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
@@ -279,8 +279,8 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode题解</tag>
         <tag>LeetCode</tag>
+        <tag>LeetCode题解</tag>
         <tag>两数之和</tag>
       </tags>
   </entry>
@@ -359,9 +359,51 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
+        <tag>LeetCode</tag>
+        <tag>leetcode题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>26.删除有序数组中的重复项</title>
+    <url>/2023/08true.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p><strong>题目描述</strong>：<br>给你一个 <strong>升序排列</strong> 的数组 <code>nums</code> ，请你 <strong>原地</strong> 删除重复出现的元素，使每个元素 <strong>只出现一次</strong> ，返回删除后数组的新长度。元素的 <strong>相对顺序</strong> 应该保持 一致 。<br>由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 k 个元素，那么 nums 的前 k 个元素应该保存最终结果。<br>将最终结果插入 nums 的前 k 个位置后返回 k 。<br>不要使用额外的空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。<br><em><strong>总结：</strong></em> <strong>保持元素的相对位置不变，去重，并将去重后的k个元素存放在nums的前k个位置。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>示例1：</strong><br>输入：nums &#x3D; [1,1,2]<br>输出：2, nums &#x3D; [1,2,_]<br>解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。</p>
+</blockquote>
+<blockquote>
+<p><strong>示例2：</strong><br>输入：nums &#x3D; [0,0,1,1,1,2,2,3,3,4]<br>输出：5, nums &#x3D; [0,1,2,3,4]<br>解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>解题思路：</strong><br>设置两个变量<code>count=1、i=1</code>，初始值均为1。<br>i作为遍历元素下标，<code>count</code>作为去重数组下标。<br>在<code>for</code>循环遍历数组，遍历过程中比较元素值，若当前元素与前一元素值相等，结束本次循环进入下一次循环，若不相等则将<code>nums[count++] = nums[i]</code>;循环结束后返回<code>count</code>值。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> numsSize<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>numsSize<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决本次题目时，我最初的想法是使用双层for循环，但在具体实现过程中出现无法实现对重复数&gt;&#x3D;3的元素进行去重，后借鉴他人解题思路，使用一层for循环，并结合continue实现去重。<br>提交结果如下。</p>
+<img data-src="/2023/08true.htm/08true/b89ce3bd740b4b81b62d05d64a022194.png" class>
+
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>leetcode</tag>
+        <tag>LeetCode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
@@ -498,51 +540,9 @@ struct <span class="token class-name">ListNode</span><span class="token operator
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
-        <tag>leetcode题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>26.删除有序数组中的重复项</title>
-    <url>/2023/08true.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p><strong>题目描述</strong>：<br>给你一个 <strong>升序排列</strong> 的数组 <code>nums</code> ，请你 <strong>原地</strong> 删除重复出现的元素，使每个元素 <strong>只出现一次</strong> ，返回删除后数组的新长度。元素的 <strong>相对顺序</strong> 应该保持 一致 。<br>由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 k 个元素，那么 nums 的前 k 个元素应该保存最终结果。<br>将最终结果插入 nums 的前 k 个位置后返回 k 。<br>不要使用额外的空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。<br><em><strong>总结：</strong></em> <strong>保持元素的相对位置不变，去重，并将去重后的k个元素存放在nums的前k个位置。</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>示例1：</strong><br>输入：nums &#x3D; [1,1,2]<br>输出：2, nums &#x3D; [1,2,_]<br>解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。</p>
-</blockquote>
-<blockquote>
-<p><strong>示例2：</strong><br>输入：nums &#x3D; [0,0,1,1,1,2,2,3,3,4]<br>输出：5, nums &#x3D; [0,1,2,3,4]<br>解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>解题思路：</strong><br>设置两个变量<code>count=1、i=1</code>，初始值均为1。<br>i作为遍历元素下标，<code>count</code>作为去重数组下标。<br>在<code>for</code>循环遍历数组，遍历过程中比较元素值，若当前元素与前一元素值相等，结束本次循环进入下一次循环，若不相等则将<code>nums[count++] = nums[i]</code>;循环结束后返回<code>count</code>值。</p>
-</blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> numsSize<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>numsSize<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token keyword">continue</span><span class="token punctuation">;</span>
-        nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决本次题目时，我最初的想法是使用双层for循环，但在具体实现过程中出现无法实现对重复数&gt;&#x3D;3的元素进行去重，后借鉴他人解题思路，使用一层for循环，并结合continue实现去重。<br>提交结果如下。</p>
-<img data-src="/2023/08true.htm/08true/b89ce3bd740b4b81b62d05d64a022194.png" class>
-
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
         <tag>LeetCode</tag>
-        <tag>Java</tag>
-        <tag>leetcode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
@@ -586,61 +586,9 @@ struct <span class="token class-name">ListNode</span><span class="token operator
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode题解</tag>
         <tag>LeetCode</tag>
+        <tag>LeetCode题解</tag>
         <tag>两数之和</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>9.回文数</title>
-    <url>/2023/0715753.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p>题目描述：<br>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<br>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。<br>例：121是<br>  -121不是</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>思路一：</strong><br><em><strong>最初想到是使用java语言，直接将int型变量转为字符串，然后将字符串倒序，比较两个字符串是否相同，若相同则输出true，反之为false</strong></em></p>
-</blockquote>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">代码如下所示：
-class Solution &#123;
-    public boolean isPalindrome(int x) &#123;
-        String str &#x3D; Integer.toString(x);
-        String s &#x3D; new StringBuffer(str).reverse().toString(); &#x2F;&#x2F;直接逆序字符串
-        if(str.equals(s))     &#x2F;&#x2F;比较字符串是否相等
-        &#123;
-            return true;
-        &#125;else&#123;
-            return false;
-        &#125;
-    &#125;
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p><strong>思路二(C语言）：</strong><br><em><strong>1、由回文数的特性可知，负数均不是回文数，故判断若x为负数直接输出false；<br>2、对于正数则用一个变量记录x的逆序数<br>3、比较两个数是否相等，相等则输出true；反之false<br>4、默认0为回文数</strong></em></p>
-</blockquote>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">long</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment">//将x的逆序数定义为long类型，防止运行过程中因溢出而导致的错误</span>
-    <span class="token keyword">int</span> y<span class="token operator">=</span>x<span class="token punctuation">;</span>       <span class="token comment">//记录原始x值</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment">//逆序x</span>
-    <span class="token punctuation">&#123;</span>
-        sum <span class="token operator">=</span> sum<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
-        x<span class="token operator">/=</span><span class="token number">10</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> sum <span class="token operator">==</span> y<span class="token punctuation">;</span> <span class="token comment">//返回bool值</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h1><p>使用C语言实现回文数的过程中，由于将sum变量定义为int类型，导致在LeetCode运行时出现溢出错误，无法通过。后尝试将sum变量改为long类型，成功通过编译。<br>但在解题过程中，未考虑时间复杂度和空间复杂度。</p>
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>LeetCode题解</tag>
-        <tag>LeetCode</tag>
-        <tag>回文数</tag>
       </tags>
   </entry>
   <entry>
@@ -696,91 +644,55 @@ class Solution &#123;
       </tags>
   </entry>
   <entry>
-    <title>HTML基础标签</title>
-    <url>/2023/088c85f492.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>HTML教程</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>HTML教程</tag>
-        <tag>html标签</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Github学生包申请(学校邮箱版，秒通过)</title>
-    <url>/2023/08ff1be8cc.html</url>
-    <content><![CDATA[<h1 id="注册邮箱"><a href="#注册邮箱" class="headerlink" title="注册邮箱"></a>注册邮箱</h1><p>（1）若已拥有学校邮箱可直接看下一<br>（2）没有学校邮箱参考步骤去注册</p>
-<blockquote>
-<p>1、浏览器搜索“自己学校名字+邮件系统”<br>2、然后根据步骤自己注册</p>
+    <title>9.回文数</title>
+    <url>/2023/0715753.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>题目描述：<br>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<br>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。<br>例：121是<br>  -121不是</p>
 </blockquote>
-<h1 id="申请github学生包"><a href="#申请github学生包" class="headerlink" title="申请github学生包"></a>申请github学生包</h1><p>这里由于我已经有学校邮箱，并且有<strong>github</strong>账号，因此不在提供github的注册。有需要的可以参考这位朋友的文章，点击跳转<span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kZXZlbG9wZXIvYXJ0aWNsZS8xNDg3NTA4">github账号注册参考教程<i class="fa fa-external-link-alt"></i></span></p>
-<p><em><strong>注意</strong></em>： <strong>如果是第一次申请的话，建议使用手机，因为需要手机拍照。</strong></p>
-<ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly9lZHVjYXRpb24uZ2l0aHViLmNvbS8=">github学生包申请地址<i class="fa fa-external-link-alt"></i></span><br>点击上面的申请地址即可跳转申请。</li>
-<li>点击<code>Join Global Campus</code></li>
-</ol>
-<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/ae44f6bb89e1439eaf67ed565fe98679.png" class>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>思路一：</strong><br><em><strong>最初想到是使用java语言，直接将int型变量转为字符串，然后将字符串倒序，比较两个字符串是否相同，若相同则输出true，反之为false</strong></em></p>
+</blockquote>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">代码如下所示：
+class Solution &#123;
+    public boolean isPalindrome(int x) &#123;
+        String str &#x3D; Integer.toString(x);
+        String s &#x3D; new StringBuffer(str).reverse().toString(); &#x2F;&#x2F;直接逆序字符串
+        if(str.equals(s))     &#x2F;&#x2F;比较字符串是否相等
+        &#123;
+            return true;
+        &#125;else&#123;
+            return false;
+        &#125;
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><strong>思路二(C语言）：</strong><br><em><strong>1、由回文数的特性可知，负数均不是回文数，故判断若x为负数直接输出false；<br>2、对于正数则用一个变量记录x的逆序数<br>3、比较两个数是否相等，相等则输出true；反之false<br>4、默认0为回文数</strong></em></p>
+</blockquote>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">long</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment">//将x的逆序数定义为long类型，防止运行过程中因溢出而导致的错误</span>
+    <span class="token keyword">int</span> y<span class="token operator">=</span>x<span class="token punctuation">;</span>       <span class="token comment">//记录原始x值</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment">//逆序x</span>
+    <span class="token punctuation">&#123;</span>
+        sum <span class="token operator">=</span> sum<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
+        x<span class="token operator">/=</span><span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> sum <span class="token operator">==</span> y<span class="token punctuation">;</span> <span class="token comment">//返回bool值</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ol start="3">
-<li>点击<code>Sign up for...</code></li>
-</ol>
-  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/30e7173bca9a4adbb5632051b9bd8c05.png" class>
-
-<ol start="4">
-<li>点击<code>get student benefits</code></li>
-</ol>
-  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/9a6bd604087a48afbb3266fae033516e.png" class>
-
-<ol start="5">
-<li>点击<code>Add an email address</code></li>
-</ol>
-  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/731cf4ba9377420dbedbbd3e0e5e3c36.png" class>
-
-
-<ol start="6">
-<li>点击蓝色字体 <code>add and verify your school-issued email address in your account settings</code></li>
-</ol>
-  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/419068f3553b4e7192c75b36283ade8f.png" class>
-
-
-<ol start="7">
-<li><p>将学校邮箱填入<code>Add email address</code>下的框内，并点击<code>add</code><img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/d5dd35b61e7a496c8a7058838691c6eb.png" class></p>
-</li>
-<li><p>添加后显示<code>Unverified,</code>需要进入学校邮箱验证邮箱<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/e18162846ca64316b05b7e42eecb3bee.png" class></p>
-</li>
-<li><p>点击<code>vertify your address</code></p>
-</li>
-</ol>
-  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/639b309e0a1a45eeb1cce8c9dfdb3d62.png" class>
-
-
-<ol start="10">
-<li><p>当新添加邮箱下显示如下所示，即添加成功<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/8b01d197b5ac4b81ace5d52b95640082.png" class></p>
-</li>
-<li><p>之后返回学生包申请界面并刷新，然后选择刚添加的学生邮箱。<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/27a758f1fdcf48a08c4d436e67673c12.png" class><br> 需要在<code>How do you plan to use GitHub</code>?下填入用途，可以参考如下模板：</p>
-</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">I</span> am a student of （学校英文名）<span class="token punctuation">,</span> majoring in （专业英文名）<span class="token punctuation">.</span> 
-<span class="token class-name">I</span> hope <span class="token keyword">to</span> <span class="token namespace">obtain</span> <span class="token class-name">Github</span> student <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> 
-I</span> want <span class="token keyword">to</span> <span class="token namespace">learn</span> more knowledge and use it on <span class="token class-name">Github<span class="token punctuation">.</span>
-I</span> can also upload my code <span class="token keyword">to</span> <span class="token namespace">the</span> library <span class="token keyword">for</span> <span class="token class-name"><span class="token namespace">sharing<span class="token punctuation">.</span></span>
-The</span> main purpose is <span class="token keyword">to</span> <span class="token namespace">learn</span> and use <span class="token keyword">this</span> student <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> 
-I</span> hope <span class="token class-name">Github</span> will give you <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> Thank</span> you<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>之后点击<code>continue。</code></p>
-<ol start="12">
-<li>之后拍自己的学生证照片上传，证明类型选择第一个即可。<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/f9953f8eb11b40a7a92a475732f68a57.png" class><br>在这一步之后，本人是秒通过的。</li>
-</ol>
+<h1 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h1><p>使用C语言实现回文数的过程中，由于将sum变量定义为int类型，导致在LeetCode运行时出现溢出错误，无法通过。后尝试将sum变量改为long类型，成功通过编译。<br>但在解题过程中，未考虑时间复杂度和空间复杂度。</p>
 ]]></content>
       <categories>
-        <category>Git</category>
-        <category>Github</category>
+        <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>git</tag>
-        <tag>github</tag>
-        <tag>github学生包</tag>
+        <tag>LeetCode</tag>
+        <tag>LeetCode题解</tag>
+        <tag>回文数</tag>
       </tags>
   </entry>
   <entry>
@@ -868,6 +780,94 @@ $ <span class="token function">git</span> push <span class="token parameter vari
       </tags>
   </entry>
   <entry>
+    <title>Github学生包申请(学校邮箱版，秒通过)</title>
+    <url>/2023/08ff1be8cc.html</url>
+    <content><![CDATA[<h1 id="注册邮箱"><a href="#注册邮箱" class="headerlink" title="注册邮箱"></a>注册邮箱</h1><p>（1）若已拥有学校邮箱可直接看下一<br>（2）没有学校邮箱参考步骤去注册</p>
+<blockquote>
+<p>1、浏览器搜索“自己学校名字+邮件系统”<br>2、然后根据步骤自己注册</p>
+</blockquote>
+<h1 id="申请github学生包"><a href="#申请github学生包" class="headerlink" title="申请github学生包"></a>申请github学生包</h1><p>这里由于我已经有学校邮箱，并且有<strong>github</strong>账号，因此不在提供github的注册。有需要的可以参考这位朋友的文章，点击跳转<span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kZXZlbG9wZXIvYXJ0aWNsZS8xNDg3NTA4">github账号注册参考教程<i class="fa fa-external-link-alt"></i></span></p>
+<p><em><strong>注意</strong></em>： <strong>如果是第一次申请的话，建议使用手机，因为需要手机拍照。</strong></p>
+<ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lZHVjYXRpb24uZ2l0aHViLmNvbS8=">github学生包申请地址<i class="fa fa-external-link-alt"></i></span><br>点击上面的申请地址即可跳转申请。</li>
+<li>点击<code>Join Global Campus</code></li>
+</ol>
+<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/ae44f6bb89e1439eaf67ed565fe98679.png" class>
+
+<ol start="3">
+<li>点击<code>Sign up for...</code></li>
+</ol>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/30e7173bca9a4adbb5632051b9bd8c05.png" class>
+
+<ol start="4">
+<li>点击<code>get student benefits</code></li>
+</ol>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/9a6bd604087a48afbb3266fae033516e.png" class>
+
+<ol start="5">
+<li>点击<code>Add an email address</code></li>
+</ol>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/731cf4ba9377420dbedbbd3e0e5e3c36.png" class>
+
+
+<ol start="6">
+<li>点击蓝色字体 <code>add and verify your school-issued email address in your account settings</code></li>
+</ol>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/419068f3553b4e7192c75b36283ade8f.png" class>
+
+
+<ol start="7">
+<li><p>将学校邮箱填入<code>Add email address</code>下的框内，并点击<code>add</code><img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/d5dd35b61e7a496c8a7058838691c6eb.png" class></p>
+</li>
+<li><p>添加后显示<code>Unverified,</code>需要进入学校邮箱验证邮箱<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/e18162846ca64316b05b7e42eecb3bee.png" class></p>
+</li>
+<li><p>点击<code>vertify your address</code></p>
+</li>
+</ol>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/639b309e0a1a45eeb1cce8c9dfdb3d62.png" class>
+
+
+<ol start="10">
+<li><p>当新添加邮箱下显示如下所示，即添加成功<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/8b01d197b5ac4b81ace5d52b95640082.png" class></p>
+</li>
+<li><p>之后返回学生包申请界面并刷新，然后选择刚添加的学生邮箱。<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/27a758f1fdcf48a08c4d436e67673c12.png" class><br> 需要在<code>How do you plan to use GitHub</code>?下填入用途，可以参考如下模板：</p>
+</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">I</span> am a student of （学校英文名）<span class="token punctuation">,</span> majoring in （专业英文名）<span class="token punctuation">.</span> 
+<span class="token class-name">I</span> hope <span class="token keyword">to</span> <span class="token namespace">obtain</span> <span class="token class-name">Github</span> student <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> 
+I</span> want <span class="token keyword">to</span> <span class="token namespace">learn</span> more knowledge and use it on <span class="token class-name">Github<span class="token punctuation">.</span>
+I</span> can also upload my code <span class="token keyword">to</span> <span class="token namespace">the</span> library <span class="token keyword">for</span> <span class="token class-name"><span class="token namespace">sharing<span class="token punctuation">.</span></span>
+The</span> main purpose is <span class="token keyword">to</span> <span class="token namespace">learn</span> and use <span class="token keyword">this</span> student <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> 
+I</span> hope <span class="token class-name">Github</span> will give you <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> Thank</span> you<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>之后点击<code>continue。</code></p>
+<ol start="12">
+<li>之后拍自己的学生证照片上传，证明类型选择第一个即可。<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/f9953f8eb11b40a7a92a475732f68a57.png" class><br>在这一步之后，本人是秒通过的。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Git</category>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>github学生包</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML基础标签</title>
+    <url>/2023/088c85f492.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>HTML教程</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>HTML教程</tag>
+        <tag>html标签</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaBean</title>
     <url>/2023/083310.html</url>
     <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>JavaBean是Java编程中的一个概念，它是一种符合特定规范的Java类。JavaBean通常用于封装数据和功能，通过提供公共的getter和setter方法来访问和修改类的属性（成员变量），从而实现面向对象编程的封装特性。</p>
@@ -940,39 +940,6 @@ $ <span class="token function">git</span> push <span class="token parameter vari
         <tag>Java</tag>
         <tag>JavaBean</tag>
         <tag>Java核心类</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java常用工具类</title>
-    <url>/2023/088b50b566.html</url>
-    <content><![CDATA[<h1 id="常用工具类"><a href="#常用工具类" class="headerlink" title="常用工具类"></a>常用工具类</h1><p>Java中有许多常用的工具类，它们提供了各种实用的方法，方便我们进行常见的操作。以下是一些常用的Java工具类：</p>
-<ol>
-<li><code>java.util.Arrays</code>：提供了用于操作数组的静态方法，如排序、搜索、填充等。</li>
-<li><code>java.util.Collections</code>：提供了用于操作集合的静态方法，如排序、搜索、反转、替换等。</li>
-<li><code>java.lang.Math</code>：提供了用于数学运算的静态方法，如求绝对值、平方根、最大值、最小值等。</li>
-<li><code>java.util.StringJoiner</code>：用于连接字符串的类，可以在字符串之间添加分隔符。</li>
-<li><code>java.util.StringTokenizer</code>：用于分割字符串的类，类似于<code>String.split()</code>方法，但更加灵活。</li>
-<li><code>java.util.Random</code>：用于生成随机数的类。</li>
-<li><code>java.text.SimpleDateFormat</code>：用于将日期对象格式化为指定的日期字符串。</li>
-<li><code>java.util.Properties</code>：用于处理属性文件的类，可以读取和写入属性文件。</li>
-<li><code>java.util.Scanner</code>：用于从输入流中读取基本类型和字符串。</li>
-<li><code>java.nio.file.Paths</code>：用于处理文件路径的类，可以获取文件路径、创建文件路径等。</li>
-<li><code>java.nio.file.Files</code>：用于处理文件和目录的类，可以复制、移动、删除文件等。</li>
-<li><code>java.util.UUID</code>：用于生成唯一标识符(UUID)。</li>
-<li><code>java.util.regex.Pattern</code>：用于处理正则表达式的类，可以进行匹配和查找。</li>
-<li><code>java.net.URL</code>：用于表示统一资源定位符(URL)，可以用于网络资源访问。</li>
-<li><code>java.util.zip.ZipFile</code>：用于处理ZIP文件的类，可以读取和解压ZIP文件。</li>
-</ol>
-<p>这些工具类都位于Java标准库中，无需额外导入即可使用。根据不同的需求，你可以选择合适的工具类来简化你的编程工作。除了上述工具类，Java还有许多其他常用的工具类，可以根据具体的项目和任务来进一步探索和使用。</p>
-]]></content>
-      <categories>
-        <category>Java教程</category>
-        <category>Java核心类</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Java工具类</tag>
-        <tag>Java常用工具类</tag>
       </tags>
   </entry>
   <entry>
@@ -1132,6 +1099,39 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
       </tags>
   </entry>
   <entry>
+    <title>Java常用工具类</title>
+    <url>/2023/088b50b566.html</url>
+    <content><![CDATA[<h1 id="常用工具类"><a href="#常用工具类" class="headerlink" title="常用工具类"></a>常用工具类</h1><p>Java中有许多常用的工具类，它们提供了各种实用的方法，方便我们进行常见的操作。以下是一些常用的Java工具类：</p>
+<ol>
+<li><code>java.util.Arrays</code>：提供了用于操作数组的静态方法，如排序、搜索、填充等。</li>
+<li><code>java.util.Collections</code>：提供了用于操作集合的静态方法，如排序、搜索、反转、替换等。</li>
+<li><code>java.lang.Math</code>：提供了用于数学运算的静态方法，如求绝对值、平方根、最大值、最小值等。</li>
+<li><code>java.util.StringJoiner</code>：用于连接字符串的类，可以在字符串之间添加分隔符。</li>
+<li><code>java.util.StringTokenizer</code>：用于分割字符串的类，类似于<code>String.split()</code>方法，但更加灵活。</li>
+<li><code>java.util.Random</code>：用于生成随机数的类。</li>
+<li><code>java.text.SimpleDateFormat</code>：用于将日期对象格式化为指定的日期字符串。</li>
+<li><code>java.util.Properties</code>：用于处理属性文件的类，可以读取和写入属性文件。</li>
+<li><code>java.util.Scanner</code>：用于从输入流中读取基本类型和字符串。</li>
+<li><code>java.nio.file.Paths</code>：用于处理文件路径的类，可以获取文件路径、创建文件路径等。</li>
+<li><code>java.nio.file.Files</code>：用于处理文件和目录的类，可以复制、移动、删除文件等。</li>
+<li><code>java.util.UUID</code>：用于生成唯一标识符(UUID)。</li>
+<li><code>java.util.regex.Pattern</code>：用于处理正则表达式的类，可以进行匹配和查找。</li>
+<li><code>java.net.URL</code>：用于表示统一资源定位符(URL)，可以用于网络资源访问。</li>
+<li><code>java.util.zip.ZipFile</code>：用于处理ZIP文件的类，可以读取和解压ZIP文件。</li>
+</ol>
+<p>这些工具类都位于Java标准库中，无需额外导入即可使用。根据不同的需求，你可以选择合适的工具类来简化你的编程工作。除了上述工具类，Java还有许多其他常用的工具类，可以根据具体的项目和任务来进一步探索和使用。</p>
+]]></content>
+      <categories>
+        <category>Java教程</category>
+        <category>Java核心类</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java工具类</tag>
+        <tag>Java常用工具类</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java数据类型</title>
     <url>/2023/0818833.html</url>
     <content><![CDATA[<h1 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
@@ -1222,67 +1222,50 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
       </tags>
   </entry>
   <entry>
-    <title>Linux常用命令</title>
-    <url>/2023/08d0edc1ed.html</url>
-    <content><![CDATA[<h1 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#gz文件</span>
-<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span>
-<span class="token comment">#xz文件</span>
-<span class="token function">tar</span> <span class="token parameter variable">-Jxvf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建文件夹</span>
-<span class="token function">mkdir</span> 文件夹名
-<span class="token comment">#文件权限 r（读） w(写） x(执行)</span>
-<span class="token function">chmod</span> +x script
-<span class="token comment">#打开文件</span>
-<span class="token builtin class-name">cd</span> 文件名
-<span class="token comment"># 返回上一级</span>
-<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
-<span class="token comment">#返回上一个目录</span>
-<span class="token builtin class-name">cd</span> -
+    <title>React安装教程</title>
+    <url>/2023/0740161.html</url>
+    <content><![CDATA[<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul>
+<li>安装本地React环境需要Node.js，如果具有Node环境跳过即可。</li>
+<li>如果没有安装则可参考该篇文章安装Node环境，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMzQ0NzUyP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击查看<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h1 id="React安装"><a href="#React安装" class="headerlink" title="React安装"></a>React安装</h1><ol>
+<li>全局安装React</li>
+</ol>
+<ul>
+<li><p>首先打开命令行，建议以管理员身份</p>
+</li>
+<li><p>输入命令：<code>npm install -g create-react-app</code></p>
+<img data-src="/2023/0740161.htm/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class title="[title]"></li>
+</ul>
+<ol start="2">
+<li><p>安装完成后，输入命令<code>create-react-app -V</code>查看时候成功</p>
+ <img data-src="/2023/0740161.htm/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class>
+</li>
+<li><p>创建React项目<br> 在自己选定的目录下输入命令：<code>create-react-app reactdemo</code>进行创建项目，注意reactdemo为自己命名的项目名。</p>
+</li>
+</ol>
+  <img data-src="/2023/0740161.htm/0740161/ef2ead85b53842058461b3954832c502.png" class>
+<p>  如上则成功创建一个新的react项目。</p>
+<ol start="4">
+<li>运行react项目<br> 首先进入刚才创建的项目的根目录下，然后输入命令<code>npm start</code></li>
+</ol>
+  <img data-src="/2023/0740161.htm/0740161/ddba23821fd14cdc9acd9670f03f88ac.png" class>
 
-<span class="token comment">#复制 文件夹后加/</span>
-<span class="token function">cp</span> 文件1.txt wenjain.txt
-<span class="token comment">#重命名或移动</span>
-<span class="token function">mv</span> 原名 现名  <span class="token comment">#保留在同一目录</span>
-<span class="token function">mv</span> source_file destination_folder/ <span class="token comment">#移动</span>
-<span class="token comment">#删除文件，-rf不询问 -r询问</span>
-<span class="token function">rm</span> <span class="token parameter variable">-rf</span> 文件名
+<ol start="5">
+<li>运行成功后的界面，如图所示</li>
+</ol>
+  <img data-src="/2023/0740161.htm/0740161/756bcf1f59fe449aa2d6c65bad2fd57f.png" class>
 
-<span class="token comment">#编辑文件</span>
-<span class="token function">vim</span> 文件名
-<span class="token comment">#编辑后保存文件</span>
-ECS + ：wq
 
-加！强制退出
-
-<span class="token comment">#列出目录下neirong</span>
-<span class="token function">ls</span>
-
-<span class="token comment">#输出当前目录的绝对路径</span>
-<span class="token builtin class-name">pwd</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="jdk相关"><a href="#jdk相关" class="headerlink" title="jdk相关"></a>jdk相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#java版本</span>
-<span class="token function">java</span> <span class="token parameter variable">-version</span>
-<span class="token comment">#显示java文件</span>
-<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">java</span>
-<span class="token comment">#删除</span>
-<span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> 文件名
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#wget</span>
-<span class="token function">wget</span> 资源地址
-<span class="token comment">#yum </span>
-yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="ip相关"><a href="#ip相关" class="headerlink" title="ip相关"></a>ip相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看ip</span>
-<span class="token function">ip</span> addr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ol start="6">
+<li>之后可以通过自己安装的IDE打开该项目，进行编写了。</li>
+</ol>
 ]]></content>
       <categories>
-        <category>Linux</category>
-        <category>命令</category>
+        <category>React</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>linux</tag>
-        <tag>linux常用命令</tag>
+        <tag>React</tag>
       </tags>
   </entry>
   <entry>
@@ -1366,50 +1349,67 @@ yum <span class="token parameter variable">-y</span> <span class="token function
       </tags>
   </entry>
   <entry>
-    <title>React安装教程</title>
-    <url>/2023/0740161.html</url>
-    <content><![CDATA[<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul>
-<li>安装本地React环境需要Node.js，如果具有Node环境跳过即可。</li>
-<li>如果没有安装则可参考该篇文章安装Node环境，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMzQ0NzUyP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击查看<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<h1 id="React安装"><a href="#React安装" class="headerlink" title="React安装"></a>React安装</h1><ol>
-<li>全局安装React</li>
-</ol>
-<ul>
-<li><p>首先打开命令行，建议以管理员身份</p>
-</li>
-<li><p>输入命令：<code>npm install -g create-react-app</code></p>
-<img data-src="/2023/0740161.htm/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class title="[title]"></li>
-</ul>
-<ol start="2">
-<li><p>安装完成后，输入命令<code>create-react-app -V</code>查看时候成功</p>
- <img data-src="/2023/0740161.htm/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class>
-</li>
-<li><p>创建React项目<br> 在自己选定的目录下输入命令：<code>create-react-app reactdemo</code>进行创建项目，注意reactdemo为自己命名的项目名。</p>
-</li>
-</ol>
-  <img data-src="/2023/0740161.htm/0740161/ef2ead85b53842058461b3954832c502.png" class>
-<p>  如上则成功创建一个新的react项目。</p>
-<ol start="4">
-<li>运行react项目<br> 首先进入刚才创建的项目的根目录下，然后输入命令<code>npm start</code></li>
-</ol>
-  <img data-src="/2023/0740161.htm/0740161/ddba23821fd14cdc9acd9670f03f88ac.png" class>
+    <title>Linux常用命令</title>
+    <url>/2023/08d0edc1ed.html</url>
+    <content><![CDATA[<h1 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#gz文件</span>
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span>
+<span class="token comment">#xz文件</span>
+<span class="token function">tar</span> <span class="token parameter variable">-Jxvf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建文件夹</span>
+<span class="token function">mkdir</span> 文件夹名
+<span class="token comment">#文件权限 r（读） w(写） x(执行)</span>
+<span class="token function">chmod</span> +x script
+<span class="token comment">#打开文件</span>
+<span class="token builtin class-name">cd</span> 文件名
+<span class="token comment"># 返回上一级</span>
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+<span class="token comment">#返回上一个目录</span>
+<span class="token builtin class-name">cd</span> -
 
-<ol start="5">
-<li>运行成功后的界面，如图所示</li>
-</ol>
-  <img data-src="/2023/0740161.htm/0740161/756bcf1f59fe449aa2d6c65bad2fd57f.png" class>
+<span class="token comment">#复制 文件夹后加/</span>
+<span class="token function">cp</span> 文件1.txt wenjain.txt
+<span class="token comment">#重命名或移动</span>
+<span class="token function">mv</span> 原名 现名  <span class="token comment">#保留在同一目录</span>
+<span class="token function">mv</span> source_file destination_folder/ <span class="token comment">#移动</span>
+<span class="token comment">#删除文件，-rf不询问 -r询问</span>
+<span class="token function">rm</span> <span class="token parameter variable">-rf</span> 文件名
 
+<span class="token comment">#编辑文件</span>
+<span class="token function">vim</span> 文件名
+<span class="token comment">#编辑后保存文件</span>
+ECS + ：wq
 
-<ol start="6">
-<li>之后可以通过自己安装的IDE打开该项目，进行编写了。</li>
-</ol>
+加！强制退出
+
+<span class="token comment">#列出目录下neirong</span>
+<span class="token function">ls</span>
+
+<span class="token comment">#输出当前目录的绝对路径</span>
+<span class="token builtin class-name">pwd</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="jdk相关"><a href="#jdk相关" class="headerlink" title="jdk相关"></a>jdk相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#java版本</span>
+<span class="token function">java</span> <span class="token parameter variable">-version</span>
+<span class="token comment">#显示java文件</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">java</span>
+<span class="token comment">#删除</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> 文件名
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#wget</span>
+<span class="token function">wget</span> 资源地址
+<span class="token comment">#yum </span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="ip相关"><a href="#ip相关" class="headerlink" title="ip相关"></a>ip相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看ip</span>
+<span class="token function">ip</span> addr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 ]]></content>
       <categories>
-        <category>React</category>
+        <category>Linux</category>
+        <category>命令</category>
       </categories>
       <tags>
-        <tag>React</tag>
+        <tag>Linux</tag>
+        <tag>linux</tag>
+        <tag>linux常用命令</tag>
       </tags>
   </entry>
   <entry>
