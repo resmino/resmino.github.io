@@ -341,34 +341,6 @@
   </url>
   
   <url>
-    <loc>https://resmino.github.io/tags/%E5%9B%9E%E6%96%87%E6%95%B0/</loc>
-    <lastmod>2023-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://resmino.github.io/tags/git/</loc>
-    <lastmod>2023-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://resmino.github.io/tags/github/</loc>
-    <lastmod>2023-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://resmino.github.io/tags/github%E5%AD%A6%E7%94%9F%E5%8C%85/</loc>
-    <lastmod>2023-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://resmino.github.io/tags/Linux/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -391,6 +363,34 @@
   
   <url>
     <loc>https://resmino.github.io/tags/centos7%E5%AE%89%E8%A3%85jdk/</loc>
+    <lastmod>2023-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://resmino.github.io/tags/%E5%9B%9E%E6%96%87%E6%95%B0/</loc>
+    <lastmod>2023-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://resmino.github.io/tags/git/</loc>
+    <lastmod>2023-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://resmino.github.io/tags/github/</loc>
+    <lastmod>2023-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://resmino.github.io/tags/github%E5%AD%A6%E7%94%9F%E5%8C%85/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -586,6 +586,13 @@
   </url>
   
   <url>
+    <loc>https://resmino.github.io/tags/hexo/</loc>
+    <lastmod>2023-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://resmino.github.io/tags/cmd/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -601,13 +608,6 @@
   
   <url>
     <loc>https://resmino.github.io/tags/%E7%AE%A1%E7%90%86%E5%91%98%E5%91%BD%E4%BB%A4%E8%A1%8C/</loc>
-    <lastmod>2023-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://resmino.github.io/tags/hexo/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -665,6 +665,13 @@
   </url>
   
   <url>
+    <loc>https://resmino.github.io/categories/Linux/</loc>
+    <lastmod>2023-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://resmino.github.io/categories/Git/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -672,7 +679,7 @@
   </url>
   
   <url>
-    <loc>https://resmino.github.io/categories/Linux/</loc>
+    <loc>https://resmino.github.io/categories/Linux/CentOS7/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -686,13 +693,6 @@
   </url>
   
   <url>
-    <loc>https://resmino.github.io/categories/Git/Github/</loc>
-    <lastmod>2023-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://resmino.github.io/categories/Java%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -700,7 +700,7 @@
   </url>
   
   <url>
-    <loc>https://resmino.github.io/categories/Linux/CentOS7/</loc>
+    <loc>https://resmino.github.io/categories/Git/Github/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -728,21 +728,14 @@
   </url>
   
   <url>
-    <loc>https://resmino.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</loc>
-    <lastmod>2023-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://resmino.github.io/categories/Windows/</loc>
-    <lastmod>2023-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://resmino.github.io/categories/Java%E6%95%99%E7%A8%8B/Java%E6%A0%B8%E5%BF%83%E7%B1%BB/</loc>
+    <lastmod>2023-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://resmino.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -756,7 +749,7 @@
   </url>
   
   <url>
-    <loc>https://resmino.github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://resmino.github.io/categories/Windows/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -771,6 +764,13 @@
   
   <url>
     <loc>https://resmino.github.io/categories/Windows/Windows%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2023-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://resmino.github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
