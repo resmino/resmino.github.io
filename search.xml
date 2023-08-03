@@ -285,6 +285,87 @@
       </tags>
   </entry>
   <entry>
+    <title>20.有效的括号(Java)</title>
+    <url>/2023/08true.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>题目描述：<br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串 s ，判断字符串是否有效。<br>有效字符串需满足：<br><strong>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>每个右括号都有一个对应的相同类型的左括号。</strong></p>
+</blockquote>
+<blockquote>
+<p>示例1：<br>输入：s &#x3D; “()”<br>输出：true</p>
+</blockquote>
+<blockquote>
+<p>示例2：<br>输入：s &#x3D; “()[]{}”<br>输出：true</p>
+</blockquote>
+<blockquote>
+<p>示例3：<br>输入：s &#x3D; “(]”<br>输出：false</p>
+</blockquote>
+<blockquote>
+<p><strong>示例4：</strong><br>输入：s&#x3D;”({[]})”<br>输出：true</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>题目分析：</strong><br>题目中所说的有效括号仅指字面意义上的有效，即不考虑数学意义上括号的意义：也就是说，只要括号正确闭合就行，类似 <strong>（[]）、（{}）、[{}]、（[{}]）</strong> 等也符合题目中有效括号的定义。<strong>例如示例4输出为true</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>思路1：</strong><br>对于任何有效的初始括号字符串均至少含有（）、{}、[]三对括号中的一对，故使用contains（）循环判断是否含有这三对括号，若有则使用replace（）删除，最终有效字符串会删减为空串，将最终的字符串使用equals(“”)比较，为空串则有效，反之无效。<br><em><strong>该思路是我自己解题的思路，但由于在循环内调用函数，导致时间复杂度和空间复杂度高，性能差，代码见下方</strong></em></p>
+</blockquote>
+<blockquote>
+<p><strong>解题步骤如下：</strong><br>1、whie循环，以字符串是否含有()、[]、{}三对括号为循环条件<br>2、while循环内，以空字符“”替换字符串中的()、[]、{}<br>3、循环以字符串内不含有三对括号结束<br>4、判断最终字符串是否为空串，为空则true，反之为false</p>
+</blockquote>
+<blockquote>
+<p><strong>思路2：</strong><br>使用栈，利用stack的后进先出的特性，遍历括号字符串。<br>若字符串以(、[、{开头，且从左至右遍历过程中，遇到(、[、{则向stack栈中压入对应的右括号，遇到)、]、}则弹出栈顶元素并与当前字符比较，相同则继续，不同则结束返回false。<br>若字符串以)、]、}三者之一开头，则为无效字符串，以栈空为条件结束返回false<br><em><strong>该思路借鉴了他人的题解，很强大</strong></em></p>
+</blockquote>
+<blockquote>
+<p><strong>解题步骤</strong><br>1、声明一个空栈<br>2、使用toCharArray()将字符串转为字符数组，并在for循环中遍历<br>3、循环内：若该字符对应(、[、{则向栈中压入对应的右括号；反之则弹出栈顶元素并判断是否与当前字符相同且栈是否为空栈。若为空栈或与栈顶元素不同，则返回false<br>4、循环结束后，判断栈是否为空，为空则有效；反之无效。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//思路1代码如下</span>
+<span class="token comment">//时间空间耗费高</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;"</span><span class="token punctuation">)</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"()"</span><span class="token punctuation">)</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"[]"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"()"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"[]"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//思路2代码如下</span>
+<span class="token comment">//改进,借鉴了他人思路</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid2</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span>stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token operator">:</span>s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'('</span><span class="token punctuation">)</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">')'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'['</span><span class="token punctuation">)</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">']'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'&#123;'</span><span class="token punctuation">)</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">'&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">||</span>ch <span class="token operator">!=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p><strong>该题总共提交了五次化，花费了挺多时间，前四次依照自己的解题思路，前三次出错，第四次成功但占用时间空间多，第五次为借鉴他人思路优化解题。</strong><br>第一次解题：只考虑了括号的数量成对，未考虑括号的位置<br>第二次解题：想的太多，认为{}<a href></a>的包含关系是固定的，即[{}] 为无效括号<br>第三次解题：对于空字符串的判断使用！&#x3D;null 而不是equals()导致错误<br>第四次解题：成功运行，但时间空间占用多，如下图所示</p>
+<img data-src="/2023/08true.htm/08true/9a758bf898e449b68232576dbcc204c4.png" class>
+<p>第五次解题：借鉴他人思路，使用栈优化代码，结果如下所示。</p>
+<img data-src="/2023/08true.htm/08true/b53b123f5fa44101b3e9f83d52467dc5.png" class>
+
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Java</tag>
+        <tag>leetcode</tag>
+        <tag>leetcode题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>21.合并两个有序链表</title>
     <url>/2023/08true.html</url>
     <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
@@ -412,87 +493,6 @@ struct <span class="token class-name">ListNode</span><span class="token operator
 
 <p><strong>第三次提交：</strong> 官方递归，结果如下</p>
 <img data-src="/2023/08true.htm/08true/f005d143ce6d4343a087080c40b1ac50.png" class>
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>LeetCode</tag>
-        <tag>Java</tag>
-        <tag>leetcode</tag>
-        <tag>leetcode题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20.有效的括号(Java)</title>
-    <url>/2023/08true.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p>题目描述：<br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串 s ，判断字符串是否有效。<br>有效字符串需满足：<br><strong>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>每个右括号都有一个对应的相同类型的左括号。</strong></p>
-</blockquote>
-<blockquote>
-<p>示例1：<br>输入：s &#x3D; “()”<br>输出：true</p>
-</blockquote>
-<blockquote>
-<p>示例2：<br>输入：s &#x3D; “()[]{}”<br>输出：true</p>
-</blockquote>
-<blockquote>
-<p>示例3：<br>输入：s &#x3D; “(]”<br>输出：false</p>
-</blockquote>
-<blockquote>
-<p><strong>示例4：</strong><br>输入：s&#x3D;”({[]})”<br>输出：true</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>题目分析：</strong><br>题目中所说的有效括号仅指字面意义上的有效，即不考虑数学意义上括号的意义：也就是说，只要括号正确闭合就行，类似 <strong>（[]）、（{}）、[{}]、（[{}]）</strong> 等也符合题目中有效括号的定义。<strong>例如示例4输出为true</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>思路1：</strong><br>对于任何有效的初始括号字符串均至少含有（）、{}、[]三对括号中的一对，故使用contains（）循环判断是否含有这三对括号，若有则使用replace（）删除，最终有效字符串会删减为空串，将最终的字符串使用equals(“”)比较，为空串则有效，反之无效。<br><em><strong>该思路是我自己解题的思路，但由于在循环内调用函数，导致时间复杂度和空间复杂度高，性能差，代码见下方</strong></em></p>
-</blockquote>
-<blockquote>
-<p><strong>解题步骤如下：</strong><br>1、whie循环，以字符串是否含有()、[]、{}三对括号为循环条件<br>2、while循环内，以空字符“”替换字符串中的()、[]、{}<br>3、循环以字符串内不含有三对括号结束<br>4、判断最终字符串是否为空串，为空则true，反之为false</p>
-</blockquote>
-<blockquote>
-<p><strong>思路2：</strong><br>使用栈，利用stack的后进先出的特性，遍历括号字符串。<br>若字符串以(、[、{开头，且从左至右遍历过程中，遇到(、[、{则向stack栈中压入对应的右括号，遇到)、]、}则弹出栈顶元素并与当前字符比较，相同则继续，不同则结束返回false。<br>若字符串以)、]、}三者之一开头，则为无效字符串，以栈空为条件结束返回false<br><em><strong>该思路借鉴了他人的题解，很强大</strong></em></p>
-</blockquote>
-<blockquote>
-<p><strong>解题步骤</strong><br>1、声明一个空栈<br>2、使用toCharArray()将字符串转为字符数组，并在for循环中遍历<br>3、循环内：若该字符对应(、[、{则向栈中压入对应的右括号；反之则弹出栈顶元素并判断是否与当前字符相同且栈是否为空栈。若为空栈或与栈顶元素不同，则返回false<br>4、循环结束后，判断栈是否为空，为空则有效；反之无效。</p>
-</blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//思路1代码如下</span>
-<span class="token comment">//时间空间耗费高</span>
-<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;"</span><span class="token punctuation">)</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"()"</span><span class="token punctuation">)</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"[]"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"()"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"[]"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//思路2代码如下</span>
-<span class="token comment">//改进,借鉴了他人思路</span>
-<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid2</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span>stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token operator">:</span>s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'('</span><span class="token punctuation">)</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">')'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'['</span><span class="token punctuation">)</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">']'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'&#123;'</span><span class="token punctuation">)</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">'&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">||</span>ch <span class="token operator">!=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p><strong>该题总共提交了五次化，花费了挺多时间，前四次依照自己的解题思路，前三次出错，第四次成功但占用时间空间多，第五次为借鉴他人思路优化解题。</strong><br>第一次解题：只考虑了括号的数量成对，未考虑括号的位置<br>第二次解题：想的太多，认为{}<a href></a>的包含关系是固定的，即[{}] 为无效括号<br>第三次解题：对于空字符串的判断使用！&#x3D;null 而不是equals()导致错误<br>第四次解题：成功运行，但时间空间占用多，如下图所示</p>
-<img data-src="/2023/08true.htm/08true/9a758bf898e449b68232576dbcc204c4.png" class>
-<p>第五次解题：借鉴他人思路，使用栈优化代码，结果如下所示。</p>
-<img data-src="/2023/08true.htm/08true/b53b123f5fa44101b3e9f83d52467dc5.png" class>
-
 ]]></content>
       <categories>
         <category>LeetCode题解</category>
@@ -696,6 +696,19 @@ class Solution &#123;
       </tags>
   </entry>
   <entry>
+    <title>HTML基础标签</title>
+    <url>/2023/088c85f492.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>HTML教程</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>HTML教程</tag>
+        <tag>html标签</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Github学生包申请(学校邮箱版，秒通过)</title>
     <url>/2023/08ff1be8cc.html</url>
     <content><![CDATA[<h1 id="注册邮箱"><a href="#注册邮箱" class="headerlink" title="注册邮箱"></a>注册邮箱</h1><p>（1）若已拥有学校邮箱可直接看下一<br>（2）没有学校邮箱参考步骤去注册</p>
@@ -855,52 +868,6 @@ $ <span class="token function">git</span> push <span class="token parameter vari
       </tags>
   </entry>
   <entry>
-    <title>HTML基础标签</title>
-    <url>/2023/088c85f492.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>HTML教程</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>HTML教程</tag>
-        <tag>html标签</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java常用工具类</title>
-    <url>/2023/088b50b566.html</url>
-    <content><![CDATA[<h1 id="常用工具类"><a href="#常用工具类" class="headerlink" title="常用工具类"></a>常用工具类</h1><p>Java中有许多常用的工具类，它们提供了各种实用的方法，方便我们进行常见的操作。以下是一些常用的Java工具类：</p>
-<ol>
-<li><code>java.util.Arrays</code>：提供了用于操作数组的静态方法，如排序、搜索、填充等。</li>
-<li><code>java.util.Collections</code>：提供了用于操作集合的静态方法，如排序、搜索、反转、替换等。</li>
-<li><code>java.lang.Math</code>：提供了用于数学运算的静态方法，如求绝对值、平方根、最大值、最小值等。</li>
-<li><code>java.util.StringJoiner</code>：用于连接字符串的类，可以在字符串之间添加分隔符。</li>
-<li><code>java.util.StringTokenizer</code>：用于分割字符串的类，类似于<code>String.split()</code>方法，但更加灵活。</li>
-<li><code>java.util.Random</code>：用于生成随机数的类。</li>
-<li><code>java.text.SimpleDateFormat</code>：用于将日期对象格式化为指定的日期字符串。</li>
-<li><code>java.util.Properties</code>：用于处理属性文件的类，可以读取和写入属性文件。</li>
-<li><code>java.util.Scanner</code>：用于从输入流中读取基本类型和字符串。</li>
-<li><code>java.nio.file.Paths</code>：用于处理文件路径的类，可以获取文件路径、创建文件路径等。</li>
-<li><code>java.nio.file.Files</code>：用于处理文件和目录的类，可以复制、移动、删除文件等。</li>
-<li><code>java.util.UUID</code>：用于生成唯一标识符(UUID)。</li>
-<li><code>java.util.regex.Pattern</code>：用于处理正则表达式的类，可以进行匹配和查找。</li>
-<li><code>java.net.URL</code>：用于表示统一资源定位符(URL)，可以用于网络资源访问。</li>
-<li><code>java.util.zip.ZipFile</code>：用于处理ZIP文件的类，可以读取和解压ZIP文件。</li>
-</ol>
-<p>这些工具类都位于Java标准库中，无需额外导入即可使用。根据不同的需求，你可以选择合适的工具类来简化你的编程工作。除了上述工具类，Java还有许多其他常用的工具类，可以根据具体的项目和任务来进一步探索和使用。</p>
-]]></content>
-      <categories>
-        <category>Java教程</category>
-        <category>Java核心类</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Java工具类</tag>
-        <tag>Java常用工具类</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaBean</title>
     <url>/2023/083310.html</url>
     <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>JavaBean是Java编程中的一个概念，它是一种符合特定规范的Java类。JavaBean通常用于封装数据和功能，通过提供公共的getter和setter方法来访问和修改类的属性（成员变量），从而实现面向对象编程的封装特性。</p>
@@ -976,6 +943,39 @@ $ <span class="token function">git</span> push <span class="token parameter vari
       </tags>
   </entry>
   <entry>
+    <title>Java常用工具类</title>
+    <url>/2023/088b50b566.html</url>
+    <content><![CDATA[<h1 id="常用工具类"><a href="#常用工具类" class="headerlink" title="常用工具类"></a>常用工具类</h1><p>Java中有许多常用的工具类，它们提供了各种实用的方法，方便我们进行常见的操作。以下是一些常用的Java工具类：</p>
+<ol>
+<li><code>java.util.Arrays</code>：提供了用于操作数组的静态方法，如排序、搜索、填充等。</li>
+<li><code>java.util.Collections</code>：提供了用于操作集合的静态方法，如排序、搜索、反转、替换等。</li>
+<li><code>java.lang.Math</code>：提供了用于数学运算的静态方法，如求绝对值、平方根、最大值、最小值等。</li>
+<li><code>java.util.StringJoiner</code>：用于连接字符串的类，可以在字符串之间添加分隔符。</li>
+<li><code>java.util.StringTokenizer</code>：用于分割字符串的类，类似于<code>String.split()</code>方法，但更加灵活。</li>
+<li><code>java.util.Random</code>：用于生成随机数的类。</li>
+<li><code>java.text.SimpleDateFormat</code>：用于将日期对象格式化为指定的日期字符串。</li>
+<li><code>java.util.Properties</code>：用于处理属性文件的类，可以读取和写入属性文件。</li>
+<li><code>java.util.Scanner</code>：用于从输入流中读取基本类型和字符串。</li>
+<li><code>java.nio.file.Paths</code>：用于处理文件路径的类，可以获取文件路径、创建文件路径等。</li>
+<li><code>java.nio.file.Files</code>：用于处理文件和目录的类，可以复制、移动、删除文件等。</li>
+<li><code>java.util.UUID</code>：用于生成唯一标识符(UUID)。</li>
+<li><code>java.util.regex.Pattern</code>：用于处理正则表达式的类，可以进行匹配和查找。</li>
+<li><code>java.net.URL</code>：用于表示统一资源定位符(URL)，可以用于网络资源访问。</li>
+<li><code>java.util.zip.ZipFile</code>：用于处理ZIP文件的类，可以读取和解压ZIP文件。</li>
+</ol>
+<p>这些工具类都位于Java标准库中，无需额外导入即可使用。根据不同的需求，你可以选择合适的工具类来简化你的编程工作。除了上述工具类，Java还有许多其他常用的工具类，可以根据具体的项目和任务来进一步探索和使用。</p>
+]]></content>
+      <categories>
+        <category>Java教程</category>
+        <category>Java核心类</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java工具类</tag>
+        <tag>Java常用工具类</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java异常处理</title>
     <url>/2023/087526d370.html</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Java异常处理是Java编程中一个重要的概念，用于处理程序运行过程中可能出现的错误和异常情况。异常处理机制可以使程序在出现异常时不至于崩溃，而是能够进行适当的处理和恢复。Java内置了一套异常处理机制，总是使用异常来表示错误。异常可以在任何地方抛出。</p>
@@ -1007,96 +1007,6 @@ $ <span class="token function">git</span> push <span class="token parameter vari
         <tag>Java</tag>
         <tag>Java异常处理</tag>
         <tag>异常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java数据类型</title>
-    <url>/2023/0818833.html</url>
-    <content><![CDATA[<h1 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
-<li>基本类型：<code>byte</code>，<code>short</code>，<code>int</code>，<code>long</code>，<code>boolean</code>，<code>float</code>，<code>double</code>，<code>char</code></li>
-<li>引用类型：所有<code>class</code>和<code>interface</code>类型</li>
-</ul>
-<p><strong>注意</strong>：引用类型可以赋值为null，表示空，但基本类型不能赋值为null，会编译错误</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// compile error!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>基本类型与引用类型的对应关系，如下表所示：</p>
-<table>
-<thead>
-<tr>
-<th align="left">基本类型</th>
-<th align="left">对应的引用类型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">boolean</td>
-<td align="left">java.lang.Boolean</td>
-</tr>
-<tr>
-<td align="left">byte</td>
-<td align="left">java.lang.Byte</td>
-</tr>
-<tr>
-<td align="left">short</td>
-<td align="left">java.lang.Short</td>
-</tr>
-<tr>
-<td align="left">int</td>
-<td align="left">java.lang.Integer</td>
-</tr>
-<tr>
-<td align="left">long</td>
-<td align="left">java.lang.Long</td>
-</tr>
-<tr>
-<td align="left">float</td>
-<td align="left">java.lang.Float</td>
-</tr>
-<tr>
-<td align="left">double</td>
-<td align="left">java.lang.Double</td>
-</tr>
-<tr>
-<td align="left">char</td>
-<td align="left">java.lang.Character</td>
-</tr>
-</tbody></table>
-<ul>
-<li>Java编译器可以帮助我们自动在<code>int</code>和<code>Integer</code>之间转型：</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.valueOf(int)</span>
-<span class="token keyword">int</span> x <span class="token operator">=</span> n<span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.intValue()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><strong>注意：</strong>这种直接把<code>int</code>变为<code>Integer</code>的赋值写法，称为自动装箱（Auto Boxing），反过来，把<code>Integer</code>变为<code>int</code>的赋值写法，称为自动拆箱（Auto Unboxing）。自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。</p>
-<p>装箱和拆箱会影响代码的执行效率，因为编译后的<code>class</code>代码是严格区分基本类型和引用类型的。并且，自动拆箱执行时可能会报<code>NullPointerException</code>：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span><span class="token comment">//基本数据类型不能</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li><p>所有的包装类型都是不变类。</p>
-</li>
-<li><p>对两个<code>Integer</code>实例进行比较要特别注意：绝对不能用<code>==</code>比较，因为<code>Integer</code>是引用类型，必须使用<code>equals()</code>比较</p>
-</li>
-<li><p>在Java中，并没有无符号整型（Unsigned）的基本数据类型。<code>byte</code>、<code>short</code>、<code>int</code>和<code>long</code>都是带符号整型，最高位是符号位。无符号整型和有符号整型的转换在Java中就需要借助包装类型的静态方法完成。</p>
-</li>
-<li><p>char的加减运算就是按其Unicode编号进行运算，一般对字符做加减运算没什么意义，但ASCII码字符是有意义的。比如大小写转换，大写A～Z的编号是65～90，小写a～z的编号是97～122，正好相差32，所以大写转小写只需加32，而小写转大写只需减32。加减运算的另一个应用是加密和解密，将字符进行某种可逆的数学运算可以做加解密。</p>
-</li>
-<li><p>char的位运算可以看作是对应整数的位运算，只是它是无符号数，也就是说，有符号右移&gt;&gt;和无符号右移&gt;&gt;&gt;的结果是一样的。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java教程</category>
-        <category>Java零碎知识点记录</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Java知识记录</tag>
       </tags>
   </entry>
   <entry>
@@ -1219,6 +1129,96 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
         <tag>Java核心类</tag>
         <tag>字符串</tag>
         <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java数据类型</title>
+    <url>/2023/0818833.html</url>
+    <content><![CDATA[<h1 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
+<li>基本类型：<code>byte</code>，<code>short</code>，<code>int</code>，<code>long</code>，<code>boolean</code>，<code>float</code>，<code>double</code>，<code>char</code></li>
+<li>引用类型：所有<code>class</code>和<code>interface</code>类型</li>
+</ul>
+<p><strong>注意</strong>：引用类型可以赋值为null，表示空，但基本类型不能赋值为null，会编译错误</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// compile error!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>基本类型与引用类型的对应关系，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="left">基本类型</th>
+<th align="left">对应的引用类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">boolean</td>
+<td align="left">java.lang.Boolean</td>
+</tr>
+<tr>
+<td align="left">byte</td>
+<td align="left">java.lang.Byte</td>
+</tr>
+<tr>
+<td align="left">short</td>
+<td align="left">java.lang.Short</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">java.lang.Integer</td>
+</tr>
+<tr>
+<td align="left">long</td>
+<td align="left">java.lang.Long</td>
+</tr>
+<tr>
+<td align="left">float</td>
+<td align="left">java.lang.Float</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">java.lang.Double</td>
+</tr>
+<tr>
+<td align="left">char</td>
+<td align="left">java.lang.Character</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Java编译器可以帮助我们自动在<code>int</code>和<code>Integer</code>之间转型：</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.valueOf(int)</span>
+<span class="token keyword">int</span> x <span class="token operator">=</span> n<span class="token punctuation">;</span> <span class="token comment">// 编译器自动使用Integer.intValue()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>注意：</strong>这种直接把<code>int</code>变为<code>Integer</code>的赋值写法，称为自动装箱（Auto Boxing），反过来，把<code>Integer</code>变为<code>int</code>的赋值写法，称为自动拆箱（Auto Unboxing）。自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。</p>
+<p>装箱和拆箱会影响代码的执行效率，因为编译后的<code>class</code>代码是严格区分基本类型和引用类型的。并且，自动拆箱执行时可能会报<code>NullPointerException</code>：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span><span class="token comment">//基本数据类型不能</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>所有的包装类型都是不变类。</p>
+</li>
+<li><p>对两个<code>Integer</code>实例进行比较要特别注意：绝对不能用<code>==</code>比较，因为<code>Integer</code>是引用类型，必须使用<code>equals()</code>比较</p>
+</li>
+<li><p>在Java中，并没有无符号整型（Unsigned）的基本数据类型。<code>byte</code>、<code>short</code>、<code>int</code>和<code>long</code>都是带符号整型，最高位是符号位。无符号整型和有符号整型的转换在Java中就需要借助包装类型的静态方法完成。</p>
+</li>
+<li><p>char的加减运算就是按其Unicode编号进行运算，一般对字符做加减运算没什么意义，但ASCII码字符是有意义的。比如大小写转换，大写A～Z的编号是65～90，小写a～z的编号是97～122，正好相差32，所以大写转小写只需加32，而小写转大写只需减32。加减运算的另一个应用是加密和解密，将字符进行某种可逆的数学运算可以做加解密。</p>
+</li>
+<li><p>char的位运算可以看作是对应整数的位运算，只是它是无符号数，也就是说，有符号右移&gt;&gt;和无符号右移&gt;&gt;&gt;的结果是一样的。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java教程</category>
+        <category>Java零碎知识点记录</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java知识记录</tag>
       </tags>
   </entry>
   <entry>
@@ -1605,6 +1605,59 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
+    <title>Windows快捷打开管理员模式命令行方式</title>
+    <url>/2023/08e0ceff35.html</url>
+    <content><![CDATA[<h1 id="鼠标点击启动"><a href="#鼠标点击启动" class="headerlink" title="鼠标点击启动"></a>鼠标点击启动</h1><ul>
+<li>windows搜索框搜索cmd或者命令行,如下所示：</li>
+</ul>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802195303970.png" class>
+
+<h1 id="Win-R启动"><a href="#Win-R启动" class="headerlink" title="Win+R启动"></a>Win+R启动</h1><ul>
+<li>使用Win+R快捷键，然后输入cmd后，再次使用Ctrl+Shift+Enter快捷键打开管理员模式命令行</li>
+</ul>
+<h1 id="为打开管理员模式命令行设置快捷键"><a href="#为打开管理员模式命令行设置快捷键" class="headerlink" title="为打开管理员模式命令行设置快捷键"></a>为打开管理员模式命令行设置快捷键</h1><ol>
+<li>windows搜索框搜索cmd，然后点击打开文件位置，如下图所示</li>
+</ol>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802195748221.png" class>
+
+<ol start="2">
+<li>进入文件后，把下面的命令提示符快捷方式复制一份放在桌面，如下所示：</li>
+</ol>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802202441605.png" class>
+
+<ol start="3">
+<li>复制后，先重命名一下，我这里命名的是命令提示符管理员，以便于移回原先的文件夹(放在桌面不美观，当然你也可以选择自己想要放的位置，并不影响)，重命名后剪切移动到原来的位置，如下所示：</li>
+</ol>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203013311.png" class>
+
+<ol start="4">
+<li>右键重命名后得到的快捷方式，选择属性，然后选择自己记得住且不会冲突的快捷键，我选择的是Ctrl+K如下所示：</li>
+</ol>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203458849.png" class>
+
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203707536.png" class>
+
+<ol start="5">
+<li>然后点击高级，勾选用管理员身份运行，之后点击确定和应用即可。</li>
+</ol>
+
+
+<ol start="6">
+<li><p>然后使用快捷键即可快捷使用管理员模式命令提示符</p>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802204059861.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>Windows命令</category>
+      </categories>
+      <tags>
+        <tag>cmd</tag>
+        <tag>管理员模式cmd</tag>
+        <tag>管理员命令行</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2023/0716107.html</url>
     <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
@@ -1755,174 +1808,6 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
-    <title>Windows快捷打开管理员模式命令行方式</title>
-    <url>/2023/08e0ceff35.html</url>
-    <content><![CDATA[<h1 id="鼠标点击启动"><a href="#鼠标点击启动" class="headerlink" title="鼠标点击启动"></a>鼠标点击启动</h1><ul>
-<li>windows搜索框搜索cmd或者命令行,如下所示：</li>
-</ul>
-<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802195303970.png" class>
-
-<h1 id="Win-R启动"><a href="#Win-R启动" class="headerlink" title="Win+R启动"></a>Win+R启动</h1><ul>
-<li>使用Win+R快捷键，然后输入cmd后，再次使用Ctrl+Shift+Enter快捷键打开管理员模式命令行</li>
-</ul>
-<h1 id="为打开管理员模式命令行设置快捷键"><a href="#为打开管理员模式命令行设置快捷键" class="headerlink" title="为打开管理员模式命令行设置快捷键"></a>为打开管理员模式命令行设置快捷键</h1><ol>
-<li>windows搜索框搜索cmd，然后点击打开文件位置，如下图所示</li>
-</ol>
-<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802195748221.png" class>
-
-<ol start="2">
-<li>进入文件后，把下面的命令提示符快捷方式复制一份放在桌面，如下所示：</li>
-</ol>
-<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802202441605.png" class>
-
-<ol start="3">
-<li>复制后，先重命名一下，我这里命名的是命令提示符管理员，以便于移回原先的文件夹(放在桌面不美观，当然你也可以选择自己想要放的位置，并不影响)，重命名后剪切移动到原来的位置，如下所示：</li>
-</ol>
-<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203013311.png" class>
-
-<ol start="4">
-<li>右键重命名后得到的快捷方式，选择属性，然后选择自己记得住且不会冲突的快捷键，我选择的是Ctrl+K如下所示：</li>
-</ol>
-<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203458849.png" class>
-
-<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203707536.png" class>
-
-<ol start="5">
-<li>然后点击高级，勾选用管理员身份运行，之后点击确定和应用即可。</li>
-</ol>
-
-
-<ol start="6">
-<li><p>然后使用快捷键即可快捷使用管理员模式命令提示符</p>
-<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802204059861.png" class></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Windows</category>
-        <category>Windows命令</category>
-      </categories>
-      <tags>
-        <tag>cmd</tag>
-        <tag>管理员模式cmd</tag>
-        <tag>管理员命令行</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软件测试简介</title>
-    <url>/2023/08a9f1ca1d.html</url>
-    <content><![CDATA[<h1 id="软件测试概述"><a href="#软件测试概述" class="headerlink" title="软件测试概述"></a>软件测试概述</h1><p>软件测试是指在软件开发过程中，通过对软件系统进行各种测试和验证，以检测软件中的错误和缺陷，保证软件质量，提高软件可靠性和稳定性的过程。软件测试在软件工程中起到至关重要的作用，它可以在软件发布之前发现并修复缺陷和错误，保证软件的稳定性和可靠性，提高软件的用户体验和满意度。</p>
-<p>软件测试包括以下几个方面：</p>
-<ul>
-<li><p><strong>静态测试：</strong></p>
-<blockquote>
-<p>静态测试是指对软件系统进行非执行性的测试，如代码审查、需求审查、设计审查、文档审查等，主要用于发现软件系统中的错误和缺陷。</p>
-</blockquote>
-</li>
-<li><p><strong>动态测试：</strong></p>
-<blockquote>
-<p>动态测试是指对软件系统进行执行性的测试，如单元测试、集成测试、系统测试、验收测试等，主要用于发现软件系统中的功能错误和性能问题。</p>
-</blockquote>
-</li>
-<li><p><strong>自动化测试：</strong></p>
-<blockquote>
-<p>自动化测试是指使用自动化测试工具来执行软件测试，如自动化测试脚本、自动化测试工具等，可以减少手动测试的工作量，提高测试效率和准确性。</p>
-</blockquote>
-</li>
-<li><p><strong>性能测试：</strong></p>
-<blockquote>
-<p>性能测试是指对软件系统进行性能测试，如负载测试、压力测试、并发测试等，主要用于发现软件系统中的性能问题和瓶颈。</p>
-</blockquote>
-</li>
-<li><p><strong>安全测试：</strong></p>
-<blockquote>
-<p>安全测试是指对软件系统进行安全测试，如漏洞测试、攻击测试、数据安全测试等，主要用于发现软件系统中的安全问题和漏洞。</p>
-</blockquote>
-</li>
-</ul>
-<p>总之，软件测试是软件开发中不可或缺的一部分，它可以保证软件的质量和稳定性，为软件的发布和上线提供保障。在软件开发过程中，开发人员需要充分重视软件测试工作，并根据具体的需求和情况进行选择和应用。</p>
-<h1 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h1><p>单元测试是软件测试中的一种测试方法，是针对软件系统中的最小单元——代码中的函数或方法进行测试的过程。单元测试旨在保证软件系统中的每个单元都能够按照预期工作，从而确保软件系统的稳定性和可靠性。<br>在进行单元测试时，开发人员通常需要遵循以下步骤：</p>
-<ul>
-<li><p><strong>选择单元：</strong></p>
-<blockquote>
-<p>选择需要进行测试的单元，通常是代码中的函数或方法。</p>
-</blockquote>
-</li>
-<li><p><strong>编写测试用例：</strong></p>
-<blockquote>
-<p>针对每个单元编写测试用例，包括输入数据和期望输出结果。</p>
-</blockquote>
-</li>
-<li><p><strong>运行测试：</strong></p>
-<blockquote>
-<p>运行测试用例，检查实际输出结果是否与期望结果一致。</p>
-</blockquote>
-</li>
-<li><p><strong>分析测试结果：</strong></p>
-<blockquote>
-<p>分析测试结果，确认是否存在错误或缺陷。</p>
-</blockquote>
-</li>
-<li><p><strong>修改代码：</strong></p>
-<blockquote>
-<p>如果测试结果存在错误或缺陷，需要对代码进行修改和优化，然后重新运行测试。</p>
-</blockquote>
-</li>
-<li><p><strong>重复测试：</strong></p>
-<blockquote>
-<p>重复以上步骤，直到测试结果符合预期为止。</p>
-</blockquote>
-</li>
-</ul>
-<p>单元测试可以有效地发现代码中的错误和缺陷，提高软件的质量和稳定性。它可以帮助开发人员快速地发现并修复错误，避免错误的逐步积累，从而减少后期的调试和修改工作，节省时间和成本。此外，单元测试还可以提高代码的可读性和可维护性，使代码更加易于理解和修改。</p>
-]]></content>
-      <categories>
-        <category>软件测试</category>
-      </categories>
-      <tags>
-        <tag>软件测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软件工程概述</title>
-    <url>/2023/08b85236bf.html</url>
-    <content><![CDATA[<p><strong>软件工程</strong>是一门关于软件开发过程的学科，它包括了<strong>软件开发、测试、部署、运维</strong>等方面的知识。以下是一些常见的软件工程知识点：</p>
-<h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><blockquote>
-<p>软件生命周期指从软件的开发、测试、部署到维护和升级的整个过程。软件生命周期可以分为几个阶段，如计划、需求分析、设计、编码、测试、部署、维护等。</p>
-</blockquote>
-<h1 id="软件开发方法"><a href="#软件开发方法" class="headerlink" title="软件开发方法"></a>软件开发方法</h1><blockquote>
-<p>软件开发方法包括了传统的瀑布模型、敏捷开发、迭代开发等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
-</blockquote>
-<h1 id="软件需求分析"><a href="#软件需求分析" class="headerlink" title="软件需求分析"></a>软件需求分析</h1><blockquote>
-<p>软件需求分析是软件开发的第一步，它的目的是确定软件的功能和性能要求，并将这些要求转化为系统能够实现的具体的功能和规格。</p>
-</blockquote>
-<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><blockquote>
-<p>软件设计是指根据需求分析的结果，确定软件的系统结构、模块划分、接口设计等，以实现需求分析中确定的功能和性能要求。</p>
-</blockquote>
-<h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><blockquote>
-<p>软件测试是指对已经开发的软件进行测试和验证，以确保其符合需求和规格要求。测试包括功能测试、性能测试、安全测试、可靠性测试等。</p>
-</blockquote>
-<h1 id="软件部署"><a href="#软件部署" class="headerlink" title="软件部署"></a>软件部署</h1><blockquote>
-<p>软件部署是指将已经测试通过的软件部署到用户环境中，并确保软件的正常运行。</p>
-</blockquote>
-<h1 id="软件维护"><a href="#软件维护" class="headerlink" title="软件维护"></a>软件维护</h1><blockquote>
-<p>软件维护是指对已经部署的软件进行修复、更新、升级等操作，以保证软件能够持续运行并满足用户的需求。</p>
-</blockquote>
-<h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><blockquote>
-<p>软件质量保证是确保软件开发过程中符合规范和标准，以保证软件的质量和可靠性。它包括了软件过程改进、代码审查、测试和质量度量等方面。</p>
-</blockquote>
-<h1 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h1><blockquote>
-<p>软件项目管理是指对软件开发过程进行规划、组织、协调和控制，以确保项目能够按时完成、满足质量要求和预算控制。</p>
-</blockquote>
-<p>软件工程知识是软件开发过程中必不可少的部分，掌握这些知识可以帮助开发人员更好地理解软件开发过程，并提高软件的质量和可靠性。</p>
-]]></content>
-      <categories>
-        <category>软件工程</category>
-      </categories>
-      <tags>
-        <tag>软件工程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>软件工程开发方法总结</title>
     <url>/2023/08b31810d4.html</url>
     <content><![CDATA[<p><strong>软件开发方法</strong>：软件开发方法包括了传统的<strong>瀑布模型</strong>、<strong>敏捷开发</strong>、<strong>迭代开发</strong>等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
@@ -2000,6 +1885,121 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
         <tag>软件工程</tag>
         <tag>软件开发方法</tag>
         <tag>软件开发模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件工程概述</title>
+    <url>/2023/08b85236bf.html</url>
+    <content><![CDATA[<p><strong>软件工程</strong>是一门关于软件开发过程的学科，它包括了<strong>软件开发、测试、部署、运维</strong>等方面的知识。以下是一些常见的软件工程知识点：</p>
+<h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><blockquote>
+<p>软件生命周期指从软件的开发、测试、部署到维护和升级的整个过程。软件生命周期可以分为几个阶段，如计划、需求分析、设计、编码、测试、部署、维护等。</p>
+</blockquote>
+<h1 id="软件开发方法"><a href="#软件开发方法" class="headerlink" title="软件开发方法"></a>软件开发方法</h1><blockquote>
+<p>软件开发方法包括了传统的瀑布模型、敏捷开发、迭代开发等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
+</blockquote>
+<h1 id="软件需求分析"><a href="#软件需求分析" class="headerlink" title="软件需求分析"></a>软件需求分析</h1><blockquote>
+<p>软件需求分析是软件开发的第一步，它的目的是确定软件的功能和性能要求，并将这些要求转化为系统能够实现的具体的功能和规格。</p>
+</blockquote>
+<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><blockquote>
+<p>软件设计是指根据需求分析的结果，确定软件的系统结构、模块划分、接口设计等，以实现需求分析中确定的功能和性能要求。</p>
+</blockquote>
+<h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><blockquote>
+<p>软件测试是指对已经开发的软件进行测试和验证，以确保其符合需求和规格要求。测试包括功能测试、性能测试、安全测试、可靠性测试等。</p>
+</blockquote>
+<h1 id="软件部署"><a href="#软件部署" class="headerlink" title="软件部署"></a>软件部署</h1><blockquote>
+<p>软件部署是指将已经测试通过的软件部署到用户环境中，并确保软件的正常运行。</p>
+</blockquote>
+<h1 id="软件维护"><a href="#软件维护" class="headerlink" title="软件维护"></a>软件维护</h1><blockquote>
+<p>软件维护是指对已经部署的软件进行修复、更新、升级等操作，以保证软件能够持续运行并满足用户的需求。</p>
+</blockquote>
+<h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><blockquote>
+<p>软件质量保证是确保软件开发过程中符合规范和标准，以保证软件的质量和可靠性。它包括了软件过程改进、代码审查、测试和质量度量等方面。</p>
+</blockquote>
+<h1 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h1><blockquote>
+<p>软件项目管理是指对软件开发过程进行规划、组织、协调和控制，以确保项目能够按时完成、满足质量要求和预算控制。</p>
+</blockquote>
+<p>软件工程知识是软件开发过程中必不可少的部分，掌握这些知识可以帮助开发人员更好地理解软件开发过程，并提高软件的质量和可靠性。</p>
+]]></content>
+      <categories>
+        <category>软件工程</category>
+      </categories>
+      <tags>
+        <tag>软件工程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件测试简介</title>
+    <url>/2023/08a9f1ca1d.html</url>
+    <content><![CDATA[<h1 id="软件测试概述"><a href="#软件测试概述" class="headerlink" title="软件测试概述"></a>软件测试概述</h1><p>软件测试是指在软件开发过程中，通过对软件系统进行各种测试和验证，以检测软件中的错误和缺陷，保证软件质量，提高软件可靠性和稳定性的过程。软件测试在软件工程中起到至关重要的作用，它可以在软件发布之前发现并修复缺陷和错误，保证软件的稳定性和可靠性，提高软件的用户体验和满意度。</p>
+<p>软件测试包括以下几个方面：</p>
+<ul>
+<li><p><strong>静态测试：</strong></p>
+<blockquote>
+<p>静态测试是指对软件系统进行非执行性的测试，如代码审查、需求审查、设计审查、文档审查等，主要用于发现软件系统中的错误和缺陷。</p>
+</blockquote>
+</li>
+<li><p><strong>动态测试：</strong></p>
+<blockquote>
+<p>动态测试是指对软件系统进行执行性的测试，如单元测试、集成测试、系统测试、验收测试等，主要用于发现软件系统中的功能错误和性能问题。</p>
+</blockquote>
+</li>
+<li><p><strong>自动化测试：</strong></p>
+<blockquote>
+<p>自动化测试是指使用自动化测试工具来执行软件测试，如自动化测试脚本、自动化测试工具等，可以减少手动测试的工作量，提高测试效率和准确性。</p>
+</blockquote>
+</li>
+<li><p><strong>性能测试：</strong></p>
+<blockquote>
+<p>性能测试是指对软件系统进行性能测试，如负载测试、压力测试、并发测试等，主要用于发现软件系统中的性能问题和瓶颈。</p>
+</blockquote>
+</li>
+<li><p><strong>安全测试：</strong></p>
+<blockquote>
+<p>安全测试是指对软件系统进行安全测试，如漏洞测试、攻击测试、数据安全测试等，主要用于发现软件系统中的安全问题和漏洞。</p>
+</blockquote>
+</li>
+</ul>
+<p>总之，软件测试是软件开发中不可或缺的一部分，它可以保证软件的质量和稳定性，为软件的发布和上线提供保障。在软件开发过程中，开发人员需要充分重视软件测试工作，并根据具体的需求和情况进行选择和应用。</p>
+<h1 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h1><p>单元测试是软件测试中的一种测试方法，是针对软件系统中的最小单元——代码中的函数或方法进行测试的过程。单元测试旨在保证软件系统中的每个单元都能够按照预期工作，从而确保软件系统的稳定性和可靠性。<br>在进行单元测试时，开发人员通常需要遵循以下步骤：</p>
+<ul>
+<li><p><strong>选择单元：</strong></p>
+<blockquote>
+<p>选择需要进行测试的单元，通常是代码中的函数或方法。</p>
+</blockquote>
+</li>
+<li><p><strong>编写测试用例：</strong></p>
+<blockquote>
+<p>针对每个单元编写测试用例，包括输入数据和期望输出结果。</p>
+</blockquote>
+</li>
+<li><p><strong>运行测试：</strong></p>
+<blockquote>
+<p>运行测试用例，检查实际输出结果是否与期望结果一致。</p>
+</blockquote>
+</li>
+<li><p><strong>分析测试结果：</strong></p>
+<blockquote>
+<p>分析测试结果，确认是否存在错误或缺陷。</p>
+</blockquote>
+</li>
+<li><p><strong>修改代码：</strong></p>
+<blockquote>
+<p>如果测试结果存在错误或缺陷，需要对代码进行修改和优化，然后重新运行测试。</p>
+</blockquote>
+</li>
+<li><p><strong>重复测试：</strong></p>
+<blockquote>
+<p>重复以上步骤，直到测试结果符合预期为止。</p>
+</blockquote>
+</li>
+</ul>
+<p>单元测试可以有效地发现代码中的错误和缺陷，提高软件的质量和稳定性。它可以帮助开发人员快速地发现并修复错误，避免错误的逐步积累，从而减少后期的调试和修改工作，节省时间和成本。此外，单元测试还可以提高代码的可读性和可维护性，使代码更加易于理解和修改。</p>
+]]></content>
+      <categories>
+        <category>软件测试</category>
+      </categories>
+      <tags>
+        <tag>软件测试</tag>
       </tags>
   </entry>
 </search>
