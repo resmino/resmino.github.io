@@ -143,7 +143,7 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>最初使用C语言实现，但过程中由于出现数组下标溢出的问题无法在LeetCode上通过运行，所以转而使用Java语言。<br><em><strong>本次解题过程未借鉴他人题解，故所编写的代码未考虑时间复杂度和空间复杂度，且未对代码进行优化，谨慎参考。</strong></em><br>在使用java语言实现的过程中，只考虑了解决题目，对于优化方面，代码的简化方面做的不够好，需进一步加强练习。<br>本次解题所占时间和空间如下所示。</p>
-<img data-src="/2023/08156c09fb/d638e87527e54f32ba4c4314472f5030.png" class>
+<img data-src="/2023/08156c09fb.htm/08156c09fb/d638e87527e54f32ba4c4314472f5030.png" class>
 
 ]]></content>
       <categories>
@@ -195,7 +195,7 @@
 
 
 <h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决该题时，最初的思路是先遍历字符串数组，找出字符串长度最短的字符串作为初始前缀的值，然后进行横向扫描解题。后通过借鉴他人思路，使用startsWith方法进行前缀判断。<br>后查看官方题解，看到多种解题思路，如二分查找、纵向扫描等方法。</p>
-<img data-src="/2023/08true/6d21bc19977b4ac3a171e2d685b70983.png" class>
+<img data-src="/2023/08true.htm/08true/6d21bc19977b4ac3a171e2d685b70983.png" class>
 ]]></content>
       <categories>
         <category>LeetCode题解</category>
@@ -273,7 +273,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="个人记录"><a href="#个人记录" class="headerlink" title="个人记录"></a>个人记录</h1><p>在第一次实现中，在进行链表插入时出现错误，导致只能输出第一个数字和最后一个数字。原因则是反复将后续结点插入结果链表的第二个节点位置。导致无法得出正确结果，提交错误。</p>
-<img data-src="/2023/077402/7f053c1ad63044d09777ab8286577aff.png" class>
+<img data-src="/2023/077402.htm/077402/7f053c1ad63044d09777ab8286577aff.png" class>
 ]]></content>
       <categories>
         <category>LeetCode题解</category>
@@ -282,87 +282,6 @@
         <tag>LeetCode题解</tag>
         <tag>LeetCode</tag>
         <tag>两数之和</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20.有效的括号(Java)</title>
-    <url>/2023/08true.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p>题目描述：<br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串 s ，判断字符串是否有效。<br>有效字符串需满足：<br><strong>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>每个右括号都有一个对应的相同类型的左括号。</strong></p>
-</blockquote>
-<blockquote>
-<p>示例1：<br>输入：s &#x3D; “()”<br>输出：true</p>
-</blockquote>
-<blockquote>
-<p>示例2：<br>输入：s &#x3D; “()[]{}”<br>输出：true</p>
-</blockquote>
-<blockquote>
-<p>示例3：<br>输入：s &#x3D; “(]”<br>输出：false</p>
-</blockquote>
-<blockquote>
-<p><strong>示例4：</strong><br>输入：s&#x3D;”({[]})”<br>输出：true</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>题目分析：</strong><br>题目中所说的有效括号仅指字面意义上的有效，即不考虑数学意义上括号的意义：也就是说，只要括号正确闭合就行，类似 <strong>（[]）、（{}）、[{}]、（[{}]）</strong> 等也符合题目中有效括号的定义。<strong>例如示例4输出为true</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>思路1：</strong><br>对于任何有效的初始括号字符串均至少含有（）、{}、[]三对括号中的一对，故使用contains（）循环判断是否含有这三对括号，若有则使用replace（）删除，最终有效字符串会删减为空串，将最终的字符串使用equals(“”)比较，为空串则有效，反之无效。<br><em><strong>该思路是我自己解题的思路，但由于在循环内调用函数，导致时间复杂度和空间复杂度高，性能差，代码见下方</strong></em></p>
-</blockquote>
-<blockquote>
-<p><strong>解题步骤如下：</strong><br>1、whie循环，以字符串是否含有()、[]、{}三对括号为循环条件<br>2、while循环内，以空字符“”替换字符串中的()、[]、{}<br>3、循环以字符串内不含有三对括号结束<br>4、判断最终字符串是否为空串，为空则true，反之为false</p>
-</blockquote>
-<blockquote>
-<p><strong>思路2：</strong><br>使用栈，利用stack的后进先出的特性，遍历括号字符串。<br>若字符串以(、[、{开头，且从左至右遍历过程中，遇到(、[、{则向stack栈中压入对应的右括号，遇到)、]、}则弹出栈顶元素并与当前字符比较，相同则继续，不同则结束返回false。<br>若字符串以)、]、}三者之一开头，则为无效字符串，以栈空为条件结束返回false<br><em><strong>该思路借鉴了他人的题解，很强大</strong></em></p>
-</blockquote>
-<blockquote>
-<p><strong>解题步骤</strong><br>1、声明一个空栈<br>2、使用toCharArray()将字符串转为字符数组，并在for循环中遍历<br>3、循环内：若该字符对应(、[、{则向栈中压入对应的右括号；反之则弹出栈顶元素并判断是否与当前字符相同且栈是否为空栈。若为空栈或与栈顶元素不同，则返回false<br>4、循环结束后，判断栈是否为空，为空则有效；反之无效。</p>
-</blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//思路1代码如下</span>
-<span class="token comment">//时间空间耗费高</span>
-<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;"</span><span class="token punctuation">)</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"()"</span><span class="token punctuation">)</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"[]"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"()"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"[]"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//思路2代码如下</span>
-<span class="token comment">//改进,借鉴了他人思路</span>
-<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid2</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span>stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token operator">:</span>s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'('</span><span class="token punctuation">)</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">')'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'['</span><span class="token punctuation">)</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">']'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'&#123;'</span><span class="token punctuation">)</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">'&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">||</span>ch <span class="token operator">!=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p><strong>该题总共提交了五次化，花费了挺多时间，前四次依照自己的解题思路，前三次出错，第四次成功但占用时间空间多，第五次为借鉴他人思路优化解题。</strong><br>第一次解题：只考虑了括号的数量成对，未考虑括号的位置<br>第二次解题：想的太多，认为{}<a href></a>的包含关系是固定的，即[{}] 为无效括号<br>第三次解题：对于空字符串的判断使用！&#x3D;null 而不是equals()导致错误<br>第四次解题：成功运行，但时间空间占用多，如下图所示</p>
-<img data-src="/2023/08true/9a758bf898e449b68232576dbcc204c4.png" class>
-<p>第五次解题：借鉴他人思路，使用栈优化代码，结果如下所示。</p>
-<img data-src="/2023/08true/b53b123f5fa44101b3e9f83d52467dc5.png" class>
-
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>LeetCode</tag>
-        <tag>Java</tag>
-        <tag>leetcode</tag>
-        <tag>leetcode题解</tag>
       </tags>
   </entry>
   <entry>
@@ -487,12 +406,93 @@ struct <span class="token class-name">ListNode</span><span class="token operator
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决本题时最初的思路就是通过遍历比较值的大小然后合并两个链表，并且由于对于链表知识的遗忘，导致具体实现过程中出现一些错误，且时间花费在复习链表知识上。后来成功提交后，看了题解，才发现可以使用递归解决该题目，并自己尝试着写递归，能成功提交，但占用内存相比官方递归代码多。<br><strong>第一次提交：</strong> 遍历比较值，合并链表，结果如下所示</p>
-<img data-src="/2023/08true/91cc492783b242439907cf6562f134cf.png" class>
+<img data-src="/2023/08true.htm/08true/91cc492783b242439907cf6562f134cf.png" class>
 <p><strong>第二次提交：</strong> 自己写的递归，结果如下</p>
-<img data-src="/2023/08true/83e5ed59cc0f48eca40bdb2a6ea5c3f9.png" class>
+<img data-src="/2023/08true.htm/08true/83e5ed59cc0f48eca40bdb2a6ea5c3f9.png" class>
 
 <p><strong>第三次提交：</strong> 官方递归，结果如下</p>
-<img data-src="/2023/08true/f005d143ce6d4343a087080c40b1ac50.png" class>
+<img data-src="/2023/08true.htm/08true/f005d143ce6d4343a087080c40b1ac50.png" class>
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Java</tag>
+        <tag>leetcode</tag>
+        <tag>leetcode题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20.有效的括号(Java)</title>
+    <url>/2023/08true.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>题目描述：<br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串 s ，判断字符串是否有效。<br>有效字符串需满足：<br><strong>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>每个右括号都有一个对应的相同类型的左括号。</strong></p>
+</blockquote>
+<blockquote>
+<p>示例1：<br>输入：s &#x3D; “()”<br>输出：true</p>
+</blockquote>
+<blockquote>
+<p>示例2：<br>输入：s &#x3D; “()[]{}”<br>输出：true</p>
+</blockquote>
+<blockquote>
+<p>示例3：<br>输入：s &#x3D; “(]”<br>输出：false</p>
+</blockquote>
+<blockquote>
+<p><strong>示例4：</strong><br>输入：s&#x3D;”({[]})”<br>输出：true</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>题目分析：</strong><br>题目中所说的有效括号仅指字面意义上的有效，即不考虑数学意义上括号的意义：也就是说，只要括号正确闭合就行，类似 <strong>（[]）、（{}）、[{}]、（[{}]）</strong> 等也符合题目中有效括号的定义。<strong>例如示例4输出为true</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>思路1：</strong><br>对于任何有效的初始括号字符串均至少含有（）、{}、[]三对括号中的一对，故使用contains（）循环判断是否含有这三对括号，若有则使用replace（）删除，最终有效字符串会删减为空串，将最终的字符串使用equals(“”)比较，为空串则有效，反之无效。<br><em><strong>该思路是我自己解题的思路，但由于在循环内调用函数，导致时间复杂度和空间复杂度高，性能差，代码见下方</strong></em></p>
+</blockquote>
+<blockquote>
+<p><strong>解题步骤如下：</strong><br>1、whie循环，以字符串是否含有()、[]、{}三对括号为循环条件<br>2、while循环内，以空字符“”替换字符串中的()、[]、{}<br>3、循环以字符串内不含有三对括号结束<br>4、判断最终字符串是否为空串，为空则true，反之为false</p>
+</blockquote>
+<blockquote>
+<p><strong>思路2：</strong><br>使用栈，利用stack的后进先出的特性，遍历括号字符串。<br>若字符串以(、[、{开头，且从左至右遍历过程中，遇到(、[、{则向stack栈中压入对应的右括号，遇到)、]、}则弹出栈顶元素并与当前字符比较，相同则继续，不同则结束返回false。<br>若字符串以)、]、}三者之一开头，则为无效字符串，以栈空为条件结束返回false<br><em><strong>该思路借鉴了他人的题解，很强大</strong></em></p>
+</blockquote>
+<blockquote>
+<p><strong>解题步骤</strong><br>1、声明一个空栈<br>2、使用toCharArray()将字符串转为字符数组，并在for循环中遍历<br>3、循环内：若该字符对应(、[、{则向栈中压入对应的右括号；反之则弹出栈顶元素并判断是否与当前字符相同且栈是否为空栈。若为空栈或与栈顶元素不同，则返回false<br>4、循环结束后，判断栈是否为空，为空则有效；反之无效。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//思路1代码如下</span>
+<span class="token comment">//时间空间耗费高</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;"</span><span class="token punctuation">)</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"()"</span><span class="token punctuation">)</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"[]"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"()"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"[]"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//思路2代码如下</span>
+<span class="token comment">//改进,借鉴了他人思路</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid2</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span>stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token operator">:</span>s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'('</span><span class="token punctuation">)</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">')'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'['</span><span class="token punctuation">)</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">']'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token char">'&#123;'</span><span class="token punctuation">)</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">'&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">||</span>ch <span class="token operator">!=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p><strong>该题总共提交了五次化，花费了挺多时间，前四次依照自己的解题思路，前三次出错，第四次成功但占用时间空间多，第五次为借鉴他人思路优化解题。</strong><br>第一次解题：只考虑了括号的数量成对，未考虑括号的位置<br>第二次解题：想的太多，认为{}<a href></a>的包含关系是固定的，即[{}] 为无效括号<br>第三次解题：对于空字符串的判断使用！&#x3D;null 而不是equals()导致错误<br>第四次解题：成功运行，但时间空间占用多，如下图所示</p>
+<img data-src="/2023/08true.htm/08true/9a758bf898e449b68232576dbcc204c4.png" class>
+<p>第五次解题：借鉴他人思路，使用栈优化代码，结果如下所示。</p>
+<img data-src="/2023/08true.htm/08true/b53b123f5fa44101b3e9f83d52467dc5.png" class>
+
 ]]></content>
       <categories>
         <category>LeetCode题解</category>
@@ -533,7 +533,7 @@ struct <span class="token class-name">ListNode</span><span class="token operator
 
 
 <h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决本次题目时，我最初的想法是使用双层for循环，但在具体实现过程中出现无法实现对重复数&gt;&#x3D;3的元素进行去重，后借鉴他人解题思路，使用一层for循环，并结合continue实现去重。<br>提交结果如下。</p>
-<img data-src="/2023/08true/b89ce3bd740b4b81b62d05d64a022194.png" class>
+<img data-src="/2023/08true.htm/08true/b89ce3bd740b4b81b62d05d64a022194.png" class>
 
 ]]></content>
       <categories>
@@ -647,27 +647,27 @@ class Solution &#123;
     <title>CentOS7 安装Jdk</title>
     <url>/2023/0824b2d547.html</url>
     <content><![CDATA[<h1 id="查看centos7预装jdk"><a href="#查看centos7预装jdk" class="headerlink" title="查看centos7预装jdk"></a>查看centos7预装jdk</h1><p>使用命令查看<strong>centos7</strong>自带jdk版本<br><code>java -version</code><br>结果如图所示：</p>
-<img data-src="/2023/0824b2d547/a4a87c81476d4e00a9472c789555305d.png" class>
+<img data-src="/2023/0824b2d547.htm/0824b2d547/a4a87c81476d4e00a9472c789555305d.png" class>
 <p>查看相关java文件，命令：<br><code>rpm -qa | grep java</code></p>
-<img data-src="/2023/0824b2d547/5255707e36c64bf0b512d93ff50b0fbf.png" class>
+<img data-src="/2023/0824b2d547.htm/0824b2d547/5255707e36c64bf0b512d93ff50b0fbf.png" class>
 
 <p>将上一步中的文件全部删除，需要注意自己的jdk版本，如果不是自己预期的jdk版本需要删除原先的版本再安装。<br>命令示例如下</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> java-1.8.0-openjdk-headless-1.8.0.242.b08-1.el7.x86_64
 <span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> java-1.8.0-openjdk-1.8.0.242.b08-1.el7.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>结果截图如下</p>
-<img data-src="/2023/0824b2d547/b0e08b9062614d3b8a4ff9881d051856.png" class>
+<img data-src="/2023/0824b2d547.htm/0824b2d547/b0e08b9062614d3b8a4ff9881d051856.png" class>
 
 <h1 id="下载jdk"><a href="#下载jdk" class="headerlink" title="下载jdk"></a>下载jdk</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9qYXZhc2UvamF2YXNlLWpkazgtZG93bmxvYWRzLmh0bWw=">点击下载jdk<i class="fa fa-external-link-alt"></i></span></p>
-<img data-src="/2023/0824b2d547/60548a30d2734689aaa2ef228834c93c.png" class>
+<img data-src="/2023/0824b2d547.htm/0824b2d547/60548a30d2734689aaa2ef228834c93c.png" class>
 <p>下载完成后将jdk拖入<code>/usr/local/soft/jdk1.8</code>目录位置（注意：soft和jdk1.8是自己新建的文件夹)</p>
 <h1 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h1><p>使用命令解压</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> jdk-8u361-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>解压结果如下所示：</p>
-<img data-src="/2023/0824b2d547/bab0996885c84386a783deeb638adfb6.png" class>
+<img data-src="/2023/0824b2d547.htm/0824b2d547/bab0996885c84386a783deeb638adfb6.png" class>
 
 <p>查看解压后的文件</p>
-<img data-src="/2023/0824b2d547/f324f76c77754985b78d204bfdf9f856.png" class>
+<img data-src="/2023/0824b2d547.htm/0824b2d547/f324f76c77754985b78d204bfdf9f856.png" class>
 
 <p><em><strong>配置换环境变量</strong></em><br>使用命令<code>vim /etc/profile</code><br>进入文件后按键盘 i 键<br>然后设置环境变量，示例代码如下所示（<strong>注意自己的jdk解压位置</strong>）</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#set jdk envirment </span>
@@ -676,13 +676,13 @@ class Solution &#123;
 <span class="token builtin class-name">export</span> <span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span>/lib:<span class="token variable">$JRE_HOME</span>/lib:<span class="token variable">$CLASSPATH</span>
 <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span>/bin:<span class="token variable">$JRE_HOME</span>/bin:<span class="token environment constant">$PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>截图如下</p>
-<img data-src="/2023/0824b2d547/111ea8fe20e54633a5ae492cffe0f48c.png" class>
+<img data-src="/2023/0824b2d547.htm/0824b2d547/111ea8fe20e54633a5ae492cffe0f48c.png" class>
 <p>编写完成后，按<strong>ESC</strong>键之后，输入“<strong>：wq</strong>”结束并保存编辑</p>
 <p>之后使用命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>更新配置结果如下</p>
-<img data-src="/2023/0824b2d547/da7146db447b46d3afcf9f5848d1c8da.png" class>
+<img data-src="/2023/0824b2d547.htm/0824b2d547/da7146db447b46d3afcf9f5848d1c8da.png" class>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -708,45 +708,45 @@ class Solution &#123;
 <li><span class="exturl" data-url="aHR0cHM6Ly9lZHVjYXRpb24uZ2l0aHViLmNvbS8=">github学生包申请地址<i class="fa fa-external-link-alt"></i></span><br>点击上面的申请地址即可跳转申请。</li>
 <li>点击<code>Join Global Campus</code></li>
 </ol>
-<img data-src="/2023/08ff1be8cc/ae44f6bb89e1439eaf67ed565fe98679.png" class>
+<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/ae44f6bb89e1439eaf67ed565fe98679.png" class>
 
 <ol start="3">
 <li>点击<code>Sign up for...</code></li>
 </ol>
-  <img data-src="/2023/08ff1be8cc/30e7173bca9a4adbb5632051b9bd8c05.png" class>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/30e7173bca9a4adbb5632051b9bd8c05.png" class>
 
 <ol start="4">
 <li>点击<code>get student benefits</code></li>
 </ol>
-  <img data-src="/2023/08ff1be8cc/9a6bd604087a48afbb3266fae033516e.png" class>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/9a6bd604087a48afbb3266fae033516e.png" class>
 
 <ol start="5">
 <li>点击<code>Add an email address</code></li>
 </ol>
-  <img data-src="/2023/08ff1be8cc/731cf4ba9377420dbedbbd3e0e5e3c36.png" class>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/731cf4ba9377420dbedbbd3e0e5e3c36.png" class>
 
 
 <ol start="6">
 <li>点击蓝色字体 <code>add and verify your school-issued email address in your account settings</code></li>
 </ol>
-  <img data-src="/2023/08ff1be8cc/419068f3553b4e7192c75b36283ade8f.png" class>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/419068f3553b4e7192c75b36283ade8f.png" class>
 
 
 <ol start="7">
-<li><p>将学校邮箱填入<code>Add email address</code>下的框内，并点击<code>add</code><img data-src="/2023/08ff1be8cc/d5dd35b61e7a496c8a7058838691c6eb.png" class></p>
+<li><p>将学校邮箱填入<code>Add email address</code>下的框内，并点击<code>add</code><img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/d5dd35b61e7a496c8a7058838691c6eb.png" class></p>
 </li>
-<li><p>添加后显示<code>Unverified,</code>需要进入学校邮箱验证邮箱<img data-src="/2023/08ff1be8cc/e18162846ca64316b05b7e42eecb3bee.png" class></p>
+<li><p>添加后显示<code>Unverified,</code>需要进入学校邮箱验证邮箱<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/e18162846ca64316b05b7e42eecb3bee.png" class></p>
 </li>
 <li><p>点击<code>vertify your address</code></p>
 </li>
 </ol>
-  <img data-src="/2023/08ff1be8cc/639b309e0a1a45eeb1cce8c9dfdb3d62.png" class>
+  <img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/639b309e0a1a45eeb1cce8c9dfdb3d62.png" class>
 
 
 <ol start="10">
-<li><p>当新添加邮箱下显示如下所示，即添加成功<img data-src="/2023/08ff1be8cc/8b01d197b5ac4b81ace5d52b95640082.png" class></p>
+<li><p>当新添加邮箱下显示如下所示，即添加成功<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/8b01d197b5ac4b81ace5d52b95640082.png" class></p>
 </li>
-<li><p>之后返回学生包申请界面并刷新，然后选择刚添加的学生邮箱。<img data-src="/2023/08ff1be8cc/27a758f1fdcf48a08c4d436e67673c12.png" class><br> 需要在<code>How do you plan to use GitHub</code>?下填入用途，可以参考如下模板：</p>
+<li><p>之后返回学生包申请界面并刷新，然后选择刚添加的学生邮箱。<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/27a758f1fdcf48a08c4d436e67673c12.png" class><br> 需要在<code>How do you plan to use GitHub</code>?下填入用途，可以参考如下模板：</p>
 </li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">I</span> am a student of （学校英文名）<span class="token punctuation">,</span> majoring in （专业英文名）<span class="token punctuation">.</span> 
@@ -757,7 +757,7 @@ The</span> main purpose is <span class="token keyword">to</span> <span class="to
 I</span> hope <span class="token class-name">Github</span> will give you <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> Thank</span> you<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>之后点击<code>continue。</code></p>
 <ol start="12">
-<li>之后拍自己的学生证照片上传，证明类型选择第一个即可。<img data-src="/2023/08ff1be8cc/f9953f8eb11b40a7a92a475732f68a57.png" class><br>在这一步之后，本人是秒通过的。</li>
+<li>之后拍自己的学生证照片上传，证明类型选择第一个即可。<img data-src="/2023/08ff1be8cc.htm/08ff1be8cc/f9953f8eb11b40a7a92a475732f68a57.png" class><br>在这一步之后，本人是秒通过的。</li>
 </ol>
 ]]></content>
       <categories>
@@ -806,20 +806,20 @@ The key's randomart image is:
 
 <p>在 ~&#x2F; 下生成 .ssh 文件夹，进去，打开 id_rsa.pub，复制里面的 key</p>
 <h2 id="Github添加SSH"><a href="#Github添加SSH" class="headerlink" title="Github添加SSH"></a>Github添加SSH</h2><p>浏览器打开Github，进入Settings，如下图所示</p>
-<img data-src="/2023/086e30063e/3ec81d26de114d3b9a14e9cb34c5d429.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/3ec81d26de114d3b9a14e9cb34c5d429.png" class>
 <p>点击SSH and GPG keys</p>
-<img data-src="/2023/086e30063e/2c016870a0694e86a10bf337db3d3abc.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/2c016870a0694e86a10bf337db3d3abc.png" class>
 <p>点击new SSH key</p>
-<img data-src="/2023/086e30063e/83dac484ff0e48fc85305caf612f29ae.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/83dac484ff0e48fc85305caf612f29ae.png" class>
 <p>将复制的SSH粘贴到key框内，即可添加成功。</p>
 <p>添加成功后，在Git Bash中使用以下命令验证是否添加成功。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@github.com
 Hi xxxxx<span class="token operator">!</span> You've successfully authenticated, but GitHub does not provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>并出现上面的提示即为添加成功。</p>
 <h2 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h2><p>在Github上创建一个新的仓库</p>
-<img data-src="/2023/086e30063e/82a3d16a09484c738c56dae00240043c.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/82a3d16a09484c738c56dae00240043c.png" class>
 <p>创建成功后得到如下结果</p>
-<img data-src="/2023/086e30063e/0cd948836b094cd48499f8f44fdc3ee6.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/0cd948836b094cd48499f8f44fdc3ee6.png" class>
 <p>可根据提示选择在命令行创建一个仓库，或者将本地仓库推送到该远程仓库，可根据相应命令执行。</p>
 <h2 id="将本地仓库推送到远程仓库"><a href="#将本地仓库推送到远程仓库" class="headerlink" title="将本地仓库推送到远程仓库"></a>将本地仓库推送到远程仓库</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> init                                  <span class="token comment"># 初始化</span>
 $ <span class="token function">git</span> <span class="token function">add</span> README.md                         <span class="token comment"># 添加文件</span>
@@ -834,15 +834,15 @@ $ <span class="token function">git</span> push <span class="token parameter vari
 
 <h1 id="Gitee远程仓库"><a href="#Gitee远程仓库" class="headerlink" title="Gitee远程仓库"></a>Gitee远程仓库</h1><p>由于Github不能稳定访问的缘故，转而换成Gitee作为托管平台，其连接形式过程与<br>github相似，推送时注意仓库链接地址。<br>这里说一下将推送到Gitee的仓库自动Push到Github中</p>
 <p>（1）在你选择的仓库页面，点击管理，之后点击仓库镜像管理</p>
-<img data-src="/2023/086e30063e/cbef69613efd4ab79554548aa9184fec.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/cbef69613efd4ab79554548aa9184fec.png" class>
 <p>点击添加镜像，初次使用可能需要选择github授权，授权即可。</p>
-<img data-src="/2023/086e30063e/3d6cff233c11400283ea4b3587b6cc03.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/3d6cff233c11400283ea4b3587b6cc03.png" class>
 <p>之后选择是推送到github上还是从github上拉取，根据自己的需要选择，然后在镜像仓库中选择自己需要Push或者Pull的仓库</p>
-<img data-src="/2023/086e30063e/295d8ed66d9f4f6ab6c628bf54e3d2c4.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/295d8ed66d9f4f6ab6c628bf54e3d2c4.png" class>
 <p><em><strong>私人令牌则是在github上手动设置的token复制粘贴到此处即可。</strong></em><br>创建token的步骤如下所示<em><strong>developer setting</strong></em></p>
-<img data-src="/2023/086e30063e/adc4893757dd411e94f97138b0eeea11.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/adc4893757dd411e94f97138b0eeea11.png" class>
 <p>根据图示选择<em><strong>generate new token</strong></em></p>
-<img data-src="/2023/086e30063e/fd32362d80fe4943b2cf0e2a19c87c44.png" class>
+<img data-src="/2023/086e30063e.htm/086e30063e/fd32362d80fe4943b2cf0e2a19c87c44.png" class>
 <p>然后根据需要生成新的token，并复制使用。</p>
 ]]></content>
       <categories>
@@ -1118,7 +1118,7 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
 <span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>cs<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// char[] -> String</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>结果如下所示：</p>
-<img data-src="/2023/07689/image-20230731152042611.png" class>	
+<img data-src="/2023/07689.htm/07689/image-20230731152042611.png" class>	
 ]]></content>
       <categories>
         <category>Java教程</category>
@@ -1379,26 +1379,26 @@ yum <span class="token parameter variable">-y</span> <span class="token function
 <li><p>首先打开命令行，建议以管理员身份</p>
 </li>
 <li><p>输入命令：<code>npm install -g create-react-app</code></p>
-<img data-src="/2023/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class title="[title]"></li>
+<img data-src="/2023/0740161.htm/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class title="[title]"></li>
 </ul>
 <ol start="2">
 <li><p>安装完成后，输入命令<code>create-react-app -V</code>查看时候成功</p>
- <img data-src="/2023/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class>
+ <img data-src="/2023/0740161.htm/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class>
 </li>
 <li><p>创建React项目<br> 在自己选定的目录下输入命令：<code>create-react-app reactdemo</code>进行创建项目，注意reactdemo为自己命名的项目名。</p>
 </li>
 </ol>
-  <img data-src="/2023/0740161/ef2ead85b53842058461b3954832c502.png" class>
+  <img data-src="/2023/0740161.htm/0740161/ef2ead85b53842058461b3954832c502.png" class>
 <p>  如上则成功创建一个新的react项目。</p>
 <ol start="4">
 <li>运行react项目<br> 首先进入刚才创建的项目的根目录下，然后输入命令<code>npm start</code></li>
 </ol>
-  <img data-src="/2023/0740161/ddba23821fd14cdc9acd9670f03f88ac.png" class>
+  <img data-src="/2023/0740161.htm/0740161/ddba23821fd14cdc9acd9670f03f88ac.png" class>
 
 <ol start="5">
 <li>运行成功后的界面，如图所示</li>
 </ol>
-  <img data-src="/2023/0740161/756bcf1f59fe449aa2d6c65bad2fd57f.png" class>
+  <img data-src="/2023/0740161.htm/0740161/756bcf1f59fe449aa2d6c65bad2fd57f.png" class>
 
 
 <ol start="6">
@@ -1645,83 +1645,6 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/0716107.html</url>
-    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows快捷打开管理员模式命令行方式</title>
-    <url>/2023/08e0ceff35.html</url>
-    <content><![CDATA[<h1 id="鼠标点击启动"><a href="#鼠标点击启动" class="headerlink" title="鼠标点击启动"></a>鼠标点击启动</h1><ul>
-<li>windows搜索框搜索cmd或者命令行,如下所示：</li>
-</ul>
-<img data-src="/2023/08e0ceff35/image-20230802195303970.png" class>
-
-<h1 id="Win-R启动"><a href="#Win-R启动" class="headerlink" title="Win+R启动"></a>Win+R启动</h1><ul>
-<li>使用Win+R快捷键，然后输入cmd后，再次使用Ctrl+Shift+Enter快捷键打开管理员模式命令行</li>
-</ul>
-<h1 id="为打开管理员模式命令行设置快捷键"><a href="#为打开管理员模式命令行设置快捷键" class="headerlink" title="为打开管理员模式命令行设置快捷键"></a>为打开管理员模式命令行设置快捷键</h1><ol>
-<li>windows搜索框搜索cmd，然后点击打开文件位置，如下图所示</li>
-</ol>
-<img data-src="/2023/08e0ceff35/image-20230802195748221.png" class>
-
-<ol start="2">
-<li>进入文件后，把下面的命令提示符快捷方式复制一份放在桌面，如下所示：</li>
-</ol>
-<img data-src="/2023/08e0ceff35/image-20230802202441605.png" class>
-
-<ol start="3">
-<li>复制后，先重命名一下，我这里命名的是命令提示符管理员，以便于移回原先的文件夹(放在桌面不美观，当然你也可以选择自己想要放的位置，并不影响)，重命名后剪切移动到原来的位置，如下所示：</li>
-</ol>
-<img data-src="/2023/08e0ceff35/image-20230802203013311.png" class>
-
-<ol start="4">
-<li>右键重命名后得到的快捷方式，选择属性，然后选择自己记得住且不会冲突的快捷键，我选择的是Ctrl+K如下所示：</li>
-</ol>
-<img data-src="/2023/08e0ceff35/image-20230802203458849.png" class>
-
-<img data-src="/2023/08e0ceff35/image-20230802203707536.png" class>
-
-<ol start="5">
-<li>然后点击高级，勾选用管理员身份运行，之后点击确定和应用即可。</li>
-</ol>
-
-
-<ol start="6">
-<li><p>然后使用快捷键即可快捷使用管理员模式命令提示符</p>
-<img data-src="/2023/08e0ceff35/image-20230802204059861.png" class></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Windows</category>
-        <category>Windows命令</category>
-      </categories>
-      <tags>
-        <tag>cmd</tag>
-        <tag>管理员模式cmd</tag>
-        <tag>管理员命令行</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>枚举类</title>
     <url>/2023/088398734e.html</url>
     <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Java枚举类是一种特殊类型的类，它代表一组常量值，通常用于表示固定的、预定义的一组值。枚举类在Java中是一种非常有用的数据类型，它提供了更好的可读性和类型安全性，比起使用普通常量或整数等数据类型更具优势。在Java中，枚举类是通过<code>enum</code>关键字定义的。</p>
@@ -1785,7 +1708,7 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
 </li>
 </ol>
 <p>如下图所示：</p>
-<img data-src="/2023/088398734e/image-20230801151543493.png" class>
+<img data-src="/2023/088398734e.htm/088398734e/image-20230801151543493.png" class>
 
 <ol>
 <li>枚举的其他特性：<ul>
@@ -1805,6 +1728,83 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
         <tag>Java</tag>
         <tag>枚举</tag>
         <tag>Java枚举类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows快捷打开管理员模式命令行方式</title>
+    <url>/2023/08e0ceff35.html</url>
+    <content><![CDATA[<h1 id="鼠标点击启动"><a href="#鼠标点击启动" class="headerlink" title="鼠标点击启动"></a>鼠标点击启动</h1><ul>
+<li>windows搜索框搜索cmd或者命令行,如下所示：</li>
+</ul>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802195303970.png" class>
+
+<h1 id="Win-R启动"><a href="#Win-R启动" class="headerlink" title="Win+R启动"></a>Win+R启动</h1><ul>
+<li>使用Win+R快捷键，然后输入cmd后，再次使用Ctrl+Shift+Enter快捷键打开管理员模式命令行</li>
+</ul>
+<h1 id="为打开管理员模式命令行设置快捷键"><a href="#为打开管理员模式命令行设置快捷键" class="headerlink" title="为打开管理员模式命令行设置快捷键"></a>为打开管理员模式命令行设置快捷键</h1><ol>
+<li>windows搜索框搜索cmd，然后点击打开文件位置，如下图所示</li>
+</ol>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802195748221.png" class>
+
+<ol start="2">
+<li>进入文件后，把下面的命令提示符快捷方式复制一份放在桌面，如下所示：</li>
+</ol>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802202441605.png" class>
+
+<ol start="3">
+<li>复制后，先重命名一下，我这里命名的是命令提示符管理员，以便于移回原先的文件夹(放在桌面不美观，当然你也可以选择自己想要放的位置，并不影响)，重命名后剪切移动到原来的位置，如下所示：</li>
+</ol>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203013311.png" class>
+
+<ol start="4">
+<li>右键重命名后得到的快捷方式，选择属性，然后选择自己记得住且不会冲突的快捷键，我选择的是Ctrl+K如下所示：</li>
+</ol>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203458849.png" class>
+
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203707536.png" class>
+
+<ol start="5">
+<li>然后点击高级，勾选用管理员身份运行，之后点击确定和应用即可。</li>
+</ol>
+
+
+<ol start="6">
+<li><p>然后使用快捷键即可快捷使用管理员模式命令提示符</p>
+<img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802204059861.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>Windows命令</category>
+      </categories>
+      <tags>
+        <tag>cmd</tag>
+        <tag>管理员模式cmd</tag>
+        <tag>管理员命令行</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/0716107.html</url>
+    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1888,46 +1888,6 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
-    <title>软件工程概述</title>
-    <url>/2023/08b85236bf.html</url>
-    <content><![CDATA[<p><strong>软件工程</strong>是一门关于软件开发过程的学科，它包括了<strong>软件开发、测试、部署、运维</strong>等方面的知识。以下是一些常见的软件工程知识点：</p>
-<h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><blockquote>
-<p>软件生命周期指从软件的开发、测试、部署到维护和升级的整个过程。软件生命周期可以分为几个阶段，如计划、需求分析、设计、编码、测试、部署、维护等。</p>
-</blockquote>
-<h1 id="软件开发方法"><a href="#软件开发方法" class="headerlink" title="软件开发方法"></a>软件开发方法</h1><blockquote>
-<p>软件开发方法包括了传统的瀑布模型、敏捷开发、迭代开发等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
-</blockquote>
-<h1 id="软件需求分析"><a href="#软件需求分析" class="headerlink" title="软件需求分析"></a>软件需求分析</h1><blockquote>
-<p>软件需求分析是软件开发的第一步，它的目的是确定软件的功能和性能要求，并将这些要求转化为系统能够实现的具体的功能和规格。</p>
-</blockquote>
-<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><blockquote>
-<p>软件设计是指根据需求分析的结果，确定软件的系统结构、模块划分、接口设计等，以实现需求分析中确定的功能和性能要求。</p>
-</blockquote>
-<h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><blockquote>
-<p>软件测试是指对已经开发的软件进行测试和验证，以确保其符合需求和规格要求。测试包括功能测试、性能测试、安全测试、可靠性测试等。</p>
-</blockquote>
-<h1 id="软件部署"><a href="#软件部署" class="headerlink" title="软件部署"></a>软件部署</h1><blockquote>
-<p>软件部署是指将已经测试通过的软件部署到用户环境中，并确保软件的正常运行。</p>
-</blockquote>
-<h1 id="软件维护"><a href="#软件维护" class="headerlink" title="软件维护"></a>软件维护</h1><blockquote>
-<p>软件维护是指对已经部署的软件进行修复、更新、升级等操作，以保证软件能够持续运行并满足用户的需求。</p>
-</blockquote>
-<h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><blockquote>
-<p>软件质量保证是确保软件开发过程中符合规范和标准，以保证软件的质量和可靠性。它包括了软件过程改进、代码审查、测试和质量度量等方面。</p>
-</blockquote>
-<h1 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h1><blockquote>
-<p>软件项目管理是指对软件开发过程进行规划、组织、协调和控制，以确保项目能够按时完成、满足质量要求和预算控制。</p>
-</blockquote>
-<p>软件工程知识是软件开发过程中必不可少的部分，掌握这些知识可以帮助开发人员更好地理解软件开发过程，并提高软件的质量和可靠性。</p>
-]]></content>
-      <categories>
-        <category>软件工程</category>
-      </categories>
-      <tags>
-        <tag>软件工程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>软件测试简介</title>
     <url>/2023/08a9f1ca1d.html</url>
     <content><![CDATA[<h1 id="软件测试概述"><a href="#软件测试概述" class="headerlink" title="软件测试概述"></a>软件测试概述</h1><p>软件测试是指在软件开发过程中，通过对软件系统进行各种测试和验证，以检测软件中的错误和缺陷，保证软件质量，提高软件可靠性和稳定性的过程。软件测试在软件工程中起到至关重要的作用，它可以在软件发布之前发现并修复缺陷和错误，保证软件的稳定性和可靠性，提高软件的用户体验和满意度。</p>
@@ -2000,6 +1960,46 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </categories>
       <tags>
         <tag>软件测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件工程概述</title>
+    <url>/2023/08b85236bf.html</url>
+    <content><![CDATA[<p><strong>软件工程</strong>是一门关于软件开发过程的学科，它包括了<strong>软件开发、测试、部署、运维</strong>等方面的知识。以下是一些常见的软件工程知识点：</p>
+<h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><blockquote>
+<p>软件生命周期指从软件的开发、测试、部署到维护和升级的整个过程。软件生命周期可以分为几个阶段，如计划、需求分析、设计、编码、测试、部署、维护等。</p>
+</blockquote>
+<h1 id="软件开发方法"><a href="#软件开发方法" class="headerlink" title="软件开发方法"></a>软件开发方法</h1><blockquote>
+<p>软件开发方法包括了传统的瀑布模型、敏捷开发、迭代开发等方法。不同的开发方法适用于不同的项目需求，开发人员需要根据具体情况选择合适的开发方法。</p>
+</blockquote>
+<h1 id="软件需求分析"><a href="#软件需求分析" class="headerlink" title="软件需求分析"></a>软件需求分析</h1><blockquote>
+<p>软件需求分析是软件开发的第一步，它的目的是确定软件的功能和性能要求，并将这些要求转化为系统能够实现的具体的功能和规格。</p>
+</blockquote>
+<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><blockquote>
+<p>软件设计是指根据需求分析的结果，确定软件的系统结构、模块划分、接口设计等，以实现需求分析中确定的功能和性能要求。</p>
+</blockquote>
+<h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><blockquote>
+<p>软件测试是指对已经开发的软件进行测试和验证，以确保其符合需求和规格要求。测试包括功能测试、性能测试、安全测试、可靠性测试等。</p>
+</blockquote>
+<h1 id="软件部署"><a href="#软件部署" class="headerlink" title="软件部署"></a>软件部署</h1><blockquote>
+<p>软件部署是指将已经测试通过的软件部署到用户环境中，并确保软件的正常运行。</p>
+</blockquote>
+<h1 id="软件维护"><a href="#软件维护" class="headerlink" title="软件维护"></a>软件维护</h1><blockquote>
+<p>软件维护是指对已经部署的软件进行修复、更新、升级等操作，以保证软件能够持续运行并满足用户的需求。</p>
+</blockquote>
+<h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><blockquote>
+<p>软件质量保证是确保软件开发过程中符合规范和标准，以保证软件的质量和可靠性。它包括了软件过程改进、代码审查、测试和质量度量等方面。</p>
+</blockquote>
+<h1 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h1><blockquote>
+<p>软件项目管理是指对软件开发过程进行规划、组织、协调和控制，以确保项目能够按时完成、满足质量要求和预算控制。</p>
+</blockquote>
+<p>软件工程知识是软件开发过程中必不可少的部分，掌握这些知识可以帮助开发人员更好地理解软件开发过程，并提高软件的质量和可靠性。</p>
+]]></content>
+      <categories>
+        <category>软件工程</category>
+      </categories>
+      <tags>
+        <tag>软件工程</tag>
       </tags>
   </entry>
 </search>
