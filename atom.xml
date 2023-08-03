@@ -6,7 +6,7 @@
   <link href="https://resmino.github.io/atom.xml" rel="self"/>
   
   <link href="https://resmino.github.io/"/>
-  <updated>2023-08-02T12:55:30.037Z</updated>
+  <updated>2023-08-03T10:28:11.545Z</updated>
   <id>https://resmino.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://resmino.github.io/2023/08e0ceff35.html"/>
     <id>https://resmino.github.io/2023/08e0ceff35.html</id>
     <published>2023-08-02T11:40:43.000Z</published>
-    <updated>2023-08-02T12:55:30.037Z</updated>
+    <updated>2023-08-03T10:28:11.545Z</updated>
     
     <content type="html"><![CDATA[<h1 id="鼠标点击启动"><a href="#鼠标点击启动" class="headerlink" title="鼠标点击启动"></a>鼠标点击启动</h1><ul><li>windows搜索框搜索cmd或者命令行,如下所示：</li></ul><img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802195303970.png" class><h1 id="Win-R启动"><a href="#Win-R启动" class="headerlink" title="Win+R启动"></a>Win+R启动</h1><ul><li>使用Win+R快捷键，然后输入cmd后，再次使用Ctrl+Shift+Enter快捷键打开管理员模式命令行</li></ul><h1 id="为打开管理员模式命令行设置快捷键"><a href="#为打开管理员模式命令行设置快捷键" class="headerlink" title="为打开管理员模式命令行设置快捷键"></a>为打开管理员模式命令行设置快捷键</h1><ol><li>windows搜索框搜索cmd，然后点击打开文件位置，如下图所示</li></ol><img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802195748221.png" class><ol start="2"><li>进入文件后，把下面的命令提示符快捷方式复制一份放在桌面，如下所示：</li></ol><img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802202441605.png" class><ol start="3"><li>复制后，先重命名一下，我这里命名的是命令提示符管理员，以便于移回原先的文件夹(放在桌面不美观，当然你也可以选择自己想要放的位置，并不影响)，重命名后剪切移动到原来的位置，如下所示：</li></ol><img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203013311.png" class><ol start="4"><li>右键重命名后得到的快捷方式，选择属性，然后选择自己记得住且不会冲突的快捷键，我选择的是Ctrl+K如下所示：</li></ol><img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203458849.png" class><img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802203707536.png" class><ol start="5"><li>然后点击高级，勾选用管理员身份运行，之后点击确定和应用即可。</li></ol><ol start="6"><li><p>然后使用快捷键即可快捷使用管理员模式命令提示符</p><img data-src="/2023/08e0ceff35.htm/08e0ceff35/image-20230802204059861.png" class></li></ol>]]></content>
     
@@ -279,11 +279,11 @@
     <category term="LeetCode题解" scheme="https://resmino.github.io/categories/LeetCode%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
-    
     <category term="Java" scheme="https://resmino.github.io/tags/Java/"/>
     
     <category term="leetcode" scheme="https://resmino.github.io/tags/leetcode/"/>
+    
+    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
     
     <category term="leetcode题解" scheme="https://resmino.github.io/tags/leetcode%E9%A2%98%E8%A7%A3/"/>
     
@@ -306,11 +306,11 @@
     <category term="LeetCode题解" scheme="https://resmino.github.io/categories/LeetCode%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
-    
     <category term="Java" scheme="https://resmino.github.io/tags/Java/"/>
     
     <category term="leetcode" scheme="https://resmino.github.io/tags/leetcode/"/>
+    
+    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
     
     <category term="leetcode题解" scheme="https://resmino.github.io/tags/leetcode%E9%A2%98%E8%A7%A3/"/>
     
@@ -333,11 +333,11 @@
     <category term="LeetCode题解" scheme="https://resmino.github.io/categories/LeetCode%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
-    
     <category term="Java" scheme="https://resmino.github.io/tags/Java/"/>
     
     <category term="leetcode" scheme="https://resmino.github.io/tags/leetcode/"/>
+    
+    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
     
     <category term="leetcode题解" scheme="https://resmino.github.io/tags/leetcode%E9%A2%98%E8%A7%A3/"/>
     
@@ -360,11 +360,11 @@
     <category term="LeetCode题解" scheme="https://resmino.github.io/categories/LeetCode%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
-    
     <category term="Java" scheme="https://resmino.github.io/tags/Java/"/>
     
     <category term="leetcode" scheme="https://resmino.github.io/tags/leetcode/"/>
+    
+    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
     
     <category term="leetcode题解" scheme="https://resmino.github.io/tags/leetcode%E9%A2%98%E8%A7%A3/"/>
     
@@ -412,11 +412,11 @@
     <category term="LeetCode题解" scheme="https://resmino.github.io/categories/LeetCode%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
-    
     <category term="Java" scheme="https://resmino.github.io/tags/Java/"/>
     
     <category term="leetcode" scheme="https://resmino.github.io/tags/leetcode/"/>
+    
+    <category term="LeetCode" scheme="https://resmino.github.io/tags/LeetCode/"/>
     
     <category term="leetcode题解" scheme="https://resmino.github.io/tags/leetcode%E9%A2%98%E8%A7%A3/"/>
     
