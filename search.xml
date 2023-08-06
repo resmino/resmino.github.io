@@ -505,6 +505,48 @@ struct <span class="token class-name">ListNode</span><span class="token operator
       </tags>
   </entry>
   <entry>
+    <title>26.删除有序数组中的重复项</title>
+    <url>/2023/08fed1388b.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p><strong>题目描述</strong>：<br>给你一个 <strong>升序排列</strong> 的数组 <code>nums</code> ，请你 <strong>原地</strong> 删除重复出现的元素，使每个元素 <strong>只出现一次</strong> ，返回删除后数组的新长度。元素的 <strong>相对顺序</strong> 应该保持 一致 。<br>由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 k 个元素，那么 nums 的前 k 个元素应该保存最终结果。<br>将最终结果插入 nums 的前 k 个位置后返回 k 。<br>不要使用额外的空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。<br><em><strong>总结：</strong></em> <strong>保持元素的相对位置不变，去重，并将去重后的k个元素存放在nums的前k个位置。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>示例1：</strong><br>输入：nums &#x3D; [1,1,2]<br>输出：2, nums &#x3D; [1,2,_]<br>解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。</p>
+</blockquote>
+<blockquote>
+<p><strong>示例2：</strong><br>输入：nums &#x3D; [0,0,1,1,1,2,2,3,3,4]<br>输出：5, nums &#x3D; [0,1,2,3,4]<br>解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>解题思路：</strong><br>设置两个变量<code>count=1、i=1</code>，初始值均为1。<br>i作为遍历元素下标，<code>count</code>作为去重数组下标。<br>在<code>for</code>循环遍历数组，遍历过程中比较元素值，若当前元素与前一元素值相等，结束本次循环进入下一次循环，若不相等则将<code>nums[count++] = nums[i]</code>;循环结束后返回<code>count</code>值。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> numsSize<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>numsSize<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决本次题目时，我最初的想法是使用双层for循环，但在具体实现过程中出现无法实现对重复数&gt;&#x3D;3的元素进行去重，后借鉴他人解题思路，使用一层for循环，并结合continue实现去重。<br>提交结果如下。</p>
+<img data-src="/2023/08fed1388b/b89ce3bd740b4b81b62d05d64a022194.png" class>
+
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Java</tag>
+        <tag>leetcode</tag>
+        <tag>leetcode题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>3.无重复字符的最长子串(C语言)</title>
     <url>/2023/0746254.html</url>
     <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。</p>
@@ -623,48 +665,6 @@ class Solution &#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><img data-src="/2023/0815739779/image-20230804161422446.png" class>
-
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>LeetCode</tag>
-        <tag>Java</tag>
-        <tag>leetcode</tag>
-        <tag>leetcode题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>26.删除有序数组中的重复项</title>
-    <url>/2023/08fed1388b.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p><strong>题目描述</strong>：<br>给你一个 <strong>升序排列</strong> 的数组 <code>nums</code> ，请你 <strong>原地</strong> 删除重复出现的元素，使每个元素 <strong>只出现一次</strong> ，返回删除后数组的新长度。元素的 <strong>相对顺序</strong> 应该保持 一致 。<br>由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 k 个元素，那么 nums 的前 k 个元素应该保存最终结果。<br>将最终结果插入 nums 的前 k 个位置后返回 k 。<br>不要使用额外的空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。<br><em><strong>总结：</strong></em> <strong>保持元素的相对位置不变，去重，并将去重后的k个元素存放在nums的前k个位置。</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>示例1：</strong><br>输入：nums &#x3D; [1,1,2]<br>输出：2, nums &#x3D; [1,2,_]<br>解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。</p>
-</blockquote>
-<blockquote>
-<p><strong>示例2：</strong><br>输入：nums &#x3D; [0,0,1,1,1,2,2,3,3,4]<br>输出：5, nums &#x3D; [0,1,2,3,4]<br>解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>解题思路：</strong><br>设置两个变量<code>count=1、i=1</code>，初始值均为1。<br>i作为遍历元素下标，<code>count</code>作为去重数组下标。<br>在<code>for</code>循环遍历数组，遍历过程中比较元素值，若当前元素与前一元素值相等，结束本次循环进入下一次循环，若不相等则将<code>nums[count++] = nums[i]</code>;循环结束后返回<code>count</code>值。</p>
-</blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> numsSize<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>numsSize<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token keyword">continue</span><span class="token punctuation">;</span>
-        nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h1 id="解题记录"><a href="#解题记录" class="headerlink" title="解题记录"></a>解题记录</h1><p>在解决本次题目时，我最初的想法是使用双层for循环，但在具体实现过程中出现无法实现对重复数&gt;&#x3D;3的元素进行去重，后借鉴他人解题思路，使用一层for循环，并结合continue实现去重。<br>提交结果如下。</p>
-<img data-src="/2023/08fed1388b/b89ce3bd740b4b81b62d05d64a022194.png" class>
 
 ]]></content>
       <categories>
@@ -857,19 +857,6 @@ I</span> hope <span class="token class-name">Github</span> will give you <span c
       </tags>
   </entry>
   <entry>
-    <title>HTML基础标签</title>
-    <url>/2023/088c85f492.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>HTML教程</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>HTML教程</tag>
-        <tag>html标签</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git与Gitee和Github的简单使用</title>
     <url>/2023/086e30063e.html</url>
     <content><![CDATA[<h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>Git安装包地址：链接: <span class="exturl" data-url="aHR0cDovL2dpdC1zY20uY29tL2Rvd25sb2Fkcw==">Git<i class="fa fa-external-link-alt"></i></span></p>
@@ -951,6 +938,19 @@ $ <span class="token function">git</span> push <span class="token parameter vari
         <tag>Git</tag>
         <tag>Gitee</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML基础标签</title>
+    <url>/2023/088c85f492.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>HTML教程</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>HTML教程</tag>
+        <tag>html标签</tag>
       </tags>
   </entry>
   <entry>
