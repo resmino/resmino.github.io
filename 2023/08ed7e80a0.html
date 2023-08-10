@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"resmino.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#dee1e6","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"buttons","active":"livere,disqusjs,waline","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"resmino.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#dee1e6","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"buttons","active":"livere,waline","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="数据结构-二叉树的几种遍历方式">
 <meta property="og:type" content="article">
@@ -30,7 +30,7 @@
 <meta property="og:description" content="数据结构-二叉树的几种遍历方式">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-05T09:01:21.000Z">
-<meta property="article:modified_time" content="2023-08-06T05:30:44.288Z">
+<meta property="article:modified_time" content="2023-08-07T02:10:18.945Z">
 <meta property="article:author" content="Resmino">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -98,7 +98,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">25</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">72</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">30</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.</span> <span class="nav-text">前序遍历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">2.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">3.</span> <span class="nav-text">后序遍历</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%EF%BC%88DFS%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">深度优先遍历（DFS）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.1.</span> <span class="nav-text">前序遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.2.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.3.</span> <span class="nav-text">后序遍历</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%EF%BC%88BFS%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">广度优先遍历（BFS）</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,18 +164,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -286,7 +286,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-08-06 13:30:44" itemprop="dateModified" datetime="2023-08-06T13:30:44+08:00">2023-08-06</time>
+      <time title="修改时间：2023-08-07 10:10:18" itemprop="dateModified" datetime="2023-08-07T10:10:18+08:00">2023-08-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -326,14 +326,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>59</span>
+      <span>734</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -344,16 +344,32 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>对于二叉树的前中后序排序是根据根节点的访问顺序确定的。</p>
-<h1 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h1><ul>
+    <div class="post-body" itemprop="articleBody"><p>深度优先遍历（Depth-First Traversal）和广度优先遍历（Breadth-First Traversal）都是树或图的常用遍历方式，它们用于按不同的顺序访问树或图中的节点。</p>
+<h1 id="深度优先遍历（DFS）"><a href="#深度优先遍历（DFS）" class="headerlink" title="深度优先遍历（DFS）"></a>深度优先遍历（DFS）</h1><p>深度优先遍历是一种沿着树或图的深度方向遍历的方式，它从根节点开始，沿着一条路径尽可能深地遍历直到达到叶子节点，然后回溯到上一级节点，再继续深入其他分支。深度优先遍历使用递归或栈数据结构来实现。</p>
+<p>二叉树每个节点最多有两个子节点：左子节点和右子节点。在二叉树的深度优先遍历中，有三种常见的方式：前序遍历、中序遍历和后序遍历。这些遍历方式都是通过不同的顺序访问二叉树中的节点，以达到不同的目的。以以下二叉树作为示例。</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">    1
+   / \
+  2   3
+ / \ / \
+4  5 6  7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h2><ul>
 <li>访问顺序：根-左-右</li>
 </ul>
-<h1 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h1><ul>
+<p>前序遍历顺序是先访问根节点，然后递归地访问左子树，最后递归地访问右子树。在上面的例子中，前序遍历的结果是：1, 2, 4, 5, 3, 6, 7。</p>
+<h2 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h2><ul>
 <li>访问顺序：左-根-右</li>
 </ul>
-<h1 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h1><ul>
+<p>中序遍历顺序是先递归地访问左子树，然后访问根节点，最后递归地访问右子树。在上面的例子中，中序遍历的结果是：4, 2, 5, 1, 6, 3, 7。</p>
+<h2 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h2><ul>
 <li>访问顺序：左-右-根</li>
 </ul>
+<p>后序遍历顺序是先递归地访问左子树，然后递归地访问右子树，最后访问根节点。在上面的例子中，后序遍历的结果是：4, 5, 2, 6, 7, 3, 1。</p>
+<h1 id="广度优先遍历（BFS）"><a href="#广度优先遍历（BFS）" class="headerlink" title="广度优先遍历（BFS）"></a>广度优先遍历（BFS）</h1><p>广度优先遍历是一种按层级顺序遍历树或图的方式，它<strong>从根节点开始，先访问根节点，然后逐层向下访问同一层级的节点，直到遍历到最后一层。广度优先遍历使用队列数据结构来实现。</strong></p>
+<p>在二叉树的广度优先遍历中，<strong>从上往下，从左往右</strong>依次遍历每一层的节点。在上面的例子中，广度优先遍历的结果是：1, 2, 3, 4, 5, 6, 7。</p>
+<p>深度优先遍历和广度优先遍历在解决不同类型的问题时有不同的应用场景。<strong>深度优先遍历适用于需要一直沿着一条路径深入直到达到目标节点的情况，例如查找路径、生成树等。</strong> <strong>广度优先遍历适用于需要逐层遍历所有节点的情况，例如查找最短路径、层级遍历</strong>  。在实际问题中，根据具体的需求和数据结构，选择合适的遍历方式可以更有效地解决问题。</p>
 
     </div>
 
@@ -503,14 +519,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">24k</span>
+    <span title="站点总字数">27k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:39</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -1,44 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>1.两数之和(C语言)</title>
-    <url>/2023/077204.html</url>
-    <content><![CDATA[<h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个整数，并返回它们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。<br>你可以按任意顺序返回答案。</p>
-<pre class="line-numbers language-none"><code class="language-none">示例 1： 输入：nums &#x3D; [2,7,11,15], target &#x3D; 9 输出：[0,1] 解释：因为 nums[0] + nums[1] &#x3D;&#x3D; 9 ，返回 [0, 1] 。
-
-示例 2： 输入：nums &#x3D; [3,2,4], target &#x3D; 6 输出：[1,2]
-
-示例 3： 输入：nums &#x3D; [3,3], target &#x3D; 6 输出：[0,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="解题方法：暴力枚举"><a href="#解题方法：暴力枚举" class="headerlink" title="解题方法：暴力枚举"></a>解题方法：暴力枚举</h1><p>可能是第一时间想到的方法，遍历nums中的元素x，并在数组中检索是否存在值为target-x的元素，若存在则输出下标。该方法时间复杂度为O(n*2）。</p>
-<pre class="line-numbers language-none"><code class="language-none">int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123;
-   for(int i&#x3D;0;i&lt;numsSize;i++)
-   &#123;
-       
-       for(int j&#x3D;i+1;j&lt;numsSize;j++)
-       &#123;
-           if(nums[j]&#x3D;&#x3D;target-nums[i])
-           &#123;
-               int* ret&#x3D;malloc(sizeof(int)*2);
-               ret[0]&#x3D;i,ret[1]&#x3D;j;
-               *returnSize&#x3D;2;
-               return ret;
-           &#125; 
-       &#125;
-   &#125;
-   *returnSize&#x3D;0;
-   return NULL;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>LeetCode题解</tag>
-        <tag>LeetCode</tag>
-        <tag>两数之和</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>14.最长公共前缀(Java)</title>
     <url>/2023/08682584a4.html</url>
     <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
@@ -83,86 +45,47 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
+        <tag>LeetCode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
   <entry>
-    <title>2.两数相加(C语言)</title>
-    <url>/2023/077402.html</url>
-    <content><![CDATA[<h1 id="LeetCode题解-2-两数相加（C语言）"><a href="#LeetCode题解-2-两数相加（C语言）" class="headerlink" title="LeetCode题解-2.两数相加（C语言）"></a>LeetCode题解-2.两数相加（C语言）</h1><h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
-<p>给你两个<strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。<br>请你将两个数相加，并以相同形式返回一个表示和的链表。<br>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-</blockquote>
-<p>输入与输出示例如下1所示：</p>
-<blockquote>
-<p>示例 1：<br>输入：l1 &#x3D; [2,4,3], l2 &#x3D; [5,6,4]<br>输出：[7,0,8]<br>解释：342 + 465 &#x3D; 807.</p>
-</blockquote>
-<blockquote>
-<p>示例 2：<br>输入：l1 &#x3D; [0], l2 &#x3D; [0]<br>输出：[0]</p>
-</blockquote>
-<blockquote>
-<p>示例 3：<br>输入：l1 &#x3D; [9,9,9,9,9,9,9], l2 &#x3D; [9,9,9,9]<br>输出：[8,9,9,9,0,0,0,1]</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p>在逆序的列表中，每一项直接相加就是该位的值，通过设置一个变量记录进位。对于长度短的数字进行补0，然后相加，将处理后的每一项插入结果链表。<br>1、创建结果链表<br>2、遍历给定的两个链表<br>3、取结点值进行相加，并记录进位值carry，注意短数补0<br>4、遍历结束后，判断进位是否大于0，是则插入结果列表</p>
-<p>在实现该题过程中，借鉴了官方的题解，最终按着自己的理解写出该题。</p>
-</blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> l1<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> l2<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">struct</span> <span class="token class-name">ListNode</span> <span class="token operator">*</span>L<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token operator">*</span>node<span class="token punctuation">;</span>   <span class="token comment">//新建结果链表</span>
-    <span class="token keyword">int</span> carry <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>               <span class="token comment">//存放进位</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>l1<span class="token operator">||</span>l2<span class="token punctuation">)</span>                <span class="token comment">//链表非空继续计算</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> a <span class="token operator">=</span> l1 <span class="token operator">?</span>l1<span class="token operator">-></span>val<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">//l1的结点非空则取该结点的值否则将该位置0</span>
-        <span class="token keyword">int</span> b <span class="token operator">=</span> l2 <span class="token operator">?</span>l2<span class="token operator">-></span>val<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">;</span>   
-        <span class="token keyword">int</span> sum <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token operator">+</span>carry<span class="token punctuation">;</span>   <span class="token comment">//求和</span>
-        
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>L<span class="token punctuation">)</span>                    <span class="token comment">//如果结果列表为空，则使头指针指向结点node</span>
-        <span class="token punctuation">&#123;</span>
-            node <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            node<span class="token operator">-></span>val <span class="token operator">=</span> sum <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
-            node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-            L <span class="token operator">=</span> node<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">else</span>                     <span class="token comment">//在结果链表后插入结点</span>
-        <span class="token punctuation">&#123;</span>
-            node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            node <span class="token operator">=</span> node<span class="token operator">-></span>next<span class="token punctuation">;</span>
-            node<span class="token operator">-></span>val <span class="token operator">=</span> sum <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
-            node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+    <title>1.两数之和(C语言)</title>
+    <url>/2023/077204.html</url>
+    <content><![CDATA[<h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个整数，并返回它们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。<br>你可以按任意顺序返回答案。</p>
+<pre class="line-numbers language-none"><code class="language-none">示例 1： 输入：nums &#x3D; [2,7,11,15], target &#x3D; 9 输出：[0,1] 解释：因为 nums[0] + nums[1] &#x3D;&#x3D; 9 ，返回 [0, 1] 。
 
-        carry <span class="token operator">=</span> sum <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>         <span class="token comment">//求进位</span>
+示例 2： 输入：nums &#x3D; [3,2,4], target &#x3D; 6 输出：[1,2]
 
-        <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span>                    <span class="token comment">//l1、l2非空后移</span>
-        <span class="token punctuation">&#123;</span>
-            l1 <span class="token operator">=</span> l1<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            l2 <span class="token operator">=</span> l2<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>carry <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>                 <span class="token comment">//将最后的进位插入链表</span>
-    <span class="token punctuation">&#123;</span>
-        node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        node <span class="token operator">=</span> node<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        node<span class="token operator">-></span>val <span class="token operator">=</span> carry<span class="token punctuation">;</span>
-        node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> L<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="个人记录"><a href="#个人记录" class="headerlink" title="个人记录"></a>个人记录</h1><p>在第一次实现中，在进行链表插入时出现错误，导致只能输出第一个数字和最后一个数字。原因则是反复将后续结点插入结果链表的第二个节点位置。导致无法得出正确结果，提交错误。</p>
-<img data-src="/2023/077402/7f053c1ad63044d09777ab8286577aff.png" class>
+示例 3： 输入：nums &#x3D; [3,3], target &#x3D; 6 输出：[0,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="解题方法：暴力枚举"><a href="#解题方法：暴力枚举" class="headerlink" title="解题方法：暴力枚举"></a>解题方法：暴力枚举</h1><p>可能是第一时间想到的方法，遍历nums中的元素x，并在数组中检索是否存在值为target-x的元素，若存在则输出下标。该方法时间复杂度为O(n*2）。</p>
+<pre class="line-numbers language-none"><code class="language-none">int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123;
+   for(int i&#x3D;0;i&lt;numsSize;i++)
+   &#123;
+       
+       for(int j&#x3D;i+1;j&lt;numsSize;j++)
+       &#123;
+           if(nums[j]&#x3D;&#x3D;target-nums[i])
+           &#123;
+               int* ret&#x3D;malloc(sizeof(int)*2);
+               ret[0]&#x3D;i,ret[1]&#x3D;j;
+               *returnSize&#x3D;2;
+               return ret;
+           &#125; 
+       &#125;
+   &#125;
+   *returnSize&#x3D;0;
+   return NULL;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 ]]></content>
       <categories>
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode题解</tag>
         <tag>LeetCode</tag>
+        <tag>LeetCode题解</tag>
         <tag>两数之和</tag>
       </tags>
   </entry>
@@ -278,9 +201,9 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
+        <tag>LeetCode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
@@ -359,9 +282,9 @@
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
+        <tag>LeetCode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
@@ -498,9 +421,9 @@ struct <span class="token class-name">ListNode</span><span class="token operator
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
+        <tag>LeetCode</tag>
         <tag>leetcode题解</tag>
       </tags>
   </entry>
@@ -540,10 +463,87 @@ struct <span class="token class-name">ListNode</span><span class="token operator
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
+        <tag>LeetCode</tag>
         <tag>leetcode题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2.两数相加(C语言)</title>
+    <url>/2023/077402.html</url>
+    <content><![CDATA[<h1 id="LeetCode题解-2-两数相加（C语言）"><a href="#LeetCode题解-2-两数相加（C语言）" class="headerlink" title="LeetCode题解-2.两数相加（C语言）"></a>LeetCode题解-2.两数相加（C语言）</h1><h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
+<p>给你两个<strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。<br>请你将两个数相加，并以相同形式返回一个表示和的链表。<br>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+</blockquote>
+<p>输入与输出示例如下1所示：</p>
+<blockquote>
+<p>示例 1：<br>输入：l1 &#x3D; [2,4,3], l2 &#x3D; [5,6,4]<br>输出：[7,0,8]<br>解释：342 + 465 &#x3D; 807.</p>
+</blockquote>
+<blockquote>
+<p>示例 2：<br>输入：l1 &#x3D; [0], l2 &#x3D; [0]<br>输出：[0]</p>
+</blockquote>
+<blockquote>
+<p>示例 3：<br>输入：l1 &#x3D; [9,9,9,9,9,9,9], l2 &#x3D; [9,9,9,9]<br>输出：[8,9,9,9,0,0,0,1]</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p>在逆序的列表中，每一项直接相加就是该位的值，通过设置一个变量记录进位。对于长度短的数字进行补0，然后相加，将处理后的每一项插入结果链表。<br>1、创建结果链表<br>2、遍历给定的两个链表<br>3、取结点值进行相加，并记录进位值carry，注意短数补0<br>4、遍历结束后，判断进位是否大于0，是则插入结果列表</p>
+<p>在实现该题过程中，借鉴了官方的题解，最终按着自己的理解写出该题。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> l1<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> l2<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">ListNode</span> <span class="token operator">*</span>L<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token operator">*</span>node<span class="token punctuation">;</span>   <span class="token comment">//新建结果链表</span>
+    <span class="token keyword">int</span> carry <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>               <span class="token comment">//存放进位</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>l1<span class="token operator">||</span>l2<span class="token punctuation">)</span>                <span class="token comment">//链表非空继续计算</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> a <span class="token operator">=</span> l1 <span class="token operator">?</span>l1<span class="token operator">-></span>val<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">//l1的结点非空则取该结点的值否则将该位置0</span>
+        <span class="token keyword">int</span> b <span class="token operator">=</span> l2 <span class="token operator">?</span>l2<span class="token operator">-></span>val<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">;</span>   
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token operator">+</span>carry<span class="token punctuation">;</span>   <span class="token comment">//求和</span>
+        
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>L<span class="token punctuation">)</span>                    <span class="token comment">//如果结果列表为空，则使头指针指向结点node</span>
+        <span class="token punctuation">&#123;</span>
+            node <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            node<span class="token operator">-></span>val <span class="token operator">=</span> sum <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+            L <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span>                     <span class="token comment">//在结果链表后插入结点</span>
+        <span class="token punctuation">&#123;</span>
+            node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            node <span class="token operator">=</span> node<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            node<span class="token operator">-></span>val <span class="token operator">=</span> sum <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        carry <span class="token operator">=</span> sum <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>         <span class="token comment">//求进位</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span>                    <span class="token comment">//l1、l2非空后移</span>
+        <span class="token punctuation">&#123;</span>
+            l1 <span class="token operator">=</span> l1<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            l2 <span class="token operator">=</span> l2<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>carry <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>                 <span class="token comment">//将最后的进位插入链表</span>
+    <span class="token punctuation">&#123;</span>
+        node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        node <span class="token operator">=</span> node<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        node<span class="token operator">-></span>val <span class="token operator">=</span> carry<span class="token punctuation">;</span>
+        node<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> L<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="个人记录"><a href="#个人记录" class="headerlink" title="个人记录"></a>个人记录</h1><p>在第一次实现中，在进行链表插入时出现错误，导致只能输出第一个数字和最后一个数字。原因则是反复将后续结点插入结果链表的第二个节点位置。导致无法得出正确结果，提交错误。</p>
+<img data-src="/2023/077402/7f053c1ad63044d09777ab8286577aff.png" class>
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>LeetCode题解</tag>
+        <tag>两数之和</tag>
       </tags>
   </entry>
   <entry>
@@ -586,9 +586,61 @@ struct <span class="token class-name">ListNode</span><span class="token operator
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode题解</tag>
         <tag>LeetCode</tag>
+        <tag>LeetCode题解</tag>
         <tag>两数之和</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>9.回文数</title>
+    <url>/2023/0715753.html</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>题目描述：<br>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<br>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。<br>例：121是<br>  -121不是</p>
+</blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
+<p><strong>思路一：</strong><br><em><strong>最初想到是使用java语言，直接将int型变量转为字符串，然后将字符串倒序，比较两个字符串是否相同，若相同则输出true，反之为false</strong></em></p>
+</blockquote>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">代码如下所示：
+class Solution &#123;
+    public boolean isPalindrome(int x) &#123;
+        String str &#x3D; Integer.toString(x);
+        String s &#x3D; new StringBuffer(str).reverse().toString(); &#x2F;&#x2F;直接逆序字符串
+        if(str.equals(s))     &#x2F;&#x2F;比较字符串是否相等
+        &#123;
+            return true;
+        &#125;else&#123;
+            return false;
+        &#125;
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><strong>思路二(C语言）：</strong><br><em><strong>1、由回文数的特性可知，负数均不是回文数，故判断若x为负数直接输出false；<br>2、对于正数则用一个变量记录x的逆序数<br>3、比较两个数是否相等，相等则输出true；反之false<br>4、默认0为回文数</strong></em></p>
+</blockquote>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">long</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment">//将x的逆序数定义为long类型，防止运行过程中因溢出而导致的错误</span>
+    <span class="token keyword">int</span> y<span class="token operator">=</span>x<span class="token punctuation">;</span>       <span class="token comment">//记录原始x值</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment">//逆序x</span>
+    <span class="token punctuation">&#123;</span>
+        sum <span class="token operator">=</span> sum<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
+        x<span class="token operator">/=</span><span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> sum <span class="token operator">==</span> y<span class="token punctuation">;</span> <span class="token comment">//返回bool值</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h1><p>使用C语言实现回文数的过程中，由于将sum变量定义为int类型，导致在LeetCode运行时出现溢出错误，无法通过。后尝试将sum变量改为long类型，成功通过编译。<br>但在解题过程中，未考虑时间复杂度和空间复杂度。</p>
+]]></content>
+      <categories>
+        <category>LeetCode题解</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>LeetCode题解</tag>
+        <tag>回文数</tag>
       </tags>
   </entry>
   <entry>
@@ -671,62 +723,10 @@ class Solution &#123;
         <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
         <tag>Java</tag>
         <tag>leetcode</tag>
-        <tag>leetcode题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>9.回文数</title>
-    <url>/2023/0715753.html</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p>题目描述：<br>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<br>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。<br>例：121是<br>  -121不是</p>
-</blockquote>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote>
-<p><strong>思路一：</strong><br><em><strong>最初想到是使用java语言，直接将int型变量转为字符串，然后将字符串倒序，比较两个字符串是否相同，若相同则输出true，反之为false</strong></em></p>
-</blockquote>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">代码如下所示：
-class Solution &#123;
-    public boolean isPalindrome(int x) &#123;
-        String str &#x3D; Integer.toString(x);
-        String s &#x3D; new StringBuffer(str).reverse().toString(); &#x2F;&#x2F;直接逆序字符串
-        if(str.equals(s))     &#x2F;&#x2F;比较字符串是否相等
-        &#123;
-            return true;
-        &#125;else&#123;
-            return false;
-        &#125;
-    &#125;
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p><strong>思路二(C语言）：</strong><br><em><strong>1、由回文数的特性可知，负数均不是回文数，故判断若x为负数直接输出false；<br>2、对于正数则用一个变量记录x的逆序数<br>3、比较两个数是否相等，相等则输出true；反之false<br>4、默认0为回文数</strong></em></p>
-</blockquote>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">long</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment">//将x的逆序数定义为long类型，防止运行过程中因溢出而导致的错误</span>
-    <span class="token keyword">int</span> y<span class="token operator">=</span>x<span class="token punctuation">;</span>       <span class="token comment">//记录原始x值</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment">//逆序x</span>
-    <span class="token punctuation">&#123;</span>
-        sum <span class="token operator">=</span> sum<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
-        x<span class="token operator">/=</span><span class="token number">10</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> sum <span class="token operator">==</span> y<span class="token punctuation">;</span> <span class="token comment">//返回bool值</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h1><p>使用C语言实现回文数的过程中，由于将sum变量定义为int类型，导致在LeetCode运行时出现溢出错误，无法通过。后尝试将sum变量改为long类型，成功通过编译。<br>但在解题过程中，未考虑时间复杂度和空间复杂度。</p>
-]]></content>
-      <categories>
-        <category>LeetCode题解</category>
-      </categories>
-      <tags>
-        <tag>LeetCode题解</tag>
         <tag>LeetCode</tag>
-        <tag>回文数</tag>
+        <tag>leetcode题解</tag>
       </tags>
   </entry>
   <entry>
@@ -771,6 +771,7 @@ class Solution &#123;
 <img data-src="/2023/0824b2d547/da7146db447b46d3afcf9f5848d1c8da.png" class>
 ]]></content>
       <categories>
+        <category>OS</category>
         <category>Linux</category>
         <category>CentOS7</category>
       </categories>
@@ -779,81 +780,6 @@ class Solution &#123;
         <tag>CentOS7</tag>
         <tag>jdk</tag>
         <tag>centos7安装jdk</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Github学生包申请(学校邮箱版，秒通过)</title>
-    <url>/2023/08ff1be8cc.html</url>
-    <content><![CDATA[<h1 id="注册邮箱"><a href="#注册邮箱" class="headerlink" title="注册邮箱"></a>注册邮箱</h1><p>（1）若已拥有学校邮箱可直接看下一<br>（2）没有学校邮箱参考步骤去注册</p>
-<blockquote>
-<p>1、浏览器搜索“自己学校名字+邮件系统”<br>2、然后根据步骤自己注册</p>
-</blockquote>
-<h1 id="申请github学生包"><a href="#申请github学生包" class="headerlink" title="申请github学生包"></a>申请github学生包</h1><p>这里由于我已经有学校邮箱，并且有<strong>github</strong>账号，因此不在提供github的注册。有需要的可以参考这位朋友的文章，点击跳转<span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kZXZlbG9wZXIvYXJ0aWNsZS8xNDg3NTA4">github账号注册参考教程<i class="fa fa-external-link-alt"></i></span></p>
-<p><em><strong>注意</strong></em>： <strong>如果是第一次申请的话，建议使用手机，因为需要手机拍照。</strong></p>
-<ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly9lZHVjYXRpb24uZ2l0aHViLmNvbS8=">github学生包申请地址<i class="fa fa-external-link-alt"></i></span><br>点击上面的申请地址即可跳转申请。</li>
-<li>点击<code>Join Global Campus</code></li>
-</ol>
-<img data-src="/2023/08ff1be8cc/ae44f6bb89e1439eaf67ed565fe98679.png" class>
-
-<ol start="3">
-<li>点击<code>Sign up for...</code></li>
-</ol>
-  <img data-src="/2023/08ff1be8cc/30e7173bca9a4adbb5632051b9bd8c05.png" class>
-
-<ol start="4">
-<li>点击<code>get student benefits</code></li>
-</ol>
-  <img data-src="/2023/08ff1be8cc/9a6bd604087a48afbb3266fae033516e.png" class>
-
-<ol start="5">
-<li>点击<code>Add an email address</code></li>
-</ol>
-  <img data-src="/2023/08ff1be8cc/731cf4ba9377420dbedbbd3e0e5e3c36.png" class>
-
-
-<ol start="6">
-<li>点击蓝色字体 <code>add and verify your school-issued email address in your account settings</code></li>
-</ol>
-  <img data-src="/2023/08ff1be8cc/419068f3553b4e7192c75b36283ade8f.png" class>
-
-
-<ol start="7">
-<li><p>将学校邮箱填入<code>Add email address</code>下的框内，并点击<code>add</code><img data-src="/2023/08ff1be8cc/d5dd35b61e7a496c8a7058838691c6eb.png" class></p>
-</li>
-<li><p>添加后显示<code>Unverified,</code>需要进入学校邮箱验证邮箱<img data-src="/2023/08ff1be8cc/e18162846ca64316b05b7e42eecb3bee.png" class></p>
-</li>
-<li><p>点击<code>vertify your address</code></p>
-</li>
-</ol>
-  <img data-src="/2023/08ff1be8cc/639b309e0a1a45eeb1cce8c9dfdb3d62.png" class>
-
-
-<ol start="10">
-<li><p>当新添加邮箱下显示如下所示，即添加成功<img data-src="/2023/08ff1be8cc/8b01d197b5ac4b81ace5d52b95640082.png" class></p>
-</li>
-<li><p>之后返回学生包申请界面并刷新，然后选择刚添加的学生邮箱。<img data-src="/2023/08ff1be8cc/27a758f1fdcf48a08c4d436e67673c12.png" class><br> 需要在<code>How do you plan to use GitHub</code>?下填入用途，可以参考如下模板：</p>
-</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">I</span> am a student of （学校英文名）<span class="token punctuation">,</span> majoring in （专业英文名）<span class="token punctuation">.</span> 
-<span class="token class-name">I</span> hope <span class="token keyword">to</span> <span class="token namespace">obtain</span> <span class="token class-name">Github</span> student <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> 
-I</span> want <span class="token keyword">to</span> <span class="token namespace">learn</span> more knowledge and use it on <span class="token class-name">Github<span class="token punctuation">.</span>
-I</span> can also upload my code <span class="token keyword">to</span> <span class="token namespace">the</span> library <span class="token keyword">for</span> <span class="token class-name"><span class="token namespace">sharing<span class="token punctuation">.</span></span>
-The</span> main purpose is <span class="token keyword">to</span> <span class="token namespace">learn</span> and use <span class="token keyword">this</span> student <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> 
-I</span> hope <span class="token class-name">Github</span> will give you <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> Thank</span> you<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>之后点击<code>continue。</code></p>
-<ol start="12">
-<li>之后拍自己的学生证照片上传，证明类型选择第一个即可。<img data-src="/2023/08ff1be8cc/f9953f8eb11b40a7a92a475732f68a57.png" class><br>在这一步之后，本人是秒通过的。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Git</category>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>github</tag>
-        <tag>github学生包</tag>
       </tags>
   </entry>
   <entry>
@@ -941,16 +867,63 @@ $ <span class="token function">git</span> push <span class="token parameter vari
       </tags>
   </entry>
   <entry>
-    <title>HTML基础标签</title>
-    <url>/2023/088c85f492.html</url>
-    <content><![CDATA[]]></content>
+    <title>94. 二叉树的中序遍历</title>
+    <url>/2023/085b2d6749.html</url>
+    <content><![CDATA[<p><strong>Problem</strong>: <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jbi9wcm9ibGVtcy9iaW5hcnktdHJlZS1pbm9yZGVyLXRyYXZlcnNhbC9kZXNjcmlwdGlvbi8=">94. 二叉树的中序遍历<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
+<p>看到该题目的第一想法就是使用递归解题。对于二叉树的中序遍历，中序是指根节点的读取顺序，首先读取的是左子节点的值，因此先读取左节点，然后根节点，最后右节点，使用递归实现较为简单。后来参考题解的迭代解法。</p>
+</blockquote>
+<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><h2 id="递归解法"><a href="#递归解法" class="headerlink" title="递归解法"></a>递归解法</h2><ul>
+<li>代码如下：</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">inorderTraversal</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">inorder</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">inorder</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> node <span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> list<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token function">inorder</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">inorder</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="迭代解法"><a href="#迭代解法" class="headerlink" title="迭代解法"></a>迭代解法</h2><p>这里迭代的实现是看官方题解的思路，使用了java中的双端队列Deque</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">inorderTraversal</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">></span></span> de <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">||</span> <span class="token operator">!</span>de<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                de<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                root <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            root <span class="token operator">=</span> de<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            root <span class="token operator">=</span> root<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
       <categories>
-        <category>HTML教程</category>
+        <category>LeetCode题解</category>
       </categories>
       <tags>
-        <tag>html</tag>
-        <tag>HTML教程</tag>
-        <tag>html标签</tag>
+        <tag>Java</tag>
+        <tag>leetcode</tag>
+        <tag>LeetCode</tag>
+        <tag>leetcode题解</tag>
       </tags>
   </entry>
   <entry>
@@ -1041,6 +1014,126 @@ $params$$<span class="token keyword">return</span>$
       </tags>
   </entry>
   <entry>
+    <title>Github学生包申请(学校邮箱版，秒通过)</title>
+    <url>/2023/08ff1be8cc.html</url>
+    <content><![CDATA[<h1 id="注册邮箱"><a href="#注册邮箱" class="headerlink" title="注册邮箱"></a>注册邮箱</h1><p>（1）若已拥有学校邮箱可直接看下一<br>（2）没有学校邮箱参考步骤去注册</p>
+<blockquote>
+<p>1、浏览器搜索“自己学校名字+邮件系统”<br>2、然后根据步骤自己注册</p>
+</blockquote>
+<h1 id="申请github学生包"><a href="#申请github学生包" class="headerlink" title="申请github学生包"></a>申请github学生包</h1><p>这里由于我已经有学校邮箱，并且有<strong>github</strong>账号，因此不在提供github的注册。有需要的可以参考这位朋友的文章，点击跳转<span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kZXZlbG9wZXIvYXJ0aWNsZS8xNDg3NTA4">github账号注册参考教程<i class="fa fa-external-link-alt"></i></span></p>
+<p><em><strong>注意</strong></em>： <strong>如果是第一次申请的话，建议使用手机，因为需要手机拍照。</strong></p>
+<ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lZHVjYXRpb24uZ2l0aHViLmNvbS8=">github学生包申请地址<i class="fa fa-external-link-alt"></i></span><br>点击上面的申请地址即可跳转申请。</li>
+<li>点击<code>Join Global Campus</code></li>
+</ol>
+<img data-src="/2023/08ff1be8cc/ae44f6bb89e1439eaf67ed565fe98679.png" class>
+
+<ol start="3">
+<li>点击<code>Sign up for...</code></li>
+</ol>
+  <img data-src="/2023/08ff1be8cc/30e7173bca9a4adbb5632051b9bd8c05.png" class>
+
+<ol start="4">
+<li>点击<code>get student benefits</code></li>
+</ol>
+  <img data-src="/2023/08ff1be8cc/9a6bd604087a48afbb3266fae033516e.png" class>
+
+<ol start="5">
+<li>点击<code>Add an email address</code></li>
+</ol>
+  <img data-src="/2023/08ff1be8cc/731cf4ba9377420dbedbbd3e0e5e3c36.png" class>
+
+
+<ol start="6">
+<li>点击蓝色字体 <code>add and verify your school-issued email address in your account settings</code></li>
+</ol>
+  <img data-src="/2023/08ff1be8cc/419068f3553b4e7192c75b36283ade8f.png" class>
+
+
+<ol start="7">
+<li><p>将学校邮箱填入<code>Add email address</code>下的框内，并点击<code>add</code><img data-src="/2023/08ff1be8cc/d5dd35b61e7a496c8a7058838691c6eb.png" class></p>
+</li>
+<li><p>添加后显示<code>Unverified,</code>需要进入学校邮箱验证邮箱<img data-src="/2023/08ff1be8cc/e18162846ca64316b05b7e42eecb3bee.png" class></p>
+</li>
+<li><p>点击<code>vertify your address</code></p>
+</li>
+</ol>
+  <img data-src="/2023/08ff1be8cc/639b309e0a1a45eeb1cce8c9dfdb3d62.png" class>
+
+
+<ol start="10">
+<li><p>当新添加邮箱下显示如下所示，即添加成功<img data-src="/2023/08ff1be8cc/8b01d197b5ac4b81ace5d52b95640082.png" class></p>
+</li>
+<li><p>之后返回学生包申请界面并刷新，然后选择刚添加的学生邮箱。<img data-src="/2023/08ff1be8cc/27a758f1fdcf48a08c4d436e67673c12.png" class><br> 需要在<code>How do you plan to use GitHub</code>?下填入用途，可以参考如下模板：</p>
+</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">I</span> am a student of （学校英文名）<span class="token punctuation">,</span> majoring in （专业英文名）<span class="token punctuation">.</span> 
+<span class="token class-name">I</span> hope <span class="token keyword">to</span> <span class="token namespace">obtain</span> <span class="token class-name">Github</span> student <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> 
+I</span> want <span class="token keyword">to</span> <span class="token namespace">learn</span> more knowledge and use it on <span class="token class-name">Github<span class="token punctuation">.</span>
+I</span> can also upload my code <span class="token keyword">to</span> <span class="token namespace">the</span> library <span class="token keyword">for</span> <span class="token class-name"><span class="token namespace">sharing<span class="token punctuation">.</span></span>
+The</span> main purpose is <span class="token keyword">to</span> <span class="token namespace">learn</span> and use <span class="token keyword">this</span> student <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> 
+I</span> hope <span class="token class-name">Github</span> will give you <span class="token class-name"><span class="token namespace">certification<span class="token punctuation">.</span></span> Thank</span> you<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>之后点击<code>continue。</code></p>
+<ol start="12">
+<li>之后拍自己的学生证照片上传，证明类型选择第一个即可。<img data-src="/2023/08ff1be8cc/f9953f8eb11b40a7a92a475732f68a57.png" class><br>在这一步之后，本人是秒通过的。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Git</category>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>github学生包</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础</title>
+    <url>/2023/08f7ede91d.html</url>
+    <content><![CDATA[<h2 id="1、java环境安装"><a href="#1、java环境安装" class="headerlink" title="1、java环境安装"></a>1、java环境安装</h2><ul>
+<li>jdk8安装：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMDM4NzkzP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击跳转查看安装教程<i class="fa fa-external-link-alt"></i></span></li>
+<li>安装eclipse：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MzQ0NTg2L2FydGljbGUvZGV0YWlscy8xMjM5NDI2ODU=">点击跳转<i class="fa fa-external-link-alt"></i></span></li>
+<li>idea：教程网上搜吧，一堆</li>
+</ul>
+<h2 id="2、记事本"><a href="#2、记事本" class="headerlink" title="2、记事本"></a>2、记事本</h2><p>记事本运行java文件</p>
+<ul>
+<li>使用记事本新建文件，编写java程序</li>
+<li>将后缀名改为.java</li>
+<li>在命令提示符进入java文件所在位置</li>
+<li>然后使用命令javac chengxu.java编译</li>
+<li>使用命令java chengxu 运行</li>
+</ul>
+<h2 id="3、idea"><a href="#3、idea" class="headerlink" title="3、idea"></a>3、idea</h2><p>编写简单输出语句，熟悉ide用法，idea是真的好用哦</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>java教程</tag>
+        <tag>java知识总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML基础标签</title>
+    <url>/2023/088c85f492.html</url>
+    <content><![CDATA[<h1 id="HTML文件格式"><a href="#HTML文件格式" class="headerlink" title="HTML文件格式"></a>HTML文件格式</h1><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;?<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+]]></content>
+      <categories>
+        <category>HTML教程</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>HTML教程</tag>
+        <tag>html标签</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaBean</title>
     <url>/2023/083310.html</url>
     <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>JavaBean是Java编程中的一个概念，它是一种符合特定规范的Java类。JavaBean通常用于封装数据和功能，通过提供公共的getter和setter方法来访问和修改类的属性（成员变量），从而实现面向对象编程的封装特性。</p>
@@ -1116,64 +1209,65 @@ $params$$<span class="token keyword">return</span>$
       </tags>
   </entry>
   <entry>
-    <title>Java基础</title>
-    <url>/2023/08f7ede91d.html</url>
-    <content><![CDATA[<h2 id="1、java环境安装"><a href="#1、java环境安装" class="headerlink" title="1、java环境安装"></a>1、java环境安装</h2><ul>
-<li>jdk8安装：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMDM4NzkzP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击跳转查看安装教程<i class="fa fa-external-link-alt"></i></span></li>
-<li>安装eclipse：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MzQ0NTg2L2FydGljbGUvZGV0YWlscy8xMjM5NDI2ODU=">点击跳转<i class="fa fa-external-link-alt"></i></span></li>
-<li>idea：教程网上搜吧，一堆</li>
-</ul>
-<h2 id="2、记事本"><a href="#2、记事本" class="headerlink" title="2、记事本"></a>2、记事本</h2><p>记事本运行java文件</p>
-<ul>
-<li>使用记事本新建文件，编写java程序</li>
-<li>将后缀名改为.java</li>
-<li>在命令提示符进入java文件所在位置</li>
-<li>然后使用命令javac chengxu.java编译</li>
-<li>使用命令java chengxu 运行</li>
-</ul>
-<h2 id="3、idea"><a href="#3、idea" class="headerlink" title="3、idea"></a>3、idea</h2><p>编写简单输出语句，熟悉ide用法，idea是真的好用哦</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>java教程</tag>
-        <tag>java知识总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java常用工具类</title>
-    <url>/2023/088b50b566.html</url>
-    <content><![CDATA[<h1 id="常用工具类"><a href="#常用工具类" class="headerlink" title="常用工具类"></a>常用工具类</h1><p>Java中有许多常用的工具类，它们提供了各种实用的方法，方便我们进行常见的操作。以下是一些常用的Java工具类：</p>
+    <title>Java中双端队列Deque的用法</title>
+    <url>/2023/08fb4d2731.html</url>
+    <content><![CDATA[<h1 id="Deque介绍"><a href="#Deque介绍" class="headerlink" title="Deque介绍"></a>Deque介绍</h1><p>在Java中，双端队列（Deque，全称为”Double-Ended Queue”）是一种特殊的队列数据结构，它允许在队列的两端进行元素的插入和删除操作。Deque接口继承了Queue接口，因此具有队列的基本特性，同时还增加了双端操作的能力。</p>
+<h1 id="Deque方法"><a href="#Deque方法" class="headerlink" title="Deque方法"></a>Deque方法</h1><p>Java中的Deque接口提供了以下主要方法：</p>
 <ol>
-<li><code>java.util.Arrays</code>：提供了用于操作数组的静态方法，如排序、搜索、填充等。</li>
-<li><code>java.util.Collections</code>：提供了用于操作集合的静态方法，如排序、搜索、反转、替换等。</li>
-<li><code>java.lang.Math</code>：提供了用于数学运算的静态方法，如求绝对值、平方根、最大值、最小值等。</li>
-<li><code>java.util.StringJoiner</code>：用于连接字符串的类，可以在字符串之间添加分隔符。</li>
-<li><code>java.util.StringTokenizer</code>：用于分割字符串的类，类似于<code>String.split()</code>方法，但更加灵活。</li>
-<li><code>java.util.Random</code>：用于生成随机数的类。</li>
-<li><code>java.text.SimpleDateFormat</code>：用于将日期对象格式化为指定的日期字符串。</li>
-<li><code>java.util.Properties</code>：用于处理属性文件的类，可以读取和写入属性文件。</li>
-<li><code>java.util.Scanner</code>：用于从输入流中读取基本类型和字符串。</li>
-<li><code>java.nio.file.Paths</code>：用于处理文件路径的类，可以获取文件路径、创建文件路径等。</li>
-<li><code>java.nio.file.Files</code>：用于处理文件和目录的类，可以复制、移动、删除文件等。</li>
-<li><code>java.util.UUID</code>：用于生成唯一标识符(UUID)。</li>
-<li><code>java.util.regex.Pattern</code>：用于处理正则表达式的类，可以进行匹配和查找。</li>
-<li><code>java.net.URL</code>：用于表示统一资源定位符(URL)，可以用于网络资源访问。</li>
-<li><code>java.util.zip.ZipFile</code>：用于处理ZIP文件的类，可以读取和解压ZIP文件。</li>
+<li><code>addFirst(E e)</code> &#x2F; <code>offerFirst(E e)</code>: 在双端队列的头部添加一个元素。</li>
+<li><code>addLast(E e)</code> &#x2F; <code>offerLast(E e)</code>: 在双端队列的尾部添加一个元素。</li>
+<li><code>removeFirst()</code> &#x2F; <code>pollFirst()</code>: 移除并返回双端队列的头部元素。</li>
+<li><code>removeLast()</code> &#x2F; <code>pollLast()</code>: 移除并返回双端队列的尾部元素。</li>
+<li><code>getFirst()</code> &#x2F; <code>peekFirst()</code>: 获取但不移除双端队列的头部元素。</li>
+<li><code>getLast()</code> &#x2F; <code>peekLast()</code>: 获取但不移除双端队列的尾部元素。</li>
 </ol>
-<p>这些工具类都位于Java标准库中，无需额外导入即可使用。根据不同的需求，你可以选择合适的工具类来简化你的编程工作。除了上述工具类，Java还有许多其他常用的工具类，可以根据具体的项目和任务来进一步探索和使用。</p>
+<p>Deque接口的实现类有<code>LinkedList</code>和<code>ArrayDeque</code>，它们都实现了Deque接口，并提供了双端队列的功能。下面是一个使用ArrayDeque的示例：</p>
+<pre class="line-numbers language-none"><code class="language-none">import java.util.*;
+
+public class DequeExample &#123;
+    public static void main(String[] args) &#123;
+        Deque&lt;Integer&gt; deque &#x3D; new ArrayDeque&lt;&gt;();
+
+        &#x2F;&#x2F; 在队列头部添加元素
+        deque.addFirst(1);
+        deque.offerFirst(2);
+        System.out.println(&quot;Deque: &quot; + deque); &#x2F;&#x2F; 输出: Deque: [2, 1]
+
+        &#x2F;&#x2F; 在队列尾部添加元素
+        deque.addLast(3);
+        deque.offerLast(4);
+        System.out.println(&quot;Deque: &quot; + deque); &#x2F;&#x2F; 输出: Deque: [2, 1, 3, 4]
+
+        &#x2F;&#x2F; 移除并返回队列头部元素
+        int first &#x3D; deque.removeFirst();
+        System.out.println(&quot;Removed first element: &quot; + first); &#x2F;&#x2F; 输出: Removed first element: 2
+        System.out.println(&quot;Deque: &quot; + deque); &#x2F;&#x2F; 输出: Deque: [1, 3, 4]
+
+        &#x2F;&#x2F; 移除并返回队列尾部元素
+        int last &#x3D; deque.removeLast();
+        System.out.println(&quot;Removed last element: &quot; + last); &#x2F;&#x2F; 输出: Removed last element: 4
+        System.out.println(&quot;Deque: &quot; + deque); &#x2F;&#x2F; 输出: Deque: [1, 3]
+
+        &#x2F;&#x2F; 获取但不移除队列头部和尾部元素
+        int firstElement &#x3D; deque.getFirst();
+        int lastElement &#x3D; deque.getLast();
+        System.out.println(&quot;First element: &quot; + firstElement); &#x2F;&#x2F; 输出: First element: 1
+        System.out.println(&quot;Last element: &quot; + lastElement); &#x2F;&#x2F; 输出: Last element: 3
+        System.out.println(&quot;Deque: &quot; + deque); &#x2F;&#x2F; 输出: Deque: [1, 3]
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>总结来说，双端队列是一种非常有用的数据结构，它可以同时在队列的头部和尾部进行元素的添加和删除操作，方便实现一些特定的需求。在Java中，我们可以使用Deque接口的实现类（如ArrayDeque）来使用双端队列的功能。</p>
 ]]></content>
       <categories>
         <category>Java教程</category>
-        <category>Java核心类</category>
+        <category>Java队列</category>
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>Java工具类</tag>
-        <tag>Java常用工具类</tag>
+        <tag>Deque</tag>
+        <tag>Java双端队列</tag>
+        <tag>java Deque</tag>
       </tags>
   </entry>
   <entry>
@@ -1211,90 +1305,36 @@ $params$$<span class="token keyword">return</span>$
       </tags>
   </entry>
   <entry>
-    <title>Java标识符和基本数据类型</title>
-    <url>/2023/084addbb94.html</url>
-    <content><![CDATA[<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ul>
-<li><p>组成：字母、数字、下划线</p>
-</li>
-<li><p>关键字：48个</p>
-</li>
-<li><p>驼峰命名：若变量由多个单词组成，第一个单词首字母小写，其他单词首字母大写</p>
-</li>
-</ul>
-<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><p>分为基本数据类型和应用数据类型。</p>
-<ul>
-<li><p>八大基本数据类型：</p>
-<ul>
-<li>byte：1字节</li>
-<li>char：2</li>
-<li>short：2</li>
-<li>int：4</li>
-<li>long：8</li>
-<li>float：4</li>
-<li>double：8</li>
-<li>boolean：1,    true,false</li>
-</ul>
-</li>
-<li><p>数据存储</p>
-<ul>
-<li>永久存储：MySQL、sqlserver，oracle，nosql等</li>
-<li>瞬时存储：中间数据，程序结束后空间回收</li>
-</ul>
-</li>
-<li><p>常量：</p>
-<ul>
-<li>使用final定义</li>
-<li>命名规则：字母全大写</li>
-</ul>
-</li>
-<li><p>变量：</p>
-<ul>
-<li>定义：根据数据类型进行定义</li>
-<li>命名：驼峰规范</li>
-<li>使用步骤<ul>
-<li>声明变量：声明相应数据类型的变量，int a;   (一般声明和初始化同时进行，int a &#x3D; 0;)</li>
-<li>初始化：使用&#x3D;赋值，为变量名指向的地址空间存入数据 a&#x3D;0;</li>
-<li>使用：在代码中通过变量名操作数据  System.out.println(a);   —0</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">float</span> score <span class="token operator">=</span> <span class="token number">98.5f</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> course <span class="token operator">=</span> <span class="token string">"Java课"</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
-<span class="token keyword">char</span> sex <span class="token operator">=</span> <span class="token char">'男'</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>course<span class="token operator">+</span><span class="token string">"最高成绩是："</span><span class="token operator">+</span>score<span class="token operator">+</span><span class="token string">"\n最高分学员姓名："</span><span class="token operator">+</span>name<span class="token operator">+</span><span class="token string">"\n最高分学员性别："</span><span class="token operator">+</span>sex<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-</li>
-<li><p>类型转换</p>
-<ul>
-<li>强制类型转换：使用（）进行强制类型转换，会产生精度损失</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">char</span> a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token number">99</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>*out<span class="token operator">*</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//   c</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<ul>
-<li>自动类型转换：自下向上转换</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token char">'a'</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>*out<span class="token operator">*</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//97</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ul>
-<li>BigDecimal:用以计算过程中精度要求高，不能随意截断的数据，eg：money</li>
-</ul>
-</li>
-</ul>
+    <title>Java常用工具类</title>
+    <url>/2023/088b50b566.html</url>
+    <content><![CDATA[<h1 id="常用工具类"><a href="#常用工具类" class="headerlink" title="常用工具类"></a>常用工具类</h1><p>Java中有许多常用的工具类，它们提供了各种实用的方法，方便我们进行常见的操作。以下是一些常用的Java工具类：</p>
+<ol>
+<li><code>java.util.Arrays</code>：提供了用于操作数组的静态方法，如排序、搜索、填充等。</li>
+<li><code>java.util.Collections</code>：提供了用于操作集合的静态方法，如排序、搜索、反转、替换等。</li>
+<li><code>java.lang.Math</code>：提供了用于数学运算的静态方法，如求绝对值、平方根、最大值、最小值等。</li>
+<li><code>java.util.StringJoiner</code>：用于连接字符串的类，可以在字符串之间添加分隔符。</li>
+<li><code>java.util.StringTokenizer</code>：用于分割字符串的类，类似于<code>String.split()</code>方法，但更加灵活。</li>
+<li><code>java.util.Random</code>：用于生成随机数的类。</li>
+<li><code>java.text.SimpleDateFormat</code>：用于将日期对象格式化为指定的日期字符串。</li>
+<li><code>java.util.Properties</code>：用于处理属性文件的类，可以读取和写入属性文件。</li>
+<li><code>java.util.Scanner</code>：用于从输入流中读取基本类型和字符串。</li>
+<li><code>java.nio.file.Paths</code>：用于处理文件路径的类，可以获取文件路径、创建文件路径等。</li>
+<li><code>java.nio.file.Files</code>：用于处理文件和目录的类，可以复制、移动、删除文件等。</li>
+<li><code>java.util.UUID</code>：用于生成唯一标识符(UUID)。</li>
+<li><code>java.util.regex.Pattern</code>：用于处理正则表达式的类，可以进行匹配和查找。</li>
+<li><code>java.net.URL</code>：用于表示统一资源定位符(URL)，可以用于网络资源访问。</li>
+<li><code>java.util.zip.ZipFile</code>：用于处理ZIP文件的类，可以读取和解压ZIP文件。</li>
+</ol>
+<p>这些工具类都位于Java标准库中，无需额外导入即可使用。根据不同的需求，你可以选择合适的工具类来简化你的编程工作。除了上述工具类，Java还有许多其他常用的工具类，可以根据具体的项目和任务来进一步探索和使用。</p>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
-        <category>Java</category>
+        <category>Java教程</category>
+        <category>Java核心类</category>
       </categories>
       <tags>
-        <tag>java</tag>
-        <tag>java教程</tag>
-        <tag>java知识总结</tag>
+        <tag>Java</tag>
+        <tag>Java工具类</tag>
+        <tag>Java常用工具类</tag>
       </tags>
   </entry>
   <entry>
@@ -1462,128 +1502,6 @@ $params$$<span class="token keyword">return</span>$
       </tags>
   </entry>
   <entry>
-    <title>Java字符串</title>
-    <url>/2023/07689.html</url>
-    <content><![CDATA[<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="字符串知识点"><a href="#字符串知识点" class="headerlink" title="字符串知识点"></a>字符串知识点</h3><ol>
-<li><p>String是一个引用类型，本身也是一个<code>class</code>。</p>
-</li>
-<li><p>字符串在String内部是以字符数组char[]表示的</p>
-</li>
-<li><p>写法1：<code>String s=&quot;xiaozhang&quot;;</code></p>
-</li>
-<li><p>写法2：<code>String s= new String(new char[] &#123;&#39;c&#39;,&#39;z&#39;&#125;);</code></p>
-</li>
-<li><p>Java字符串的特点：字符串不可变。因为其内部的<code>private final char[],</code>以及没有提供修改的方法。</p>
-</li>
-<li><p>平时所使用的修改字符串是引用的改变,当创建一个新的字符串时，编译器会先检查在常量池中是否已存在该字符串，若存在则直接使用该字符串的使用；不存在则直接新建一个。</p>
-</li>
-<li><p>由于字符串的不可变，因此对字符串的改变是创建一个新字符串或者是改变引用。</p>
-</li>
-<li><p>对于字符串的比较，需要使用**equals()**方法，切记不要使&#x3D;&#x3D;，因为对于引用类型的变量使用&#x3D;&#x3D;进行比较，比较的是对象的引用。当使用&#x3D;&#x3D;运算符比较两个字符串时，它会检查两个字符串对象的引用是否指向相同的内存地址，而不会比较它们的内容。这意味着即使两个字符串的内容相同，它们可能并不指向相同的内存地址，因此使用<code>==</code>运算符进行比较会得到错误的结果。</p>
-</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s1<span class="token operator">=</span><span class="token string">"hello"</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> s2<span class="token operator">=</span><span class="token string">"HELLO"</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token operator">==</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//输出false</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>对于上面的代码，使用&#x3D;&#x3D;比较两个字符串会输出false，虽然两个字符串内容一样，但由于两个变量的引用不同，所以两个变量是不相等的。</p>
-<h3 id="字符串常用方法"><a href="#字符串常用方法" class="headerlink" title="字符串常用方法"></a>字符串常用方法</h3><ol>
-<li><p>equals()：判断字符串是否相等</p>
-</li>
-<li><p>equalsIgnoreCase()：忽略大小写比较字符串</p>
-</li>
-<li><p>contains(str)：判断字符串是否具有str子串，例如<code>&quot;Hello&quot;.contains(&quot;ll&quot;); // true</code></p>
-</li>
-<li><p>indexOf(i)：根据字符串索引位置获取字符，<code>eg：&quot;Hello&quot;.indexOf(&quot;l&quot;); // 2</code></p>
-</li>
-<li><p>lastIndexOf(ch)：获取字符串中字符ch最后一次出现的索引位置，<code>eg:&quot;Hello&quot;.lastIndexOf(&quot;l&quot;); // 3</code></p>
-</li>
-<li><p>startsWith(str)：判断字符串是否以字串str开头，<code>eg:&quot;Hello&quot;.startsWith(&quot;He&quot;); // true</code></p>
-</li>
-<li><p>endsWith(str)：判断字符串是否以字串str结尾，<code>eg:&quot;Hello&quot;.endsWith(&quot;lo&quot;); // true</code></p>
-</li>
-<li><p>substring(): 根据索引位置进行提取字串，索引从0开始。如果只有一个参数，则从该位置截取字符串，获取后半部分；如果有两个参数，则截取两个位置间的字串，包括两个位置。</p>
-</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">eg<span class="token operator">:</span>
-<span class="token string">"Hello"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "llo"</span>
-<span class="token string">"Hello"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token string">"ll"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-
-<ol start="9">
-<li><p>trim()：去除字符串首尾两端的空格，trim(): 仅去除字符串首尾的空格字符（ASCII码为32的字符）</p>
-</li>
-<li><p>strip()：去除字符串首尾两端的空格，包括中文的空格字符，包括空格、制表符、换行符等 Unicode 空白字符</p>
-</li>
-<li><p>isEmpty()：判断字符串是否为空</p>
-</li>
-<li><p>isBlank():判断字符串是否是空格组成的字符串</p>
-</li>
-<li><p>replace(s1，s2):替换字符串，将字符串中的s1全部替换为s2 ，<code>“hello”.replace(&#39;l&#39;, &#39;w&#39;); // &quot;hewwo&quot;，所有字符&#39;l&#39;被替换为&#39;w&#39;</code></p>
-</li>
-<li><p>replaceAll(regex,replacement):使用正则表达式替换字符串，regex为正则表达式，将符合正则表达式的字符串替换为replacement字符串</p>
-</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"A,,B;C ,D"</span><span class="token punctuation">;</span><span class="token comment">//将一个或连续多个， ；或者空白字符替换为，</span>
-s<span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">"[\\,\\;\\s]+"</span><span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "A,B,C,D"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ol start="15">
-<li>split(ch):根据ch将字符串分割为字符串数组</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"A,B,C,D"</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ss <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"\\,"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123;"A", "B", "C", "D"&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ol start="16">
-<li>join():拼接字符串,将多个字符串按照指定的分隔符连接成一个单一的字符串</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"C"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">"***"</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "A***B***C"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>另外可以使用加号+来拼接字符串</p>
-<ol start="17">
-<li>format()和formatted():用于用参数替换字符串中的占位符，两者作用相同，用法不同</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"Hi %s, your look so %s!"</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">formatted</span><span class="token punctuation">(</span><span class="token string">"xiaozhang"</span><span class="token punctuation">,</span> <span class="token string">"handsome"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"Hi %s, your are  %d! years old"</span><span class="token punctuation">,</span> <span class="token string">"xiaozhang"</span><span class="token punctuation">,</span><span class="token number">88</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>以下是几个常用的占位符：</p>
-<ul>
-<li><code>%s</code>：显示字符串；</li>
-<li><code>%d</code>：显示整数；</li>
-<li><code>%x</code>：显示十六进制整数；</li>
-<li><code>%f</code>：显示浮点数。</li>
-</ul>
-<ol start="18">
-<li>valueOf(): 将其他类型的变量转为字符串</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "123"</span>
-<span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">12.344</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "45.67"</span>
-<span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "false"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<ol start="19">
-<li>toCharArray():将字符串转为字符数组，也可将字符数组转为字符串，示例如下：</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cs <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// String -> char[]</span>
-<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>cs<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// char[] -> String</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>结果如下所示：</p>
-<img data-src="/2023/07689/image-20230731152042611.png" class>	
-]]></content>
-      <categories>
-        <category>Java教程</category>
-        <category>Java核心类</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Java核心类</tag>
-        <tag>字符串</tag>
-        <tag>String</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java选择结构</title>
     <url>/2023/084a23ab17.html</url>
     <content><![CDATA[<h2 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><ul>
@@ -1716,6 +1634,93 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
 
 
 
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>java教程</tag>
+        <tag>java知识总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java标识符和基本数据类型</title>
+    <url>/2023/084addbb94.html</url>
+    <content><![CDATA[<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ul>
+<li><p>组成：字母、数字、下划线</p>
+</li>
+<li><p>关键字：48个</p>
+</li>
+<li><p>驼峰命名：若变量由多个单词组成，第一个单词首字母小写，其他单词首字母大写</p>
+</li>
+</ul>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><p>分为基本数据类型和应用数据类型。</p>
+<ul>
+<li><p>八大基本数据类型：</p>
+<ul>
+<li>byte：1字节</li>
+<li>char：2</li>
+<li>short：2</li>
+<li>int：4</li>
+<li>long：8</li>
+<li>float：4</li>
+<li>double：8</li>
+<li>boolean：1,    true,false</li>
+</ul>
+</li>
+<li><p>数据存储</p>
+<ul>
+<li>永久存储：MySQL、sqlserver，oracle，nosql等</li>
+<li>瞬时存储：中间数据，程序结束后空间回收</li>
+</ul>
+</li>
+<li><p>常量：</p>
+<ul>
+<li>使用final定义</li>
+<li>命名规则：字母全大写</li>
+</ul>
+</li>
+<li><p>变量：</p>
+<ul>
+<li>定义：根据数据类型进行定义</li>
+<li>命名：驼峰规范</li>
+<li>使用步骤<ul>
+<li>声明变量：声明相应数据类型的变量，int a;   (一般声明和初始化同时进行，int a &#x3D; 0;)</li>
+<li>初始化：使用&#x3D;赋值，为变量名指向的地址空间存入数据 a&#x3D;0;</li>
+<li>使用：在代码中通过变量名操作数据  System.out.println(a);   —0</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">float</span> score <span class="token operator">=</span> <span class="token number">98.5f</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> course <span class="token operator">=</span> <span class="token string">"Java课"</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span> sex <span class="token operator">=</span> <span class="token char">'男'</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>course<span class="token operator">+</span><span class="token string">"最高成绩是："</span><span class="token operator">+</span>score<span class="token operator">+</span><span class="token string">"\n最高分学员姓名："</span><span class="token operator">+</span>name<span class="token operator">+</span><span class="token string">"\n最高分学员性别："</span><span class="token operator">+</span>sex<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p>类型转换</p>
+<ul>
+<li>强制类型转换：使用（）进行强制类型转换，会产生精度损失</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">char</span> a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token number">99</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>*out<span class="token operator">*</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//   c</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<ul>
+<li>自动类型转换：自下向上转换</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token char">'a'</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>*out<span class="token operator">*</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//97</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>BigDecimal:用以计算过程中精度要求高，不能随意截断的数据，eg：money</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -1932,6 +1937,350 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
       </tags>
   </entry>
   <entry>
+    <title>Java字符串</title>
+    <url>/2023/07689.html</url>
+    <content><![CDATA[<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="字符串知识点"><a href="#字符串知识点" class="headerlink" title="字符串知识点"></a>字符串知识点</h3><ol>
+<li><p>String是一个引用类型，本身也是一个<code>class</code>。</p>
+</li>
+<li><p>字符串在String内部是以字符数组char[]表示的</p>
+</li>
+<li><p>写法1：<code>String s=&quot;xiaozhang&quot;;</code></p>
+</li>
+<li><p>写法2：<code>String s= new String(new char[] &#123;&#39;c&#39;,&#39;z&#39;&#125;);</code></p>
+</li>
+<li><p>Java字符串的特点：字符串不可变。因为其内部的<code>private final char[],</code>以及没有提供修改的方法。</p>
+</li>
+<li><p>平时所使用的修改字符串是引用的改变,当创建一个新的字符串时，编译器会先检查在常量池中是否已存在该字符串，若存在则直接使用该字符串的使用；不存在则直接新建一个。</p>
+</li>
+<li><p>由于字符串的不可变，因此对字符串的改变是创建一个新字符串或者是改变引用。</p>
+</li>
+<li><p>对于字符串的比较，需要使用**equals()**方法，切记不要使&#x3D;&#x3D;，因为对于引用类型的变量使用&#x3D;&#x3D;进行比较，比较的是对象的引用。当使用&#x3D;&#x3D;运算符比较两个字符串时，它会检查两个字符串对象的引用是否指向相同的内存地址，而不会比较它们的内容。这意味着即使两个字符串的内容相同，它们可能并不指向相同的内存地址，因此使用<code>==</code>运算符进行比较会得到错误的结果。</p>
+</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s1<span class="token operator">=</span><span class="token string">"hello"</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> s2<span class="token operator">=</span><span class="token string">"HELLO"</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token operator">==</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//输出false</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于上面的代码，使用&#x3D;&#x3D;比较两个字符串会输出false，虽然两个字符串内容一样，但由于两个变量的引用不同，所以两个变量是不相等的。</p>
+<h3 id="字符串常用方法"><a href="#字符串常用方法" class="headerlink" title="字符串常用方法"></a>字符串常用方法</h3><ol>
+<li><p>equals()：判断字符串是否相等</p>
+</li>
+<li><p>equalsIgnoreCase()：忽略大小写比较字符串</p>
+</li>
+<li><p>contains(str)：判断字符串是否具有str子串，例如<code>&quot;Hello&quot;.contains(&quot;ll&quot;); // true</code></p>
+</li>
+<li><p>indexOf(i)：根据字符串索引位置获取字符，<code>eg：&quot;Hello&quot;.indexOf(&quot;l&quot;); // 2</code></p>
+</li>
+<li><p>lastIndexOf(ch)：获取字符串中字符ch最后一次出现的索引位置，<code>eg:&quot;Hello&quot;.lastIndexOf(&quot;l&quot;); // 3</code></p>
+</li>
+<li><p>startsWith(str)：判断字符串是否以字串str开头，<code>eg:&quot;Hello&quot;.startsWith(&quot;He&quot;); // true</code></p>
+</li>
+<li><p>endsWith(str)：判断字符串是否以字串str结尾，<code>eg:&quot;Hello&quot;.endsWith(&quot;lo&quot;); // true</code></p>
+</li>
+<li><p>substring(): 根据索引位置进行提取字串，索引从0开始。如果只有一个参数，则从该位置截取字符串，获取后半部分；如果有两个参数，则截取两个位置间的字串，包括两个位置。</p>
+</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">eg<span class="token operator">:</span>
+<span class="token string">"Hello"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "llo"</span>
+<span class="token string">"Hello"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token string">"ll"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ol start="9">
+<li><p>trim()：去除字符串首尾两端的空格，trim(): 仅去除字符串首尾的空格字符（ASCII码为32的字符）</p>
+</li>
+<li><p>strip()：去除字符串首尾两端的空格，包括中文的空格字符，包括空格、制表符、换行符等 Unicode 空白字符</p>
+</li>
+<li><p>isEmpty()：判断字符串是否为空</p>
+</li>
+<li><p>isBlank():判断字符串是否是空格组成的字符串</p>
+</li>
+<li><p>replace(s1，s2):替换字符串，将字符串中的s1全部替换为s2 ，<code>“hello”.replace(&#39;l&#39;, &#39;w&#39;); // &quot;hewwo&quot;，所有字符&#39;l&#39;被替换为&#39;w&#39;</code></p>
+</li>
+<li><p>replaceAll(regex,replacement):使用正则表达式替换字符串，regex为正则表达式，将符合正则表达式的字符串替换为replacement字符串</p>
+</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"A,,B;C ,D"</span><span class="token punctuation">;</span><span class="token comment">//将一个或连续多个， ；或者空白字符替换为，</span>
+s<span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">"[\\,\\;\\s]+"</span><span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "A,B,C,D"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol start="15">
+<li>split(ch):根据ch将字符串分割为字符串数组</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"A,B,C,D"</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ss <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"\\,"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123;"A", "B", "C", "D"&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol start="16">
+<li>join():拼接字符串,将多个字符串按照指定的分隔符连接成一个单一的字符串</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"C"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">"***"</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "A***B***C"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>另外可以使用加号+来拼接字符串</p>
+<ol start="17">
+<li>format()和formatted():用于用参数替换字符串中的占位符，两者作用相同，用法不同</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"Hi %s, your look so %s!"</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">formatted</span><span class="token punctuation">(</span><span class="token string">"xiaozhang"</span><span class="token punctuation">,</span> <span class="token string">"handsome"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"Hi %s, your are  %d! years old"</span><span class="token punctuation">,</span> <span class="token string">"xiaozhang"</span><span class="token punctuation">,</span><span class="token number">88</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>以下是几个常用的占位符：</p>
+<ul>
+<li><code>%s</code>：显示字符串；</li>
+<li><code>%d</code>：显示整数；</li>
+<li><code>%x</code>：显示十六进制整数；</li>
+<li><code>%f</code>：显示浮点数。</li>
+</ul>
+<ol start="18">
+<li>valueOf(): 将其他类型的变量转为字符串</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "123"</span>
+<span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">12.344</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "45.67"</span>
+<span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "false"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol start="19">
+<li>toCharArray():将字符串转为字符数组，也可将字符数组转为字符串，示例如下：</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cs <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// String -> char[]</span>
+<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>cs<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// char[] -> String</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>结果如下所示：</p>
+<img data-src="/2023/07689/image-20230731152042611.png" class>	
+]]></content>
+      <categories>
+        <category>Java教程</category>
+        <category>Java核心类</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java核心类</tag>
+        <tag>字符串</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux常用命令</title>
+    <url>/2023/08d0edc1ed.html</url>
+    <content><![CDATA[<h1 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#gz文件</span>
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span>
+<span class="token comment">#xz文件</span>
+<span class="token function">tar</span> <span class="token parameter variable">-Jxvf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建文件夹</span>
+<span class="token function">mkdir</span> 文件夹名
+<span class="token comment">#文件权限 r（读） w(写） x(执行)</span>
+<span class="token function">chmod</span> +x script
+<span class="token comment">#打开文件</span>
+<span class="token builtin class-name">cd</span> 文件名
+<span class="token comment"># 返回上一级</span>
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+<span class="token comment">#返回上一个目录</span>
+<span class="token builtin class-name">cd</span> -
+
+<span class="token comment">#复制 文件夹后加/</span>
+<span class="token function">cp</span> 文件1.txt wenjain.txt
+<span class="token comment">#重命名或移动</span>
+<span class="token function">mv</span> 原名 现名  <span class="token comment">#保留在同一目录</span>
+<span class="token function">mv</span> source_file destination_folder/ <span class="token comment">#移动</span>
+<span class="token comment">#删除文件，-rf不询问 -r询问</span>
+<span class="token function">rm</span> <span class="token parameter variable">-rf</span> 文件名
+
+<span class="token comment">#编辑文件</span>
+<span class="token function">vim</span> 文件名
+<span class="token comment">#编辑后保存文件</span>
+ECS + ：wq
+
+加！强制退出
+
+<span class="token comment">#列出目录下neirong</span>
+<span class="token function">ls</span>
+
+<span class="token comment">#输出当前目录的绝对路径</span>
+<span class="token builtin class-name">pwd</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="jdk相关"><a href="#jdk相关" class="headerlink" title="jdk相关"></a>jdk相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#java版本</span>
+<span class="token function">java</span> <span class="token parameter variable">-version</span>
+<span class="token comment">#显示java文件</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">java</span>
+<span class="token comment">#删除</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> 文件名
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#wget</span>
+<span class="token function">wget</span> 资源地址
+<span class="token comment">#yum </span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="ip相关"><a href="#ip相关" class="headerlink" title="ip相关"></a>ip相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看ip</span>
+<span class="token function">ip</span> addr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Linux</category>
+        <category>命令</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>linux</tag>
+        <tag>linux常用命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>KMP算法</title>
+    <url>/2023/082da0528d.html</url>
+    <content><![CDATA[<h1 id="KMP算法简介"><a href="#KMP算法简介" class="headerlink" title="KMP算法简介"></a>KMP算法简介</h1><ul>
+<li><p><code>KMP</code>（Knuth-Morris-Pratt）算法是一种用于在一个文本串<code>S</code>中查找一个模式串P出现位置的字符串匹配算法。它的时间复杂度为<code>O(N+M)</code>，其中N是文本串的长度，M是模式串的长度。相比传统的字符串匹配算法（如朴素的暴力匹配算法），KMP算法具有更高的效率。</p>
+</li>
+<li><p>KMP算法的核心思想是<strong>利用已经匹配过的信息，避免不必要的回溯，从而减少匹配的次数</strong>。具体来说，它在匹配过程中维护一个<strong>部分匹配表（Partial Match Table）</strong>，用于指导下一步的匹配位置。<strong>部分匹配表记录了模式串中前缀和后缀的最长相等长度</strong>，这样可以根据部分匹配表的信息在匹配过程中跳过一些不可能匹配的位置，从而加快匹配的速度。</p>
+</li>
+<li><p>直白的说，kmp就是在一个字符串中查找字串所在的位置，只不过它通过查找字串的前后缀来移动，减少匹配次数</p>
+</li>
+</ul>
+<h1 id="KMP算法步骤"><a href="#KMP算法步骤" class="headerlink" title="KMP算法步骤"></a>KMP算法步骤</h1><p>以下是KMP算法的实现步骤：</p>
+<ol>
+<li>构建部分匹配表（Partial Match Table）：对于模式串P，计算以每个位置结尾的子串的最长相等前缀后缀的长度。</li>
+<li>进行匹配：在文本串S中从左到右遍历，同时在模式串P中根据部分匹配表进行跳跃匹配。</li>
+</ol>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><p>下面给出KMP算法的Java代码示例：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">KMPAlgorithm</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 构建部分匹配表</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">buildPartialMatchTable</span><span class="token punctuation">(</span><span class="token class-name">String</span> pattern<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> table <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>pattern<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pattern<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">!=</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                j <span class="token operator">=</span> table<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                j<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            table<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> table<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// KMP算法匹配</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">kmpMatch</span><span class="token punctuation">(</span><span class="token class-name">String</span> text<span class="token punctuation">,</span> <span class="token class-name">String</span> pattern<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> table <span class="token operator">=</span> <span class="token function">buildPartialMatchTable</span><span class="token punctuation">(</span>pattern<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> text<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> text<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">!=</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                j <span class="token operator">=</span> table<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>text<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                j<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> pattern<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 匹配成功，返回模式串在文本串中的起始位置</span>
+                <span class="token keyword">return</span> i <span class="token operator">-</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 匹配失败，返回-1</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> text <span class="token operator">=</span> <span class="token string">"ABABABABCABABABABCABABABABC"</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> pattern <span class="token operator">=</span> <span class="token string">"ABABC"</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> position <span class="token operator">=</span> <span class="token function">kmpMatch</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> pattern<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Pattern found at index: "</span> <span class="token operator">+</span> position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Pattern not found in the text."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个示例中，我们用<code>kmpMatch</code>方法进行文本串和模式串的匹配，并返回模式串在文本串中的起始位置。如果找不到匹配，则返回-1。</p>
+<p>注意：KMP算法的关键是构建部分匹配表，它影响了匹配的效率。在实际应用中，如果需要多次对相同的模式串进行匹配，最好预先计算并保存部分匹配表，然后进行多次匹配。这样可以避免重复计算，提高效率。</p>
+]]></content>
+      <categories>
+        <category>算法学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>算法学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mybatis简介</title>
+    <url>/2023/083f7f462b.html</url>
+    <content><![CDATA[<h1 id="简介及总结"><a href="#简介及总结" class="headerlink" title="简介及总结"></a>简介及总结</h1><p><code>MyBatis</code> 是一款开源的 <code>Java</code> 持久层框架，可以帮助 <code>Java</code> 开发者简化数据库访问的流程。以下是一些 <code>MyBatis</code> 的知识总结：</p>
+<ul>
+<li><p><strong>SQL 映射文件</strong>：</p>
+<blockquote>
+<p><code>MyBatis</code> 通过 <code>SQL</code> 映射文件来定义 <code>SQL</code> 语句和 <code>Java</code> 对象之间的映射关系。<code>SQL</code> 映射文件通常包括数据查询、数据插入、数据更新、数据删除等操作，同时还包括参数传递、结果集映射等内容。</p>
+</blockquote>
+</li>
+<li><p><strong>动态 SQL：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 支持动态 <code>SQL</code>，可以根据不同的条件生成不同的 <code>SQL</code> 语句。动态 <code>SQL</code> 包括 <code>if、choose、when、otherwise、foreach</code> 等标签，可以实现复杂的 <code>SQL</code> 查询语句。</p>
+</blockquote>
+</li>
+<li><p><strong>数据库连接池：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 可以通过数据库连接池来管理数据库连接，可以提高应用程序的性能和响应速度。<code>MyBatis</code> 内置了多种数据库连接池实现，例如 <code>Apache Commons DBCP、C3P0、BoneCP</code> 等。</p>
+</blockquote>
+</li>
+<li><p><strong>一级缓存和二级缓存：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 内置了一级缓存和二级缓存，可以提高数据访问的性能。一级缓存是 <code>Session</code> 级别的缓存，可以通过配置关闭或清空；二级缓存是全局级别的缓存，可以通过配置进行开启或关闭。</p>
+</blockquote>
+</li>
+<li><p><strong>插件机制：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 支持插件机制，可以扩展 <code>MyBatis</code> 的功能。插件可以对 <code>SQL</code> 语句进行拦截和修改，还可以对查询结果进行加工和处理，插件的实现可以使用 <code>JDK</code> 动态代理或者 <code>CGLib</code> 动态代理技术。</p>
+</blockquote>
+</li>
+<li><p><strong>Spring 整合：</strong></p>
+<blockquote>
+<p><code>MyBatis</code> 可以和 <code>Spring</code> 框架进行整合，可以实现事务管理、注解驱动等功能。<code>MyBatis-Spring</code> 提供了多种整合方式，例如通过 <code>Spring XML</code> 配置、通过 <code>Spring</code> 注解配置等。</p>
+</blockquote>
+</li>
+</ul>
+<p>总之，MyBatis 是一款成熟稳定的 Java 持久层框架，具有灵活、高效、易用等优点。在使用 MyBatis 进行开发时，需要掌握 SQL 映射文件的编写、动态 SQL 的使用、数据库连接池的配置、缓存的使用、插件机制的扩展以及和 Spring 框架的整合等知识。</p>
+<h1 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h1><p>MyBatis 内置了多种数据库连接池实现，可以通过配置文件来选择使用哪种数据库连接池。常用的数据库连接池有以下几种：</p>
+<ul>
+<li><p><strong>1、PooledDataSource：</strong></p>
+<blockquote>
+<p>这是 MyBatis 内置的数据库连接池实现，基于 Apache Commons DBCP 实现。可以通过配置文件进行配置，例如设置最大连接数、最小连接数、连接超时时间等。</p>
+</blockquote>
+</li>
+<li><p><strong>2、C3P0DataSource：</strong></p>
+<blockquote>
+<p>这是基于 C3P0 实现的数据库连接池，可以用于 MyBatis。C3P0 是一个开源的 JDBC 连接池，提供了高效的连接池管理，可以通过配置文件进行配置。</p>
+</blockquote>
+</li>
+<li><p><strong>3、BoneCPDataSource：</strong></p>
+<blockquote>
+<p>这是基于 BoneCP 实现的数据库连接池，也可以用于 MyBatis。BoneCP 是一个高性能的 JDBC 连接池，提供了很多高级功能，例如闲置连接回收、分布式部署等。</p>
+</blockquote>
+</li>
+</ul>
+<p>使用 MyBatis 数据库连接池可以提高应用程序的性能和响应速度，同时还可以防止数据库连接泄漏和资源浪费。要使用 MyBatis 数据库连接池，可以按照以下步骤操作：<br>1、在 <code>pom.xml</code> 中添加数据库连接池的依赖，例如 <code>commons-dbcp、c3p0、bonecp</code> 等。<br>2、在 <strong>MyBatis</strong> 的配置文件中添加数据源的配置，例如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>dataSource <span class="token assign-left variable">type</span><span class="token operator">=</span><span class="token string">"POOLED"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"driver"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.driver&#125;</span>"</span>/<span class="token operator">></span>
+  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"url"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.url&#125;</span>"</span>/<span class="token operator">></span>
+  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"username"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.username&#125;</span>"</span>/<span class="token operator">></span>
+  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"password"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.password&#125;</span>"</span>/<span class="token operator">></span>
+<span class="token operator">&lt;</span>/dataSource<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中，<code>type</code> 属性指定了使用的数据库连接池类型，可以是 <code>POOLED、UNPOOLED、JNDI</code> 等。</p>
+<p>3、配置连接池的相关参数，例如最大连接数、最小连接数、连接超时时间等。具体的参数配置可以根据不同的连接池实现进行配置。</p>
+<p>4、在 <code>SQL</code> 映射文件中使用数据库连接池，例如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>select <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">"getBook"</span> <span class="token assign-left variable">resultType</span><span class="token operator">=</span><span class="token string">"Book"</span><span class="token operator">></span>
+  SELECT * FROM books WHERE <span class="token function">id</span> <span class="token operator">=</span> <span class="token comment">#&#123;id&#125;</span>
+<span class="token operator">&lt;</span>/select<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>使用 <strong>MyBatis</strong> 数据库连接池可以提高应用程序的性能和可靠性，同时还可以方便地管理数据库连接。</p>
+]]></content>
+      <categories>
+        <category>Mybatis教程</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+        <tag>Mybatis教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java数据类型</title>
     <url>/2023/0818833.html</url>
     <content><![CDATA[<h1 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
@@ -2019,274 +2368,6 @@ s<span class="token punctuation">.</span><span class="token function">replaceAll
       <tags>
         <tag>Java</tag>
         <tag>Java知识记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>KMP算法</title>
-    <url>/2023/082da0528d.html</url>
-    <content><![CDATA[<h1 id="KMP算法简介"><a href="#KMP算法简介" class="headerlink" title="KMP算法简介"></a>KMP算法简介</h1><ul>
-<li><p><code>KMP</code>（Knuth-Morris-Pratt）算法是一种用于在一个文本串<code>S</code>中查找一个模式串P出现位置的字符串匹配算法。它的时间复杂度为<code>O(N+M)</code>，其中N是文本串的长度，M是模式串的长度。相比传统的字符串匹配算法（如朴素的暴力匹配算法），KMP算法具有更高的效率。</p>
-</li>
-<li><p>KMP算法的核心思想是<strong>利用已经匹配过的信息，避免不必要的回溯，从而减少匹配的次数</strong>。具体来说，它在匹配过程中维护一个<strong>部分匹配表（Partial Match Table）</strong>，用于指导下一步的匹配位置。<strong>部分匹配表记录了模式串中前缀和后缀的最长相等长度</strong>，这样可以根据部分匹配表的信息在匹配过程中跳过一些不可能匹配的位置，从而加快匹配的速度。</p>
-</li>
-<li><p>直白的说，kmp就是在一个字符串中查找字串所在的位置，只不过它通过查找字串的前后缀来移动，减少匹配次数</p>
-</li>
-</ul>
-<h1 id="KMP算法步骤"><a href="#KMP算法步骤" class="headerlink" title="KMP算法步骤"></a>KMP算法步骤</h1><p>以下是KMP算法的实现步骤：</p>
-<ol>
-<li>构建部分匹配表（Partial Match Table）：对于模式串P，计算以每个位置结尾的子串的最长相等前缀后缀的长度。</li>
-<li>进行匹配：在文本串S中从左到右遍历，同时在模式串P中根据部分匹配表进行跳跃匹配。</li>
-</ol>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><p>下面给出KMP算法的Java代码示例：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">KMPAlgorithm</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// 构建部分匹配表</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">buildPartialMatchTable</span><span class="token punctuation">(</span><span class="token class-name">String</span> pattern<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> table <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>pattern<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pattern<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">!=</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                j <span class="token operator">=</span> table<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                j<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            table<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> table<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">// KMP算法匹配</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">kmpMatch</span><span class="token punctuation">(</span><span class="token class-name">String</span> text<span class="token punctuation">,</span> <span class="token class-name">String</span> pattern<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> table <span class="token operator">=</span> <span class="token function">buildPartialMatchTable</span><span class="token punctuation">(</span>pattern<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> text<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> text<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">!=</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                j <span class="token operator">=</span> table<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>text<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> pattern<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                j<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> pattern<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token comment">// 匹配成功，返回模式串在文本串中的起始位置</span>
-                <span class="token keyword">return</span> i <span class="token operator">-</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token comment">// 匹配失败，返回-1</span>
-        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> text <span class="token operator">=</span> <span class="token string">"ABABABABCABABABABCABABABABC"</span><span class="token punctuation">;</span>
-        <span class="token class-name">String</span> pattern <span class="token operator">=</span> <span class="token string">"ABABC"</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> position <span class="token operator">=</span> <span class="token function">kmpMatch</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> pattern<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Pattern found at index: "</span> <span class="token operator">+</span> position<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Pattern not found in the text."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在这个示例中，我们用<code>kmpMatch</code>方法进行文本串和模式串的匹配，并返回模式串在文本串中的起始位置。如果找不到匹配，则返回-1。</p>
-<p>注意：KMP算法的关键是构建部分匹配表，它影响了匹配的效率。在实际应用中，如果需要多次对相同的模式串进行匹配，最好预先计算并保存部分匹配表，然后进行多次匹配。这样可以避免重复计算，提高效率。</p>
-]]></content>
-      <categories>
-        <category>算法学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>算法学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux常用命令</title>
-    <url>/2023/08d0edc1ed.html</url>
-    <content><![CDATA[<h1 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#gz文件</span>
-<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span>
-<span class="token comment">#xz文件</span>
-<span class="token function">tar</span> <span class="token parameter variable">-Jxvf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建文件夹</span>
-<span class="token function">mkdir</span> 文件夹名
-<span class="token comment">#文件权限 r（读） w(写） x(执行)</span>
-<span class="token function">chmod</span> +x script
-<span class="token comment">#打开文件</span>
-<span class="token builtin class-name">cd</span> 文件名
-<span class="token comment"># 返回上一级</span>
-<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
-<span class="token comment">#返回上一个目录</span>
-<span class="token builtin class-name">cd</span> -
-
-<span class="token comment">#复制 文件夹后加/</span>
-<span class="token function">cp</span> 文件1.txt wenjain.txt
-<span class="token comment">#重命名或移动</span>
-<span class="token function">mv</span> 原名 现名  <span class="token comment">#保留在同一目录</span>
-<span class="token function">mv</span> source_file destination_folder/ <span class="token comment">#移动</span>
-<span class="token comment">#删除文件，-rf不询问 -r询问</span>
-<span class="token function">rm</span> <span class="token parameter variable">-rf</span> 文件名
-
-<span class="token comment">#编辑文件</span>
-<span class="token function">vim</span> 文件名
-<span class="token comment">#编辑后保存文件</span>
-ECS + ：wq
-
-加！强制退出
-
-<span class="token comment">#列出目录下neirong</span>
-<span class="token function">ls</span>
-
-<span class="token comment">#输出当前目录的绝对路径</span>
-<span class="token builtin class-name">pwd</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="jdk相关"><a href="#jdk相关" class="headerlink" title="jdk相关"></a>jdk相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#java版本</span>
-<span class="token function">java</span> <span class="token parameter variable">-version</span>
-<span class="token comment">#显示java文件</span>
-<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">java</span>
-<span class="token comment">#删除</span>
-<span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> 文件名
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#wget</span>
-<span class="token function">wget</span> 资源地址
-<span class="token comment">#yum </span>
-yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="ip相关"><a href="#ip相关" class="headerlink" title="ip相关"></a>ip相关</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看ip</span>
-<span class="token function">ip</span> addr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>命令</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>linux</tag>
-        <tag>linux常用命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mybatis简介</title>
-    <url>/2023/083f7f462b.html</url>
-    <content><![CDATA[<h1 id="简介及总结"><a href="#简介及总结" class="headerlink" title="简介及总结"></a>简介及总结</h1><p><code>MyBatis</code> 是一款开源的 <code>Java</code> 持久层框架，可以帮助 <code>Java</code> 开发者简化数据库访问的流程。以下是一些 <code>MyBatis</code> 的知识总结：</p>
-<ul>
-<li><p><strong>SQL 映射文件</strong>：</p>
-<blockquote>
-<p><code>MyBatis</code> 通过 <code>SQL</code> 映射文件来定义 <code>SQL</code> 语句和 <code>Java</code> 对象之间的映射关系。<code>SQL</code> 映射文件通常包括数据查询、数据插入、数据更新、数据删除等操作，同时还包括参数传递、结果集映射等内容。</p>
-</blockquote>
-</li>
-<li><p><strong>动态 SQL：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 支持动态 <code>SQL</code>，可以根据不同的条件生成不同的 <code>SQL</code> 语句。动态 <code>SQL</code> 包括 <code>if、choose、when、otherwise、foreach</code> 等标签，可以实现复杂的 <code>SQL</code> 查询语句。</p>
-</blockquote>
-</li>
-<li><p><strong>数据库连接池：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 可以通过数据库连接池来管理数据库连接，可以提高应用程序的性能和响应速度。<code>MyBatis</code> 内置了多种数据库连接池实现，例如 <code>Apache Commons DBCP、C3P0、BoneCP</code> 等。</p>
-</blockquote>
-</li>
-<li><p><strong>一级缓存和二级缓存：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 内置了一级缓存和二级缓存，可以提高数据访问的性能。一级缓存是 <code>Session</code> 级别的缓存，可以通过配置关闭或清空；二级缓存是全局级别的缓存，可以通过配置进行开启或关闭。</p>
-</blockquote>
-</li>
-<li><p><strong>插件机制：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 支持插件机制，可以扩展 <code>MyBatis</code> 的功能。插件可以对 <code>SQL</code> 语句进行拦截和修改，还可以对查询结果进行加工和处理，插件的实现可以使用 <code>JDK</code> 动态代理或者 <code>CGLib</code> 动态代理技术。</p>
-</blockquote>
-</li>
-<li><p><strong>Spring 整合：</strong></p>
-<blockquote>
-<p><code>MyBatis</code> 可以和 <code>Spring</code> 框架进行整合，可以实现事务管理、注解驱动等功能。<code>MyBatis-Spring</code> 提供了多种整合方式，例如通过 <code>Spring XML</code> 配置、通过 <code>Spring</code> 注解配置等。</p>
-</blockquote>
-</li>
-</ul>
-<p>总之，MyBatis 是一款成熟稳定的 Java 持久层框架，具有灵活、高效、易用等优点。在使用 MyBatis 进行开发时，需要掌握 SQL 映射文件的编写、动态 SQL 的使用、数据库连接池的配置、缓存的使用、插件机制的扩展以及和 Spring 框架的整合等知识。</p>
-<h1 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h1><p>MyBatis 内置了多种数据库连接池实现，可以通过配置文件来选择使用哪种数据库连接池。常用的数据库连接池有以下几种：</p>
-<ul>
-<li><p><strong>1、PooledDataSource：</strong></p>
-<blockquote>
-<p>这是 MyBatis 内置的数据库连接池实现，基于 Apache Commons DBCP 实现。可以通过配置文件进行配置，例如设置最大连接数、最小连接数、连接超时时间等。</p>
-</blockquote>
-</li>
-<li><p><strong>2、C3P0DataSource：</strong></p>
-<blockquote>
-<p>这是基于 C3P0 实现的数据库连接池，可以用于 MyBatis。C3P0 是一个开源的 JDBC 连接池，提供了高效的连接池管理，可以通过配置文件进行配置。</p>
-</blockquote>
-</li>
-<li><p><strong>3、BoneCPDataSource：</strong></p>
-<blockquote>
-<p>这是基于 BoneCP 实现的数据库连接池，也可以用于 MyBatis。BoneCP 是一个高性能的 JDBC 连接池，提供了很多高级功能，例如闲置连接回收、分布式部署等。</p>
-</blockquote>
-</li>
-</ul>
-<p>使用 MyBatis 数据库连接池可以提高应用程序的性能和响应速度，同时还可以防止数据库连接泄漏和资源浪费。要使用 MyBatis 数据库连接池，可以按照以下步骤操作：<br>1、在 <code>pom.xml</code> 中添加数据库连接池的依赖，例如 <code>commons-dbcp、c3p0、bonecp</code> 等。<br>2、在 <strong>MyBatis</strong> 的配置文件中添加数据源的配置，例如：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>dataSource <span class="token assign-left variable">type</span><span class="token operator">=</span><span class="token string">"POOLED"</span><span class="token operator">></span>
-  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"driver"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.driver&#125;</span>"</span>/<span class="token operator">></span>
-  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"url"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.url&#125;</span>"</span>/<span class="token operator">></span>
-  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"username"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.username&#125;</span>"</span>/<span class="token operator">></span>
-  <span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"password"</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;jdbc.password&#125;</span>"</span>/<span class="token operator">></span>
-<span class="token operator">&lt;</span>/dataSource<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其中，<code>type</code> 属性指定了使用的数据库连接池类型，可以是 <code>POOLED、UNPOOLED、JNDI</code> 等。</p>
-<p>3、配置连接池的相关参数，例如最大连接数、最小连接数、连接超时时间等。具体的参数配置可以根据不同的连接池实现进行配置。</p>
-<p>4、在 <code>SQL</code> 映射文件中使用数据库连接池，例如：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>select <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">"getBook"</span> <span class="token assign-left variable">resultType</span><span class="token operator">=</span><span class="token string">"Book"</span><span class="token operator">></span>
-  SELECT * FROM books WHERE <span class="token function">id</span> <span class="token operator">=</span> <span class="token comment">#&#123;id&#125;</span>
-<span class="token operator">&lt;</span>/select<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>使用 <strong>MyBatis</strong> 数据库连接池可以提高应用程序的性能和可靠性，同时还可以方便地管理数据库连接。</p>
-]]></content>
-      <categories>
-        <category>Mybatis教程</category>
-      </categories>
-      <tags>
-        <tag>mybatis</tag>
-        <tag>Mybatis教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React安装教程</title>
-    <url>/2023/0740161.html</url>
-    <content><![CDATA[<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul>
-<li>安装本地React环境需要Node.js，如果具有Node环境跳过即可。</li>
-<li>如果没有安装则可参考该篇文章安装Node环境，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMzQ0NzUyP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击查看<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<h1 id="React安装"><a href="#React安装" class="headerlink" title="React安装"></a>React安装</h1><ol>
-<li>全局安装React</li>
-</ol>
-<ul>
-<li><p>首先打开命令行，建议以管理员身份</p>
-</li>
-<li><p>输入命令：<code>npm install -g create-react-app</code></p>
-<img data-src="/2023/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class title="[title]"></li>
-</ul>
-<ol start="2">
-<li><p>安装完成后，输入命令<code>create-react-app -V</code>查看时候成功</p>
- <img data-src="/2023/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class>
-</li>
-<li><p>创建React项目<br> 在自己选定的目录下输入命令：<code>create-react-app reactdemo</code>进行创建项目，注意reactdemo为自己命名的项目名。</p>
-</li>
-</ol>
-  <img data-src="/2023/0740161/ef2ead85b53842058461b3954832c502.png" class>
-<p>  如上则成功创建一个新的react项目。</p>
-<ol start="4">
-<li>运行react项目<br> 首先进入刚才创建的项目的根目录下，然后输入命令<code>npm start</code></li>
-</ol>
-  <img data-src="/2023/0740161/ddba23821fd14cdc9acd9670f03f88ac.png" class>
-
-<ol start="5">
-<li>运行成功后的界面，如图所示</li>
-</ol>
-  <img data-src="/2023/0740161/756bcf1f59fe449aa2d6c65bad2fd57f.png" class>
-
-
-<ol start="6">
-<li>之后可以通过自己安装的IDE打开该项目，进行编写了。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
       </tags>
   </entry>
   <entry>
@@ -2522,6 +2603,326 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
+    <title>Ubantu安装Git</title>
+    <url>/2023/08189e9baf.html</url>
+    <content><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><ol>
+<li>在ubantu系统中打开终端，然后终端输入：sudo apt-get install git,</li>
+</ol>
+<p><img data-src="/Ubantu%E5%AE%89%E8%A3%85Git/image-20230809202614985.png" alt="image-20230809202614985"></p>
+<ol start="2">
+<li>这是由于update 包的问题，终端输入：sudo apt-get update</li>
+</ol>
+<p><img data-src="/Ubantu%E5%AE%89%E8%A3%85Git/image-20230809202728309.png" alt="image-20230809202728309"></p>
+<ol start="3">
+<li>重新输入命令：sudo apt-get install git,</li>
+</ol>
+<p><img data-src="/Ubantu%E5%AE%89%E8%A3%85Git/image-20230809202827258.png" alt="image-20230809202827258"></p>
+<ol start="4">
+<li>配置全局用户和邮箱</li>
+</ol>
+<p><img data-src="/Ubantu%E5%AE%89%E8%A3%85Git/image-20230809203250197.png" alt="image-20230809203250197"></p>
+<ol start="5">
+<li>生成ssh密钥</li>
+</ol>
+<p><img data-src="/Ubantu%E5%AE%89%E8%A3%85Git/image-20230809203553948.png" alt="image-20230809203553948"></p>
+<ol start="6">
+<li>使用命令打开生成的公钥</li>
+</ol>
+<p><img data-src="/Ubantu%E5%AE%89%E8%A3%85Git/image-20230809204659620.png" alt="image-20230809204659620"></p>
+<p>复制公钥粘贴到github即可</p>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Linux</category>
+        <category>Ubantu</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>git</tag>
+        <tag>ubantu安装git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware安装CentOS7</title>
+    <url>/2023/085461b859.html</url>
+    <content><![CDATA[<h1 id="新建虚拟机"><a href="#新建虚拟机" class="headerlink" title="新建虚拟机"></a>新建虚拟机</h1><ol>
+<li>打开VMware，选择新建虚拟机，选择典型模式</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809135215411.png" alt="image-20230809135215411"></p>
+<ol start="2">
+<li>选择稍后安装操作系统</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809135238915.png" alt="image-20230809135238915"></p>
+<ol start="3">
+<li>选择Linux系统，CentOS 7 64位版本</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809135316221.png" alt="image-20230809135316221"></p>
+<ol start="4">
+<li>自定义虚拟机名字，然后选择虚拟机安装位置，不建议C盘</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809135509884.png" alt="image-20230809135509884"></p>
+<ol start="5">
+<li>选择磁盘大小，默认20G，看个人需要以及硬盘空间</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809135543815.png" alt="image-20230809135543815"></p>
+<ol start="6">
+<li>选择自定义硬件</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809135630182.png" alt="image-20230809135630182"></p>
+<ol start="7">
+<li>在新CD这一栏选择自己下载的镜像文件</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809135618396.png" alt="image-20230809135618396"></p>
+<h1 id="配置虚拟机"><a href="#配置虚拟机" class="headerlink" title="配置虚拟机"></a>配置虚拟机</h1><ol>
+<li>启动虚拟机，选择安装，等待安装完成</li>
+<li>选择自己惯用的语言，我这里选择了英语</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809140001581.png" alt="image-20230809140001581"></p>
+<ol start="3">
+<li>点击设置时区，上海</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809140138202.png" alt="image-20230809140138202"></p>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809140118432.png" alt="image-20230809140118432"></p>
+<ol start="4">
+<li>软件选择Ghome Desktop，这样安装的会有图形化界面，最小安装的话，只能通过命令行进行操作，如果对linux不是很熟悉的话，后面通过命令行安装可能会出现问题。</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809145004677.png" alt="image-20230809145004677"></p>
+<ol start="5">
+<li>点击系统分区</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809145623475.png" alt="image-20230809145623475"></p>
+<ol start="6">
+<li>选择Standard Partition</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809145530459.png" alt="image-20230809145530459"></p>
+<ol start="7">
+<li>点击+号，新建<code>/boot</code>分区，空间500M就够了</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809150029319.png" alt="image-20230809150029319"></p>
+<ol start="8">
+<li>新建swap分区，2G或者4G,或者更小都可以</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809150259087.png" alt="image-20230809150259087"></p>
+<ol start="9">
+<li>剩余的全分给根分区：<code>/</code></li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809150338332.png" alt="image-20230809150338332"></p>
+<ol start="10">
+<li>点击开始安装</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809150420042.png" alt="image-20230809150420042"></p>
+<ol start="11">
+<li>设置root用户密码，并新建一个普通用户设置密码</li>
+</ol>
+<p><img data-src="/VMware%E5%AE%89%E8%A3%85CentOS7/image-20230809150504268.png" alt="image-20230809150504268"></p>
+<ol start="12">
+<li>之后等待安装完成后重启即可。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Linux</category>
+        <category>CentOS7</category>
+      </categories>
+      <tags>
+        <tag>CentOS7</tag>
+        <tag>VMware</tag>
+        <tag>VMware17</tag>
+        <tag>VWware安装CentOS7</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2023 Win11安装VMware17教程</title>
+    <url>/2023/0862f5c0d6.html</url>
+    <content><![CDATA[<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudm13YXJlLmNvbS9jbi9wcm9kdWN0cy93b3Jrc3RhdGlvbi1wcm8vd29ya3N0YXRpb24tcHJvLWV2YWx1YXRpb24uaHRtbA==">点击下载<i class="fa fa-external-link-alt"></i></span></p>
+<p>点击上面的链接跳转官网后，下滑，找到如下所示：</p>
+<img data-src="/2023/0862f5c0d6/image-20230808105650652.png" class>
+
+<p>选择自己的系统点击下载即可。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="双击安装程序"><a href="#双击安装程序" class="headerlink" title="双击安装程序"></a>双击安装程序</h2><img data-src="/2023/0862f5c0d6/image-20230807163026853.png" class>
+
+<ol>
+<li>点击下一步</li>
+</ol>
+<img data-src="/2023/0862f5c0d6/image-20230807164035349.png" class>
+
+<ol start="2">
+<li>接受协议，点击下一步</li>
+</ol>
+<img data-src="/2023/0862f5c0d6/image-20230807164150103.png" class>
+
+<ol start="3">
+<li>勾选</li>
+</ol>
+<img data-src="/2023/0862f5c0d6/image-20230807164246939.png" class>
+
+<ol start="4">
+<li>对于用户体验设置，根据自己的喜好选择，或者默认勾选即可，如下所示</li>
+</ol>
+<img data-src="/2023/0862f5c0d6/image-20230807164304200.png" class>
+
+<ol start="5">
+<li>选择快捷方式，根据自己的的喜好选择即可，我是因为不想吧所有的东西都放在桌面，所以没有勾选，如下所示</li>
+</ol>
+<img data-src="/2023/0862f5c0d6/image-20230807164319161.png" class>
+
+<ol start="6">
+<li>点击下一步，然后开始安装，等待安装完成即可，过程中可能需要重启电脑</li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Linux</category>
+        <category>VMware</category>
+      </categories>
+      <tags>
+        <tag>VMwarePro</tag>
+        <tag>VMware虚拟机安装</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React安装教程</title>
+    <url>/2023/0740161.html</url>
+    <content><![CDATA[<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul>
+<li>安装本地React环境需要Node.js，如果具有Node环境跳过即可。</li>
+<li>如果没有安装则可参考该篇文章安装Node环境，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkxNTY0Ny9hcnRpY2xlL2RldGFpbHMvMTMxMzQ0NzUyP3NwbT0xMDAxLjIwMTQuMzAwMS41NTAx">点击查看<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h1 id="React安装"><a href="#React安装" class="headerlink" title="React安装"></a>React安装</h1><ol>
+<li>全局安装React</li>
+</ol>
+<ul>
+<li><p>首先打开命令行，建议以管理员身份</p>
+</li>
+<li><p>输入命令：<code>npm install -g create-react-app</code></p>
+<img data-src="/2023/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class title="[title]"></li>
+</ul>
+<ol start="2">
+<li><p>安装完成后，输入命令<code>create-react-app -V</code>查看时候成功</p>
+ <img data-src="/2023/0740161/effc4615f0c046f6b07ad6dd6d3a8f35.png" class>
+</li>
+<li><p>创建React项目<br> 在自己选定的目录下输入命令：<code>create-react-app reactdemo</code>进行创建项目，注意reactdemo为自己命名的项目名。</p>
+</li>
+</ol>
+  <img data-src="/2023/0740161/ef2ead85b53842058461b3954832c502.png" class>
+<p>  如上则成功创建一个新的react项目。</p>
+<ol start="4">
+<li>运行react项目<br> 首先进入刚才创建的项目的根目录下，然后输入命令<code>npm start</code></li>
+</ol>
+  <img data-src="/2023/0740161/ddba23821fd14cdc9acd9670f03f88ac.png" class>
+
+<ol start="5">
+<li>运行成功后的界面，如图所示</li>
+</ol>
+  <img data-src="/2023/0740161/756bcf1f59fe449aa2d6c65bad2fd57f.png" class>
+
+
+<ol start="6">
+<li>之后可以通过自己安装的IDE打开该项目，进行编写了。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware 17新建Ubuntu虚拟机</title>
+    <url>/2023/083b29be45.html</url>
+    <content><![CDATA[<h1 id="新建Ubuntu虚拟机"><a href="#新建Ubuntu虚拟机" class="headerlink" title="新建Ubuntu虚拟机"></a>新建Ubuntu虚拟机</h1><ol>
+<li>打开VMware，点击<strong>创建新的虚拟机</strong></li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809085233387.png" alt="image-20230809085233387"></p>
+<ol start="2">
+<li>点击新建之后，选择推荐的典型创建模式，然后点击下一步这样的配置简单，也能满足不是专门搞Linux的用户的需要（如果需要自定义的，可以直接换教程了）</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809093448804.png" alt="image-20230809093448804"></p>
+<ol start="3">
+<li>选择稍后安装，点击下一步</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809093737956.png" alt="image-20230809093737956"></p>
+<ol start="4">
+<li>选择操作系统和Ubuntu版本，我下载的是Ubuntu64位</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809093857833.png" alt="image-20230809093857833"></p>
+<ol start="5">
+<li>自定义虚拟机名称，然后选择虚拟机安装位置，不建议安装C盘，除非你觉得C盘空间够大</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809094118960.png" alt="image-20230809094118960"></p>
+<ol start="6">
+<li>选择磁盘大小，默认是20G，如果空间足够可以多分配一些，并且并不是你分配了多少，虚拟机就直接占用了这么多，就像你的D盘，分配这么大空间，表示有这么大空间可用。</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809094345105.png" alt="image-20230809094345105"></p>
+<ol start="7">
+<li>点击自定义硬件，配置虚拟机的硬件以及配置之前下载好的Ubuntu镜像文件</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809094653546.png" alt="image-20230809094653546"></p>
+<ol start="8">
+<li>根据自己需要配置处理器数量和核数，不知道怎么配置，默认即可，这个后续也可以根据自己需要配置。</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809095012769.png" alt="image-20230809095012769"></p>
+<ol start="9">
+<li><p>然后点击完成，等待创建完成</p>
+</li>
+<li><p>点击启动虚拟机</p>
+</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809095215283.png" alt="image-20230809095215283"></p>
+<h1 id="配置Ubuntu虚拟机"><a href="#配置Ubuntu虚拟机" class="headerlink" title="配置Ubuntu虚拟机"></a>配置Ubuntu虚拟机</h1><ol>
+<li>启动虚拟机后，选择自己惯用的语言，我这里直接选择英文了，中文需要一直下滑到语言栏的最后。之后点击install Ubuntu</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809111652246.png" alt="image-20230809111652246"></p>
+<ol start="2">
+<li>选择语言，点击continue</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809112106373.png" alt="image-20230809112106373"></p>
+<ol start="3">
+<li>选择常规安装，其他选项，可以勾选安装时下载更新</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809112602535.png" alt="image-20230809112602535"></p>
+<ol start="4">
+<li>提示，当前电脑没有检测到操作系统。选择清除磁盘，并安装ubantu，这里的警告提醒你会删除所有程序，文档之类的数据。点击install now即可。</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809113014798.png" alt="image-20230809113014798"></p>
+<ol start="5">
+<li>点击continue</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809113621624.png" alt="image-20230809113621624"></p>
+<ol start="6">
+<li>选择上海，大陆选择上海就行</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809113723910.png" alt="image-20230809113723910"></p>
+<ol start="7">
+<li>输入个人信息。如果不想要每次都密码登录，也没啥重要的数据，可以选择自动登录</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809114020684.png" alt="image-20230809114020684"></p>
+<ol start="8">
+<li>等待安装完成即可</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809114148356.png" alt="image-20230809114148356"></p>
+<ol start="9">
+<li>安装完成后，系统显示的是小屏居中</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809120637210.png" alt="image-20230809120637210"></p>
+<ol start="10">
+<li>进入系统，选择设置，选择displays,然后选择分辨率，即可</li>
+</ol>
+<p><img data-src="/VWware-17%E6%96%B0%E5%BB%BAUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20230809134434649.png" alt="image-20230809134434649"></p>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Linux</category>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>VMware17</tag>
+        <tag>Ubantu</tag>
+        <tag>VWware安装Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2023/0716107.html</url>
     <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
@@ -2610,58 +3011,40 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
-    <title>Windows快捷打开管理员模式命令行方式</title>
-    <url>/2023/08e0ceff35.html</url>
-    <content><![CDATA[<h1 id="鼠标点击启动"><a href="#鼠标点击启动" class="headerlink" title="鼠标点击启动"></a>鼠标点击启动</h1><ul>
-<li>windows搜索框搜索cmd或者命令行,如下所示：</li>
+    <title>二叉树的几种遍历方式</title>
+    <url>/2023/08ed7e80a0.html</url>
+    <content><![CDATA[<p>深度优先遍历（Depth-First Traversal）和广度优先遍历（Breadth-First Traversal）都是树或图的常用遍历方式，它们用于按不同的顺序访问树或图中的节点。</p>
+<h1 id="深度优先遍历（DFS）"><a href="#深度优先遍历（DFS）" class="headerlink" title="深度优先遍历（DFS）"></a>深度优先遍历（DFS）</h1><p>深度优先遍历是一种沿着树或图的深度方向遍历的方式，它从根节点开始，沿着一条路径尽可能深地遍历直到达到叶子节点，然后回溯到上一级节点，再继续深入其他分支。深度优先遍历使用递归或栈数据结构来实现。</p>
+<p>二叉树每个节点最多有两个子节点：左子节点和右子节点。在二叉树的深度优先遍历中，有三种常见的方式：前序遍历、中序遍历和后序遍历。这些遍历方式都是通过不同的顺序访问二叉树中的节点，以达到不同的目的。以以下二叉树作为示例。</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">    1
+   / \
+  2   3
+ / \ / \
+4  5 6  7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h2><ul>
+<li>访问顺序：根-左-右</li>
 </ul>
-<img data-src="/2023/08e0ceff35/image-20230802195303970.png" class>
-
-<h1 id="Win-R启动"><a href="#Win-R启动" class="headerlink" title="Win+R启动"></a>Win+R启动</h1><ul>
-<li>使用Win+R快捷键，然后输入cmd后，再次使用Ctrl+Shift+Enter快捷键打开管理员模式命令行</li>
+<p>前序遍历顺序是先访问根节点，然后递归地访问左子树，最后递归地访问右子树。在上面的例子中，前序遍历的结果是：1, 2, 4, 5, 3, 6, 7。</p>
+<h2 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h2><ul>
+<li>访问顺序：左-根-右</li>
 </ul>
-<h1 id="为打开管理员模式命令行设置快捷键"><a href="#为打开管理员模式命令行设置快捷键" class="headerlink" title="为打开管理员模式命令行设置快捷键"></a>为打开管理员模式命令行设置快捷键</h1><ol>
-<li>windows搜索框搜索cmd，然后点击打开文件位置，如下图所示</li>
-</ol>
-<img data-src="/2023/08e0ceff35/image-20230802195748221.png" class>
-
-
-
-<ol start="2">
-<li>进入文件后，把下面的命令提示符快捷方式复制一份放在桌面，如下所示：</li>
-</ol>
-<img data-src="/2023/08e0ceff35/image-20230802202441605.png" class>
-
-<ol start="3">
-<li>复制后，先重命名一下，我这里命名的是命令提示符管理员，以便于移回原先的文件夹(放在桌面不美观，当然你也可以选择自己想要放的位置，并不影响)，重命名后剪切移动到原来的位置，如下所示：</li>
-</ol>
-<img data-src="/2023/08e0ceff35/image-20230802203013311.png" class>
-
-<ol start="4">
-<li>右键重命名后得到的快捷方式，选择属性，然后选择自己记得住且不会冲突的快捷键，我选择的是Ctrl+K如下所示：</li>
-</ol>
-<img data-src="/2023/08e0ceff35/image-20230802203458849.png" class>
-
-<img data-src="/2023/08e0ceff35/image-20230802203707536.png" class>
-
-<ol start="5">
-<li>然后点击高级，勾选用管理员身份运行，之后点击确定和应用即可。</li>
-</ol>
-
-
-<ol start="6">
-<li><p>然后使用快捷键即可快捷使用管理员模式命令提示符</p>
-<img data-src="/2023/08e0ceff35/image-20230802204059861.png" class></li>
-</ol>
+<p>中序遍历顺序是先递归地访问左子树，然后访问根节点，最后递归地访问右子树。在上面的例子中，中序遍历的结果是：4, 2, 5, 1, 6, 3, 7。</p>
+<h2 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h2><ul>
+<li>访问顺序：左-右-根</li>
+</ul>
+<p>后序遍历顺序是先递归地访问左子树，然后递归地访问右子树，最后访问根节点。在上面的例子中，后序遍历的结果是：4, 5, 2, 6, 7, 3, 1。</p>
+<h1 id="广度优先遍历（BFS）"><a href="#广度优先遍历（BFS）" class="headerlink" title="广度优先遍历（BFS）"></a>广度优先遍历（BFS）</h1><p>广度优先遍历是一种按层级顺序遍历树或图的方式，它<strong>从根节点开始，先访问根节点，然后逐层向下访问同一层级的节点，直到遍历到最后一层。广度优先遍历使用队列数据结构来实现。</strong></p>
+<p>在二叉树的广度优先遍历中，<strong>从上往下，从左往右</strong>依次遍历每一层的节点。在上面的例子中，广度优先遍历的结果是：1, 2, 3, 4, 5, 6, 7。</p>
+<p>深度优先遍历和广度优先遍历在解决不同类型的问题时有不同的应用场景。<strong>深度优先遍历适用于需要一直沿着一条路径深入直到达到目标节点的情况，例如查找路径、生成树等。</strong> <strong>广度优先遍历适用于需要逐层遍历所有节点的情况，例如查找最短路径、层级遍历</strong>  。在实际问题中，根据具体的需求和数据结构，选择合适的遍历方式可以更有效地解决问题。</p>
 ]]></content>
       <categories>
-        <category>Windows</category>
-        <category>Windows命令</category>
+        <category>数据结构</category>
       </categories>
       <tags>
-        <tag>cmd</tag>
-        <tag>管理员模式cmd</tag>
-        <tag>管理员命令行</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -2755,110 +3138,59 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </tags>
   </entry>
   <entry>
-    <title>二叉树的几种遍历方式</title>
-    <url>/2023/08ed7e80a0.html</url>
-    <content><![CDATA[<p>对于二叉树的前中后序排序是根据根节点的访问顺序确定的。</p>
-<h1 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h1><ul>
-<li>访问顺序：根-左-右</li>
+    <title>Windows快捷打开管理员模式命令行方式</title>
+    <url>/2023/08e0ceff35.html</url>
+    <content><![CDATA[<h1 id="鼠标点击启动"><a href="#鼠标点击启动" class="headerlink" title="鼠标点击启动"></a>鼠标点击启动</h1><ul>
+<li>windows搜索框搜索cmd或者命令行,如下所示：</li>
 </ul>
-<h1 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h1><ul>
-<li>访问顺序：左-根-右</li>
+<img data-src="/2023/08e0ceff35/image-20230802195303970.png" class>
+
+<h1 id="Win-R启动"><a href="#Win-R启动" class="headerlink" title="Win+R启动"></a>Win+R启动</h1><ul>
+<li>使用Win+R快捷键，然后输入cmd后，再次使用Ctrl+Shift+Enter快捷键打开管理员模式命令行</li>
 </ul>
-<h1 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h1><ul>
-<li>访问顺序：左-右-根</li>
-</ul>
+<h1 id="为打开管理员模式命令行设置快捷键"><a href="#为打开管理员模式命令行设置快捷键" class="headerlink" title="为打开管理员模式命令行设置快捷键"></a>为打开管理员模式命令行设置快捷键</h1><ol>
+<li>windows搜索框搜索cmd，然后点击打开文件位置，如下图所示</li>
+</ol>
+<img data-src="/2023/08e0ceff35/image-20230802195748221.png" class>
+
+
+
+<ol start="2">
+<li>进入文件后，把下面的命令提示符快捷方式复制一份放在桌面，如下所示：</li>
+</ol>
+<img data-src="/2023/08e0ceff35/image-20230802202441605.png" class>
+
+<ol start="3">
+<li>复制后，先重命名一下，我这里命名的是命令提示符管理员，以便于移回原先的文件夹(放在桌面不美观，当然你也可以选择自己想要放的位置，并不影响)，重命名后剪切移动到原来的位置，如下所示：</li>
+</ol>
+<img data-src="/2023/08e0ceff35/image-20230802203013311.png" class>
+
+<ol start="4">
+<li>右键重命名后得到的快捷方式，选择属性，然后选择自己记得住且不会冲突的快捷键，我选择的是Ctrl+K如下所示：</li>
+</ol>
+<img data-src="/2023/08e0ceff35/image-20230802203458849.png" class>
+
+<img data-src="/2023/08e0ceff35/image-20230802203707536.png" class>
+
+<ol start="5">
+<li>然后点击高级，勾选用管理员身份运行，之后点击确定和应用即可。</li>
+</ol>
+
+
+<ol start="6">
+<li><p>然后使用快捷键即可快捷使用管理员模式命令提示符</p>
+<img data-src="/2023/08e0ceff35/image-20230802204059861.png" class></li>
+</ol>
 ]]></content>
       <categories>
-        <category>数据结构</category>
+        <category>OS</category>
+        <category>Windows</category>
+        <category>Windows命令</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>枚举类</title>
-    <url>/2023/088398734e.html</url>
-    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Java枚举类是一种特殊类型的类，它代表一组常量值，通常用于表示固定的、预定义的一组值。枚举类在Java中是一种非常有用的数据类型，它提供了更好的可读性和类型安全性，比起使用普通常量或整数等数据类型更具优势。在Java中，枚举类是通过<code>enum</code>关键字定义的。</p>
-<h1 id="详细讲解"><a href="#详细讲解" class="headerlink" title="详细讲解"></a>详细讲解</h1><p>以下是Java枚举类的详细知识：</p>
-<ol>
-<li><p>定义枚举类：</p>
-<p>通过<code>enum</code>关键字可以定义一个枚举类。枚举类的实例是常量，通常用大写字母表示。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">enum</span> <span class="token class-name">Day</span> <span class="token punctuation">&#123;</span>
-    <span class="token constant">MONDAY</span><span class="token punctuation">,</span> <span class="token constant">TUESDAY</span><span class="token punctuation">,</span> <span class="token constant">WEDNESDAY</span><span class="token punctuation">,</span> <span class="token constant">THURSDAY</span><span class="token punctuation">,</span> <span class="token constant">FRIDAY</span><span class="token punctuation">,</span> <span class="token constant">SATURDAY</span><span class="token punctuation">,</span> <span class="token constant">SUNDAY</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>枚举常量：</p>
-<p>在枚举类中定义的常量称为枚举常量，它们是枚举类的实例。每个枚举常量都是唯一的，代表了枚举类中的一个固定值。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Day</span> today <span class="token operator">=</span> <span class="token class-name">Day</span><span class="token punctuation">.</span><span class="token constant">MONDAY</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>枚举方法：</p>
-<p>枚举类可以定义方法，可以在枚举常量中为每个值添加自定义的行为。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">enum</span> <span class="token class-name">Day</span> <span class="token punctuation">&#123;</span>
-    <span class="token constant">MONDAY</span><span class="token punctuation">,</span> <span class="token constant">TUESDAY</span><span class="token punctuation">,</span> <span class="token constant">WEDNESDAY</span><span class="token punctuation">,</span> <span class="token constant">THURSDAY</span><span class="token punctuation">,</span> <span class="token constant">FRIDAY</span><span class="token punctuation">,</span> <span class="token constant">SATURDAY</span><span class="token punctuation">,</span> <span class="token constant">SUNDAY</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getDayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">case</span> <span class="token constant">MONDAY</span><span class="token operator">:</span>
-                <span class="token keyword">return</span> <span class="token string">"Monday"</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token constant">TUESDAY</span><span class="token operator">:</span>
-                <span class="token keyword">return</span> <span class="token string">"Tuesday"</span><span class="token punctuation">;</span>
-            <span class="token comment">// 其他枚举常量的处理</span>
-            <span class="token keyword">default</span><span class="token operator">:</span>
-                <span class="token keyword">return</span> <span class="token string">"Unknown"</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>枚举构造函数和字段：</p>
-<p>枚举类可以有构造函数，但构造函数只能是私有的。枚举常量在定义时就会调用私有构造函数来创建实例。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">enum</span> <span class="token class-name">Day</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">MONDAY</span><span class="token punctuation">(</span><span class="token string">"Mon"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">TUESDAY</span><span class="token punctuation">(</span><span class="token string">"Tue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">WEDNESDAY</span><span class="token punctuation">(</span><span class="token string">"Wed"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">THURSDAY</span><span class="token punctuation">(</span><span class="token string">"Thu"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">FRIDAY</span><span class="token punctuation">(</span><span class="token string">"Fri"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">SATURDAY</span><span class="token punctuation">(</span><span class="token string">"Sat"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">SUNDAY</span><span class="token punctuation">(</span><span class="token string">"Sun"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> abbreviation<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token class-name">Day</span><span class="token punctuation">(</span><span class="token class-name">String</span> abbreviation<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>abbreviation <span class="token operator">=</span> abbreviation<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getAbbreviation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> abbreviation<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>使用枚举类：</p>
-<p>可以通过枚举常量来访问枚举类的成员。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Day</span> today <span class="token operator">=</span> <span class="token class-name">Day</span><span class="token punctuation">.</span><span class="token constant">MONDAY</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>today<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 "MONDAY"</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>today<span class="token punctuation">.</span><span class="token function">getDayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 "Monday"</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>today<span class="token punctuation">.</span><span class="token function">getAbbreviation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 "Mon"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>name()：返回常量值</p>
-</li>
-<li><p>ordinal()：返回定义的常量的顺序，从0开始计数</p>
-</li>
-</ol>
-<p>如下图所示：</p>
-<img data-src="/2023/088398734e/image-20230801151543493.png" class>
-
-<ol>
-<li>枚举的其他特性：<ul>
-<li>枚举类可以实现接口，让枚举常量具有接口中定义的行为。</li>
-<li>可以在枚举类中定义抽象方法，然后为每个枚举常量提供具体实现。</li>
-<li>枚举类可以用在<code>switch</code>语句中，代替常规的整数或字符型数据。</li>
-</ul>
-</li>
-</ol>
-<p>总结来说，Java枚举类是一种非常方便的数据类型，可以帮助我们定义一组固定的常量值，并为每个值提供自定义的行为。使用枚举类可以使代码更加清晰、可读，并提高代码的类型安全性。</p>
-]]></content>
-      <categories>
-        <category>Java教程</category>
-        <category>Java核心类</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>枚举</tag>
-        <tag>Java枚举类</tag>
+        <tag>cmd</tag>
+        <tag>管理员模式cmd</tag>
+        <tag>管理员命令行</tag>
       </tags>
   </entry>
   <entry>
@@ -2979,6 +3311,92 @@ sj<span class="token punctuation">.</span><span class="token function">add</span
       </categories>
       <tags>
         <tag>软件工程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>枚举类</title>
+    <url>/2023/088398734e.html</url>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Java枚举类是一种特殊类型的类，它代表一组常量值，通常用于表示固定的、预定义的一组值。枚举类在Java中是一种非常有用的数据类型，它提供了更好的可读性和类型安全性，比起使用普通常量或整数等数据类型更具优势。在Java中，枚举类是通过<code>enum</code>关键字定义的。</p>
+<h1 id="详细讲解"><a href="#详细讲解" class="headerlink" title="详细讲解"></a>详细讲解</h1><p>以下是Java枚举类的详细知识：</p>
+<ol>
+<li><p>定义枚举类：</p>
+<p>通过<code>enum</code>关键字可以定义一个枚举类。枚举类的实例是常量，通常用大写字母表示。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">enum</span> <span class="token class-name">Day</span> <span class="token punctuation">&#123;</span>
+    <span class="token constant">MONDAY</span><span class="token punctuation">,</span> <span class="token constant">TUESDAY</span><span class="token punctuation">,</span> <span class="token constant">WEDNESDAY</span><span class="token punctuation">,</span> <span class="token constant">THURSDAY</span><span class="token punctuation">,</span> <span class="token constant">FRIDAY</span><span class="token punctuation">,</span> <span class="token constant">SATURDAY</span><span class="token punctuation">,</span> <span class="token constant">SUNDAY</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>枚举常量：</p>
+<p>在枚举类中定义的常量称为枚举常量，它们是枚举类的实例。每个枚举常量都是唯一的，代表了枚举类中的一个固定值。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Day</span> today <span class="token operator">=</span> <span class="token class-name">Day</span><span class="token punctuation">.</span><span class="token constant">MONDAY</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>枚举方法：</p>
+<p>枚举类可以定义方法，可以在枚举常量中为每个值添加自定义的行为。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">enum</span> <span class="token class-name">Day</span> <span class="token punctuation">&#123;</span>
+    <span class="token constant">MONDAY</span><span class="token punctuation">,</span> <span class="token constant">TUESDAY</span><span class="token punctuation">,</span> <span class="token constant">WEDNESDAY</span><span class="token punctuation">,</span> <span class="token constant">THURSDAY</span><span class="token punctuation">,</span> <span class="token constant">FRIDAY</span><span class="token punctuation">,</span> <span class="token constant">SATURDAY</span><span class="token punctuation">,</span> <span class="token constant">SUNDAY</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getDayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">case</span> <span class="token constant">MONDAY</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> <span class="token string">"Monday"</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token constant">TUESDAY</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> <span class="token string">"Tuesday"</span><span class="token punctuation">;</span>
+            <span class="token comment">// 其他枚举常量的处理</span>
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> <span class="token string">"Unknown"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>枚举构造函数和字段：</p>
+<p>枚举类可以有构造函数，但构造函数只能是私有的。枚举常量在定义时就会调用私有构造函数来创建实例。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">enum</span> <span class="token class-name">Day</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">MONDAY</span><span class="token punctuation">(</span><span class="token string">"Mon"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">TUESDAY</span><span class="token punctuation">(</span><span class="token string">"Tue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">WEDNESDAY</span><span class="token punctuation">(</span><span class="token string">"Wed"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">THURSDAY</span><span class="token punctuation">(</span><span class="token string">"Thu"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">FRIDAY</span><span class="token punctuation">(</span><span class="token string">"Fri"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">SATURDAY</span><span class="token punctuation">(</span><span class="token string">"Sat"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">SUNDAY</span><span class="token punctuation">(</span><span class="token string">"Sun"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> abbreviation<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">Day</span><span class="token punctuation">(</span><span class="token class-name">String</span> abbreviation<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>abbreviation <span class="token operator">=</span> abbreviation<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getAbbreviation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> abbreviation<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用枚举类：</p>
+<p>可以通过枚举常量来访问枚举类的成员。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Day</span> today <span class="token operator">=</span> <span class="token class-name">Day</span><span class="token punctuation">.</span><span class="token constant">MONDAY</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>today<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 "MONDAY"</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>today<span class="token punctuation">.</span><span class="token function">getDayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 "Monday"</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>today<span class="token punctuation">.</span><span class="token function">getAbbreviation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 "Mon"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>name()：返回常量值</p>
+</li>
+<li><p>ordinal()：返回定义的常量的顺序，从0开始计数</p>
+</li>
+</ol>
+<p>如下图所示：</p>
+<img data-src="/2023/088398734e/image-20230801151543493.png" class>
+
+<ol>
+<li>枚举的其他特性：<ul>
+<li>枚举类可以实现接口，让枚举常量具有接口中定义的行为。</li>
+<li>可以在枚举类中定义抽象方法，然后为每个枚举常量提供具体实现。</li>
+<li>枚举类可以用在<code>switch</code>语句中，代替常规的整数或字符型数据。</li>
+</ul>
+</li>
+</ol>
+<p>总结来说，Java枚举类是一种非常方便的数据类型，可以帮助我们定义一组固定的常量值，并为每个值提供自定义的行为。使用枚举类可以使代码更加清晰、可读，并提高代码的类型安全性。</p>
+]]></content>
+      <categories>
+        <category>Java教程</category>
+        <category>Java核心类</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>枚举</tag>
+        <tag>Java枚举类</tag>
       </tags>
   </entry>
   <entry>
